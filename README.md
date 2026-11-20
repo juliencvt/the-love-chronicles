@@ -1,6 +1,6 @@
 # The Love Chronicles
 
-Romance à choix dans le Londres de la Régence (1813) — prototype du chapitre 1.
+Romance à choix dans le Londres de la Régence (1813) — chapitres 1 et 2.
 
 **Jouer :** https://juliencvt.github.io/the-love-chronicles/ (installable sur Android depuis Chrome : menu ⋮ → « Installer l'application »).
 
