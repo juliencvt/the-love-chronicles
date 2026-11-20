@@ -41,6 +41,13 @@ jobs:
             convert icons/icon-512.png -resize ${s}x${s} $RES/mipmap-$n/ic_launcher_round.png
           done
           sed -i 's/<activity /<activity android:screenOrientation="portrait" /' app/android/app/src/main/AndroidManifest.xml
+      - name: Clé de signature fixe et numéro de version
+        run: |
+          mkdir -p ~/.android && cp keystore/debug.keystore ~/.android/debug.keystore
+          G=app/android/app/build.gradle
+          sed -i "s/versionCode [0-9]*/versionCode ${{ github.run_number }}/" $G
+          sed -i "s/versionName \"[^\"]*\"/versionName \"1.${{ github.run_number }}\"/" $G
+          grep -E "versionCode|versionName" $G
       - name: Compiler l'APK
         working-directory: app/android
         run: |
@@ -52,6 +59,6 @@ jobs:
         with:
           tag_name: apk-${{ github.run_number }}
           name: The Love Chronicles — APK n°${{ github.run_number }}
-          body: Télécharge TheLoveChronicles.apk sur ton téléphone Android et ouvre-le pour l'installer.
+          body: Télécharge TheLoveChronicles.apk sur ton téléphone Android et ouvre-le. Il s'installe comme une mise à jour de la version précédente.
           files: TheLoveChronicles.apk
           make_latest: true
