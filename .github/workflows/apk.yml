@@ -43,8 +43,9 @@ jobs:
           sed -i 's/<activity /<activity android:screenOrientation="portrait" /' app/android/app/src/main/AndroidManifest.xml
       - name: Clé de signature fixe et numéro de version
         run: |
-          mkdir -p ~/.android && cp keystore/debug.keystore ~/.android/debug.keystore
           G=app/android/app/build.gradle
+          perl -0pi -e 's/android \{/android {\n    signingConfigs {\n        debug {\n            storeFile rootProject.file("..\/..\/keystore\/debug.keystore")\n            storePassword "android"\n            keyAlias "androiddebugkey"\n            keyPassword "android"\n        }\n    }/' $G
+          grep -A6 "signingConfigs" $G
           sed -i "s/versionCode [0-9]*/versionCode ${{ github.run_number }}/" $G
           sed -i "s/versionName \"[^\"]*\"/versionName \"1.${{ github.run_number }}\"/" $G
           grep -E "versionCode|versionName" $G
