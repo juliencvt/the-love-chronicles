@@ -1,0 +1,57 @@
+name: Construire l'APK Android
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['README.md', 'source/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Copier le jeu
+        run: |
+          mkdir -p app/www
+          cp -r index.html manifest.webmanifest sw.js assets icons app/www/
+      - name: Créer le projet Android (Capacitor)
+        working-directory: app
+        run: |
+          npm init -y >/dev/null
+          npm install @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
+          npx cap init "The Love Chronicles" com.juliencvt.lovechronicles --web-dir www
+          npx cap add android
+          npx cap sync android
+      - name: Icône et orientation portrait
+        run: |
+          sudo apt-get install -y imagemagick >/dev/null
+          RES=app/android/app/src/main/res
+          rm -rf $RES/mipmap-anydpi-v26
+          for d in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
+            n=${d%%:*}; s=${d##*:}
+            convert icons/icon-512.png -resize ${s}x${s} $RES/mipmap-$n/ic_launcher.png
+            convert icons/icon-512.png -resize ${s}x${s} $RES/mipmap-$n/ic_launcher_round.png
+          done
+          sed -i 's/<activity /<activity android:screenOrientation="portrait" /' app/android/app/src/main/AndroidManifest.xml
+      - name: Compiler l'APK
+        working-directory: app/android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+          cp app/build/outputs/apk/debug/app-debug.apk ../../TheLoveChronicles.apk
+      - name: Publier dans "Releases"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-${{ github.run_number }}
+          name: The Love Chronicles — APK n°${{ github.run_number }}
+          body: Télécharge TheLoveChronicles.apk sur ton téléphone Android et ouvre-le pour l'installer.
+          files: TheLoveChronicles.apk
+          make_latest: true
