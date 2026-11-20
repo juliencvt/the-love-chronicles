@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>The Love Chronicles</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#5b2f5e">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: tendre, romanesque, Régence pastel — un roman d'amour qu'on feuillette
+   IDEA: un carnet de bal aquarellé, rubans et dorures
+   PICTURE: décors aquarelle plein écran, personnages en buste par-dessus
+   COLOUR and TYPE: rose dragée, bleu poudré, or ; prune pour l'encre — Cormorant + Nunito
+   LAYOUT: écran de téléphone portrait, dialogue en bas, choix empilés */
+:root{--ink:#3a2440;--plum:#5b2f5e;--rose:#f6d3db;--blush:#efb3c2;--powder:#bcd4ec;--gold:#c9a24a;--gold2:#e8cf8a;--paper:#fffaf6;color-scheme:light}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:#1f1424;overflow:hidden}
+body{font:16px/1.5 Nunito,system-ui,sans-serif;color:var(--ink);display:flex;justify-content:center;align-items:center}
+#app{position:relative;width:min(100vw,460px);height:100dvh;max-height:960px;overflow:hidden;overflow:clip;background:#2a1a30;box-shadow:0 0 60px #0008}
+@media(min-width:500px){#app{border-radius:22px;height:min(100dvh,900px)}}
+.scr{position:absolute;inset:0;display:none;overflow:hidden;overflow:clip}.scr.on{display:block}
+.bgl{position:absolute;inset:0;transition:opacity .8s}.bgl svg{width:100%;height:100%;display:block}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn{display:block;width:100%;min-height:50px;padding:12px 18px;border-radius:30px;background:linear-gradient(#fffaf6,#fbe7ec);border:2px solid var(--gold2);box-shadow:0 4px 0 #c99aa8,0 8px 18px #3a244033;font-weight:800;font-size:17px;color:var(--plum);transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #c99aa8}
+.btn.pri{background:linear-gradient(#f7c2cf,#e899ad);color:#fff;text-shadow:0 1px 2px #8a3a5a;border-color:#fff3}
+.btn.sm{min-height:44px;font-size:15px;padding:8px 14px}
+.btn:disabled{opacity:.45;pointer-events:none}
+/* menu */
+#menu .veil{position:absolute;inset:0;background:linear-gradient(#fff0 30%,#3a244055 70%,#3a2440cc)}
+#menu .logo{position:absolute;top:9%;left:0;right:0;text-align:center;padding:0 20px}
+#menu .logo small{display:block;font:700 13px Nunito;color:var(--plum);letter-spacing:.06em;opacity:.8}
+#menu h1{margin:4px 0 0;font-size:clamp(44px,13vw,58px);line-height:1;color:var(--plum);text-shadow:0 2px 0 #fff,0 0 24px #fff}
+#menu .orn{width:180px;height:24px;margin:10px auto 0;display:block}
+#menu .list{position:absolute;left:28px;right:28px;bottom:calc(30px + env(safe-area-inset-bottom));display:grid;gap:14px}
+#menu .ver{color:#fff;opacity:.7;text-align:center;font-size:13px}
+/* create */
+#create{background:linear-gradient(#fbe9ee,#e9eef8)}
+.chead{padding:calc(14px + env(safe-area-inset-top)) 18px 6px;text-align:center}
+.chead h2{margin:0;font-size:30px;line-height:1.1;color:var(--plum)}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:8px}.dots i{width:28px;height:5px;border-radius:3px;background:#d9bcc8}.dots i.on{background:var(--gold)}
+.cbody{position:absolute;top:96px;bottom:84px;left:0;right:0;overflow-y:auto;padding:4px 18px 18px}
+.cfoot{position:absolute;left:0;right:0;bottom:0;padding:14px 18px calc(14px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1.6fr;gap:12px;background:linear-gradient(#e9eef800,#e9eef8 30%)}
+.fld{margin:14px 0}.fld>label,.lab{display:block;font-weight:800;font-size:14px;color:var(--plum);margin-bottom:6px}
+.fld input{width:100%;min-height:48px;padding:10px 16px;font:600 17px Nunito;border-radius:14px;border:2px solid #e3c9d3;background:#fff;color:var(--ink)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}.seg button{flex:1 1 0;min-height:46px;padding:8px 10px;border-radius:14px;background:#fff;border:2px solid #e3c9d3;font-weight:700;font-size:15px}
+.seg button.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.note{font-size:13px;color:#7a5a72;background:#fff8;border-radius:12px;padding:10px 12px;margin-top:6px}
+.err{color:#b0304a;font-weight:700;font-size:14px;min-height:20px}
+.prev{height:300px;border-radius:24px;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 35%,#fff,#f6d3db 60%,#d9c3e6);border:3px solid #fff;box-shadow:0 6px 20px #3a244022}
+.prev svg{position:absolute;left:50%;bottom:-60px;height:390px;transform:translateX(-50%)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:14px -18px 8px;padding:2px 18px 6px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:40px;padding:6px 14px;border-radius:20px;background:#fff;border:2px solid #e3c9d3;font-weight:800;font-size:14px}.tabs button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.sw{display:flex;gap:10px;flex-wrap:wrap}.sw button{width:46px;height:46px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #e3c9d3}.sw button.on{box-shadow:0 0 0 3px var(--plum)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{min-height:44px;padding:8px 14px;border-radius:14px;background:#fff;border:2px solid #e3c9d3;font-weight:700;font-size:15px}.chips button.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.outs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.outs button{border-radius:18px;background:#fff;border:3px solid #fff;box-shadow:0 0 0 2px #e3c9d3;overflow:hidden;padding:0 0 8px;font-weight:800;font-size:14px;color:var(--plum)}
+.outs button.on{box-shadow:0 0 0 3px var(--gold)}
+.outs .pv{height:170px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 30%,#fff,#f3dbe3)}.outs .pv svg{position:absolute;left:50%;top:-30px;height:260px;transform:translateX(-50%)}
+.looks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.looks button{height:300px;border-radius:20px;background:radial-gradient(circle at 50% 30%,#fff,#f3dbe3);border:3px solid #fff;box-shadow:0 0 0 2px #e3c9d3;overflow:hidden;padding:8px 0 0}
+.looks button.on{box-shadow:0 0 0 4px var(--gold);background:radial-gradient(circle at 50% 30%,#fff,#f7d8a8)}
+.looks img{height:100%;width:100%;object-fit:contain;object-position:top}
+.prev.full{height:460px}.prev.full img{position:absolute;left:50%;top:12px;height:calc(100% - 12px);transform:translateX(-50%)}
+.sum{background:#fff9;border-radius:16px;padding:12px 16px;margin-top:14px;font-size:15px}.sum b{color:var(--plum)}
+/* game */
+#game{background:#000}
+#stage{position:absolute;left:0;right:0;bottom:0;height:72%;pointer-events:none;overflow:hidden;overflow:clip}
+.ch{position:absolute;bottom:-2%;height:94%;aspect-ratio:300/430;transform:translateX(-50%) translateY(4%);transition:left .45s ease,filter .3s,transform .3s,opacity .4s;filter:brightness(.72) saturate(.85);opacity:0}
+.ch.in{opacity:1}.ch.on{filter:drop-shadow(0 6px 14px #0005);transform:translateX(-50%) translateY(0) scale(1.03);z-index:2}
+.ch svg{width:100%;height:100%}
+.ch.pic{aspect-ratio:var(--ar);height:150%;bottom:auto;top:2%;transform:translateX(calc(var(--ax) * -1)) translateY(3%)}
+.ch.pic.on{transform:translateX(calc(var(--ax) * -1)) scale(1.03);transform-origin:var(--ax) 10%}
+.ch.pic img{width:100%;height:100%;display:block;user-select:none}
+.pmask{position:absolute}.pmask svg{width:100%;height:auto;display:block}
+#top{position:absolute;top:0;left:0;right:0;padding:calc(10px + env(safe-area-inset-top)) 12px 0;display:flex;justify-content:space-between;align-items:center;z-index:5;pointer-events:none}
+#top>*{pointer-events:auto}
+.ib{width:44px;height:44px;border-radius:50%;background:#fffaf6e6;border:2px solid var(--gold2);display:grid;place-items:center;box-shadow:0 3px 10px #0003}
+.where{background:#3a2440b0;color:#fff;font-weight:700;font-size:13px;padding:6px 12px;border-radius:14px;backdrop-filter:blur(4px)}
+#box{position:absolute;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:4;min-height:128px;padding:22px 20px 18px;background:var(--paper);border-radius:22px;border:2px solid var(--gold2);box-shadow:0 10px 30px #0005;transition:opacity .2s}
+#box.hide{opacity:0;pointer-events:none}
+#tag{position:absolute;top:-18px;left:18px;padding:5px 18px;border-radius:14px;font:700 19px "Cormorant Garamond",serif;color:#fff;background:var(--plum);box-shadow:0 3px 8px #0003;white-space:nowrap}
+#tag:empty{display:none}
+#txt{font-size:17px;line-height:1.5;font-weight:600}
+#box.narr{background:#3a2440e8;border-color:#ffffff40;color:#fff}#box.narr #txt{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:20px;font-weight:500;line-height:1.35}
+#box.th #txt{font-style:italic;color:#6d4a6b}
+#nxt{position:absolute;right:16px;bottom:8px;font-size:14px;opacity:0;animation:bob 1s infinite alternate}
+#box.done #nxt{opacity:.6}
+@keyframes bob{to{transform:translateY(3px)}}
+#choices{position:absolute;left:14px;right:14px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:6;display:none;gap:10px}
+#choices.on{display:grid}
+#choices .hd{text-align:center;color:#fff;font:700 22px "Cormorant Garamond",serif;text-shadow:0 2px 6px #000a;margin-bottom:2px}
+#choices.major .hd{color:var(--gold2)}
+.opt{min-height:54px;padding:12px 18px;border-radius:18px;background:#fffaf6f2;border:2px solid #fff;box-shadow:0 6px 16px #0004;font-weight:700;font-size:16px;text-align:left;color:var(--plum);animation:pop .3s backwards}
+#choices.major .opt{border-color:var(--gold);background:linear-gradient(#fffaf0,#fbefd6)}
+.opt:active{transform:scale(.98)}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}}
+#veil{position:absolute;inset:0;background:linear-gradient(#0000 40%,#1a0e1e99);z-index:3;pointer-events:none;opacity:0;transition:opacity .3s}#veil.on{opacity:1}
+#toast{position:absolute;top:calc(64px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:9;display:grid;gap:6px;justify-items:center;pointer-events:none}
+#toast div{background:#fffaf6;color:var(--plum);font-weight:800;font-size:14px;padding:8px 16px;border-radius:20px;border:2px solid var(--gold2);box-shadow:0 4px 14px #0004;animation:tst 2.6s forwards;white-space:nowrap}
+#toast div.heart{background:#f7c2cf;color:#7a1f45;border-color:#fff}
+@keyframes tst{0%{opacity:0;transform:translateY(-8px)}10%,80%{opacity:1;transform:none}100%{opacity:0}}
+.card{position:absolute;inset:0;z-index:20;display:none;place-items:center;text-align:center;background:radial-gradient(circle,#4a2a52,#1f1124);color:#fff;padding:30px}
+.card.on{display:grid;animation:fade .6s}
+.card h2{margin:0;font-size:46px;line-height:1.05;color:#fbe7ec}.card p{margin:8px 0 0;font:italic 500 22px "Cormorant Garamond",serif;color:var(--gold2)}
+@keyframes fade{from{opacity:0}}
+#item{position:absolute;inset:0;z-index:15;display:none;place-items:center;background:#1a0e1ecc;padding:20px}
+#item.on{display:grid;animation:fade .6s}
+.locket{width:230px;height:290px;border-radius:50%;border:12px solid #d6b45a;box-shadow:0 0 0 4px #8a6a1f,0 0 50px #ffd98a88,inset 0 0 30px #0006;overflow:hidden;position:relative;background:radial-gradient(#e9dccb,#b9a68a)}
+.locket svg{position:absolute;left:50%;top:-18px;height:400px;transform:translateX(-50%);filter:sepia(.25) saturate(.9)}
+#item p{color:#fff;font:italic 20px "Cormorant Garamond",serif;text-align:center;margin:18px 0 0}
+/* modal */
+.modal{position:absolute;inset:0;z-index:30;background:#1f1124b3;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
+.modal.on{display:flex}
+.sheet{width:100%;max-height:88%;overflow-y:auto;background:linear-gradient(#fffaf6,#fbeaf0);border-radius:26px 26px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));animation:up .3s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sheet h3{margin:0 0 12px;font-size:30px;color:var(--plum);text-align:center}
+.sheet .stack{display:grid;gap:12px}
+.slot{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#fff;border-radius:16px;padding:12px 14px;border:2px solid #f0dbe3}
+.slot b{display:block;color:var(--plum)}.slot span{font-size:13px;color:#7a5a72}
+.slot .acts{display:flex;gap:6px}.slot .acts button{min-height:44px;padding:6px 12px;border-radius:12px;background:var(--plum);color:#fff;font-weight:800;font-size:14px}.slot .acts button.alt{background:#fff;color:var(--plum);border:2px solid var(--plum)}
+.rng{display:grid;grid-template-columns:1fr 3em;gap:10px;align-items:center}
+input[type=range]{width:100%;accent-color:var(--plum);height:32px}
+.end .hearts{display:grid;gap:10px;margin:14px 0}
+.end .row{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:14px;padding:10px 14px;font-weight:800}
+.end .row i{font-style:normal;color:#d94a7a;letter-spacing:2px}
+.end ul{margin:6px 0 14px;padding-left:20px;font-size:15px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+ <section id="menu" class="scr on"><div class="bgl" id="mbg"></div><div class="veil"></div>
+  <div class="logo"><small id="mSub"></small><h1 class="serif" id="mTitle"></h1>
+  <svg class="orn" viewBox="0 0 180 24"><path d="M10 12 H70 M110 12 H170" stroke="#c9a24a" stroke-width="2"/><path d="M90 2 L98 12 L90 22 L82 12 Z" fill="#c9a24a"/><circle cx="76" cy="12" r="3" fill="#c9a24a"/><circle cx="104" cy="12" r="3" fill="#c9a24a"/></svg></div>
+  <div class="list" id="mList"></div></section>
+ <section id="create" class="scr"><div class="chead"><h2 id="cTitle"></h2><div class="dots" id="cDots"></div></div><div class="cbody" id="cBody"></div><div class="cfoot"><button class="btn sm" id="cBack"></button><button class="btn pri sm" id="cNext"></button></div></section>
+ <section id="game" class="scr">
+  <div class="bgl" id="bgA"></div><div class="bgl" id="bgB" style="opacity:0"></div>
+  <div id="stage"></div><div id="veil"></div>
+  <div id="top"><button class="ib" id="pauseBtn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14" stroke="#5b2f5e" stroke-width="2.4" stroke-linecap="round"/></svg></button><span class="where" id="where"></span></div>
+  <div id="box"><div id="tag"></div><div id="txt"></div><div id="nxt">▼</div></div>
+  <div id="choices"></div><div id="toast"></div>
+  <div id="item"><div><div class="locket" id="locket"></div><p id="itemP"></p></div></div>
+  <div class="card" id="card"><div><h2 id="cardT"></h2><p id="cardS"></p></div></div>
+ </section>
+ <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+</div>
+<script>
+const ART=(()=>{
+let U=0;
+const SKINS=['#fbe4d6','#f0c8a4','#d39a6a','#a2653c','#6a3e24'];
+const HAIRC=['#16110f','#43281a','#7a4f2e','#b0532a','#e0bd70','#ece6dc'];
+const EYEC=['#4e2f1c','#8a5a2b','#3f7d4e','#3d6fa8','#76828c'];
+const LIPC=['#d77b80','#c0525e','#a8606a','#e8a19c','#874349'];
+function sh(hex,a){let n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;const f=v=>Math.max(0,Math.min(255,Math.round(a<0?v*(1+a):v+(255-v)*a)));return '#'+((1<<24)|(f(r)<<16)|(f(g)<<8)|f(b)).toString(16).slice(1)}
+const f1=v=>(+v).toFixed(1);
+function bumps(cx,cy,r,n,br,fill,a0=0,a1=Math.PI*2){let s='';for(let i=0;i<n;i++){const a=a0+(a1-a0)*i/(n-(a1-a0>=6.28?0:1));s+=`<circle cx="${f1(cx+Math.cos(a)*r)}" cy="${f1(cy+Math.sin(a)*r)}" r="${br}" fill="${fill}"/>`}return s}
+const mir=s=>`<g transform="translate(300,0) scale(-1,1)">${s}</g>`;
+const both=s=>s+mir(s);
+
+function backHair(h,L,R,hc,hd,hl='#ffffff'){
+ switch(h){
+ case 'kinky':return `<circle cx="150" cy="122" r="90" fill="${hc}"/>`+bumps(150,122,90,24,17,hc)+bumps(150,122,66,14,9,hl+'22');
+ case 'curly':{let s=`<path d="M${L-8} 120 C${L-30} 190 ${L-26} 260 ${L-16} 312 L${R+16} 312 C${R+26} 260 ${R+30} 190 ${R+8} 120 Z" fill="${hc}"/>`;for(let y=140;y<=310;y+=24){s+=`<circle cx="${L-20+(y%48?4:-3)}" cy="${y}" r="18" fill="${hc}"/><circle cx="${R+20-(y%48?4:-3)}" cy="${y}" r="18" fill="${hc}"/>`}return s}
+ case 'long':return `<path d="M${L-6} 115 C${L-26} 200 ${L-18} 300 ${L-22} 372 Q150 386 ${R+22} 372 C${R+18} 300 ${R+26} 200 ${R+6} 115 Z" fill="${hc}"/>`;
+ case 'bob':return `<path d="M${L-8} 118 C${L-18} 170 ${L-14} 215 ${L-12} 240 Q150 250 ${R+12} 240 C${R+14} 215 ${R+18} 170 ${R+8} 118 Z" fill="${hc}"/>`;
+ case 'bun':return `<circle cx="150" cy="58" r="33" fill="${hc}"/><path d="M128 56 Q150 36 172 56 M134 70 Q150 52 166 70" stroke="${hd}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+ case 'mlong':return `<path d="M${L-6} 115 C${L-20} 180 ${L-14} 240 ${L-12} 272 Q150 282 ${R+12} 272 C${R+14} 240 ${R+20} 180 ${R+6} 115 Z" fill="${hc}"/>`;
+ default:return '';
+ }}
+function sideLocks(h,L,hc,hd){
+ if(h=='long')return both(`<path d="M${L+6} 140 C${L-4} 200 ${L} 250 ${L+8} 300 C${L+12} 330 ${L} 356 ${L-10} 368 C${L-30} 330 ${L-30} 260 ${L-26} 200 C${L-24} 160 ${L-14} 128 ${L+6} 140 Z" fill="${hc}"/><path d="M${L-8} 170 C${L-14} 230 ${L-10} 290 ${L-4} 340" stroke="${hd}" stroke-width="2" fill="none" opacity=".5"/>`);
+ if(h=='curly'){let s=`<path d="M${L+6} 140 C${L-4} 190 ${L} 240 ${L+4} 290 L${L-30} 300 C${L-32} 240 ${L-28} 180 ${L+6} 140 Z" fill="${hc}"/>`;for(let y=170;y<=320;y+=22)s+=`<circle cx="${L-12+(y%44?6:-4)}" cy="${y}" r="13" fill="${hc}"/><path d="M${L-18+(y%44?6:-4)} ${y} q6 -8 12 0" stroke="${hd}" stroke-width="2" fill="none"/>`;return both(s)}
+ if(h=='mlong')return both(`<path d="M${L+6} 140 C${L-4} 190 ${L-2} 230 ${L+4} 262 C${L-10} 270 ${L-22} 262 ${L-26} 250 C${L-28} 200 ${L-22} 150 ${L+6} 140 Z" fill="${hc}"/>`);
+ if(h=='braids'){let s='';for(let j=0;j<3;j++){const x=L-16+j*9;s+=`<rect x="${x}" y="150" width="9" height="${120+j*12}" rx="4.5" fill="${hc}"/>`;for(let y=158;y<270+j*12;y+=10)s+=`<path d="M${x} ${y} l9 4" stroke="${hd}" stroke-width="1.6"/>`}return both(s)}
+ return '';
+}
+function frontHair(h,L,R,hc,hd,hl){
+ const cap=`<path d="M${L-6} 150 C${L-14} 46 ${R+14} 46 ${R+6} 150 C${R} 118 ${R-14} 100 150 98 C${L+14} 100 ${L} 118 ${L-6} 150 Z" fill="${hc}"/>`;
+ const shine=`<path d="M${L+20} 88 Q150 64 ${R-20} 88" stroke="${hl}" stroke-width="5" fill="none" opacity=".4" stroke-linecap="round"/>`;
+ const sweep=`<path d="M${L-6} 152 C${L-10} 90 ${L+30} 74 150 78 C${R-10} 80 ${R+6} 110 ${R+6} 142 C${R-8} 112 ${R-30} 104 ${R-50} 106 C140 108 112 124 ${L+4} 154 Z" fill="${hc}"/><path d="M${R-40} 92 C${R-60} 98 ${L+40} 110 ${L+8} 146" stroke="${hd}" stroke-width="2" fill="none" opacity=".5"/>`;
+ const curtain=both(`<path d="M150 82 C128 84 ${L+8} 104 ${L+2} 168 L${L-8} 150 C${L-10} 98 128 76 150 82 Z" fill="${hc}"/>`)+`<path d="M150 80 L150 96" stroke="${hd}" stroke-width="2"/>`;
+ switch(h){
+ case 'kinky':{let s=cap;for(let i=0;i<=10;i++){const a=Math.PI*(1.08+i*0.084);s+=`<circle cx="${f1(150+Math.cos(a)*(56+(L<100?(100-L):0)))}" cy="${f1(132+Math.sin(a)*34)}" r="11" fill="${hc}"/>`}return s}
+ case 'curly':return cap+sweep+`<circle cx="${L-2}" cy="150" r="12" fill="${hc}"/><circle cx="${R+2}" cy="146" r="12" fill="${hc}"/>`+shine;
+ case 'long':return cap+curtain+shine;
+ case 'bob':return `<path d="M${L-6} 146 C${L-12} 60 ${R+12} 60 ${R+6} 146 L${R-4} 126 L${R-20} 122 L${R-36} 128 L150 121 L${L+36} 128 L${L+20} 122 L${L+4} 126 Z" fill="${hc}"/>`+shine;
+ case 'bun':return `<path d="M${L-6} 150 C${L-14} 50 ${R+14} 50 ${R+6} 150 C${R} 112 ${R-16} 92 150 90 C${L+16} 92 ${L} 112 ${L-6} 150 Z" fill="${hc}"/>`+both(`<path d="M${L+2} 130 C${L-8} 150 ${L+4} 172 ${L-4} 192" stroke="${hc}" stroke-width="4" fill="none" stroke-linecap="round"/>`)+shine;
+ case 'mshort':return cap+`<path d="M${L-4} 142 C${L-6} 92 ${L+40} 74 ${R-20} 84 C${R} 92 ${R+6} 116 ${R+4} 136 C${R-10} 106 ${L+40} 98 ${L-4} 142 Z" fill="${hc}"/>`+shine;
+ case 'mlong':return cap+curtain+shine;
+ case 'braids':{let s=cap;for(let k=-3;k<=3;k++)s+=`<path d="M${150+k*15} ${102+Math.abs(k)*3} Q${150+k*12} 86 ${150+k*9} 76" stroke="${hd}" stroke-width="2.4" fill="none"/>`;return s}
+ }return cap}
+
+function outfit(o,sex,s,nw,skin){
+ const sx=150-s,ex=150+s;let r='';
+ if(sex=='f'){
+  r+=`<path d="M${sx-2} 430 L${sx-2} 322 C${sx} 300 ${sx+12} 296 ${f1(150-s*.6)} 318 Q150 352 ${f1(150+s*.6)} 318 C${ex-12} 296 ${ex} 300 ${ex+2} 322 L${ex+2} 430 Z" fill="${o.fill}"/>`;
+  r+=`<path d="M${sx} 360 Q150 372 ${ex} 360 L${ex} 430 L${sx} 430 Z" fill="${sh(o.fill,-.12)}" opacity=".5"/>`;
+  if(o.apron)r+=`<path d="M${f1(150-s*.62)} 318 Q150 352 ${f1(150+s*.62)} 318 L${f1(150+s*.45)} 298 Q150 330 ${f1(150-s*.45)} 298 Z" fill="#fbf8f2"/><rect x="${150-s*.55}" y="370" width="${s*1.1}" height="60" fill="#fbf8f2"/>`;
+  r+=`<path d="M${f1(150-s*.6)} 318 Q150 352 ${f1(150+s*.6)} 318" stroke="${o.trim}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  r+=both(`<ellipse cx="${sx+14}" cy="306" rx="28" ry="24" fill="${o.sleeve||sh(o.fill,.15)}"/><path d="M${sx-12} 318 Q${sx+14} 336 ${sx+40} 318" stroke="${o.trim}" stroke-width="3" fill="none"/>`);
+  r+=`<path d="M${sx} 396 Q150 406 ${ex} 396 L${ex} 408 Q150 418 ${sx} 408 Z" fill="${o.trim}"/>`;
+  if(o.acc=='pearls'){for(let i=0;i<=10;i++){const t=i/10,x=150-nw-6+(2*nw+12)*t,y=276+Math.sin(t*Math.PI)*16;r+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="3" fill="#fdfbf7" stroke="#cfc7c0" stroke-width=".6"/>`}}
+  if(o.acc=='pendant')r+=`<path d="M${150-nw-2} 272 Q150 296 ${150+nw+2} 272" stroke="${o.trim}" stroke-width="1.6" fill="none"/><circle cx="150" cy="292" r="6" fill="#c0304a" stroke="${o.trim}" stroke-width="2"/>`;
+  if(o.acc=='flowers')r+=both(`<g transform="translate(${f1(150-s*.55)},322)">${[0,72,144,216,288].map(a=>`<ellipse rx="4" ry="7" fill="#fff4f6" transform="rotate(${a}) translate(0,-6)"/>`).join('')}<circle r="3" fill="${o.trim}"/></g>`);
+  if(o.acc=='jewels')r+=`<path d="M${150-nw-4} 274 Q150 300 ${150+nw+4} 274" stroke="#e8c96a" stroke-width="3" fill="none"/>${[0,1,2].map(i=>`<circle cx="${140+i*10}" cy="${290+(i==1?6:0)}" r="4" fill="#7a3fb0" stroke="#e8c96a"/>`).join('')}`;
+ }else{
+  r+=`<path d="M${sx} 430 L${sx} 318 C${sx} 286 ${sx+18} 270 ${150-nw-10} 262 L${150+nw+10} 262 C${ex-18} 270 ${ex} 286 ${ex} 318 L${ex} 430 Z" fill="${o.vest}"/>`;
+  [336,358,380,402].forEach(y=>r+=`<circle cx="150" cy="${y}" r="3.2" fill="${o.btn}"/>`);
+  r+=both(`<path d="M${sx} 430 L${sx} 318 C${sx} 286 ${sx+18} 270 ${150-nw-10} 262 L${150-nw+2} 270 L${150-22} 430 Z" fill="${o.coat}"/><path d="M${150-nw-10} 262 L${150-nw-26} 300 L${150-26} 372 L${150-22} 340 L${150-nw+2} 270 Z" fill="${sh(o.coat,-.25)}"/><path d="M${sx+6} 320 C${sx+10} 360 ${sx+8} 400 ${sx+10} 430" stroke="${sh(o.coat,.15)}" stroke-width="3" fill="none" opacity=".6"/>`);
+  if(o.belts)r+=`<path d="M${sx+10} 290 L${ex-20} 430 L${ex-40} 430 L${sx+10} 312 Z" fill="#f4efe4" opacity=".95"/>`;
+  r+=`<path d="M${150-nw-4} 234 L${150+nw+4} 234 L${150+nw+9} 264 Q150 286 ${150-nw-9} 264 Z" fill="${o.cravat||'#fbfaf5'}"/><path d="M138 262 C136 290 144 312 150 320 C156 312 164 290 162 262 Z" fill="${o.cravat||'#fbfaf5'}" stroke="#d9d3c8" stroke-width="1.2"/><circle cx="150" cy="268" r="6" fill="${o.cravat||'#fbfaf5'}" stroke="#d9d3c8"/>`;
+ }
+ return r}
+
+function eye(x,y,flip,p,ex,id){
+ const al=p.es==1,ir=al?7.8:9.4;
+ const W=al?'M-14 3 C-8 -9 8 -11 16 -4 C9 7 -6 9 -14 3 Z':'M-13 2 C-13 -13 13 -15 14 0 C13 12 -12 13 -13 2 Z';
+ const lid=al?'M-15 3 C-8 -11 8 -12 17 -5':'M-15 0 C-12 -15 12 -17 16 -2';
+ let s=`<g transform="translate(${f1(x)},${y}) scale(${flip?-1:1},1)"><path d="${W}" fill="#fffdfb"/><g clip-path="url(#${id})"><circle cx="1" cy="1" r="${ex=='o'?ir*.85:ir}" fill="${p.ec}"/><circle cx="1" cy="1" r="${ir}" fill="none" stroke="${sh(p.ec,-.45)}" stroke-width="1.6"/><circle cx="1" cy="3" r="${ir*.6}" fill="${sh(p.ec,.25)}" opacity=".45"/><circle cx="1" cy="1.5" r="${ir*.42}" fill="#1a1212"/><circle cx="${flip?-4:4}" cy="-3" r="2.8" fill="#fff"/><circle cx="-3" cy="5" r="1.3" fill="#fff" opacity=".8"/><path d="M-16 -14 L18 -14 L18 -3 Q0 -9 -16 -3 Z" fill="#000" opacity=".12"/></g>`;
+ if(ex=='h')s+=`<path d="M-15 9 Q0 1 16 6 L16 16 L-15 16 Z" fill="${p._skin}"/>`;
+ s+=`<path d="${lid}" stroke="#2b1a14" stroke-width="${p.sex=='f'?3.4:2.8}" fill="none" stroke-linecap="round"/>`;
+ if(p.sex=='f')s+=`<path d="M${al?16:15} ${al?-4:-1} l6 -5 M${al?11:11} ${al?-8:-9} l4 -6" stroke="#2b1a14" stroke-width="2" stroke-linecap="round"/>`;
+ if(p.age)s+=`<path d="M-9 13 Q0 16 10 12" stroke="${p._ln}" stroke-width="1" fill="none" opacity=".6"/>`;
+ return s+'</g>'}
+function brow(x,y,flip,ex,col,w){const d={n:'M-14 -22 Q0 -29 16 -24',h:'M-14 -24 Q0 -31 16 -25',a:'M-14 -17 Q0 -24 16 -27',s:'M-14 -30 Q0 -27 16 -21',o:'M-14 -29 Q0 -37 16 -30'}[ex]||'M-14 -22 Q0 -29 16 -24';
+ return `<g transform="translate(${f1(x)},${y}) scale(${flip?-1:1},1)"><path d="${d}" stroke="${col}" stroke-width="${w}" fill="none" stroke-linecap="round"/></g>`}
+function nose(n,ln){return ['<path d="M146 186 Q151 190 155 186" stroke="LN" stroke-width="2.2" fill="none" stroke-linecap="round"/>','<path d="M152 164 L156 182 Q152 189 146 185" stroke="LN" stroke-width="2.2" fill="none" stroke-linecap="round"/>','<path d="M154 168 Q158 178 158 183 M140 184 Q144 191 150 187 Q156 191 161 184" stroke="LN" stroke-width="2.3" fill="none" stroke-linecap="round"/>'][n].replace(/LN/g,ln)}
+function mouth(p,ex,y){
+ const full=p.mouth==1,lc=p.lip,dk=sh(lc,-.35);
+ const g=`<g transform="translate(0,${f1(y-204)})">`;
+ if(ex=='h')return g+`<path d="M135 200 Q150 220 165 200 Q150 205 135 200 Z" fill="#7a2f36" stroke="${full?lc:dk}" stroke-width="${full?4:2}" stroke-linejoin="round"/><path d="M139 202 Q150 206 161 202 L160 205 Q150 208 140 205 Z" fill="#fff"/></g>`;
+ if(ex=='o')return g+`<ellipse cx="150" cy="208" rx="5.5" ry="7" fill="#7a2f36" stroke="${full?lc:dk}" stroke-width="${full?3.5:2}"/></g>`;
+ const curve=ex=='s'?'M139 209 Q150 202 161 209':ex=='a'?'M139 207 Q150 204 161 208':'M137 204 Q150 209 163 204';
+ if(full)return g+`<path d="M135 204 Q142 196 150 200 Q158 196 165 204 Q150 207 135 204 Z" fill="${dk}" opacity="${ex=='n'?1:.9}"/><path d="M136 205 Q150 216 164 205 Q150 208 136 205 Z" fill="${lc}"/><path d="M144 209 Q150 211 156 209" stroke="#fff" stroke-width="1.5" opacity=".5" fill="none"/></g>`;
+ return g+`<path d="${curve}" stroke="${dk}" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M144 211 Q150 213 156 211" stroke="${lc}" stroke-width="2" fill="none" opacity=".7"/></g>`}
+
+function draw(p,ex='n',acc={}){
+ const id='a'+(U++),skin=typeof p.skin=='number'?SKINS[p.skin]:p.skin;
+ const sd=sh(skin,-.15),ln=sh(skin,-.42);p._skin=skin;p._ln=ln;
+ const b=p.body??1,m=p.sex=='m';
+ const c=[0,4,9,14][b],s=[86,96,110,126][b]+(m?10:0),nw=[14,16,19,22][b]+(m?3:0);
+ const L=100-c,R=200+c,hc=p.hc,hd=sh(hc,-.35),hl=sh(hc,.45);
+ const ex1=127-c*.25,ex2=173+c*.25,ey=158;
+ let o=`<svg viewBox="0 0 300 430" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="${id}"><path d="${p.es==1?'M-14 3 C-8 -9 8 -11 16 -4 C9 7 -6 9 -14 3 Z':'M-13 2 C-13 -13 13 -15 14 0 C13 12 -12 13 -13 2 Z'}"/></clipPath><radialGradient id="${id}b"><stop offset="0" stop-color="#ff6f86" stop-opacity=".55"/><stop offset="1" stop-color="#ff6f86" stop-opacity="0"/></radialGradient></defs>`;
+ if(acc.plume)o+=`<path d="M${R-30} 96 C${R-26} 30 ${R+10} 4 ${R+40} 12 C${R+14} 30 ${R+2} 60 ${R-30} 96 Z" fill="#ff6fa3"/><path d="M${R-34} 98 C${R-50} 40 ${R-30} 10 ${R-6} 2 C${R-20} 30 ${R-22} 60 ${R-34} 98 Z" fill="#3fc6c0"/>`;
+ o+=backHair(p.hair,L,R,hc,hd,hl);
+ const sx=150-s,sx2=150+s;
+ o+=`<path d="M${sx} 430 L${sx} 318 C${sx} 286 ${sx+18} 270 ${150-nw-10} 262 L${150+nw+10} 262 C${sx2-18} 270 ${sx2} 286 ${sx2} 318 L${sx2} 430 Z" fill="${skin}"/>`;
+ o+=`<path d="M${150-nw} 196 L${150-nw} 264 Q150 280 ${150+nw} 264 L${150+nw} 196 Z" fill="${skin}"/>`;
+ if(!m)o+=both(`<path d="M${150-nw-4} 282 Q${150-nw-20} 287 ${150-nw-38} 284" stroke="${sd}" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>`);
+ o+=outfit(p.out,p.sex,s,nw,skin);
+ o+=sideLocks(p.hair,L,hc,hd);
+ o+=`<ellipse cx="150" cy="${222+c*.3}" rx="${nw+6}" ry="11" fill="${sd}" opacity=".45"/>`;
+ o+=both(`<ellipse cx="${L-1}" cy="162" rx="9" ry="14" fill="${skin}"/><path d="M${L-4} 154 Q${L-7} 162 ${L-3} 170" stroke="${sd}" stroke-width="2" fill="none"/>`);
+ const jaw=m?`C${L} ${180+c*.3} ${122-c*.4} 216 150 224 C${178+c*.4} 216 ${R} ${180+c*.3} ${R} 125`:`C${L} ${172+c*.3} ${118-c*.4} 212 150 222 C${182+c*.4} 212 ${R} ${172+c*.3} ${R} 125`;
+ o+=`<path d="M${L} 125 ${jaw} C${R} 68 ${L} 68 ${L} 125 Z" fill="${skin}"/>`;
+ o+=`<path d="M${L+4} 150 C${L+6} 175 ${L+18} 196 ${L+30} 205" stroke="${sd}" stroke-width="3" fill="none" opacity=".35"/>`;
+ if(b==3)o+=`<path d="M128 228 Q150 238 172 228" stroke="${sd}" stroke-width="2" fill="none"/>`;
+ o+=`<ellipse cx="${f1(ex1-6)}" cy="184" rx="15" ry="8" fill="url(#${id}b)" opacity="${ex=='h'?.9:.55}"/><ellipse cx="${f1(ex2+6)}" cy="184" rx="15" ry="8" fill="url(#${id}b)" opacity="${ex=='h'?.9:.55}"/>`;
+ if(acc.freck)[[132,178],[138,183],[127,184],[168,178],[162,183],[173,184]].forEach(([x,y])=>o+=`<circle cx="${x}" cy="${y}" r="1.4" fill="${ln}" opacity=".6"/>`);
+ o+=eye(ex1,ey,1,p,ex,id)+eye(ex2,ey,0,p,ex,id);
+ o+=nose(p.nose,ln);
+ if(p.age)o+=both(`<path d="M134 190 Q130 200 135 208" stroke="${ln}" stroke-width="1.2" fill="none" opacity=".5"/>`);
+ o+=mouth(p,ex,204+c*.2);
+ if(acc.side)o+=both(`<path d="M${L-2} 128 L${L+8} 130 L${L+10} 186 L${L+1} 182 Z" fill="${hc}"/>`);
+ o+=frontHair(p.hair,L,R,hc,hd,hl);
+ const bc=sh(hc,p.hc&&parseInt(hc.slice(1),16)>0xc00000?-.45:-.15);
+ if(acc.mask){const mk=acc.mask,tr=acc.trim||'#d8b75a';
+  o+=`<path fill-rule="evenodd" d="M${L-8} 150 C${L-2} 126 138 128 150 142 C162 128 ${R+2} 126 ${R+8} 150 C${R+2} 178 164 182 150 168 C136 182 ${L-2} 178 ${L-8} 150 Z M${f1(ex1-15)} 158 a15 10 0 1 0 30 0 a15 10 0 1 0 -30 0 Z M${f1(ex2-15)} 158 a15 10 0 1 0 30 0 a15 10 0 1 0 -30 0 Z" fill="${mk}" stroke="${tr}" stroke-width="2"/>`;
+  o+=`<path d="M${R+4} 146 C${R+34} 118 ${R+34} 80 ${R+12} 56 C${R+18} 94 ${R+6} 124 ${R+4} 146 Z" fill="${acc.feather||tr}" opacity=".9"/>`;
+ }else o+=brow(ex1,ey,1,ex,bc,m?4.6:3.2)+brow(ex2,ey,0,ex,bc,m?4.6:3.2);
+ if(acc.tiara)o+=`<path d="M124 96 Q150 76 176 96 L171 99 Q150 86 129 99 Z" fill="#e8c96a"/><circle cx="150" cy="84" r="4" fill="#9fd3f0" stroke="#e8c96a"/>`;
+ if(acc.crown)o+=`<path d="M116 74 L120 40 L135 58 L150 30 L165 58 L180 40 L184 74 Z" fill="#e3b84a" stroke="#a8801f" stroke-width="2"/><circle cx="150" cy="56" r="5" fill="#c0304a"/><circle cx="130" cy="64" r="3.5" fill="#3d6fa8"/><circle cx="170" cy="64" r="3.5" fill="#3d6fa8"/>`;
+ if(acc.cap)o+=`<path d="M${L-12} 114 C${L-10} 42 ${R+10} 42 ${R+12} 114 C190 100 110 100 ${L-12} 114 Z" fill="#fdfbf6" stroke="#e2dccf" stroke-width="2"/>`+bumps(150,262,160,11,6,'#fdfbf6',Math.PI*1.31,Math.PI*1.69);
+ if(acc.shako)o+=`<path d="M108 98 L114 22 L186 22 L192 98 Z" fill="#1d1d24"/><ellipse cx="150" cy="98" rx="52" ry="8" fill="#111"/><path d="M140 54 L150 38 L160 54 L150 74 Z" fill="#d9b54a"/><rect x="145" y="4" width="10" height="20" rx="5" fill="#fbfbfb"/>`;
+ return o+'</svg>'}
+
+/* ---------- backgrounds ---------- */
+let K=0;
+function wrap(inner,k){return `<svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><filter id="w${k}" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="3" seed="${k%9+1}"/><feDisplacementMap in="SourceGraphic" scale="13" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="0.8"/></filter><filter id="g${k}"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .4 0 0 0 0 .3 0 0 0 0 .3 0 0 0 .13 0"/></filter><radialGradient id="v${k}" cx=".5" cy=".45" r=".75"><stop offset=".55" stop-color="#3a2440" stop-opacity="0"/><stop offset="1" stop-color="#3a2440" stop-opacity=".35"/></radialGradient></defs><g filter="url(#w${k})">${inner}</g><rect width="400" height="800" filter="url(#g${k})"/><rect width="400" height="800" fill="url(#v${k})"/></svg>`}
+const lg=(id,a,b,c)=>`<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/>${c?`<stop offset=".55" stop-color="${b}"/><stop offset="1" stop-color="${c}"/>`:`<stop offset="1" stop-color="${b}"/>`}</linearGradient>`;
+const glow=(id,col)=>`<radialGradient id="${id}"><stop offset="0" stop-color="${col}" stop-opacity=".85"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></radialGradient>`;
+function stars(n,seed,h){let s='',x=seed;for(let i=0;i<n;i++){x=(x*9301+49297)%233280;const a=x/233280;x=(x*9301+49297)%233280;const b=x/233280;s+=`<circle cx="${f1(a*400)}" cy="${f1(b*h)}" r="${f1(.6+a*1.2)}" fill="#fffbe8" opacity="${f1(.4+b*.6)}"/>`}return s}
+const BG={
+ship(k){let s=`<defs>${lg('s'+k,'#b9b6dd','#f2c6cf','#fbe0c2')}${lg('e'+k,'#8fb0d6','#34507f')}</defs><rect width="400" height="440" fill="url(#s${k})"/><circle cx="290" cy="360" r="46" fill="#fff4dc" opacity=".85"/><ellipse cx="90" cy="150" rx="90" ry="22" fill="#fff" opacity=".45"/><ellipse cx="250" cy="220" rx="110" ry="18" fill="#fff" opacity=".35"/><path d="M0 440 L0 378 Q30 366 70 374 Q110 368 150 390 L172 440 Z" fill="#f4f0e8"/><path d="M60 440 L70 376 Q110 368 150 390 L172 440 Z" fill="#d9d1d6"/><rect y="432" width="400" height="368" fill="url(#e${k})"/>`;
+ for(let i=0;i<26;i++){const x=(i*73)%400,y=450+(i*37)%160;s+=`<path d="M${x} ${y} q10 -6 20 0 t20 0" stroke="#fff" stroke-width="2" fill="none" opacity=".35"/>`}
+ s+=`<path d="M60 200 q8 -8 16 0 q8 -8 16 0 M130 160 q6 -6 12 0 q6 -6 12 0" stroke="#5a5466" stroke-width="2" fill="none"/><rect x="322" y="0" width="16" height="640" fill="#6b4630"/><rect x="160" y="90" width="240" height="10" fill="#6b4630"/><path d="M178 100 Q260 140 400 104 L400 470 Q300 440 198 470 Q214 300 178 100 Z" fill="#f7f0e2" opacity=".93"/><path d="M200 470 Q214 300 178 100 L196 104 Q232 300 220 462 Z" fill="#e4d7c4"/><path d="M330 20 L40 560 M330 20 L120 560" stroke="#4a3426" stroke-width="2" opacity=".7"/><path d="M0 612 L400 582 L400 800 L0 800 Z" fill="#9a6844"/>`;
+ for(let i=0;i<9;i++)s+=`<path d="M0 ${630+i*22} L400 ${600+i*24}" stroke="#7e5236" stroke-width="2"/>`;
+ s+=`<path d="M0 556 L400 528 L400 546 L0 574 Z" fill="#7a4e32"/>`;for(let x=8;x<400;x+=32)s+=`<rect x="${x}" y="${572-x*.07}" width="9" height="${46}" fill="#835639"/>`;return s},
+street(k){let s=`<defs>${lg('s'+k,'#c8d9ea','#efe9e4')}</defs><rect width="400" height="800" fill="url(#s${k})"/><path d="M0 300 L60 300 L60 250 L120 250 L120 290 L200 290 L200 240 L280 240 L280 280 L400 280 L400 520 L0 520 Z" fill="#d7d0da" opacity=".7"/>`;
+ [[0,140,'#efe1ca'],[140,270,'#e5d4bc'],[270,400,'#f1e5d2']].forEach(([a,b,c],j)=>{s+=`<rect x="${a}" y="${170+j*8}" width="${b-a}" height="${520-j*8}" fill="${c}"/><rect x="${a}" y="${170+j*8}" width="${b-a}" height="14" fill="#fbf8f2"/><rect x="${a}" y="${420}" width="${b-a}" height="6" fill="#fbf8f2" opacity=".8"/>`;
+  for(let r=0;r<3;r++)for(let q=0;q<2;q++){if(j==1&&r==2)continue;const x=a+18+q*((b-a)/2),y=210+r*100;s+=`<rect x="${x}" y="${y}" width="36" height="66" fill="#93aac2" stroke="#fbf8f2" stroke-width="4"/><path d="M${x+18} ${y} V${y+66} M${x} ${y+33} H${x+36}" stroke="#fbf8f2" stroke-width="2"/>`}});
+ s+=`<path d="M180 682 L180 566 Q205 534 230 566 L230 682 Z" fill="#1f2328"/><path d="M182 560 Q205 532 228 560 Z" fill="#f3e1a8"/><circle cx="222" cy="624" r="3" fill="#d9b54a"/><rect x="168" y="682" width="74" height="14" fill="#cfc6b8"/><rect y="694" width="400" height="106" fill="#bab0a0"/>`;
+ for(let i=0;i<40;i++)s+=`<ellipse cx="${(i*47)%400}" cy="${710+(i*29)%90}" rx="12" ry="5" fill="#a59b8c" opacity=".6"/>`;
+ s+=`<path d="M0 640 H160 M250 640 H400" stroke="#222" stroke-width="3"/>`;for(let x=4;x<400;x+=10)if(x<160||x>250)s+=`<path d="M${x} 640 V694" stroke="#222" stroke-width="2" opacity=".8"/>`;
+ s+=`<rect x="355" y="470" width="7" height="224" fill="#222"/><path d="M346 448 L372 448 L368 476 L350 476 Z" fill="#f6d98a" stroke="#222" stroke-width="3"/>`;return s},
+salon(k){let s=`<defs>${lg('s'+k,'#e3ecdc','#c9d9c4')}${lg('w'+k,'#eef6fc','#cfe2ee')}</defs><rect width="400" height="800" fill="url(#s${k})"/><rect y="520" width="400" height="172" fill="#f3eee4"/>`;
+ for(let x=10;x<400;x+=98)s+=`<rect x="${x}" y="540" width="80" height="130" fill="none" stroke="#dcd2c2" stroke-width="3"/>`;
+ s+=`<rect y="690" width="400" height="110" fill="#b88a62"/>`;for(let x=0;x<400;x+=40)s+=`<path d="M${x} 690 L${x-30} 800" stroke="#a07550" stroke-width="2"/>`;
+ s+=`<polygon points="130,520 270,520 360,800 40,800" fill="#fff" opacity=".18"/><rect x="128" y="148" width="144" height="374" fill="#fffaf2"/><rect x="138" y="158" width="124" height="354" fill="url(#w${k})"/><path d="M200 158 V512 M138 276 H262 M138 394 H262" stroke="#fffaf2" stroke-width="5"/>`;
+ s+=both(`<path d="M96 120 C130 220 112 400 132 548 L86 548 C80 400 70 220 96 120 Z" fill="#e6b2b4"/><path d="M106 160 C118 260 108 420 118 540" stroke="#cf9599" stroke-width="3" fill="none"/>`).replace('translate(300,0)','translate(400,0)');
+ s+=`<path d="M80 112 Q200 160 320 112 L320 130 Q200 186 80 130 Z" fill="#dca0a4"/><rect x="6" y="470" width="94" height="14" fill="#fbf8f2"/><rect x="12" y="484" width="82" height="206" fill="#f6f1e8"/><rect x="28" y="560" width="50" height="130" fill="#3a2a2a"/><ellipse cx="53" cy="664" rx="22" ry="20" fill="#f3a35a" opacity=".85"/><rect x="300" y="250" width="86" height="120" fill="#c9a24a"/><rect x="308" y="258" width="70" height="104" fill="#a9c3a2"/><path d="M308 330 Q340 300 378 320 L378 362 L308 362 Z" fill="#6f9068"/><circle cx="200" cy="40" r="28" fill="none" stroke="#c9a24a" stroke-width="4"/>`;
+ for(let i=0;i<6;i++)s+=`<rect x="${174+i*10}" y="56" width="4" height="12" fill="#fffaf2"/>`;
+ s+=`<path d="M120 650 Q120 610 160 616 L240 616 Q280 610 280 650 L284 712 L116 712 Z" fill="#e9b9c1"/><rect x="128" y="660" width="144" height="34" rx="10" fill="#f3cbd2"/>`;return s},
+bedroom(k){let s=`<defs>${lg('s'+k,'#968dc0','#5d557f')}${glow('c'+k,'#ffd98a')}</defs><rect width="400" height="800" fill="url(#s${k})"/><rect y="680" width="400" height="120" fill="#4b3f5c"/><rect x="36" y="150" width="138" height="318" fill="#fbf4f8"/><rect x="44" y="158" width="122" height="302" fill="#2c3460"/>${stars(30,7,300).replace(/cx="([\d.]+)" cy="([\d.]+)"/g,(m,x,y)=>`cx="${f1(44+x*.3)}" cy="${f1(158+y)}"`)}<circle cx="128" cy="210" r="22" fill="#f6f0d8"/><path d="M105 158 V460 M44 300 H166" stroke="#fbf4f8" stroke-width="4"/><path d="M20 140 C50 240 30 400 50 480 L20 480 Z M190 140 C160 240 180 400 160 480 L190 480 Z" fill="#c9b4dd"/>`;
+ s+=`<rect x="232" y="180" width="10" height="520" fill="#e9dccb"/><rect x="390" y="180" width="10" height="520" fill="#e9dccb"/><path d="M220 170 Q310 220 400 170 L400 200 Q310 250 220 200 Z" fill="#e7cfe0"/><path d="M228 200 C250 300 236 420 250 560 L228 560 Z" fill="#e7cfe0" opacity=".9"/><rect x="236" y="540" width="164" height="150" fill="#f4e9f1"/><rect x="250" y="510" width="70" height="40" rx="14" fill="#fff"/><rect x="236" y="586" width="164" height="104" fill="#d9b8d6"/>`;
+ s+=`<rect x="20" y="590" width="140" height="12" fill="#7a5a48"/><rect x="30" y="600" width="12" height="90" fill="#6a4a3a"/><rect x="140" y="600" width="12" height="90" fill="#6a4a3a"/><circle cx="100" cy="560" r="120" fill="url(#c${k})" opacity=".55"/><rect x="95" y="555" width="10" height="36" fill="#fffaf0"/><ellipse cx="100" cy="550" rx="4" ry="8" fill="#ffb347"/>`;return s},
+ball(k,night){const W=night?['#3a3263','#5b4b7f']:['#fde9ec','#f2cbd5'],win=night?'#26315f':'#fff1c9',fl=night?'#4a3e66':'#ecd6bb';
+ let s=`<defs>${lg('s'+k,W[0],W[1])}${glow('c'+k,'#fff1c4')}<pattern id="p${k}" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="scale(1,.5) rotate(45)"><rect width="40" height="40" fill="${fl}"/><rect width="20" height="20" fill="${night?'#3c3156':'#f6e6cf'}"/><rect x="20" y="20" width="20" height="20" fill="${night?'#3c3156':'#f6e6cf'}"/></pattern></defs><rect width="400" height="800" fill="url(#s${k})"/>`;
+ [[45,'w'],[160,'w'],[275,'w']].forEach(([x])=>{s+=`<path d="M${x} 520 L${x} 230 Q${x+40} 170 ${x+80} 230 L${x+80} 520 Z" fill="${win}" stroke="#fbf6ef" stroke-width="5"/><path d="M${x+40} 190 V520 M${x} 360 H${x+80}" stroke="#fbf6ef" stroke-width="3"/>`;if(night)s+=stars(6,x,1).replace(/cx="([\d.]+)" cy="([\d.]+)"/g,(m,a,b)=>`cx="${f1(x+6+a*.17)}" cy="${f1(250+a*.6)}"`)});
+ if(night)s+=`<circle cx="190" cy="270" r="16" fill="#f6f0d8"/>`;
+ [10,125,240,355].forEach(x=>s+=`<rect x="${x}" y="150" width="34" height="460" fill="${night?'#d8d0e6':'#fbf6ef'}"/><rect x="${x+24}" y="150" width="10" height="460" fill="#000" opacity=".08"/><rect x="${x-6}" y="140" width="46" height="18" fill="#d6b45a"/><rect x="${x-6}" y="600" width="46" height="16" fill="#d6b45a"/>`);
+ s+=`<path d="M0 120 Q100 170 200 120 Q300 170 400 120" stroke="${night?'#8b6fb0':'#f2a7b8'}" stroke-width="10" fill="none"/>`;for(let i=0;i<14;i++){const x=i*30,y=120+Math.abs(Math.sin(i/6.6*Math.PI))*36;s+=`<circle cx="${x}" cy="${f1(y)}" r="9" fill="${i%2?'#fff':'#f7b6c5'}"/>`}
+ s+=`<rect y="610" width="400" height="190" fill="url(#p${k})"/>`;
+ [[110,90],[300,110]].forEach(([x,y])=>s+=`<circle cx="${x}" cy="${y}" r="${night?120:95}" fill="url(#c${k})" opacity="${night?.75:.6}"/><path d="M${x-30} ${y-10} L${x+30} ${y-10} L${x} ${y+40} Z" fill="#fffbe6" opacity=".85"/>${[-24,-12,0,12,24].map(d=>`<circle cx="${x+d}" cy="${y+14-Math.abs(d)/2}" r="3" fill="#fff"/>`).join('')}`);
+ const gc=night?['#7a5ea8','#a04a72','#3d5f8f','#5d4a8a']:['#a9c9ee','#f2b5c6','#c8b6e8','#f3d38c'];
+ for(let i=0;i<9;i++){const x=20+i*46,y=560+(i%3)*14;s+=`<g opacity=".55"><circle cx="${x}" cy="${y-38}" r="11" fill="${night?'#c9a9b8':'#e8c4a8'}"/><path d="M${x-22} ${y+52} Q${x} ${y-40} ${x+22} ${y+52} Z" fill="${gc[i%4]}"/></g>`}
+ return s},
+ballnight(k){return BG.ball(k,1)},
+terrace(k){let s=`<defs>${lg('s'+k,'#191c42','#4b3f73')}${glow('c'+k,'#ffcf7a')}</defs><rect width="400" height="800" fill="url(#s${k})"/>${stars(60,3,420)}<circle cx="310" cy="130" r="34" fill="#f6f0d8"/><circle cx="310" cy="130" r="60" fill="#f6f0d8" opacity=".12"/><path d="M0 470 Q40 400 90 440 Q130 380 190 430 Q250 370 310 420 Q360 390 400 430 L400 580 L0 580 Z" fill="#22343a"/><path d="M0 520 Q80 480 160 510 Q260 470 400 505 L400 580 L0 580 Z" fill="#2e4646"/><path d="M0 300 Q200 360 400 300" stroke="#3a2e40" stroke-width="2" fill="none"/>`;
+ for(let i=1;i<8;i++){const x=i*50,y=300+Math.sin(i/8*Math.PI)*52;s+=`<circle cx="${x}" cy="${f1(y+14)}" r="28" fill="url(#c${k})"/><rect x="${x-6}" y="${f1(y+4)}" width="12" height="18" rx="3" fill="#ffd27a"/>`}
+ s+=`<rect x="0" y="0" width="70" height="800" fill="#ffd98a" opacity=".12"/><rect y="560" width="400" height="22" fill="#e1d9cd"/>`;for(let x=6;x<400;x+=28)s+=`<path d="M${x} 582 q-6 20 0 40 q6 20 0 58 h14 q-6 -38 0 -58 q6 -20 0 -40 Z" fill="#d4ccbf"/>`;
+ s+=`<rect y="680" width="400" height="16" fill="#e1d9cd"/><rect y="696" width="400" height="104" fill="#7d7590"/>`;return s}
+};
+function bg(name){const k=++K;return wrap(BG[name](k),k)}
+return {draw,bg,sh,SKINS,HAIRC,EYEC,LIPC};
+})();
+
+/* Tokens : {first} {last} {title} {e} {li1} {li1full} {li2} {tA} {tB}
+   {g:il|elle|iel}  (pronom du perso)   {a:homme|femme} (genre des intérêts amoureux)   {t:masc|fém} (genre des jumeaux) */
+const N=(fr,en)=>({sp:'n',fr,en});
+const D=(sp,ex,fr,en)=>({sp,ex,fr,en});
+let _L=0;
+function C(id,major,opts){const o=[{ch:{id,major,o:opts.map((x,k)=>({t:x.t,fx:x.fx||{},set:x.set,go:id+'_'+k}))}}];
+ opts.forEach((x,k)=>o.push({lb:id+'_'+k},...(x.r||[]),{go:id+'_end'}));o.push({lb:id+'_end'});return o}
+function IF(flag,a,b=[]){const n='if'+(_L++);return [{if:flag,go:n+'t'},...b,{go:n+'e'},{lb:n+'t'},...a,{lb:n+'e'}]}
+
+const STORY=[
+{bg:'ship',mus:'calm',card:['Chapitre 1','Chapter 1'],sub:['La traversée','The Crossing'],where:['En mer','At sea']},
+{st:['mc']},
+N('Printemps 1813. Quelque part sur la Manche.','Spring, 1813. Somewhere on the English Channel.'),
+N('Le vent salé fouette le pont du navire. Derrière toi, les côtes de France disparaissent dans la brume.','The salt wind whips across the deck. Behind you, the coast of France fades into the mist.'),
+D('mc','s','Adieu, Paris… Adieu, Camille. Je ne sais même pas quand je vous reverrai.','Farewell, Paris… Farewell, Camille. I don\'t even know when I\'ll see you again.'),
+{st:['father','mc']},
+D('father','n','Te voilà bien {g:songeur|songeuse|songeur·se}, {g:mon fils|ma fille|mon enfant}.','You look lost in thought, my {g:son|daughter|child}.'),
+{st:['mother','mc']},
+D('mother','a','Redresse-toi. Une personne de ton rang ne se morfond pas sur le pont d\'un bateau comme une lavandière.','Stand up straight. Someone of your rank does not mope on a ship\'s deck like a washerwoman.'),
+D('mc','n','Pardonnez-moi, Mère. Je regardais la France une dernière fois.','Forgive me, Mother. I was looking at France one last time.'),
+{st:['father','mc']},
+D('father','n','Sais-tu au moins pourquoi nous faisons ce voyage ?','Do you even know why we are making this journey?'),
+C('c1',0,[
+ {t:['« Pour la Saison londonienne, je suppose. »','"For the London Season, I suppose."'],r:[D('father','h','Exactement. La Saison ! Tout le beau monde d\'Angleterre y sera.','Exactly. The Season! All of England\'s finest society will be there.')]},
+ {t:['« Je n\'ai jamais demandé à partir. »','"I never asked to leave."'],r:[{st:['mother','mc']},D('mother','a','Personne ne t\'a demandé ton avis.','Nobody asked for your opinion.')]},
+ {t:['« Vous allez enfin me le dire ? »','"Are you finally going to tell me?"'],r:[D('father','s','Patience… Chaque chose en son temps.','Patience… All in good time.')]}
+]),
+{st:['mother','mc']},
+D('mother','n','Écoute-moi bien. Ce voyage n\'est pas une promenade. Tu as un devoir envers cette famille.','Listen to me carefully. This journey is no pleasure trip. You have a duty to this family.'),
+D('mother','n','Avant la fin de la Saison, tu devras avoir trouvé {a:un mari|une épouse}. Un beau parti. Titré. Et fortuné.','Before the Season ends, you must have found {a:a husband|a wife}. A fine match. Titled. And wealthy.'),
+D('mc','o','Avant la fin de la Saison ?! Mais c\'est dans quelques mois à peine !','Before the end of the Season?! That\'s barely a few months away!'),
+{st:['father','mother']},
+D('father','s','Ta mère a raison. Nous… traversons quelques difficultés. Rien de grave.','Your mother is right. We are… going through a few difficulties. Nothing serious.'),
+D('mother','a','Henri.','Henri.'),
+D('father','s','Des broutilles d\'argent. Tu n\'as pas à t\'en soucier.','Trifling money matters. Nothing for you to worry about.'),
+N('Ta mère lance à ton père un regard si glacial que la Manche elle-même semble frissonner.','Your mother shoots your father a look so icy that the Channel itself seems to shiver.'),
+{st:['mother','mc']},
+C('c2',0,[
+ {t:['« Je ferai de mon mieux, Mère. Pour la famille. »','"I\'ll do my best, Mother. For the family."'],fx:{rep:1},r:[D('mother','h','Voilà enfin une parole sensée.','Finally, something sensible.')]},
+ {t:['« Et si je veux me marier par amour ? »','"And what if I want to marry for love?"'],set:'romantic',r:[D('mother','a','L\'amour est un luxe, {first}. Et en ce moment, nous n\'avons pas les moyens du luxe.','Love is a luxury, {first}. And right now, we cannot afford luxuries.'),D('mc','o','(« En ce moment » ? Qu\'est-ce qu\'elle veut dire ?)','("Right now"? What does she mean?)')]},
+ {t:['« Quelles difficultés, exactement ? »','"What difficulties, exactly?"'],r:[{st:['father','mother']},D('father','s','Je t\'en parlerai… plus tard.','I\'ll tell you… later.'),D('mother','a','Ça suffit. Nous n\'en dirons pas plus.','Enough. We will say no more.')]}
+]),
+{st:['mc']},
+N('Au loin, les falaises blanches de Douvres émergent de la brume. L\'Angleterre. Ta nouvelle vie.','In the distance, the white cliffs of Dover rise out of the mist. England. Your new life.'),
+
+{bg:'street',mus:'calm',card:['Londres','London'],sub:['Mayfair, deux jours plus tard','Mayfair, two days later'],where:['Mayfair','Mayfair']},
+{st:['mother','mc']},
+N('La voiture s\'arrête devant une élégante maison de Grosvenor Street, aux fenêtres hautes et à la porte noire vernie.','The carriage stops before an elegant house on Grosvenor Street, with tall windows and a glossy black door.'),
+D('mother','h','Grosvenor Street. L\'une des meilleures adresses de Londres. Tâche d\'en être digne.','Grosvenor Street. One of the finest addresses in London. Try to be worthy of it.'),
+D('mc','s','(Une belle maison… qui n\'a rien d\'un chez-moi.)','(A beautiful house… that feels nothing like home.)'),
+{st:['father','mc']},
+D('father','h','Nous la louons pour la Saison. Les Anglais adorent les apparences : offrons-leur-en.','We\'re renting it for the Season. The English adore appearances — let\'s give them some.'),
+N('Tu remarques que ton père évite ton regard en disant cela.','You notice your father avoids your eyes as he says it.'),
+
+{bg:'salon',where:['Le salon','The drawing room']},
+{st:['bess','mc']},
+D('bess','h','Bienvenue, {title} ! Je suis Bess, je serai à votre service. Quel honneur d\'avoir des Français dans la maison !','Welcome, {title}! I\'m Bess, I\'ll be at your service. What an honour to have French folk in the house!'),
+D('bess','o','On dit que les dames de Paris portent des chapeaux aussi hauts que des cathédrales. C\'est vrai ?','They say the ladies of Paris wear hats as tall as cathedrals. Is it true?'),
+C('c3',0,[
+ {t:['« Seulement le dimanche. » (avec un sourire)','"Only on Sundays." (with a smile)'],fx:{bess:1},r:[D('bess','h','Ha ! Oh, vous me plaisez déjà !','Ha! Oh, I like you already!')]},
+ {t:['« Je préfère ne pas parler de Paris. »','"I\'d rather not talk about Paris."'],r:[D('bess','s','Oh… Pardon. Le voyage a dû être long.','Oh… Forgive me. It must have been a long journey.')]},
+ {t:['« Bess, tu pourrais m\'apprendre les coutumes d\'ici ? »','"Bess, could you teach me how things are done here?"'],fx:{bess:1},r:[D('bess','h','Avec plaisir ! Règle numéro un : ne jamais, jamais refuser une tasse de thé.','Gladly! Rule number one: never, ever refuse a cup of tea.')]}
+]),
+{st:['mother','mc']},
+D('mother','n','Bess, montez les malles. Et faites couler un bain. Ce soir, nous allons au bal.','Bess, take the trunks upstairs. And draw a bath. Tonight, we attend a ball.'),
+D('mc','o','Ce soir ? Mais nous venons à peine d\'arriver !','Tonight? We\'ve only just arrived!'),
+D('mother','n','Le bal masqué de la Duchesse d\'Ashbury. La plus proche amie de la Reine. Toute la haute société y sera.','The Duchess of Ashbury\'s masquerade ball. The Queen\'s closest friend. All of high society will be there.'),
+D('mother','a','Nous n\'avons pas de temps à perdre. Pas une seule soirée.','We have no time to waste. Not a single evening.'),
+
+{bg:'bedroom',mus:'mystery',where:['Ta chambre','Your bedroom']},
+{st:['mc']},
+N('Ta chambre est jolie, tendue de soie lilas. Mais les rires de tes amis, les rues de Paris, l\'odeur du pain chaud le matin… tout te manque déjà.','Your room is lovely, hung with lilac silk. But your friends\' laughter, the streets of Paris, the smell of warm bread in the morning… you already miss it all.'),
+N('Sur le secrétaire, une plume et du papier. Tu décides d\'écrire à Camille, ta meilleure amie restée en France.','On the writing desk, a quill and paper. You decide to write to Camille, your best friend back in France.'),
+C('c4',0,[
+ {t:['« Londres est grise et les Anglais sont froids. Tu me manques. »','"London is grey and the English are cold. I miss you."'],r:[D('mc','s','(Au moins, c\'est honnête.)','(At least it\'s honest.)')]},
+ {t:['« Je rentrerai dès que possible. C\'est promis. »','"I\'ll come home as soon as I can. I promise."'],r:[D('mc','n','(Une promesse que je compte bien tenir.)','(A promise I fully intend to keep.)')]},
+ {t:['« Qui sait ? Ce sera peut-être une aventure. »','"Who knows? Maybe this will be an adventure."'],set:'optimist',r:[D('mc','h','(Autant voir le bon côté des choses.)','(Might as well look on the bright side.)')]}
+]),
+{st:['bess','mc']},
+D('bess','h','{title}, votre bain est prêt et votre tenue est sortie. Vous allez faire tourner toutes les têtes !','{title}, your bath is ready and your outfit is laid out. You\'ll turn every head!'),
+D('bess','n','Et n\'oubliez pas votre masque. Chez la Duchesse, à minuit, tout le monde le porte pour la dernière danse. C\'est la tradition !','And don\'t forget your mask. At the Duchess\'s, at midnight, everyone wears one for the final dance. It\'s tradition!'),
+
+{bg:'ball',mus:'ball',card:['Le bal des Ashbury','The Ashbury Ball'],sub:['','',],where:['Le bal','The ball']},
+{st:[]},
+N('Des centaines de bougies scintillent dans les lustres de cristal. Les robes de soie tourbillonnent comme des pétales au son des violons.','Hundreds of candles glitter in crystal chandeliers. Silk gowns swirl like petals to the sound of violins.'),
+N('« Le Comte et la Comtesse {last}… et {first} {last}, de Paris ! » Toutes les têtes se tournent vers toi.','"The Count and Countess {last}… and {first} {last}, of Paris!" Every head in the room turns towards you.'),
+{st:['mother','mc']},
+D('mother','h','Souris. Tiens-toi droit{e}. Et pour l\'amour du ciel, n\'aie pas l\'air trop {g:français|française|français·e}.','Smile. Stand up straight. And for heaven\'s sake, don\'t look too French.'),
+N('Soudain, la musique s\'interrompt. Toute l\'assemblée s\'incline.','Suddenly, the music stops. The whole room bows.'),
+{st:['queen','duchess']},
+D('queen','h','Augusta, ma chère, votre bal est un enchantement. Comme chaque année.','Augusta, my dear, your ball is enchanting. As it is every year.'),
+D('duchess','h','Votre Majesté me fait trop d\'honneur.','Your Majesty does me too much honour.'),
+D('queen','o','Et qui donc est cette nouvelle tête ?','And who might this new face be?'),
+{st:['queen','mc']},
+N('Le regard de la Reine se pose sur toi. Ta mère te pince discrètement le bras.','The Queen\'s gaze falls on you. Your mother discreetly pinches your arm.'),
+C('c5',0,[
+ {t:['S\'incliner profondément, à l\'anglaise.','Bow deeply, the English way.'],fx:{rep:1},r:[D('queen','h','Charmant. On vous a bien {g:instruit|instruite|instruit·e}.','Charming. You have been well taught.')]},
+ {t:['Saluer à la française, avec un sourire.','Greet her the French way, with a smile.'],set:'queenAmused',r:[D('queen','h','Ha ! Un peu de Versailles à Londres. Comme c\'est rafraîchissant.','Ha! A little Versailles in London. How refreshing.')]},
+ {t:['Vous présenter vous-même, avec aplomb.','Introduce yourself, boldly.'],set:'queenAmused',r:[D('mc','h','{first} {last}, Votre Majesté. {g:Arrivé|Arrivée|Arrivé·e} de Paris ce matin même.','{first} {last}, Your Majesty. Arrived from Paris only this morning.'),D('queen','o','Quelle audace ! Nous verrons si elle survit à la Saison.','What daring! We shall see if it survives the Season.')]}
+]),
+N('La Reine poursuit son chemin dans un bruissement de soie. La Duchesse, elle, reste plantée devant toi.','The Queen moves on in a rustle of silk. The Duchess, however, stays right where she is.'),
+{st:['duchess','mc']},
+D('duchess','n','Augusta, Duchesse d\'Ashbury. Votre hôtesse.','Augusta, Duchess of Ashbury. Your hostess.'),
+D('duchess','n','J\'ai connu bien des familles étrangères venues à Londres « pour la Saison »… et reparties avec la dot d\'une héritière anglaise.','I have known many foreign families who came to London "for the Season"… and left with an English heiress\'s dowry.'),
+D('duchess','a','J\'espère que vous n\'êtes pas de ceux-là.','I trust you are not one of them.'),
+N('Ton cœur rate un battement. Sait-elle quelque chose ?','Your heart skips a beat. Does she know something?'),
+C('c6',0,[
+ {t:['« Nous sommes ici pour le plaisir de votre compagnie, Votre Grâce. »','"We are here for the pleasure of your company, Your Grace."'],fx:{rep:1},r:[D('duchess','n','Hm. Joliment tourné. Je n\'en crois pas un mot, mais c\'est joliment tourné.','Hm. Prettily put. I don\'t believe a word of it, but it is prettily put.')]},
+ {t:['« Et moi, j\'espère que tous les Anglais ne sont pas aussi soupçonneux. »','"And I hope not all the English are so suspicious."'],fx:{rep:-1},set:'duchessWary',r:[D('duchess','o','…Voilà qui a du mordant.','…Now that has some bite.'),D('duchess','a','Je vous garderai à l\'œil, {title}.','I shall keep an eye on you, {title}.')]},
+ {t:['« Notre famille n\'a besoin de la fortune de personne. » (mentir)','"Our family needs no one\'s fortune." (lie)'],set:'lied',r:[D('duchess','n','Vraiment ? Tant mieux.','Truly? All the better.'),N('Le mensonge te brûle la gorge.','The lie burns your throat.')]}
+]),
+D('duchess','n','Permettez-moi de vous présenter {t:mes fils|mes filles}. {t:Mes jumeaux|Mes jumelles}, {tA} et {tB}.','Allow me to present my {t:sons|daughters}. My twins, {tA} and {tB}.'),
+{st:['twinA','twinB']},
+N('Deux silhouettes s\'avancent, vêtues de couleurs si criardes qu\'un perroquet en rougirait. Leurs coiffures défient la gravité ; leurs sourires, la sincérité.','Two figures step forward, dressed in colours so loud a parrot would blush. Their hair defies gravity; their smiles defy sincerity.'),
+D('twinA','h','Oh, Mère ! C\'est donc ça, la petite curiosité venue de Paris ?','Oh, Mother! So this is the little curiosity from Paris?'),
+D('twinB','h','Comme c\'est exotique. On dirait une poupée de foire.','How exotic. Like a doll from a country fair.'),
+{st:['duchess','twinA']},
+D('duchess','a','{tA}. {tB}. Tenue.','{tA}. {tB}. Manners.'),
+N('La Duchesse s\'éloigne pour accueillir d\'autres invités. À peine a-t-elle tourné le dos que {t:les jumeaux|les jumelles} se rapprochent de toi.','The Duchess drifts off to greet other guests. The moment her back is turned, the twins close in on you.'),
+{st:['twinA','mc']},
+D('twinA','a','Ne vous faites pas d\'illusions. Cela fait cinq Saisons que nous attendons notre tour. Ce n\'est pas {g:un petit Français|une petite Française|un·e petit·e Français·e} qui va nous voler les meilleurs partis.','Don\'t get any ideas. We have waited five Seasons for our turn. No little French upstart is going to steal the best matches from us.'),
+{st:['twinB','mc']},
+D('twinB','h','D\'ailleurs, quelle drôle de tenue. C\'est la mode à Paris… ou vos parents n\'ont plus les moyens d\'un vrai tailleur ?','Besides, what a curious outfit. Is that the fashion in Paris… or can your parents no longer afford a proper tailor?'),
+N('{t:Ils|Elles} éclatent de rire. Plusieurs invités se retournent. Tes joues brûlent.','They burst out laughing. Several guests turn to look. Your cheeks burn.'),
+D('mc','o','(Plus les moyens… ? Non. Impossible. {t:Ils|Elles} ne peuvent pas savoir.)','(Can no longer afford…? No. Impossible. They can\'t know.)'),
+C('m1',1,[
+ {t:['Leur répondre avec esprit, devant tout le monde.','Fire back with wit, in front of everyone.'],fx:{rep:-1},set:'bold',r:[D('mc','h','Merci du conseil. Venant de deux personnes habillées comme des sorbets en train de fondre, il a beaucoup de valeur.','Thank you for the advice. Coming from two people dressed like melting sorbets, it means a great deal.'),N('Un éclat de rire parcourt l\'assistance. Quelqu\'un applaudit même, avant de se raviser.','A wave of laughter ripples through the crowd. Someone even applauds, before thinking better of it.'),{st:['twinA','twinB']},D('twinA','a','Comment osez-vous ?!','How dare you?!'),D('twinB','a','Mère va entendre parler de ça !','Mother will hear about this!')]},
+ {t:['Garder votre calme et sourire avec grâce.','Keep your composure and smile gracefully.'],fx:{rep:1},set:'grace',r:[D('mc','h','Quelle chance de recevoir des conseils de mode dès mon premier soir. Je ne les oublierai pas.','How lucky I am to receive fashion advice on my very first evening. I shan\'t forget it.'),{st:['twinA','twinB']},D('twinB','o','…{g:Il|Elle|Iel} se moque de nous ?','…Is {g:he|she|they} mocking us?'),D('twinA','a','Évidemment, idiot{t:|e} !','Obviously, you fool!')]}
+]),
+{st:['li1','twinA']},
+D('li1','h','{tA}, {tB}… Mère vous cherche. Et je crois qu\'elle a tout entendu.','{tA}, {tB}… Mother is looking for you. And I believe she heard everything.'),
+D('twinA','a','Ce n\'est pas fini, {first} {last}.','This isn\'t over, {first} {last}.'),
+{st:['li1','mc']},
+...IF('bold',[D('li1','h','Des sorbets en train de fondre… Cela fait des années que j\'attends que quelqu\'un ose leur dire ça.','Melting sorbets… I have waited years for someone to dare say that to them.'),{fx:{li1:2}}],
+ [D('li1','h','Admirable. Je connais des généraux qui ont moins de sang-froid face à {t:mes frères|mes sœurs}.','Admirable. I know generals with less composure in front of my {t:brothers|sisters}.'),{fx:{li1:1}}]),
+D('li1','n','Pardonnez-les. {t:Mes frères|Mes sœurs} ont un don pour transformer chaque bal en champ de bataille.','Forgive them. My {t:brothers|sisters} have a gift for turning every ball into a battlefield.'),
+D('li1','h','{li1full}, {a:l\'aîné|l\'aînée} de cette famille impossible. Et vous devez être {first} {last}. Tout Londres ne parle que de vous depuis ce matin.','{li1full}, the eldest of this impossible family. And you must be {first} {last}. All of London has been talking about you since this morning.'),
+D('mc','o','Depuis ce matin ? Mais je suis {g:arrivé|arrivée|arrivé·e} il y a quelques heures !','Since this morning? But I only arrived a few hours ago!'),
+D('li1','h','C\'est Londres. Les rumeurs y voyagent plus vite que les diligences.','That\'s London. Rumours travel faster than stagecoaches here.'),
+D('li1','n','M\'accorderiez-vous la Danse des Masques, à minuit ? Ce serait l\'occasion de me faire pardonner ma famille.','Would you grant me the Masquerade Dance at midnight? It would let me make amends for my family.'),
+C('c8',0,[
+ {t:['« Avec plaisir. »','"With pleasure."'],fx:{li1:1},r:[D('li1','h','Alors, à minuit.','Until midnight, then.')]},
+ {t:['« Seulement si vous dansez mieux que {t:vos frères|vos sœurs} ne parlent. »','"Only if you dance better than your {t:brothers|sisters} talk."'],fx:{li1:2},r:[D('li1','h','Ha ! Le défi est relevé.','Ha! Challenge accepted.')]},
+ {t:['« Est-ce une invitation… ou une mission diplomatique ? »','"Is that an invitation… or a diplomatic mission?"'],fx:{li1:1},r:[D('li1','h','Un peu des deux. Mais surtout une invitation.','A little of both. But mostly an invitation.')]}
+]),
+{st:['mother','mc']},
+N('Le reste de la soirée, ta mère te présente à une dizaine de lords, de baronnets et de vieilles douairières. Tu souris, tu salues… et tu oublies tous leurs noms.','For the rest of the evening, your mother introduces you to a dozen lords, baronets and old dowagers. You smile, you bow… and you forget every name.'),
+D('mother','h','{a:L\'aîné|L\'aînée} des Ashbury t\'a {g:remarqué|remarquée|remarqué·e} ! As-tu la moindre idée de la fortune de cette famille ?','The eldest Ashbury has noticed you! Do you have the slightest idea how wealthy that family is?'),
+...IF('bold',[D('mother','a','Mais te donner en spectacle devant les enfants de la Duchesse… Tu veux notre ruine ?','But making a spectacle of yourself in front of the Duchess\'s children… Do you want to ruin us?'),D('mc','s','« Ruine »… C\'est un drôle de mot à employer, Mère.','"Ruin"… That\'s a strange word to use, Mother.'),D('mother','o','…Va te préparer. Il est presque minuit.','…Go and get ready. It\'s nearly midnight.')],
+ [D('mother','h','Et tu as su rester digne face à ces deux pestes. Je suis presque fière de toi.','And you kept your dignity in front of those two pests. I\'m almost proud of you.'),D('mc','s','(« Presque ». Évidemment.)','("Almost." Of course.)')]),
+
+{bg:'ballnight',mus:'mystery',card:['Minuit','Midnight'],sub:['La Danse des Masques','The Masquerade Dance'],where:['Minuit','Midnight']},
+{mask:1},{st:[]},
+N('Les douze coups de minuit résonnent. Les lumières baissent. Un à un, les invités nouent leur masque.','Midnight strikes twelve. The lights dim. One by one, the guests tie on their masks.'),
+N('La salle se transforme : plus de titres, plus de noms. Seulement des regards, des sourires… et des secrets.','The room transforms: no more titles, no more names. Only glances, smiles… and secrets.'),
+{st:['li1','mc']},
+D('li1','h','Vous êtes {g:ravissant|ravissante|ravissant·e}… enfin, je suppose. Ce masque cache presque tout.','You look ravishing… I assume. That mask hides almost everything.'),
+D('mc','h','C\'est tout l\'intérêt d\'un masque, non ?','That\'s the whole point of a mask, isn\'t it?'),
+N('L\'orchestre entame une valse. {li1} t\'entraîne au centre de la piste, et le monde se met à tourner.','The orchestra strikes up a waltz. {li1} leads you to the centre of the floor, and the world begins to spin.'),
+D('li1','n','Dites-moi, {first}… Qu\'est-ce qui pousse une famille aussi illustre à quitter la cour de France ?','Tell me, {first}… What makes such an illustrious family leave the French court?'),
+C('c9',0,[
+ {t:['« Mes parents ont toujours rêvé de Londres. » (mentir)','"My parents always dreamed of London." (lie)'],r:[D('li1','n','Hm. Vous mentez mal… mais avec élégance.','Hm. You lie poorly… but elegantly.')]},
+ {t:['« Je me pose exactement la même question. »','"I\'ve been asking myself the very same thing."'],fx:{li1:1},r:[D('li1','s','Les parents et leurs secrets… Croyez-moi, j\'en connais un rayon.','Parents and their secrets… Believe me, I know all about that.')]},
+ {t:['« Pour vous rencontrer, évidemment. » (flirter)','"To meet you, obviously." (flirt)'],fx:{li1:2},r:[D('li1','h','Évidemment. Je n\'en attendais pas moins.','Obviously. I expected nothing less.')]}
+]),
+N('Soudain, un cri retentit à l\'entrée de la salle.','Suddenly, a shout rings out at the ballroom entrance.'),
+{st:['guard']},
+D('guard','a','Un intrus ! Quelqu\'un s\'est introduit sans invitation ! Fouillez la salle !','An intruder! Someone got in without an invitation! Search the hall!'),
+N('Les invités murmurent. Des gardes en habit rouge se faufilent entre les danseurs masqués. Impossible de reconnaître qui que ce soit.','Guests murmur. Red-coated guards weave between the masked dancers. It\'s impossible to recognise anyone.'),
+N('Et soudain — BAM ! Une silhouette masquée percute ton couple de plein fouet. Tu manques de tomber… mais une main te rattrape juste à temps.','And suddenly — BAM! A masked figure crashes right into you both. You nearly fall… but a hand catches you just in time.'),
+{st:['li2','mc']},
+D('li2','o','Pardon ! Mille pardons ! Je ne vous avais pas {g:vu|vue|vu·e}…','Sorry! A thousand apologies! I didn\'t see you…'),
+{st:['li1','li2']},
+D('li1','a','Vous ne pouvez pas regarder où vous allez ? Pourquoi bousculez-vous les gens ainsi ?','Can\'t you watch where you\'re going? Why are you shoving people like that?'),
+D('li2','h','Disons que j\'avais très envie de danser. Avec une certaine… urgence.','Let\'s just say I was very keen to dance. With a certain… urgency.'),
+{st:['li2','mc']},
+N('Derrière son masque, deux yeux pétillent de malice… et de panique.','Behind the mask, a pair of eyes sparkle with mischief… and panic.'),
+C('c10',0,[
+ {t:['« Vous avez de la chance que je ne sois pas {g:tombé|tombée|tombé·e} ! »','"You\'re lucky I didn\'t fall!"'],r:[D('li2','h','J\'ai surtout de la chance que vous ayez de bons réflexes.','I\'m mostly lucky you have good reflexes.')]},
+ {t:['(Rire) « C\'est la chose la plus excitante de la soirée. »','(Laugh) "That\'s the most exciting thing all night."'],fx:{li2:1},r:[D('li2','h','Alors c\'est que vous fréquentez les mauvais bals.','Then you\'ve been going to the wrong balls.')]},
+ {t:['« Vous allez bien ? Vous tremblez. »','"Are you alright? You\'re shaking."'],fx:{li2:1},r:[D('li2','s','…Vous êtes bien la première personne à me le demander ce soir.','…You\'re the first person to ask me that tonight.')]}
+]),
+{st:['guard','mc']},
+D('guard','a','Pardon, {title}. Avez-vous vu passer quelqu\'un ? Un intrus, masqué, qui courait ?','Begging your pardon, {title}. Have you seen anyone go by? An intruder, masked, running?'),
+N('Derrière le garde, {a:l\'inconnu|l\'inconnue} te fixe. D\'un seul regard, {a:il|elle} te supplie.','Behind the guard, the stranger stares at you. With a single look, {a:he|she} begs you.'),
+C('m2',1,[
+ {t:['Couvrir {a:l\'inconnu|l\'inconnue} : « Oui ! Par là, vers les cuisines ! »','Cover for the stranger: "Yes! That way, towards the kitchens!"'],fx:{li2:3},set:'covered',r:[
+  D('guard','n','Merci, {title} ! Vous deux, avec moi !','Thank you, {title}! You two, with me!'),
+  {st:['li2','mc']},
+  D('li2','h','Je vous dois une fière chandelle, {first} {last}.','I owe you one, {first} {last}.'),
+  D('mc','o','Comment connaissez-vous mon nom ?','How do you know my name?'),
+  D('li2','h','Tout Londres le connaît. Moi, je ne suis personne.','All of London knows it. Me, I\'m nobody.'),
+  {bg:'terrace',where:['La terrasse','The terrace']},
+  N('Avant que tu puisses répondre, {a:il|elle} s\'éclipse vers la terrasse, enjambe la balustrade avec agilité… et disparaît dans la nuit.','Before you can answer, {a:he|she} slips out onto the terrace, vaults the balustrade with ease… and vanishes into the night.'),
+  {st:['li1','mc']},
+  D('li1','o','Vous venez de mentir à la garde de ma mère ?','Did you just lie to my mother\'s guards?'),
+  D('li1','h','Décidément, vous êtes {g:plein|pleine|plein·e} de surprises, {first}.','You really are full of surprises, {first}.')]},
+ {t:['Dire la vérité : « C\'est cette personne, juste là ! »','Tell the truth: "That\'s them, right there!"'],fx:{li2:-2,rep:1},set:'betrayed',r:[
+  D('guard','a','Halte ! Au nom de la Duchesse !','Halt! In the name of the Duchess!'),
+  {st:['li2']},
+  D('li2','s','…','…'),
+  N('{a:L\'inconnu|L\'inconnue} recule et te lance un regard blessé. Puis {a:il|elle} bondit vers les portes-fenêtres.','The stranger steps back and gives you a wounded look. Then {a:he|she} bolts for the French windows.'),
+  {bg:'terrace',where:['La terrasse','The terrace']},
+  N('Les gardes {a:le|la} poursuivent sur la terrasse. Mais d\'un saut agile, {a:il|elle} enjambe la balustrade et disparaît dans les jardins.','The guards give chase onto the terrace. But with one agile leap, {a:he|she} vaults the balustrade and vanishes into the gardens.'),
+  {st:['li1','mc']},
+  D('li1','n','Vous avez bien fait. Ma mère vous en sera reconnaissante.','You did the right thing. My mother will be grateful.'),{fx:{li1:1}}]}
+]),
+N('Sur les dalles, à l\'endroit où se tenait {a:l\'inconnu|l\'inconnue}, quelque chose brille. Un vieux pendentif en étain, gravé d\'une seule lettre : {a:M|N}.','On the flagstones where the stranger stood, something glints. An old pewter pendant, engraved with a single letter: {a:M|N}.'),
+C('c12',0,[
+ {t:['Le glisser discrètement dans votre poche.','Slip it discreetly into your pocket.'],set:'keptToken',r:[D('mc','n','(Je trouverai à qui il appartient.)','(I\'ll find out who it belongs to.)')]},
+ {t:['Le remettre à {li1}.','Hand it to {li1}.'],fx:{li1:1},r:[D('li1','n','Je le ferai remettre aux gardes. Il les mènera peut-être jusqu\'à notre intrus.','I\'ll have it given to the guards. It may lead them to our intruder.')]}
+]),
+D('li1','h','Quelle soirée… Promettez-moi une chose, {first}. Gardez-moi une danse au prochain bal. Sans intrus, cette fois.','What an evening… Promise me one thing, {first}. Save me a dance at the next ball. Without intruders, this time.'),
+D('mc','h','Je ne promets rien. Les bals anglais me semblent pleins de surprises.','I promise nothing. English balls seem full of surprises.'),
+
+{bg:'salon',mus:'mystery',mask:0,card:['Plus tard, cette nuit-là','Later that night'],sub:['',''],where:['Grosvenor Street','Grosvenor Street']},
+{st:[]},
+N('De retour à Grosvenor Street, la maison est silencieuse. Mais en passant devant le bureau de ton père, tu entends des voix étouffées.','Back on Grosvenor Street, the house is silent. But as you pass your father\'s study, you hear muffled voices.'),
+{st:['father','mother']},
+D('father','s','…encore une lettre des créanciers, Éléonore. Si la vérité se sait à Londres…','…another letter from the creditors, Éléonore. If the truth gets out in London…'),
+D('mother','a','Personne ne saura rien. {first} fera un beau mariage, et tout rentrera dans l\'ordre.','No one will know a thing. {first} will marry well, and everything will be put right.'),
+D('father','s','Et si {g:il|elle|iel} découvrait l\'autre secret ? Celui de sa naissance ?','And what if {g:he|she|they} discovered the other secret? The one about {g:his|her|their} birth?'),
+D('mother','a','Tais-toi ! Pas ici.','Hush! Not here.'),
+N('Une latte du parquet craque sous ton pied. Les voix se taisent aussitôt. Tu files dans ta chambre, le cœur battant.','A floorboard creaks under your foot. The voices fall silent at once. You hurry to your room, heart pounding.'),
+{bg:'bedroom',where:['Ta chambre','Your bedroom']},
+{st:['mc']},
+D('mc','o','(Des créanciers ? Le secret de ma naissance ? Qu\'est-ce que tout cela veut dire ?)','(Creditors? The secret of my birth? What does any of this mean?)'),
+N('En défaisant ta malle, tes doigts heurtent un double fond. À l\'intérieur, enveloppé dans un mouchoir brodé, un médaillon que tu n\'as jamais vu.','As you unpack your trunk, your fingers find a false bottom. Inside, wrapped in an embroidered handkerchief, is a locket you have never seen before.'),
+{item:'portrait'},
+N('Le portrait d\'une jeune femme. Son visage… ses yeux… sa peau. Elle te ressemble trait pour trait.','A portrait of a young woman. Her face… her eyes… her skin. She looks exactly like you.'),
+N('Au dos, une inscription à demi effacée : « À mon enfant. Pardonne-moi. — I. »','On the back, a half-faded inscription: "To my child. Forgive me. — I."'),
+D('mc','s','Qui… qui êtes-vous ?','Who… who are you?'),
+{end:1}
+];
+
+{
+const $=id=>document.getElementById(id);
+const MEM={};
+const store={get(k){try{const v=localStorage.getItem(k);return v?JSON.parse(v):(MEM[k]??null)}catch(e){return MEM[k]??null}},set(k,v){MEM[k]=v;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let OPT=Object.assign({mus:60,sfx:70,lang:'fr',speed:1},store.get('ssl_opts')||{});
+const saveOpt=()=>store.set('ssl_opts',OPT);
+const T={
+fr:{title:'The Love Chronicles',sub:'Une romance de la Régence',cont:'Continuer',newg:'Nouvelle partie',saves:'Sauvegardes',opts:'Options',ver:'Prototype · Chapitre 1',confirmNew:'Ta partie en cours sera effacée. Commencer une nouvelle histoire ?',yes:'Oui, recommencer',no:'Annuler',back:'Retour',next:'Suivant',start:'Commencer',stepT:{id:'Qui es-tu ?',look:'Choisis ton personnage',app:'Ton apparence',out:'Ta tenue',sum:'Prêt·e pour le bal ?'},first:'Prénom',last:'Nom de famille',pron:'Pronoms',pres:'Apparence',attr:'Tu es attiré·e par',men:'Les hommes',women:'Les femmes',fem:'Féminine',masc:'Masculine',prons:['Il','Elle','Iel'],final:'Ces choix sont définitifs : ils ne pourront plus être modifiés une fois l\'histoire commencée.',needName:'Choisis un prénom et un nom de famille.',tabs:['Peau','Coiffure','Couleur','Yeux','Nez','Bouche','Silhouette'],shape:'Forme',color:'Couleur',eyeShapes:['Ronds','En amande'],mouthShapes:['Fine','Pulpeuse'],noses:['Petit','Droit','Large'],bodies:['Très mince','Normale','En surpoids','Obèse'],hairF:{kinky:'Crépus',curly:'Bouclés',long:'Lisses longs',bob:'Carré lisse',bun:'Chignon'},hairM:{mlong:'Longs',mshort:'Courts',braids:'Tresses afro'},random:'Au hasard',save:'Sauver',load:'Charger',empty:'Emplacement vide',auto:'Sauvegarde auto',slot:'Emplacement',close:'Fermer',music:'Musique',sfxl:'Effets sonores',lang:'Langue',speed:'Vitesse du texte',speeds:['Lente','Normale','Rapide'],resume:'Reprendre',mainmenu:'Menu principal',paused:'Pause',saved:'Partie sauvegardée',major:'✦ Choix important ✦',choose:'Que fais-tu ?',conseq:'Ce choix aura des conséquences…',likes:'♥ {n} a apprécié',dislikes:'{n} n\'a pas apprécié',repUp:'Réputation +',repDown:'Réputation −',bessUp:'♥ Bess vous apprécie',endT:'Fin du chapitre 1',rel:'Relations',rep:'Réputation',majors:'Tes choix importants',ch2:'Le chapitre 2 arrive bientôt…',replay:'Rejouer le chapitre',tapc:'Touche pour continuer',noSave:'Aucune sauvegarde pour le moment.',summary:'Pronoms {p} · attiré·e par {a}',cards:'Tenue'},
+en:{title:'The Love Chronicles',sub:'A Regency romance',cont:'Continue',newg:'New game',saves:'Saves',opts:'Settings',ver:'Prototype · Chapter 1',confirmNew:'Your current game will be erased. Start a new story?',yes:'Yes, start over',no:'Cancel',back:'Back',next:'Next',start:'Begin',stepT:{id:'Who are you?',look:'Choose your character',app:'Your appearance',out:'Your outfit',sum:'Ready for the ball?'},first:'First name',last:'Surname',pron:'Pronouns',pres:'Presentation',attr:'You are attracted to',men:'Men',women:'Women',fem:'Feminine',masc:'Masculine',prons:['He','She','They'],final:'These choices are final: they can\'t be changed once the story begins.',needName:'Choose a first name and a surname.',tabs:['Skin','Hairstyle','Colour','Eyes','Nose','Mouth','Body'],shape:'Shape',color:'Colour',eyeShapes:['Round','Almond'],mouthShapes:['Thin','Full'],noses:['Small','Straight','Wide'],bodies:['Very slim','Average','Overweight','Obese'],hairF:{kinky:'Coily',curly:'Curly',long:'Long & straight',bob:'Straight bob',bun:'Bun'},hairM:{mlong:'Long',mshort:'Short',braids:'Afro braids'},random:'Random',save:'Save',load:'Load',empty:'Empty slot',auto:'Autosave',slot:'Slot',close:'Close',music:'Music',sfxl:'Sound effects',lang:'Language',speed:'Text speed',speeds:['Slow','Normal','Fast'],resume:'Resume',mainmenu:'Main menu',paused:'Paused',saved:'Game saved',major:'✦ Important choice ✦',choose:'What do you do?',conseq:'This choice will have consequences…',likes:'♥ {n} liked that',dislikes:'{n} didn\'t like that',repUp:'Reputation +',repDown:'Reputation −',bessUp:'♥ Bess likes you',endT:'End of Chapter 1',rel:'Relationships',rep:'Reputation',majors:'Your important choices',ch2:'Chapter 2 is coming soon…',replay:'Replay chapter',tapc:'Tap to continue',noSave:'No saves yet.',summary:'Pronouns {p} · attracted to {a}',cards:'Outfit'}};
+const tr=k=>T[OPT.lang][k];
+const L2=a=>Array.isArray(a)?a[OPT.lang=='en'?1:0]:(a||'');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- characters ---------- */
+const OUT_F=[{n:['Bleu Bridgerton','Bridgerton blue'],fill:'#a9c9ee',sleeve:'#c3daf4',trim:'#ffffff',acc:'pearls'},{n:['Rose poudré','Powder rose'],fill:'#f2b5c6',sleeve:'#f7cad6',trim:'#d9b25c',acc:'flowers'},{n:['Émeraude','Emerald'],fill:'#3e8a6a',sleeve:'#5aa383',trim:'#e3c46b',acc:'pendant'}];
+const OUT_M=[{n:['Bleu nuit','Midnight blue'],coat:'#24305c',vest:'#c9a54b',btn:'#f2d67a'},{n:['Bordeaux','Burgundy'],coat:'#6a1f30',vest:'#efe3c6',btn:'#d4af37'}];
+const PRE={f:[
+ {src:'assets/f1.webp',w:843,h:1453,eye:[308,203,58],waist:.4},
+ {src:'assets/f2.webp',w:842,h:1496,eye:[307,178,70],waist:.4},
+ {src:'assets/f3.webp',w:833,h:1500,eye:[303,186,60],waist:.4},
+ {src:'assets/f4.webp',w:842,h:1483,eye:[318,186,60],waist:.4},
+ {src:'assets/f5.webp',w:843,h:1451,eye:[311,203,60],waist:.4}],m:[
+ {src:'assets/m1.webp',w:567,h:1465,eye:[208,88,50],waist:.4},
+ {src:'assets/m2.webp',w:579,h:1455,eye:[221,116,50],waist:.4},
+ {src:'assets/m3.webp',w:464,h:1163,eye:[174,105,40],waist:.4},
+ {src:'assets/m4.webp',w:579,h:1458,eye:[222,87,52],waist:.4}]};
+const PICS={
+ father:{src:'assets/father.webp',w:321,h:930,eye:[116,74,24],waist:.42},
+ mother:{src:'assets/mother.webp',w:735,h:1100,eye:[367,115,50],waist:.44},
+ edmund:{src:'assets/edmund.webp',w:567,h:1475,eye:[204,171,65],waist:.4},
+ rosalind:{src:'assets/rosalind.webp',w:430,h:1164,eye:[172,117,38],waist:.4},
+ mateo:{src:'assets/mateo.webp',w:464,h:1161,eye:[181,104,38],waist:.4},
+ nell:{src:'assets/nell.webp',w:429,h:1166,eye:[172,117,38],waist:.4},
+ guard:{src:'assets/guard.webp',w:529,h:1500,eye:[276,180,45],waist:.38},
+ duchess:{src:'assets/duchess.webp',w:1184,h:1500,eye:[345,150,54],waist:.42},
+ prudence:{src:'assets/prudence.webp',w:884,h:1499,eye:[324,180,60],waist:.4},
+ peregrine:{src:'assets/peregrine.webp',w:894,h:1500,eye:[357,180,60],waist:.4},
+ perceval:{src:'assets/perceval.webp',w:495,h:1461,eye:[233,126,54],waist:.4},
+ philippe:{src:'assets/philippe.webp',w:507,h:1500,eye:[215,156,50],waist:.4},
+ queen:{src:'assets/queen.webp',w:1447,h:1500,eye:[423,156,48],waist:.42},
+ bess:{src:'assets/bess.webp',w:644,h:1500,eye:[270,165,48],waist:.42}};
+const preOf=P=>(PRE[P.body]&&PRE[P.body].length&&P.look!=null)?PRE[P.body][P.look]:null;
+const MASKSVG=(fill,trim)=>`<svg viewBox="-65 -26 130 52"><path fill-rule="evenodd" d="M-65 -4 C-58 -26 -12 -24 0 -10 C12 -24 58 -26 65 -4 C58 20 14 22 0 10 C-14 22 -58 20 -65 -4 Z M-39 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z M11 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z" fill="${fill}" stroke="${trim}" stroke-width="2"/><path d="M58 -10 C76 -30 74 -48 60 -60 C64 -40 60 -22 58 -10 Z" fill="${trim}" opacity=".9" transform="scale(.8)"/></svg>`;
+function picHTML(pr,mask){return `<img src="${mask&&pr.msrc?pr.msrc:pr.src}" alt="" draggable="false">`}
+let S=null;
+function mcArt(P,outfit){return {sex:P.body,skin:P.skin,hair:P.hair,hc:ART.HAIRC[P.hc],es:P.es,ec:ART.EYEC[P.ec],nose:P.nose,mouth:P.mouth,lip:ART.LIPC[P.lip],body:P.bt,out:(P.body=='f'?OUT_F:OUT_M)[outfit??P.outfit]}}
+function charDef(id){
+ const P=S.p,twm=P.body=='m',am=P.attr=='m',mk=S.masked;
+ switch(id){
+ case 'mc':{const pr=preOf(P);if(pr)return {img:pr,acc:{mask:mk?'#fff3f6':null}};return {p:mcArt(P),acc:{mask:mk?'#fff3f6':null}}}
+ case 'father':return {img:PICS.father,acc:{}};
+ case 'father_old':return {p:{sex:'m',skin:0,hair:'mshort',hc:'#b8b1aa',es:0,ec:'#3d6fa8',nose:1,mouth:0,lip:'#c98a88',body:2,age:1,out:{coat:'#34363f',vest:'#8a1f2a',btn:'#d4af37'}},acc:{side:1}};
+ case 'mother':return {img:PICS.mother,acc:{}};
+ case 'mother_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#7a4a2a',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#b0646e',body:1,age:1,out:{fill:'#8a9cc6',sleeve:'#a6b5d8',trim:'#f1ede4',acc:'pearls'}},acc:{}};
+ case 'bess_old':return {p:{sex:'f',skin:1,hair:'bun',hc:'#a8502b',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#d77b80',body:2,out:{fill:'#77708a',sleeve:'#8d86a0',trim:'#fbf8f2',apron:1}},acc:{cap:1,freck:1}};
+ case 'duchess':return {img:PICS.duchess,acc:{}};
+ case 'queen':return {img:PICS.queen,acc:{}};
+ case 'bess':return {img:PICS.bess,acc:{}};
+ case 'guard':return {img:PICS.guard,acc:{}};
+ case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
+ case 'duchess_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#cfc8c2',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#a8606a',body:1,age:1,out:{fill:'#6d3d8a',sleeve:'#87579f',trim:'#e6c66a',acc:'jewels'}},acc:{tiara:1}};
+ case 'twinA':return {img:twm?PICS.perceval:PICS.prudence,acc:{}};
+ case 'twinA_old':return twm?{p:{sex:'m',skin:0,hair:'mshort',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:0,out:{coat:'#93bf2e',vest:'#ff8a3d',btn:'#fff176',cravat:'#ffe0ee'}},acc:{freck:1}}:{p:{sex:'f',skin:0,hair:'kinky',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:0,out:{fill:'#b5d334',sleeve:'#d0e86a',trim:'#ff8a3d',acc:'flowers'}},acc:{plume:1,freck:1}};
+ case 'twinB':return {img:twm?PICS.philippe:PICS.peregrine,acc:{}};
+ case 'twinB_old':return twm?{p:{sex:'m',skin:0,hair:'mlong',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:2,out:{coat:'#ff8a3d',vest:'#9bc33a',btn:'#fff176',cravat:'#e8f7ff'}},acc:{freck:1}}:{p:{sex:'f',skin:0,hair:'bun',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:2,out:{fill:'#ff9a3d',sleeve:'#ffb86b',trim:'#b5d334',acc:'pearls'}},acc:{plume:1,freck:1}};
+ case 'li1':return {img:am?PICS.edmund:PICS.rosalind,acc:{mask:mk?(am?'#1b2a4a':'#efe4fa'):null}};
+ case 'li1_old':return am?{p:{sex:'m',skin:0,hair:'mshort',hc:'#7a4f2e',es:0,ec:'#3d6fa8',nose:1,mouth:0,lip:'#c98a88',body:1,out:{coat:'#1f4a3c',vest:'#e9dcc0',btn:'#d4af37'}},acc:{mask:mk?'#1b2a4a':null}}:{p:{sex:'f',skin:0,hair:'long',hc:'#100c0c',es:1,ec:'#3a2418',nose:0,mouth:1,lip:'#c0525e',body:1,out:{fill:'#c8b6e8',sleeve:'#ddd0f2',trim:'#ffffff',acc:'pearls'}},acc:{tiara:mk?0:1,mask:mk?'#efe4fa':null,trim:'#b9b9cc'}};
+ case 'li2':return {img:am?PICS.mateo:PICS.nell,acc:{mask:am?'#151515':'#ffffff'}};
+ case 'li2_old':return am?{p:{sex:'m',skin:2,hair:'mlong',hc:'#2e1c12',es:0,ec:'#4e2f1c',nose:1,mouth:1,lip:'#a8606a',body:1,out:{coat:'#4f4636',vest:'#a88a5a',btn:'#8a8a8a',cravat:'#ece6d6'}},acc:{mask:'#151515',trim:'#c0c0c8',feather:'#555'}}:{p:{sex:'f',skin:0,hair:'curly',hc:'#e0bd70',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#e8a19c',body:1,out:{fill:'#e8d7b5',sleeve:'#f2e6cc',trim:'#c9a46a'}},acc:{mask:'#ffffff',feather:'#f2b5c6'}};
+ case 'guard_old':return {p:{sex:'m',skin:1,hair:'mshort',hc:'#43281a',es:0,ec:'#4e2f1c',nose:2,mouth:0,lip:'#c98a88',body:2,out:{coat:'#b3262f',vest:'#f0e6d0',btn:'#d9b54a',belts:1}},acc:{shako:1,side:1}};
+ }}
+const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f'};
+const tw=()=>S.p.body=='m'?[OPT.lang=='en'?'Percival':'Perceval','Philippe']:['Prudence',OPT.lang=='en'?'Peregrine':'Pérégrine'];
+const li1n=()=>S.p.attr=='m'?'Edmund':'Rosalind';
+const li2n=()=>OPT.lang=='en'?'Masked stranger':(S.p.attr=='m'?'L\'inconnu masqué':'L\'inconnue masquée');
+function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard'])}[id]||''}
+function fmt(s){const P=S.p,en=OPT.lang=='en',gi={m:0,f:1,n:2}[P.pron],ai=P.attr=='m'?0:1,ti=P.body=='m'?0:1;
+ return s.replace(/\{(\w+)(?::([^}]*))?\}/g,(m,k,a)=>{
+  if(a!=null){const p=a.split('|'),i=k=='g'?gi:k=='a'?ai:ti;return p[Math.min(i,p.length-1)]}
+  switch(k){case 'first':return P.first;case 'last':return P.last;case 'e':return en?'':['','e','·e'][gi];
+   case 'title':return en?[`Mr ${P.last}`,`Miss ${P.last}`,`${P.first} ${P.last}`][gi]:[`Monsieur ${P.last}`,`Mademoiselle ${P.last}`,`${P.first} ${P.last}`][gi];
+   case 'li1':return li1n();case 'li1full':return P.attr=='m'?'Lord Edmund Ashbury':'Lady Rosalind Ashbury';case 'li2':return li2n();case 'tA':return tw()[0];case 'tB':return tw()[1]}return m})}
+
+/* ---------- audio ---------- */
+let AC=null,MG,SG,curM=null,want=null,nextT=0,stepN=0;
+function initAudio(){if(AC)return;try{AC=new(window.AudioContext||window.webkitAudioContext)();MG=AC.createGain();const lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2600;MG.connect(lp);lp.connect(AC.destination);SG=AC.createGain();SG.connect(AC.destination);setVol();setInterval(tick,90);if(want){const w=want;want=null;setMusic(w)}}catch(e){AC=null}}
+document.addEventListener('pointerdown',()=>{initAudio();if(AC&&AC.state=='suspended')AC.resume().catch(()=>{})},true);
+document.addEventListener('keydown',()=>{initAudio()},true);
+function setVol(){if(!AC)return;MG.gain.value=OPT.mus/100*.16;SG.gain.value=OPT.sfx/100*.3}
+const mf=m=>440*Math.pow(2,(m-69)/12);
+function note(m,t,d,v,dest,type){const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=mf(m);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.008);g.gain.exponentialRampToValueAtTime(.0005,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.05)}
+function pluck(m,t,d,v){note(m,t,d,v,MG,'triangle');note(m,t,d*.5,v*.2,MG,'square')}
+const MUS={calm:{bpm:84,b:8,ch:[[55,59,62],[52,55,59],[48,52,55],[50,54,57]]},ball:{bpm:132,b:3,ch:[[62,66,69],[57,61,64],[59,62,66],[55,59,62]]},mystery:{bpm:64,b:8,ch:[[57,60,64],[53,57,60],[50,53,57],[52,56,59]]}};
+const MEL=[[2,1,0],[1,2,1],[0,1,2],[2,0,1]];
+function tick(){if(!AC||!curM)return;const m=MUS[curM],spb=60/m.bpm;
+ while(nextT<AC.currentTime+.3){const t=nextT;
+  if(m.b==8){const bar=Math.floor(stepN/8)%4,e=stepN%8,c=m.ch[bar],seq=[c[0],c[1],c[2],c[0]+12,c[2],c[1],c[2]+12,c[1]];pluck(seq[e]+12,t,1.1,curM=='mystery'?.28:.35);if(e==0||e==4)note(c[0]-12,t,1.8,.5,MG,'sine');nextT+=spb/2}
+  else{const bar=Math.floor(stepN/3)%4,b=stepN%3,c=m.ch[bar];if(b==0)note(c[0]-12,t,1,.55,MG,'sine');else c.forEach(x=>pluck(x,t,.35,.12));pluck(c[MEL[bar][b]]+12,t,.5,.32);nextT+=spb}
+  stepN++}}
+function setMusic(n){if(!AC){want=n;return}if(curM===n)return;curM=n;stepN=0;nextT=AC.currentTime+.2}
+function sfx(k){if(!AC||!OPT.sfx)return;const t=AC.currentTime;const P={click:[[84,0,.08]],choice:[[76,0,.18],[83,.08,.3]],major:[[72,0,.3],[76,.09,.3],[79,.18,.3],[84,.27,.6]],heart:[[88,0,.2],[91,.07,.3]]}[k];P.forEach(([m,d,l])=>note(m,t+d,l,.45,SG,'sine'))}
+
+/* ---------- screens ---------- */
+let screen='menu';
+function show(n){screen=n;document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id==n));if(n!='game')setMusic('calm')}
+let menuBgDone=false;
+function renderMenu(){if(!menuBgDone){$('mbg').innerHTML=ART.bg('ball');menuBgDone=true}
+ $('mTitle').textContent=tr('title');$('mSub').textContent=tr('sub');document.documentElement.lang=OPT.lang;
+ const has=!!saves().auto;
+ $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">${tr('ver')}</div>`}
+$('mList').addEventListener('click',e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;sfx('click');
+ if(a=='cont'){loadState(saves().auto)}
+ if(a=='new'){if(saves().auto)confirmBox(tr('confirmNew'),()=>{const sv=saves();delete sv.auto;store.set('ssl_saves',sv);startCreate()});else startCreate()}
+ if(a=='saves')savesModal(false);if(a=='opts')optsModal()});
+
+/* ---------- modal helpers ---------- */
+function modal(html,cls=''){$('sheet').className='sheet '+cls;$('sheet').innerHTML=html;$('modal').classList.add('on')}
+function closeModal(){$('modal').classList.remove('on')}
+$('modal').addEventListener('click',e=>{if(e.target.id=='modal'&&!$('sheet').classList.contains('end'))closeModal()});
+function confirmBox(msg,ok){modal(`<h3>${tr('newg')}</h3><p style="text-align:center">${esc(msg)}</p><div class="stack"><button class="btn pri" id="mOk">${tr('yes')}</button><button class="btn" id="mNo">${tr('no')}</button></div>`);$('mOk').onclick=()=>{closeModal();ok()};$('mNo').onclick=closeModal}
+const saves=()=>store.get('ssl_saves')||{};
+function savesModal(canSave){const sv=saves();const keys=canSave?['s1','s2','s3']:['auto','s1','s2','s3'];
+ const row=k=>{const s=sv[k];const nm=k=='auto'?tr('auto'):`${tr('slot')} ${k.slice(1)}`;
+  return `<div class="slot"><div><b>${nm}</b><span>${s?esc(s.p.first+' '+s.p.last)+' · '+esc(L2(s.where)||'')+'<br>'+new Date(s.ts).toLocaleString(OPT.lang):tr('empty')}</span></div><div class="acts">${canSave?`<button data-s="${k}">${tr('save')}</button>`:''}${s?`<button class="${canSave?'alt':''}" data-l="${k}">${tr('load')}</button>`:''}</div></div>`};
+ modal(`<h3>${tr('saves')}</h3><div class="stack">${keys.map(row).join('')}<button class="btn" id="mClose">${tr('close')}</button></div>`);
+ $('mClose').onclick=closeModal;
+ $('sheet').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const v=saves();v[b.dataset.s]=snap();store.set('ssl_saves',v);toast(tr('saved'));savesModal(true)});
+ $('sheet').querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{closeModal();loadState(saves()[b.dataset.l])})}
+function optsModal(){
+ modal(`<h3>${tr('opts')}</h3><div class="stack"><div><span class="lab">${tr('music')}</span><div class="rng"><input type="range" min="0" max="100" id="oMus" value="${OPT.mus}"><b id="oMusV">${OPT.mus}</b></div></div>
+ <div><span class="lab">${tr('sfxl')}</span><div class="rng"><input type="range" min="0" max="100" id="oSfx" value="${OPT.sfx}"><b id="oSfxV">${OPT.sfx}</b></div></div>
+ <div><span class="lab">${tr('lang')}</span><div class="seg" id="oLang"><button data-v="fr" class="${OPT.lang=='fr'?'on':''}">Français</button><button data-v="en" class="${OPT.lang=='en'?'on':''}">English</button></div></div>
+ <div><span class="lab">${tr('speed')}</span><div class="seg" id="oSpd">${tr('speeds').map((s,i)=>`<button data-v="${i}" class="${OPT.speed==i?'on':''}">${s}</button>`).join('')}</div></div>
+ <button class="btn pri" id="mClose">${tr('close')}</button></div>`);
+ $('oMus').oninput=e=>{OPT.mus=+e.target.value;$('oMusV').textContent=OPT.mus;setVol();saveOpt()};
+ $('oSfx').oninput=e=>{OPT.sfx=+e.target.value;$('oSfxV').textContent=OPT.sfx;setVol();saveOpt()};
+ $('oSfx').onchange=()=>sfx('choice');
+ $('oLang').onclick=e=>{const v=e.target.dataset.v;if(!v)return;OPT.lang=v;saveOpt();relang();optsModal()};
+ $('oSpd').onclick=e=>{const v=e.target.dataset.v;if(v==null)return;OPT.speed=+v;saveOpt();optsModal()};
+ $('mClose').onclick=closeModal}
+function relang(){document.documentElement.lang=OPT.lang;renderMenu();if(screen=='create')renderCreate();if(screen=='game'&&S){$('where').textContent=L2(S.where);if(mode=='line'){showLine(STORY[S.i]);finishType()}else if(mode=='choice')showChoice(STORY[S.i].ch)}}
+
+/* ---------- creation ---------- */
+let P=null,cstep=0,ctab=0,cerr='';
+function startCreate(){P={look:0,first:'',last:'',pron:'f',body:'f',attr:'m',skin:1,hair:'long',hc:1,es:0,ec:0,nose:0,mouth:1,lip:0,bt:1,outfit:0};cstep=0;ctab=0;cerr='';show('create');renderCreate()}
+const seg=(key,vals,labels)=>`<div class="seg" data-k="${key}">${vals.map((v,i)=>`<button data-v="${v}" class="${P[key]==v?'on':''}">${labels[i]}</button>`).join('')}</div>`;
+const chips=(key,vals,labels)=>`<div class="chips" data-k="${key}">${vals.map((v,i)=>`<button data-v="${v}" class="${P[key]==v?'on':''}">${labels[i]}</button>`).join('')}</div>`;
+const sws=(key,cols)=>`<div class="sw" data-k="${key}">${cols.map((c,i)=>`<button data-v="${i}" aria-label="${i+1}" style="background:${c}" class="${P[key]==i?'on':''}"></button>`).join('')}</div>`;
+function hairOpts(){return P.body=='f'?T[OPT.lang].hairF:T[OPT.lang].hairM}
+function preview(o){return ART.draw(mcArt(P,o),'h',{})}
+function tabPanel(){const t=tr;switch(ctab){
+ case 0:return sws('skin',ART.SKINS);
+ case 1:{const h=hairOpts();return chips('hair',Object.keys(h),Object.values(h))}
+ case 2:return sws('hc',ART.HAIRC);
+ case 3:return `<span class="lab">${t('shape')}</span>${chips('es',[0,1],t('eyeShapes'))}<span class="lab" style="margin-top:12px">${t('color')}</span>${sws('ec',ART.EYEC)}`;
+ case 4:return chips('nose',[0,1,2],t('noses'));
+ case 5:return `<span class="lab">${t('shape')}</span>${chips('mouth',[0,1],t('mouthShapes'))}<span class="lab" style="margin-top:12px">${t('color')}</span>${sws('lip',ART.LIPC)}`;
+ case 6:return chips('bt',[0,1,2,3],t('bodies'));}}
+const steps=()=>PRE[P.body].length?['id','look','sum']:['id','app','out','sum'];
+function renderCreate(){const t=tr,SL=steps(),sid=SL[cstep];$('cTitle').textContent=t('stepT')[sid];$('cDots').innerHTML=SL.map((x,i)=>`<i class="${i<=cstep?'on':''}"></i>`).join('');
+ $('cBack').textContent=t('back');$('cNext').textContent=sid=='sum'?t('start'):t('next');
+ let h='';const pr=preOf(P);
+ if(sid=='id')h=`<div class="fld"><label for="fFirst">${t('first')}</label><input id="fFirst" maxlength="16" autocomplete="off" value="${esc(P.first)}"></div><div class="fld"><label for="fLast">${t('last')}</label><input id="fLast" maxlength="18" autocomplete="off" value="${esc(P.last)}"></div>
+  <div class="fld"><span class="lab">${t('pron')}</span>${seg('pron',['f','m','n'],[t('prons')[1],t('prons')[0],t('prons')[2]])}</div>
+  <div class="fld"><span class="lab">${t('pres')}</span>${seg('body',['f','m'],[t('fem'),t('masc')])}</div>
+  <div class="fld"><span class="lab">${t('attr')}</span>${seg('attr',['m','f'],[t('men'),t('women')])}</div>
+  <div class="note">${t('final')}</div><div class="err">${cerr}</div>`;
+ if(sid=='look')h=`<div class="looks">${PRE[P.body].map((x,i)=>`<button data-look="${i}" class="${P.look==i?'on':''}" aria-label="${i+1}"><img src="${x.src}" alt=""></button>`).join('')}</div>`;
+ if(sid=='app')h=`<div class="prev" id="pv">${preview()}</div><div class="tabs" id="tabs">${t('tabs').map((x,i)=>`<button data-t="${i}" class="${i==ctab?'on':''}">${x}</button>`).join('')}<button data-t="r">${t('random')}</button></div><div id="panel">${tabPanel()}</div>`;
+ if(sid=='out'){const L=P.body=='f'?OUT_F:OUT_M;h=`<div class="outs">${L.map((o,i)=>`<button data-o="${i}" class="${P.outfit==i?'on':''}"><div class="pv">${preview(i)}</div>${L2(o.n)}</button>`).join('')}</div>`}
+ if(sid=='sum'){const prn=t('prons')[{m:0,f:1,n:2}[P.pron]],at=P.attr=='m'?t('men'):t('women');h=`<div class="prev${pr?' full':''}">${pr?`<img src="${pr.src}" alt="">`:preview()}</div><div class="sum"><b class="serif" style="font-size:24px">${esc(P.first)} ${esc(P.last)}</b><br>${t('summary').replace('{p}',prn).replace('{a}',at.toLowerCase())}${pr?'':`<br>${t('cards')} : ${L2((P.body=='f'?OUT_F:OUT_M)[P.outfit].n)}`}</div><div class="note">${t('final')}</div>`}
+ $('cBody').innerHTML=h;$('cBody').scrollTop=0;
+ if(sid=='id'){$('fFirst').oninput=e=>P.first=e.target.value.trim();$('fLast').oninput=e=>P.last=e.target.value.trim()}}
+$('cBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;sfx('click');
+ const box=b.parentElement;
+ if(b.dataset.t!=null){if(b.dataset.t=='r'){const r=n=>Math.floor(Math.random()*n);const hk=Object.keys(hairOpts());Object.assign(P,{skin:r(5),hair:hk[r(hk.length)],hc:r(6),es:r(2),ec:r(5),nose:r(3),mouth:r(2),lip:r(5),bt:r(4)})}else ctab=+b.dataset.t;
+  $('pv').innerHTML=preview();$('tabs').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.t==String(ctab)));$('panel').innerHTML=tabPanel();return}
+ if(b.dataset.o!=null){P.outfit=+b.dataset.o;renderCreate();return}
+ if(b.dataset.look!=null){P.look=+b.dataset.look;b.parentElement.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x==b));return}
+ const k=box.dataset.k;if(!k)return;let v=b.dataset.v;if(!['pron','body','attr','hair'].includes(k))v=+v;
+ P[k]=v;if(k=='body'){P.hair=v=='m'?'mshort':'long';P.outfit=0;P.look=0}
+ if(steps()[cstep]=='app'){$('pv').innerHTML=preview();$('panel').innerHTML=tabPanel()}else box.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v==String(v)))});
+$('cBack').onclick=()=>{sfx('click');if(cstep==0){show('menu');renderMenu()}else{cstep--;renderCreate()}};
+$('cNext').onclick=()=>{sfx('click');if(cstep==0&&(!P.first||!P.last)){cerr=tr('needName');renderCreate();return}cerr='';
+ if(cstep<steps().length-1){cstep++;renderCreate();return}
+ S=newState(JSON.parse(JSON.stringify(P)));startGame()};
+
+/* ---------- engine ---------- */
+STORY.splice(0,STORY.length,...STORY.flat(9));
+const LBL={};STORY.forEach((n,i)=>{if(n.lb)LBL[n.lb]=i});
+function newState(p){return {p,i:0,v:{li1:0,li2:0,rep:0,bess:0},f:{},bg:null,mus:null,st:[],ex:{},masked:false,where:null,maj:[],ts:Date.now()}}
+const snap=()=>Object.assign(JSON.parse(JSON.stringify(S)),{ts:Date.now()});
+function autosave(){const v=saves();v.auto=snap();store.set('ssl_saves',v)}
+let mode=null,curBg=null,front='A';
+function loadState(s){if(!s)return;S=JSON.parse(JSON.stringify(s));startGame()}
+function startGame(){closeModal();show('game');curBg=null;$('stage').innerHTML='';$('choices').className='';$('box').className='hide';
+ ['card','item'].forEach(x=>$(x).classList.remove('on'));if(S.bg)setBg(S.bg,1);if(S.mus)setMusic(S.mus);$('where').textContent=L2(S.where);run()}
+function setBg(name,instant){if(curBg===name)return;curBg=name;const a=$('bgA'),b=$('bgB'),[on,off]=front=='A'?[b,a]:[a,b];on.innerHTML=ART.bg(name);
+ if(instant){on.style.transition=off.style.transition='none'}on.style.opacity=1;off.style.opacity=0;front=front=='A'?'B':'A';
+ if(instant)requestAnimationFrame(()=>requestAnimationFrame(()=>{on.style.transition=off.style.transition=''}))}
+function run(){for(let g=0;g<400;g++){const n=STORY[S.i];if(!n)return;
+ if(n.bg){if(S.bg!==n.bg)S.ex={};S.bg=n.bg;setBg(n.bg);if(n.mus){S.mus=n.mus;setMusic(n.mus)}if('mask' in n)S.masked=!!n.mask;if(n.where){S.where=n.where;$('where').textContent=L2(n.where)}
+  if(n.card){mode='card';$('box').classList.add('hide');renderStage([],null);$('cardT').textContent=L2(n.card);$('cardS').textContent=L2(n.sub);$('card').classList.add('on');autosave();clearTimeout(cardT);cardT=setTimeout(endCard,2800);return}S.i++;continue}
+ if(n.st){S.st=n.st;S.i++;continue}
+ if('mask' in n){S.masked=!!n.mask;S.i++;continue}
+ if(n.lb){S.i++;continue}
+ if(n.if){S.i=S.f[n.if]?LBL[n.go]:S.i+1;continue}
+ if(n.go){S.i=LBL[n.go];continue}
+ if(n.fx){applyFx(n.fx);S.i++;continue}
+ if(n.sp){mode='line';showLine(n);autosave();return}
+ if(n.ch){mode='choice';showChoice(n.ch);autosave();return}
+ if(n.item){mode='item';showItem();return}
+ if(n.end){mode='end';autosave();showEnd();return}
+ S.i++}}
+let cardT=0;function endCard(){if(mode!='card')return;clearTimeout(cardT);$('card').classList.remove('on');S.i++;run()}
+$('card').onclick=endCard;
+const svgCache=new Map();
+function renderStage(st,speaker){const el=$('stage'),pres=new Set(st);
+ [...el.children].forEach(c=>{if(!pres.has(c.dataset.id)){c.classList.remove('in');c.dataset.id='_';setTimeout(()=>c.remove(),420)}});
+ st.forEach((id,k)=>{let c=[...el.children].find(x=>x.dataset.id==id);
+  if(!c){c=document.createElement('div');c.className='ch';c.dataset.id=id;el.appendChild(c);requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}
+  const d=charDef(id),ex=S.ex[id]||'n',key=id+ex+(d.acc.mask||'')+(id=='mc'?JSON.stringify(S.p):'')+S.p.attr+S.p.body;
+  if(c.dataset.key!==key){if(d.img){c.classList.add('pic');c.style.setProperty('--ar',d.img.w+'/'+d.img.h);c.style.setProperty('--ax',(d.img.eye[0]/d.img.w*100)+'%');c.style.height=(72/(d.img.waist||.4))+'%';c.style.top='3%';c.innerHTML=picHTML(d.img,d.acc.mask)}else{c.classList.remove('pic');c.style.height='';c.style.top='';if(!svgCache.has(key))svgCache.set(key,ART.draw(d.p,ex,d.acc));c.innerHTML=svgCache.get(key)}c.dataset.key=key}
+  c.style.left=st.length==1?'50%':(k?'71%':'29%');c.classList.toggle('on',id===speaker)})}
+let tmr=0,full='',typing=false;
+function showLine(n){$('choices').className='';$('veil').classList.remove('on');
+ let st=S.st.slice();if(n.sp!='n'&&!st.includes(n.sp))st=[n.sp];if(n.ex)S.ex[n.sp]=n.ex;renderStage(st,n.sp=='n'?null:n.sp);
+ const txt=fmt(L2([n.fr,n.en])),b=$('box');b.className=n.sp=='n'?'narr':(txt.startsWith('(')?'th':'');
+ const tg=$('tag');tg.textContent=n.sp=='n'?'':nameOf(n.sp);tg.style.background=TAGC[n.sp]||'';type(txt)}
+function type(s){clearInterval(tmr);full=s;let i=0;typing=true;$('box').classList.remove('done');$('txt').textContent='';const sp=[42,22,7][OPT.speed];
+ tmr=setInterval(()=>{i+=OPT.speed==2?3:1;$('txt').textContent=full.slice(0,i);if(i>=full.length)finishType()},sp)}
+function finishType(){clearInterval(tmr);$('txt').textContent=full;typing=false;$('box').classList.add('done')}
+function advance(){if(mode!='line')return;if(typing){finishType();return}sfx('click');S.i++;run()}
+$('game').addEventListener('click',e=>{if(e.target.closest('#choices,#top,#card,#item'))return;advance()});
+document.addEventListener('keydown',e=>{if(screen!='game'||$('modal').classList.contains('on'))return;if(e.key==' '||e.key=='Enter'){e.preventDefault();if(mode=='card')endCard();else if(mode=='item')endItem();else advance()}});
+function showChoice(ch){$('box').className='hide';$('veil').classList.add('on');
+ let st=S.st.slice();if(!st.includes('mc'))st=st.length>1?[st[0],'mc']:[...st,'mc'];renderStage(st,'mc');
+ const c=$('choices');c.className='on'+(ch.major?' major':'');
+ c.innerHTML=`<div class="hd">${ch.major?tr('major'):tr('choose')}</div>`+ch.o.map((o,k)=>`<button class="opt" data-k="${k}" style="animation-delay:${k*.07}s">${esc(fmt(L2(o.t)))}</button>`).join('');
+ if(ch.major)sfx('major')}
+$('choices').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||mode!='choice')return;const ch=STORY[S.i].ch,o=ch.o[+b.dataset.k];
+ mode=null;sfx('choice');$('choices').className='';$('veil').classList.remove('on');
+ if(o.set)S.f[o.set]=1;applyFx(o.fx);if(ch.major){S.maj.push(o.t);toast(tr('conseq'))}
+ S.i=LBL[o.go];run()});
+function applyFx(fx){for(const k in fx){S.v[k]=(S.v[k]||0)+fx[k];const v=fx[k];
+ if(k=='li1')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li1n()),v>0);
+ if(k=='li2')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li2n()),v>0);
+ if(k=='rep')toast(v>0?tr('repUp'):tr('repDown'));
+ if(k=='bess'&&v>0)toast(tr('bessUp'),1)}}
+function toast(msg,heart){const d=document.createElement('div');d.textContent=msg;if(heart){d.className='heart';sfx('heart')}$('toast').appendChild(d);setTimeout(()=>d.remove(),2700)}
+function showItem(){const p=S.p;$('box').className='hide';const pr=preOf(p);if(pr){const [cx,cy,d]=pr.eye,s=120/(2.2*d);$('locket').innerHTML=`<img src="${pr.src}" alt="" style="position:absolute;height:${pr.h*s}px;left:${103-cx*s}px;top:${125-cy*s}px">`}else $('locket').innerHTML=ART.draw({sex:'f',skin:p.skin,hair:'bun',hc:ART.HAIRC[p.hc],es:p.es,ec:ART.EYEC[p.ec],nose:p.nose,mouth:p.mouth,lip:ART.LIPC[p.lip],body:1,out:{fill:'#8c5a7a',sleeve:'#a87394',trim:'#e8cf8a',acc:'pendant'}},'n',{});$('itemP').textContent=tr('tapc');$('item').classList.add('on')}
+function endItem(){if(mode!='item')return;$('item').classList.remove('on');S.i++;run()}
+$('item').onclick=endItem;
+function showEnd(){$('box').className='hide';const h=v=>{const n=Math.max(0,Math.min(5,Math.round(v)));return '♥'.repeat(n)+'♡'.repeat(5-n)};
+ modal(`<h3>${tr('endT')}</h3><p style="text-align:center;margin:0;font:italic 20px 'Cormorant Garamond',serif">${tr('ch2')}</p>
+ <span class="lab" style="margin-top:14px">${tr('rel')}</span><div class="hearts"><div class="row">${li1n()}<i>${h(S.v.li1)}</i></div><div class="row">${esc(li2n())}<i>${h(Math.max(0,S.v.li2+1))}</i></div><div class="row">${tr('rep')}<i>${h(S.v.rep+2)}</i></div></div>
+ <span class="lab">${tr('majors')}</span><ul>${S.maj.map(t=>`<li>${esc(fmt(L2(t)))}</li>`).join('')}</ul>
+ <div class="stack"><button class="btn pri" id="eRe">${tr('replay')}</button><button class="btn" id="eMenu">${tr('mainmenu')}</button></div>`,'end');
+ $('eRe').onclick=()=>{S=newState(S.p);startGame()};$('eMenu').onclick=()=>{closeModal();show('menu');renderMenu()}}
+$('pauseBtn').onclick=()=>{sfx('click');modal(`<h3>${tr('paused')}</h3><div class="stack"><button class="btn pri" id="pR">${tr('resume')}</button><button class="btn" id="pS">${tr('saves')}</button><button class="btn" id="pO">${tr('opts')}</button><button class="btn" id="pM">${tr('mainmenu')}</button></div>`);
+ $('pR').onclick=closeModal;$('pS').onclick=()=>savesModal(true);$('pO').onclick=optsModal;$('pM').onclick=()=>{autosave();closeModal();clearInterval(tmr);mode=null;show('menu');renderMenu()}};
+
+renderMenu();setMusic('calm');
+window.__dbg={get S(){return S},run,LBL,STORY};
+}
+
+</script>
+<script>try{if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}</script>
+</body>
+</html>
