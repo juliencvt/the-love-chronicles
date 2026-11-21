@@ -36,7 +36,7 @@ D('georgie','h',`Trois ducs, cinq comtes et un vicomte sans dettes. J'ai compté
 D('cordelia','h',`Vous serez la personne la plus regardée de la soirée, {title}. Profitez-en.`,`You'll be the most watched person of the evening, {title}. Enjoy it.`),
 N(`Son sourire est parfait. Peut-être un peu trop parfait.`,`Her smile is perfect. Perhaps a little too perfect.`),
 {st:['ladyp','lordp']},
-N(`Plus loin, Lady Pembroke rajuste les perles de sa fille et la pousse vers le groupe de la Duchesse. Droit vers {li1}. Lord Pembroke, lui, a déjà trouvé le buffet.`,`Further off, Lady Pembroke straightens her daughter's pearls and nudges her towards the Duchess's circle. Straight towards {li1}. Lord Pembroke, for his part, has already found the buffet.`),
+N(`Plus loin, Lady Pembroke rajuste les perles de Clem et de Cordelia, et les pousse vers le groupe de la Duchesse. Droit vers {li1}. Clem traîne des pieds. Cordelia, elle, ne se fait pas prier. Lord Pembroke, lui, a déjà trouvé le buffet.`,`Further off, Lady Pembroke straightens Clem's and Cordelia's pearls and nudges them towards the Duchess's circle. Straight towards {li1}. Clem drags her feet. Cordelia needs no encouragement. Lord Pembroke, for his part, has already found the buffet.`),
 {st:['theo','clem']},
 D('theo','n',`Iris de Valcourt est arrivée il y a une heure. Clem et moi, on ne la quitte pas des yeux.`,`Iris de Valcourt arrived an hour ago. Clem and I won't let her out of our sight.`),
 N(`L'orchestre attaque la première valse. Deux personnes s'avancent vers toi en même temps, du bout opposé de la salle.`,`The orchestra strikes up the first waltz. Two people walk towards you at the same time, from opposite ends of the room.`),
@@ -64,6 +64,7 @@ C('m13',1,[
 {bg:'ball',mus:'mystery',card:['Minuit sonne','Midnight Strikes'],sub:['',''],where:['La salle du trône','The throne room']},
 {st:['iris','mc']},
 N(`Au douzième coup de minuit, la musique s'arrête net. Une femme en noir traverse la salle et se plante devant le trône de la Reine.`,`On the twelfth stroke of midnight, the music stops dead. A woman in black crosses the room and plants herself before the Queen's throne.`),
+N(`En traversant la salle, elle frôle Cordelia. Leurs regards ne se croisent pas. Pas une seconde.`,`Crossing the room, she brushes past Cordelia. Their eyes never meet. Not for a second.`),
 D('iris','a',`Votre Majesté ! Je suis Iris de Valcourt. Je demande justice pour ma sœur, Isadora.`,`Your Majesty! I am Iris de Valcourt. I demand justice for my sister, Isadora.`),
 ...IF('letterIris',[
  D('iris','h',`Et j'ai la preuve. {first}, la lettre. Maintenant. Tu me l'as promise.`,`And I have the proof. {first}, the letter. Now. You promised it to me.`),
