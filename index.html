@@ -1294,35 +1294,51 @@ C('c6c',0,[
 ]),
 
 {top:1},
-{st:['mc']},
-N(`Des applaudissements éclatent derrière toi. Sous une tente rayée, une jeune femme en robe bouton-d'or applaudit à tout rompre.`,`Applause breaks out behind you. Under a striped marquee, a young woman in a buttercup-yellow gown is clapping wildly.`),
+{st:['clem','mc']},
+N(`Des applaudissements éclatent derrière toi. Sous une tente rayée, une jeune femme en robe vert d'eau applaudit à tout rompre.`,`Applause breaks out behind you. Under a striped marquee, a young woman in a sea-green gown is clapping wildly.`),
 ...IF('helpedTwin',[D('clem','h',`{t:Vous l'avez repêché|Vous l'avez repêchée} ? Quel dommage. Mais quelle classe !`,`You fished {t:him|her} out? What a shame. But what class!`)],[D('clem','h',`Bravo ! Dix ans que je rêve de voir {tA} prendre un bain dans la Tamise.`,`Bravo! I've dreamed for ten years of seeing {tA} take a bath in the Thames.`)]),
+{st:['theo','clem']},
 D('theo','s',`Clem. On n'applaudit pas les noyades.`,`Clem. One does not applaud drownings.`),
 D('clem','h',`Ce n'est pas une noyade, Théo. C'est de la justice poétique.`,`It isn't a drowning, Theo. It's poetic justice.`),
-N(`Le jeune homme qui l'accompagne a les mêmes yeux noisette et le même sourire en coin, en plus sérieux. Il s'incline.`,`The young man with her has the same hazel eyes and the same crooked smile, only more serious. He bows.`),
+N(`Le jeune homme qui l'accompagne a le même regard sombre et le même sourire en coin, en plus sérieux. Il s'incline.`,`The young man with her has the same dark eyes and the same crooked smile, only more serious. He bows.`),
 D('theo','n',`Lord Théodore Hartwell. Et voici ma sœur, Lady Clémentine, qui n'a jamais appris à se tenir. Pardonnez-la.`,`Lord Theodore Hartwell. And this is my sister, Lady Clementine, who never learned how to behave. Forgive her.`),
 D('clem','h',`Personne ne m'appelle Clémentine, à part ma tante et les huissiers. Appelez-moi Clem.`,`No one calls me Clementine except my aunt and the bailiffs. Call me Clem.`),
 D('clem','s',`Notre mère est fille d'un marchand de thé. Pour les jumeaux, nous sentons encore la boutique. Ils nous font vivre l'enfer depuis l'enfance.`,`Our mother is a tea merchant's daughter. To the twins, we still smell of the shop. They've made our lives hell since we were children.`),
 D('theo','n',`Ce qu'ils vous font subir depuis votre arrivée, nous connaissons par cœur. Alors nous nous sommes dit qu'il vous fallait des alliés.`,`What they've put you through since you arrived, we know by heart. So we thought you could use some allies.`),
-N(`Une troisième silhouette les rejoint : une jeune femme en robe lavande, d'une beauté de porcelaine, une ombrelle de dentelle à la main.`,`A third figure joins them: a young woman in lavender, with porcelain beauty and a lace parasol in hand.`),
+N(`Une troisième silhouette les rejoint : une jeune femme en robe violette, d'une beauté de porcelaine, une ombrelle de dentelle à la main.`,`A third figure joins them: a young woman in violet, with porcelain beauty and a lace parasol in hand.`),
+{st:['cordelia','clem']},
 D('cordelia','h',`Clem ! Je te cherche partout. Tu as encore semé ton chaperon ?`,`Clem! I've been looking everywhere for you. Did you lose your chaperone again?`),
 D('clem','h',`Cordelia Pembroke, mon amie depuis le berceau. La fille de Lady Pembroke, oui, celle-là même. Si vous voulez un secret de Londres, demandez à Cordelia : elle les connaît tous.`,`Cordelia Pembroke, my friend since the cradle. Lady Pembroke's daughter, yes, that very one. If you want a London secret, ask Cordelia: she knows them all.`),
 D('cordelia','h',`Clem exagère. Je les écoute, c'est tout. Ravie de vous rencontrer enfin, {title}. Tout Londres ne parle que de vous.`,`Clem exaggerates. I just listen, that's all. So pleased to finally meet you, {title}. All of London is talking about you.`),
+{st:['georgie','clem']},
+N(`Une tornade rousse surgit entre les tentes, les joues en feu, une fleur de travers dans les cheveux.`,`A red-haired whirlwind bursts out from between the marquees, cheeks flushed, a flower askew in her hair.`),
+D('georgie','h',`Clem ! Cordelia ! Lord Fairfax est tout seul près de la pagode ! Vingt mille livres de rente et pas un cheveu blanc !`,`Clem! Cordelia! Lord Fairfax is all alone by the pagoda! Twenty thousand a year and not a single grey hair!`),
+D('clem','h',`Et voici Georgiana Finch. Georgie. Notre troisième mousquetaire. Nous avons fait un pacte : trouver chacune un mari avant la fin de la Saison.`,`And this is Georgiana Finch. Georgie. Our third musketeer. We made a pact: each of us finds a husband before the end of the Season.`),
+D('georgie','h',`Un mari riche.`,`A rich husband.`),
+{st:['cordelia','clem']},
+D('cordelia','n',`Un mari convenable.`,`A suitable husband.`),
+D('clem','h',`Un mari qui me laisse parler.`,`A husband who lets me talk.`),
+{st:['theo','clem']},
+D('theo','s',`Autrement dit, aucun.`,`In other words, none.`),
+{st:['theo','mc']},
 C('c6t',0,[
- {t:[`« Des alliés ? Je ne dirai pas non. Je commence à en manquer. »`,`"Allies? I won't say no. I'm running short of them."`],set:'trioFriends',fx:{rep:1},r:[D('clem','h',`Parfait ! C'est décidé : à partir d'aujourd'hui, on se tutoie. Et on est quatre.`,`Perfect! It's settled: from today, no more formalities. And there are four of us.`),D('theo','s',`Que Dieu protège Londres.`,`God help London.`)]},
+ {t:[`« Des alliés ? Je ne dirai pas non. Je commence à en manquer. »`,`"Allies? I won't say no. I'm running short of them."`],set:'trioFriends',fx:{rep:1},r:[D('clem','h',`Parfait ! C'est décidé : à partir d'aujourd'hui, on se tutoie. Et on est cinq.`,`Perfect! It's settled: from today, no more formalities. And there are five of us.`),D('georgie','h',`Cinq ! Et si tu as un cousin célibataire, on en reparle.`,`Five! And if you have an unmarried cousin, we'll talk.`),D('theo','s',`Que Dieu protège Londres.`,`God help London.`)]},
  {t:[`« Pardonnez-moi. Ces derniers temps, j'ai appris à me méfier. »`,`"Forgive me. Lately, I've learned to be wary."`],set:'trioWary',r:[D('theo','h',`Sage. À votre place, je me méfierais de ma sœur.`,`Wise. In your place, I'd be wary of my sister.`),D('clem','h',`Théo ! … Prenez votre temps. Nous ne bougerons pas.`,`Theo! … Take your time. We're not going anywhere.`)]}
 ]),
 ...IF('topLi1',[
+ {st:['cordelia','clem']},
  D('cordelia','n',`Vous connaissez {li1}, je crois ? Nos familles passent l'été ensemble dans le Kent depuis toujours.`,`You know {li1}, I believe? Our families have spent every summer together in Kent for ever.`),
  D('clem','h',`À six ans, Cordelia a « épousé » {li1} sous le grand chêne, avec une bague en pâquerettes. J'étais témoin.`,`At six, Cordelia "married" {li1} under the great oak, with a daisy ring. I was the witness.`),
  D('cordelia','h',`Des bêtises d'enfants !`,`Childish nonsense!`),
  N(`Elle rit, un peu trop fort. Sous ses doigts gantés, une baleine de son ombrelle craque.`,`She laughs, a little too loudly. Under her gloved fingers, a rib of her parasol snaps.`)
 ],[
+ {st:['cordelia','clem']},
  D('cordelia','n',`Vous vous habillez chez Madame Fleury, n'est-ce pas ? Moi aussi. Son {a:apprenti|apprentie} a des doigts de fée.`,`You dress at Madame Fleury's, don't you? So do I. Her apprentice has magic fingers.`),
  D('clem','h',`Cordelia a commandé quatre robes ce mois-ci. Quatre ! Pour quelqu'un qui « déteste les essayages »…`,`Cordelia ordered four gowns this month. Four! For someone who "hates fittings"…`),
  D('cordelia','h',`Il faut bien être présentable.`,`One must be presentable.`),
  N(`Ses joues rosissent. Son regard file vers le buffet, là où s'affairent les serveurs du traiteur… puis revient sur toi. Une seconde de trop.`,`Her cheeks turn pink. Her gaze darts to the buffet, where the caterer's servers bustle… then back to you. A second too long.`)
 ]),
+{st:['theo','mc']},
 D('theo','n',`Nous serons au bal de la Reine, demain. Gardez-nous une place près de vous.`,`We'll be at the Queen's ball tomorrow. Save us a place beside you.`),
 N(`Cordelia te serre la main en partant. Ses doigts sont froids, malgré le soleil.`,`Cordelia shakes your hand as they leave. Her fingers are cold, despite the sun.`),
 
@@ -1439,12 +1455,15 @@ N(`« Le Comte et la Comtesse {last}… et {first} {last} ! » Cette fois, perso
 D('queen','h',`Ah ! Voici la personne la plus discutée de la Saison. Approchez, {title}. Ce soir, vous êtes sous ma protection.`,`Ah! Here is the most talked-about person of the Season. Come closer, {title}. Tonight, you are under my protection.`),
 ...IF('helpedTwin',[{st:['twinA','mc']},D('twinA','s',`…Merci. Pour la Tamise. Je ne le dirai qu'une fois.`,`…Thank you. For the Thames. I'll only say it once.`),D('mc','h',`Une fois suffit.`,`Once is enough.`)],
  [{st:['twinA','twinB']},D('twinB','a',`Profite bien de ta soirée. On a une surprise pour toi.`,`Enjoy your evening. We have a surprise for you.`),D('twinA','h',`Une surprise… inoubliable.`,`An… unforgettable surprise.`)]),
-{st:['mc']},
-N(`Une tornade bouton-d'or fend la foule : Clem, suivie de Théo et de Cordelia.`,`A buttercup-yellow whirlwind cuts through the crowd: Clem, followed by Theo and Cordelia.`),
+{st:['clem','theo']},
+N(`Une tornade vert d'eau fend la foule : Clem, suivie de Théo, de Cordelia et de Georgie.`,`A sea-green whirlwind cuts through the crowd: Clem, followed by Theo, Cordelia and Georgie.`),
 ...IF('trioFriends',[D('clem','h',`Te voilà ! Tu es à couper le souffle. Théo, dis-lui.`,`There you are! You look breathtaking. Theo, tell {g:him|her|them}.`),D('theo','s',`Tu es à couper le souffle. Voilà, c'est dit.`,`You look breathtaking. There, I've said it.`)],
  [D('clem','h',`Vous voyez ? On a tenu parole. On est là.`,`See? We kept our word. We're here.`),D('mc','h',`Je vois. Et… merci.`,`I see. And… thank you.`),{set:'trioFriends'}]),
+{st:['cordelia','georgie']},
+D('georgie','h',`Trois ducs, cinq comtes et un vicomte sans dettes. J'ai compté. La soirée s'annonce excellente.`,`Three dukes, five earls and a viscount with no debts. I counted. The evening looks excellent.`),
 D('cordelia','h',`Vous serez la personne la plus regardée de la soirée, {title}. Profitez-en.`,`You'll be the most watched person of the evening, {title}. Enjoy it.`),
 N(`Son sourire est parfait. Peut-être un peu trop parfait.`,`Her smile is perfect. Perhaps a little too perfect.`),
+{st:['theo','clem']},
 D('theo','n',`Iris de Valcourt est arrivée il y a une heure. Clem et moi, on ne la quitte pas des yeux.`,`Iris de Valcourt arrived an hour ago. Clem and I won't let her out of our sight.`),
 N(`L'orchestre attaque la première valse. Deux personnes s'avancent vers toi en même temps, du bout opposé de la salle.`,`The orchestra strikes up the first waltz. Two people walk towards you at the same time, from opposite ends of the room.`),
 N(`D'un côté, {li1}, impeccable, la main déjà tendue. De l'autre, en livrée de valet du palais, {a:Mateo|Nell}… qui n'a absolument pas le droit de danser.`,`On one side, {li1}, impeccable, hand already outstretched. On the other, in palace livery, {a:Mateo|Nell}… who absolutely isn't allowed to dance.`),
@@ -1466,8 +1485,8 @@ C('m13',1,[
   {bg:'ball',where:['Le palais de la Reine','The Queen\'s palace']}]}
 ]),
 
-...IF('topLi1',[...IF('danceLi1',[{st:['mc']},N(`En quittant la piste, tu croises le regard de Cordelia. Une coupe de champagne se brise entre ses doigts.`,`As you leave the floor, you meet Cordelia's eyes. A champagne glass shatters between her fingers.`),D('cordelia','h',`Que je suis maladroite ! Ce n'est rien. Rien du tout.`,`How clumsy of me! It's nothing. Nothing at all.`)])],
- [...IF('danceLi2',[{st:['mc']},N(`Quand tu rentres de la terrasse, Cordelia se tient juste derrière la porte-fenêtre. Depuis combien de temps ?`,`When you come back in from the terrace, Cordelia is standing just behind the French window. For how long?`),D('cordelia','h',`Il fait si chaud, j'avais besoin d'air. Vous aussi, on dirait.`,`It's so hot, I needed some air. So did you, it seems.`)])]),
+...IF('topLi1',[...IF('danceLi1',[{st:['cordelia','mc']},N(`En quittant la piste, tu croises le regard de Cordelia. Une coupe de champagne se brise entre ses doigts.`,`As you leave the floor, you meet Cordelia's eyes. A champagne glass shatters between her fingers.`),D('cordelia','h',`Que je suis maladroite ! Ce n'est rien. Rien du tout.`,`How clumsy of me! It's nothing. Nothing at all.`)])],
+ [...IF('danceLi2',[{st:['cordelia','mc']},N(`Quand tu rentres de la terrasse, Cordelia se tient juste derrière la porte-fenêtre. Depuis combien de temps ?`,`When you come back in from the terrace, Cordelia is standing just behind the French window. For how long?`),D('cordelia','h',`Il fait si chaud, j'avais besoin d'air. Vous aussi, on dirait.`,`It's so hot, I needed some air. So did you, it seems.`)])]),
 {bg:'ball',mus:'mystery',card:['Minuit sonne','Midnight Strikes'],sub:['',''],where:['La salle du trône','The throne room']},
 {st:['iris','mc']},
 N(`Au douzième coup de minuit, la musique s'arrête net. Une femme en noir traverse la salle et se plante devant le trône de la Reine.`,`On the twelfth stroke of midnight, the music stops dead. A woman in black crosses the room and plants herself before the Queen's throne.`),
@@ -1496,9 +1515,10 @@ D('father','s',`C'est vrai. Isadora était ta mère. Et je l'aimais.`,`It's true
 {st:['mother','mc']},
 D('mother','s',`Mais c'est moi qui t'ai {g:bercé|bercée|bercé·e}. Moi qui t'ai {g:soigné|soignée|soigné·e} quand tu avais la fièvre. Moi qui t'ai {g:regardé|regardée|regardé·e} grandir. Le sang n'y change rien, {first}. Rien.`,`But I'm the one who rocked you to sleep. I nursed you through every fever. I watched you grow up. Blood changes nothing, {first}. Nothing.`),
 D('mc','s',`(Toute ma vie était un mensonge. Ou peut-être… le plus grand acte d'amour qu'on m'ait jamais fait.)`,`(My whole life was a lie. Or perhaps… the greatest act of love anyone has ever done for me.)`),
-{st:['mc']},
+{st:['clem','theo']},
 N(`Clem fend la foule et se place à ta gauche. Théo, à ta droite. Ils ne disent rien. Ils sont là, c'est tout.`,`Clem pushes through the crowd and takes her place on your left. Theo, on your right. They say nothing. They're simply there.`),
-N(`Derrière eux, Cordelia porte la main à sa bouche, bouleversée. Mais l'espace d'un instant, tu crois voir briller dans ses yeux… quelque chose qui ressemble à de la satisfaction.`,`Behind them, Cordelia raises a hand to her mouth, distraught. But for an instant, you think you see something shine in her eyes… something like satisfaction.`),
+{st:['georgie','cordelia']},
+N(`Georgie a les larmes aux yeux. Derrière elle, Cordelia porte la main à sa bouche, bouleversée. Mais l'espace d'un instant, tu crois voir briller dans ses yeux… quelque chose qui ressemble à de la satisfaction.`,`Georgie has tears in her eyes. Behind her, Cordelia raises a hand to her mouth, distraught. But for an instant, you think you see something shine in her eyes… something like satisfaction.`),
 N(`Des centaines de regards pèsent sur toi. La Reine elle-même attend.`,`Hundreds of eyes weigh on you. The Queen herself is waiting.`),
 C('m14',1,[
  {t:[`Faire face, la tête haute.`,`Face them, head held high.`],set:'faceCourt',fx:{rep:2},r:[
@@ -1581,7 +1601,11 @@ const PICS={
  perceval:{src:'assets/perceval.webp',w:495,h:1461,eye:[233,126,54],waist:.4},
  philippe:{src:'assets/philippe.webp',w:507,h:1500,eye:[215,156,50],waist:.4},
  queen:{src:'assets/queen.webp',w:1447,h:1500,eye:[423,156,48],waist:.42},
- bess:{src:'assets/bess.webp',w:644,h:1500,eye:[270,165,48],waist:.42}};
+ bess:{src:'assets/bess.webp',w:644,h:1500,eye:[270,165,48],waist:.42},
+ theo:{src:'assets/theo.webp',w:624,h:1500,eye:[215,170,48],waist:.42},
+ clem:{src:'assets/clem.webp',w:980,h:1500,eye:[419,180,48],waist:.42},
+ cordelia:{src:'assets/cordelia.webp',w:982,h:1500,eye:[442,180,48],waist:.42},
+ georgie:{src:'assets/georgie.webp',w:977,h:1500,eye:[435,180,48],waist:.42}};
 const preOf=P=>(PRE[P.body]&&PRE[P.body].length&&P.look!=null)?PRE[P.body][P.look]:null;
 const MASKSVG=(fill,trim)=>`<svg viewBox="-65 -26 130 52"><path fill-rule="evenodd" d="M-65 -4 C-58 -26 -12 -24 0 -10 C12 -24 58 -26 65 -4 C58 20 14 22 0 10 C-14 22 -58 20 -65 -4 Z M-39 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z M11 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z" fill="${fill}" stroke="${trim}" stroke-width="2"/><path d="M58 -10 C76 -30 74 -48 60 -60 C64 -40 60 -22 58 -10 Z" fill="${trim}" opacity=".9" transform="scale(.8)"/></svg>`;
 const MK={"f1": {"src": "assets/mk_mcf.webp", "l": 29.785, "t": 0.903, "w": 26.137, "ox": 24.69, "oy": 69.9, "r": -3.34}, "f2": {"src": "assets/mk_mcf.webp", "l": 28.121, "t": 2.348, "w": 30.886, "ox": 24.69, "oy": 69.9, "r": -3.2}, "f3": {"src": "assets/mk_mcf.webp", "l": 29.188, "t": 4.863, "w": 27.401, "ox": 24.69, "oy": 69.9, "r": -6.94}, "f4": {"src": "assets/mk_mcf.webp", "l": 29.092, "t": 1.946, "w": 29.6, "ox": 24.69, "oy": 69.9, "r": -3.23}, "f5": {"src": "assets/mk_mcf.webp", "l": 29.39, "t": -0.097, "w": 30.859, "ox": 24.69, "oy": 69.9, "r": -3.99}, "m1": {"src": "assets/mk_mcm.webp", "l": 18.158, "t": 2.163, "w": 45.636, "ox": 40.98, "oy": 64.74, "r": -6.65}, "m2": {"src": "assets/mk_mcm.webp", "l": 19.446, "t": 1.681, "w": 48.848, "ox": 40.98, "oy": 64.74, "r": -7.53}, "m3": {"src": "assets/mk_mcm.webp", "l": 21.763, "t": 1.998, "w": 44.447, "ox": 40.98, "oy": 64.74, "r": -8.25}, "m4": {"src": "assets/mk_mcm.webp", "l": 20.469, "t": 2.259, "w": 47.194, "ox": 40.98, "oy": 64.74, "r": -7.6}, "edmund": {"src": "assets/mk_greengold.webp", "l": 28.237, "t": 4.292, "w": 33.006, "ox": 28.0, "oy": 62.41, "r": -2.68}, "philippe": {"src": "assets/mk_greengold.webp", "l": 28.046, "t": 5.074, "w": 43.186, "ox": 28.0, "oy": 62.41, "r": -4.34}, "perceval": {"src": "assets/mk_bluegold.webp", "l": 28.79, "t": 5.428, "w": 47.059, "ox": 27.9, "oy": 62.51, "r": -8.91}, "mateo": {"src": "assets/mk_bluegold.webp", "l": 29.506, "t": 2.49, "w": 35.607, "ox": 27.9, "oy": 62.51, "r": -5.96}, "rosalind": {"src": "assets/mk_pink.webp", "l": 30.424, "t": 0.638, "w": 45.312, "ox": 24.73, "oy": 69.87, "r": -3.52}, "nell": {"src": "assets/mk_pink.webp", "l": 31.196, "t": -0.177, "w": 45.41, "ox": 24.73, "oy": 69.87, "r": -2.46}, "mother": {"src": "assets/mk_mother.webp", "l": 46.874, "t": 0.849, "w": 24.133, "ox": 21.41, "oy": 62.25, "r": 2.18}, "prudence": {"src": "assets/mk_prudence.webp", "l": 27.089, "t": 2.342, "w": 35.431, "ox": 24.27, "oy": 63.65, "r": -7.81}, "peregrine": {"src": "assets/mk_peregrine.webp", "l": 26.743, "t": 1.745, "w": 36.537, "ox": 24.31, "oy": 63.67, "r": -4.33}, "queen": {"src": "assets/mk_queen.webp", "l": 22.167, "t": 3.978, "w": 20.839, "ox": 31.09, "oy": 58.2, "r": -9.83}, "duchess": {"src": "assets/mk_duchess.webp", "l": 22.511, "t": 4.849, "w": 22.47, "ox": 31.19, "oy": 58.52, "r": -6.57}};
@@ -1600,6 +1624,7 @@ function charDef(id){
  case 'duchess':return {img:PICS.duchess,acc:{mask:mk?1:null}};
  case 'queen':return {img:PICS.queen,acc:{mask:mk?1:null}};
  case 'bess':return {img:PICS.bess,acc:{}};
+ case 'theo':case 'clem':case 'cordelia':case 'georgie':return {img:PICS[id],acc:{}};
  case 'guard':return {img:PICS.guard,acc:{}};
  case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
  case 'duchess_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#cfc8c2',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#a8606a',body:1,age:1,out:{fill:'#6d3d8a',sleeve:'#87579f',trim:'#e6c66a',acc:'jewels'}},acc:{tiara:1}};
@@ -1613,11 +1638,11 @@ function charDef(id){
  case 'li2_old':return am?{p:{sex:'m',skin:2,hair:'mlong',hc:'#2e1c12',es:0,ec:'#4e2f1c',nose:1,mouth:1,lip:'#a8606a',body:1,out:{coat:'#4f4636',vest:'#a88a5a',btn:'#8a8a8a',cravat:'#ece6d6'}},acc:{mask:'#151515',trim:'#c0c0c8',feather:'#555'}}:{p:{sex:'f',skin:0,hair:'curly',hc:'#e0bd70',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#e8a19c',body:1,out:{fill:'#e8d7b5',sleeve:'#f2e6cc',trim:'#c9a46a'}},acc:{mask:'#ffffff',feather:'#f2b5c6'}};
  case 'guard_old':return {p:{sex:'m',skin:1,hair:'mshort',hc:'#43281a',es:0,ec:'#4e2f1c',nose:2,mouth:0,lip:'#c98a88',body:2,out:{coat:'#b3262f',vest:'#f0e6d0',btn:'#d9b54a',belts:1}},acc:{shako:1,side:1}};
  }}
-const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f',fleury:'#a0527a',iris:'#1e1a24',bailiff:'#6b6b6b',clem:'#d4a017',theo:'#3f6e5a',cordelia:'#9b7fc4'};
+const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f',fleury:'#a0527a',iris:'#1e1a24',bailiff:'#6b6b6b',clem:'#d4a017',theo:'#3f6e5a',cordelia:'#9b7fc4',georgie:'#d9733a'};
 const tw=()=>S.p.body=='m'?[OPT.lang=='en'?'Percival':'Perceval','Philippe']:['Prudence',OPT.lang=='en'?'Peregrine':'Pérégrine'];
 const li1n=()=>S.p.attr=='m'?'Edmund':'Rosalind';
 const li2n=()=>S.f&&S.f.li2named?(S.p.attr=='m'?'Mateo':'Nell'):(OPT.lang=='en'?'Masked stranger':(S.p.attr=='m'?'L\'inconnu masqué':'L\'inconnue masquée'));
-function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard']),fleury:'Madame Fleury',iris:S.f.irisNamed?'Iris de Valcourt':L2(['La dame en noir','The lady in black']),bailiff:L2(['L\'huissier','The bailiff']),clem:L2(['Clémentine','Clementine']),theo:L2(['Théo','Theo']),cordelia:'Cordelia'}[id]||''}
+function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard']),fleury:'Madame Fleury',iris:S.f.irisNamed?'Iris de Valcourt':L2(['La dame en noir','The lady in black']),bailiff:L2(['L\'huissier','The bailiff']),clem:L2(['Clémentine','Clementine']),theo:L2(['Théo','Theo']),cordelia:'Cordelia',georgie:'Georgie'}[id]||''}
 function fmt(s){const P=S.p,en=OPT.lang=='en',gi={m:0,f:1,n:2}[P.pron],ai=P.attr=='m'?0:1,ti=P.body=='m'?0:1;
  return s.replace(/\{(\w+)(?::([^}]*))?\}/g,(m,k,a)=>{
   if(a!=null){const p=a.split('|'),i=k=='g'?gi:k=='a'?ai:ti;return p[Math.min(i,p.length-1)]}
