@@ -11,7 +11,7 @@ C('c22a',0,[
 ]),
 {st:['bess','mc']},
 D('bess','h',`{title}, je voulais vous dire… Madame Fleury m'a proposé de devenir sa première assistante. Je… je ne sais pas si je dois accepter. Je ne veux pas vous quitter.`,`{title}, I wanted to tell you… Madame Fleury has offered to make me her head assistant. I… I don't know if I should accept. I don't want to leave you.`),
-C('c22b',0,[
+C('c22b',1,[
  {t:[`« Accepte, Bess. Tu mérites tellement plus. »`,`"Accept, Bess. You deserve so much more."`],set:'bessFleury',fx:{bess:2},r:[D('bess','o',`Vous… vous êtes sûr{e} ? Oh, {title} ! Je viendrai vous habiller pour tous les bals. Gratuitement. Enfin, presque.`,`You… you're sure? Oh, {title}! I'll come and dress you for every ball. Free of charge. Well, almost.`)]},
  {t:[`« Reste avec moi. Je doublerai tes gages. »`,`"Stay with me. I'll double your wages."`],set:'bessStays',fx:{bess:1},r:[D('bess','h',`Doublés ? … Bon. Mais je garde le droit de vous dire quand vos chapeaux sont ridicules.`,`Doubled? … All right. But I keep the right to tell you when your hats are ridiculous.`)]}
 ]),
@@ -37,6 +37,16 @@ C('m43',1,[
 ...IF('danceLi1',[{st:['duchess','mc']},D('duchess','n',`{title}. Mon enfant a passé la Saison à me désobéir à cause de vous. Je devrais vous en vouloir.`,`{title}. My child has spent the Season disobeying me because of you. I ought to resent you.`),D('duchess','h',`Je ne vous en veux pas. Isadora aurait ri de me voir vaincue par sa progéniture. Allez. {a:Il|Elle} vous attend sur la terrasse.`,`I don't. Isadora would have laughed to see me defeated by her offspring. Go on. {a:He|She} is waiting for you on the terrace.`)],
  [{st:['queen','mc']},D('queen','h',`J'ai appris qu'{a:un certain apprenti|une certaine apprentie} de Madame Fleury a dessiné la moitié des tenues de ce bal, y compris la mienne. Je l'ai nommé{a:|e} couturi{a:er|ère} de la Cour, ce matin.`,`I've learned that a certain apprentice of Madame Fleury's designed half the outfits at this ball, including mine. I named {a:him|her} Dressmaker to the Court this morning.`),D('queen','s',`Le talent vaut tous les titres. Allez. {a:Il|Elle} vous attend sur la terrasse.`,`Talent is worth every title. Go on. {a:He|She} is waiting for you on the terrace.`)]),
 
+{bg:'ballnight',mus:'mystery',where:['Un couloir du palais','A palace corridor']},
+{st:['mc']},
+N(`Avant de sortir sur la terrasse, un valet que tu n'as jamais vu te glisse une enveloppe dans la main, puis disparaît dans la foule.`,`Before you step out onto the terrace, a footman you've never seen slips an envelope into your hand, then vanishes into the crowd.`),
+N(`Un parfum de lavande. Une tache d'encre violette dans le coin.`,`A scent of lavender. A violet ink blot in the corner.`),
+...IF('vialReturned',[N(`« Je t'ai rendu le flacon de notre tante. C'était la seule chose juste que je pouvais faire. Ne me cherche pas. Pas encore. Mais nous nous reverrons, {g:cousin|cousine|cousin·e}. Ce n'est que le début. — C. »`,`"I gave you back our aunt's vial. It was the only right thing I could do. Don't look for me. Not yet. But we'll meet again, cousin. This is only the beginning. — C."`)],
+ [N(`« Tu as gagné cette manche. Profite de ta fortune, de ton nom, de ton amour. Profites-en bien. Parce que je reviendrai les chercher. Ce n'est que le début. — C. »`,`"You've won this round. Enjoy your fortune, your name, your love. Enjoy them well. Because I'll be back for them. This is only the beginning. — C."`)]),
+N(`Sous la signature, une dernière ligne, griffonnée à la hâte :`,`Beneath the signature, one last line, hastily scribbled:`),
+N(`« P.S. Demande à Lord Pembroke pourquoi il m'a recueillie. »`,`"P.S. Ask Lord Pembroke why he took me in."`),
+D('mc','o',`(…Lord Pembroke ?)`,`(…Lord Pembroke?)`),
+N(`Tu glisses la lettre dans ta manche. Tu y penseras demain. Ce soir, quelqu'un t'attend sur la terrasse.`,`You slip the letter into your sleeve. You'll think about it tomorrow. Tonight, someone is waiting for you on the terrace.`),
 {bg:'terrace',mus:'tender',card:['Minuit','Midnight'],sub:['',''],where:['La terrasse du palais','The palace terrace']},
 {st:['lv','mc']},
 N(`Sur la terrasse, sous les étoiles, la musique arrive étouffée. Comme le soir du bal de la Reine. Comme le premier soir. {lv} est là, plus nerveu{a:x|se} que tu ne l'as jamais vu{a:|e}, même au duel.`,`On the terrace, beneath the stars, the music comes muffled. Like the night of the Queen's ball. Like the very first night. {lv} is there, more nervous than you've ever seen {a:him|her}, even at the duel.`),
@@ -46,28 +56,7 @@ D('lv','s',`Depuis le premier soir, tu as tout bouleversé. Mes plans, mes certi
 N(`{lv} met un genou à terre. Dans sa main, une bague. Un petit lys d'or, avec une perle au cœur.`,`{lv} goes down on one knee. In {a:his|her} hand, a ring. A small gold lily, with a pearl at its heart.`),
 ...IF('danceLi1',[N(`« C'était celle de ma grand-mère. Ma mère me l'a donnée ce matin, sans un mot. Je crois que c'est sa façon de dire oui. »`,`"It was my grandmother's. My mother gave it to me this morning, without a word. I think it's her way of saying yes."`)],[N(`« Je l'ai forgée moi-même, avec l'or du médaillon de Marguerite. Elle aurait voulu que ce soit toi. »`,`"I made it myself, from the gold of Marguerite's locket. She would have wanted it to be you."`)]),
 D('lv','s',`{first} {last}… Veux-tu m'épouser ?`,`{first} {last}… Will you marry me?`),
-C('m44',1,[
- {t:[`« Oui. Mille fois oui. »`,`"Yes. A thousand times yes."`],set:'engaged',fx:{lv:5},r:[
-  D('mc','h',`Oui. Oui, oui, mille fois oui. Lève-toi, idiot{a:|e}, et embrasse-moi.`,`Yes. Yes, yes, a thousand times yes. Get up, you idiot, and kiss me.`),
-  N(`{lv} se relève d'un bond, te soulève dans ses bras et te fait tourner sous les étoiles. Par les fenêtres ouvertes, toute la salle de bal applaudit : ils regardaient tous. Évidemment.`,`{lv} leaps up, sweeps you into {a:his|her} arms and spins you under the stars. Through the open windows, the whole ballroom applauds: they were all watching. Naturally.`),
-  N(`Clem siffle comme un cocher. Georgie pleure. Lord Pembroke lève sa coupe. Ta mère s'évanouit à moitié dans les bras de ton père. La Reine, elle, dit simplement : « Enfin. »`,`Clem whistles like a coachman. Georgie weeps. Lord Pembroke raises his glass. Your mother half-faints into your father's arms. The Queen simply says: "At last."`)
- ]},
- {t:[`« Pas encore. Redemande-moi l'été prochain. Et je dirai oui. »`,`"Not yet. Ask me again next summer. And I'll say yes."`],set:'notYet',fx:{lv:2},r:[
-  D('mc','s',`J'ai découvert qui j'étais il y a un mois. Laisse-moi un peu de temps pour devenir cette personne. Redemande-moi l'été prochain. Je te promets la même réponse que mon cœur te donne déjà.`,`I found out who I was a month ago. Give me a little time to become that person. Ask me again next summer. I promise you the same answer my heart is already giving you.`),
-  D('lv','h',`L'été prochain, alors. Je garde la bague dans ma poche. Juste à côté de mon cœur.`,`Next summer, then. I'll keep the ring in my pocket. Right next to my heart.`),
-  N(`{lv} se relève et t'embrasse, longtemps, sous les étoiles. Ce n'est pas un non. C'est la plus belle des promesses.`,`{lv} rises and kisses you, for a long time, under the stars. It isn't a no. It's the most beautiful of promises.`)
- ]}
-]),
-N(`Vous dansez la dernière valse de la Saison sur la terrasse, rien que tous les deux, pendant que Londres vous regarde par les fenêtres.`,`You dance the last waltz of the Season on the terrace, just the two of you, while London watches through the windows.`),
-
-{bg:'bedroom',mus:'mystery',card:['À l\'aube','At dawn'],sub:['',''],where:['Ta chambre','Your bedroom']},
-{st:['mc']},
-N(`À l'aube, en rentrant, tu trouves une enveloppe posée sur ton oreiller. Personne ne l'a apportée. Personne n'est entré. La fenêtre est entrouverte.`,`At dawn, coming home, you find an envelope lying on your pillow. No one brought it. No one came in. The window is ajar.`),
-N(`Un parfum de lavande. Une tache d'encre violette dans le coin.`,`A scent of lavender. A violet ink blot in the corner.`),
-...IF('vialReturned',[N(`« Je t'ai rendu le flacon de notre tante. C'était la seule chose juste que je pouvais faire. Ne me cherche pas. Pas encore. Mais nous nous reverrons, {g:cousin|cousine|cousin·e}. Ce n'est que le début. — C. »`,`"I gave you back our aunt's vial. It was the only right thing I could do. Don't look for me. Not yet. But we'll meet again, cousin. This is only the beginning. — C."`)],
- [N(`« Tu as gagné cette manche. Profite de ta fortune, de ton nom, de ton amour. Profites-en bien. Parce que je reviendrai les chercher. Ce n'est que le début. — C. »`,`"You've won this round. Enjoy your fortune, your name, your love. Enjoy them well. Because I'll be back for them. This is only the beginning. — C."`)]),
-N(`Sous la signature, une dernière ligne, griffonnée à la hâte :`,`Beneath the signature, one last line, hastily scribbled:`),
-N(`« P.S. Demande à Lord Pembroke pourquoi il m'a recueillie. »`,`"P.S. Ask Lord Pembroke why he took me in."`),
-D('mc','o',`(…Lord Pembroke ?)`,`(…Lord Pembroke?)`),
+N(`Le temps s'arrête. Les étoiles, la musique, ton cœur. {lv} attend ta réponse, à genoux, la bague tremblant légèrement entre ses doigts.`,`Time stops. The stars, the music, your heart. {lv} waits for your answer, on one knee, the ring trembling slightly between {a:his|her} fingers.`),
+N(`À suivre dans la saison 2…`,`To be continued in Season 2…`),
 {end:22}
 );
