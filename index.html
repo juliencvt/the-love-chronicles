@@ -333,6 +333,32 @@ greenhouse(k){let s=`<defs>${lg('s'+k,'#e6f2e4','#c4dcc0')}${glow('c'+k,'#fff8d8
  s+=`<rect x="330" y="520" width="12" height="120" fill="#7a5a3a"/><circle cx="336" cy="480" r="62" fill="#4f8a4e"/>`;for(let i=0;i<9;i++)s+=`<circle cx="${300+(i*29)%75}" cy="${450+(i*23)%70}" r="7" fill="#f2c64a"/>`;
  s+=`<path d="M60 640 L70 600 L110 600 L120 640 Z" fill="#b5654a"/>`;for(let i=0;i<6;i++)s+=`<g transform="translate(${70+i*8},${560+(i%2)*12})">${[0,72,144,216,288].map(a=>`<ellipse rx="4" ry="8" fill="${i%2?'#f0a6c8':'#e9d2f2'}" transform="rotate(${a}) translate(0,-6)"/>`).join('')}<circle r="2.5" fill="#f6d35a"/></g>`;
  return s},
+park(k){let s=`<defs>${lg('s'+k,'#f6c7c4','#fbe7cf','#dfe8e6')}${glow('c'+k,'#fff1d6')}</defs><rect width="400" height="800" fill="url(#s${k})"/><circle cx="300" cy="330" r="160" fill="url(#c${k})"/><circle cx="300" cy="330" r="34" fill="#fff6e0"/>`;
+ s+=`<path d="M0 360 Q80 320 160 350 Q240 310 320 345 Q370 330 400 340 L400 470 L0 470 Z" fill="#b9c7b4" opacity=".7"/><rect y="440" width="400" height="90" fill="#c9d9dc"/>`;for(let i=0;i<10;i++)s+=`<path d="M${(i*53)%400} ${460+(i*13)%60} q14 -4 28 0" stroke="#fff" stroke-width="2" fill="none" opacity=".6"/>`;
+ s+=`<rect y="440" width="400" height="90" fill="#fff" opacity=".35"/><rect y="520" width="400" height="280" fill="#9fbf8f"/><path d="M120 800 Q200 640 230 520 L260 520 Q250 640 300 800 Z" fill="#e8dcc6"/>`;
+ s+=`<path d="M40 300 L40 520 M180 280 L180 520" stroke="#6d5a48" stroke-width="10"/><ellipse cx="40" cy="290" rx="70" ry="60" fill="#88a77b" opacity=".85"/><ellipse cx="180" cy="270" rx="60" ry="55" fill="#7d9e72" opacity=".85"/>`;
+ s+=`<g transform="translate(250,470)"><path d="M-70 120 L70 120 L60 100 L-60 100 Z" fill="#e9e3d6"/>${[-55,-20,20,55].map(x=>`<rect x="${x-3}" y="20" width="6" height="80" fill="#f4efe6"/>`).join('')}<path d="M-80 25 Q0 -40 80 25 Z" fill="#5f7d7a"/><path d="M-80 25 L80 25" stroke="#d6b45a" stroke-width="4"/><circle cx="0" cy="-20" r="5" fill="#d6b45a"/></g>`;
+ s+=`<rect y="520" width="400" height="280" fill="#fff" opacity=".18"/>`;return s},
+bridge(k){let s=`<defs>${lg('s'+k,'#141a3a','#3a3566')}${glow('c'+k,'#ffcf7a')}${lg('w'+k,'#232a52','#0f1430')}</defs><rect width="400" height="800" fill="url(#s${k})"/>${stars(50,11,360)}<circle cx="80" cy="120" r="26" fill="#f6f0d8"/>`;
+ s+=`<path d="M200 380 L200 250 Q215 200 230 250 L230 380 Z" fill="#2a2d4a"/><ellipse cx="215" cy="250" rx="34" ry="30" fill="#2a2d4a"/><path d="M215 205 L215 180" stroke="#2a2d4a" stroke-width="6"/>`;
+ s+=`<path d="M0 400 L60 360 L120 395 L170 370 L260 380 L320 350 L400 390 L400 460 L0 460 Z" fill="#1d2140"/>`;for(let i=0;i<18;i++)s+=`<rect x="${(i*23)%400}" y="${400+(i*7)%40}" width="4" height="6" fill="#ffd98a" opacity=".7"/>`;
+ s+=`<rect y="450" width="400" height="350" fill="url(#w${k})"/>`;for(let i=0;i<24;i++)s+=`<path d="M${(i*67)%400} ${470+(i*29)%300} q12 -4 24 0" stroke="#ffd98a" stroke-width="2" fill="none" opacity=".35"/>`;
+ s+=`<path d="M0 560 L400 520 L400 600 L0 640 Z" fill="#4b4560"/><path d="M0 560 L400 520" stroke="#6a6280" stroke-width="6"/>`;for(let x=10;x<400;x+=30)s+=`<rect x="${x}" y="${550-x*.1}" width="8" height="40" fill="#5a5372"/>`;
+ [[60,553],[200,539],[340,525]].forEach(([x,y])=>s+=`<circle cx="${x}" cy="${y-80}" r="60" fill="url(#c${k})"/><rect x="${x-3}" y="${y-80}" width="6" height="80" fill="#222"/><rect x="${x-10}" y="${y-100}" width="20" height="22" rx="3" fill="#ffd27a" stroke="#222" stroke-width="3"/>`);
+ s+=`<path d="M0 640 L400 600 L400 800 L0 800 Z" fill="#2f2b40"/>`;return s},
+shop(k){let s=`<defs>${lg('s'+k,'#f8e6ea','#ecd2da')}</defs><rect width="400" height="800" fill="url(#s${k})"/><rect y="660" width="400" height="140" fill="#b78f6c"/>`;for(let x=0;x<400;x+=50)s+=`<path d="M${x} 660 L${x-40} 800" stroke="#a37d5c" stroke-width="2"/>`;
+ s+=`<rect x="20" y="140" width="150" height="420" fill="#a8775a"/>`;const C=['#a9c9ee','#f2b5c6','#3e8a6a','#f3d38c','#c8b6e8','#e9798f','#fdfbf8','#6d3d8a','#8fb4d8'];
+ for(let r=0;r<4;r++)for(let c=0;c<3;c++){const i=r*3+c;s+=`<rect x="${30+c*46}" y="${155+r*100}" width="40" height="86" rx="6" fill="${C[i%9]}"/><rect x="${30+c*46}" y="${155+r*100}" width="12" height="86" rx="4" fill="#fff" opacity=".25"/>`}
+ s+=`<rect x="220" y="160" width="150" height="260" fill="#fffaf2" stroke="#c9a24a" stroke-width="6"/><rect x="232" y="172" width="126" height="236" fill="#dfe9f2"/><path d="M232 300 Q300 260 358 300 L358 408 L232 408 Z" fill="#c9d8e6"/>`;
+ s+=`<g transform="translate(300,560)"><ellipse cx="0" cy="100" rx="40" ry="8" fill="#000" opacity=".15"/><rect x="-3" y="20" width="6" height="80" fill="#6d5a48"/><path d="M-30 -60 Q0 -80 30 -60 L36 0 Q0 30 -36 0 Z" fill="#f2b5c6"/><path d="M-36 0 Q0 30 36 0 L50 60 Q0 80 -50 60 Z" fill="#f7cad6"/><circle cx="0" cy="-74" r="10" fill="#e8dccb"/></g>`;
+ s+=`<path d="M0 100 Q200 140 400 100" stroke="#f2a7b8" stroke-width="8" fill="none"/>`;for(let i=0;i<10;i++)s+=`<path d="M${20+i*40} ${110+Math.sin(i)*6} q4 30 -4 50" stroke="${C[i%9]}" stroke-width="5" fill="none"/>`;
+ s+=`<rect x="60" y="600" width="200" height="60" fill="#8a5f44"/><rect x="60" y="596" width="200" height="10" fill="#c9a24a"/>`;return s},
+opera(k){let s=`<defs>${lg('s'+k,'#3a0f1e','#6b1a2c')}${glow('c'+k,'#ffe2a8')}</defs><rect width="400" height="800" fill="url(#s${k})"/><circle cx="200" cy="90" r="160" fill="url(#c${k})" opacity=".55"/>`;
+ for(let r=0;r<3;r++)for(let c=0;c<4;c++){const x=c*100,y=170+r*120;s+=`<path d="M${x+6} ${y} L${x+94} ${y} L${x+94} ${y+90} Q${x+50} ${y+104} ${x+6} ${y+90} Z" fill="#2a0a14"/><path d="M${x+6} ${y+70} L${x+94} ${y+70} L${x+94} ${y+90} Q${x+50} ${y+104} ${x+6} ${y+90} Z" fill="#d6b45a"/><circle cx="${x+30}" cy="${y+50}" r="8" fill="#e8c4a8" opacity=".5"/><circle cx="${x+66}" cy="${y+48}" r="8" fill="#e8c4a8" opacity=".5"/>`}
+ s+=`<path d="M0 520 L400 520 L400 800 L0 800 Z" fill="#4a0d1c"/><path d="M60 520 Q200 470 340 520 L340 800 L60 800 Z" fill="#9c1c34"/>`;for(let x=70;x<340;x+=22)s+=`<path d="M${x} ${520-Math.sin((x-60)/280*Math.PI)*40} V800" stroke="#7a1528" stroke-width="5"/>`;
+ s+=`<path d="M40 500 Q200 440 360 500" stroke="#d6b45a" stroke-width="12" fill="none"/><circle cx="200" cy="462" r="16" fill="#d6b45a"/>`;
+ s+=`<circle cx="200" cy="80" r="30" fill="#fff6d6"/>${[-60,-30,0,30,60].map(d=>`<circle cx="${200+d}" cy="${100+Math.abs(d)/4}" r="6" fill="#fffbe6"/>`).join('')}`;
+ for(let i=0;i<10;i++)s+=`<circle cx="${20+i*40}" cy="${760+(i%2)*12}" r="16" fill="#2a0a14" opacity=".9"/>`;return s},
 ball(k,night){const W=night?['#3a3263','#5b4b7f']:['#fde9ec','#f2cbd5'],win=night?'#26315f':'#fff1c9',fl=night?'#4a3e66':'#ecd6bb';
  let s=`<defs>${lg('s'+k,W[0],W[1])}${glow('c'+k,'#fff1c4')}<pattern id="p${k}" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="scale(1,.5) rotate(45)"><rect width="40" height="40" fill="${fl}"/><rect width="20" height="20" fill="${night?'#3c3156':'#f6e6cf'}"/><rect x="20" y="20" width="20" height="20" fill="${night?'#3c3156':'#f6e6cf'}"/></pattern></defs><rect width="400" height="800" fill="url(#s${k})"/>`;
  [[45,'w'],[160,'w'],[275,'w']].forEach(([x])=>{s+=`<path d="M${x} 520 L${x} 230 Q${x+40} 170 ${x+80} 230 L${x+80} 520 Z" fill="${win}" stroke="#fbf6ef" stroke-width="5"/><path d="M${x+40} 190 V520 M${x} 360 H${x+80}" stroke="#fbf6ef" stroke-width="3"/>`;if(night)s+=stars(6,x,1).replace(/cx="([\d.]+)" cy="([\d.]+)"/g,(m,a,b)=>`cx="${f1(x+6+a*.17)}" cy="${f1(250+a*.6)}"`)});
@@ -810,6 +836,310 @@ D('mc','s',`(Demain, j'aurai peut-être enfin des réponses. Ou encore plus de q
 {end:2}
 );
 
+/* ===== CHAPITRE 3 — Rendez-vous secrets ===== */
+STORY.push(
+{bg:'park',mus:'tender',chap:3,card:['Chapitre 3','Chapter 3'],sub:['Rendez-vous secrets','Secret Meetings'],where:['Londres','London']},
+{st:[]},
+...IF('p1',[
+ {bg:'park',where:['Hyde Park, à l\'aube','Hyde Park, at dawn']},
+ N(`L'aube se lève à peine sur Hyde Park. La brume s'accroche à la Serpentine et les cygnes dorment encore. Tu as filé par la porte de service, enveloppé{e} dans la cape de Bess.`,`Dawn is barely breaking over Hyde Park. Mist clings to the Serpentine and the swans are still asleep. You slipped out through the servants' door, wrapped in Bess's cloak.`),
+ N(`Sous le kiosque à musique, une silhouette t'attend, les mains dans le dos.`,`Under the bandstand, a figure is waiting, hands clasped behind {a:his|her} back.`),
+ {st:['li1','mc']},
+ D('li1','h',`Vous êtes venu{e}. J'avais parié avec moi-même que vous ne viendriez pas… et je suis ravi{a:|e} d'avoir perdu.`,`You came. I'd bet myself you wouldn't… and I'm delighted to have lost.`),
+ D('mc','n',`Votre billet disait que vous aviez quelque chose d'important à me révéler.`,`Your note said you had something important to tell me.`),
+ D('li1','s',`Oui. Et je ne l'ai jamais dit à personne.`,`Yes. And I've never told anyone.`),
+ D('li1','n',`Tout le monde croit que ma mère n'est qu'une amie de la Reine. C'est faux. Augusta Ashbury est ses yeux et ses oreilles. Elle surveille chaque famille étrangère qui arrive à Londres.`,`Everyone thinks my mother is just the Queen's friend. That's not true. Augusta Ashbury is her eyes and ears. She watches every foreign family that arrives in London.`),
+ D('mc','o',`Une… espionne ?`,`A… spy?`),
+ D('li1','n',`Elle préfère le mot « gardienne ». Depuis la guerre avec la France, la Couronne se méfie de tout ce qui vient de Paris.`,`She prefers the word "guardian". Since the war with France, the Crown distrusts everything that comes from Paris.`),
+ D('li1','s',`Hier soir, j'ai vu le dossier qu'elle a ouvert sur votre famille. Elle a écrit à des gens, à Paris. Elle cherche quelque chose.`,`Last night I saw the file she's opened on your family. She's written to people in Paris. She's looking for something.`),
+ D('li1','a',`Et ma mère trouve toujours ce qu'elle cherche.`,`And my mother always finds what she's looking for.`),
+ D('mc','s',`(Si elle découvre les dettes… nous sommes finis.)`,`(If she finds out about the debts… we're finished.)`),
+ D('mc','o',`Pourquoi me dire tout ça ? Vous trahissez votre propre mère.`,`Why tell me all this? You're betraying your own mother.`),
+ D('li1','h',`Parce que je ne veux pas vous rencontrer à travers un dossier. Je veux vous connaître vraiment. Vos secrets, s'il y en a, je préfère les entendre de votre bouche.`,`Because I don't want to meet you through a file. I want to truly know you. Your secrets, if there are any, I'd rather hear them from you.`),
+ C('m5',1,[
+  {t:[`Lui avouer les dettes de ta famille.`,`Confess your family's debts.`],set:'confided',fx:{li1:2},r:[
+   D('mc','s',`Ma famille est ruinée. Ou presque. Mes parents sont venus à Londres pour me marier à une fortune. Voilà notre grand secret.`,`My family is ruined. Or nearly. My parents came to London to marry me to a fortune. That's our great secret.`),
+   N(`{li1} ne recule pas. {a:Il|Elle} prend doucement ta main gantée.`,`{li1} doesn't step back. {a:He|She} gently takes your gloved hand.`),
+   D('li1','h',`Merci de me faire confiance. Je garderai ce secret. Et si ma mère le découvre, elle ne l'apprendra pas de moi.`,`Thank you for trusting me. I'll keep this secret. And if my mother finds out, it won't be from me.`),
+   D('li1','n',`Pour être honnête… les Ashbury ne sont pas aussi riches qu'on le croit, eux non plus. Personne à Mayfair ne l'est.`,`To be honest… the Ashburys aren't as rich as people think either. No one in Mayfair is.`)]},
+  {t:[`Garder le silence. Il est trop tôt pour lui faire confiance.`,`Stay silent. It's too soon to trust {a:him|her}.`],set:'silent',r:[
+   D('mc','n',`Ma famille n'a rien à cacher. Votre mère perd son temps.`,`My family has nothing to hide. Your mother is wasting her time.`),
+   D('li1','s',`Je l'espère. Sincèrement.`,`I hope so. Truly.`),
+   D('li1','n',`Mais si un jour vous changez d'avis… vous savez où me trouver. Je serai là.`,`But if you ever change your mind… you know where to find me. I'll be there.`)]}
+ ]),
+ D('li1','n',`Il y a autre chose. Ma mère a prononcé un nom en lisant votre dossier. Elle l'a murmuré, comme une prière : « Isadora ».`,`There's something else. My mother said a name while reading your file. She whispered it, like a prayer: "Isadora".`),
+ D('mc','o',`Isadora ?!`,`Isadora?!`),
+ D('li1','o',`Vous connaissez ce nom ?`,`You know that name?`),
+ D('mc','s',`Je… l'ai entendu. Une fois. Mes parents se sont tus dès que je suis entré{e}.`,`I… heard it. Once. My parents went silent the moment I walked in.`),
+ D('li1','n',`Alors nous avons un mystère en commun. Je vais essayer d'en savoir plus. Prudemment.`,`Then we share a mystery. I'll try to find out more. Carefully.`),
+ N(`Le soleil perce la brume. Au loin, les premiers cavaliers de Rotten Row approchent. Il est temps de rentrer avant que quelqu'un ne vous voie ensemble.`,`The sun breaks through the mist. In the distance, the first riders of Rotten Row are approaching. Time to go home before anyone sees you together.`)
+],[
+ {bg:'bridge',mus:'mystery',where:['Pont de Blackfriars','Blackfriars Bridge']},
+ N(`Le soir suivant, tu te glisses hors de Grosvenor Street dans la vieille cape de Bess. Le fiacre te dépose près de la Tamise, dans un quartier où les dames de Mayfair ne mettent jamais les pieds.`,`The next evening, you slip out of Grosvenor Street in Bess's old cloak. The hackney drops you near the Thames, in a part of town where Mayfair ladies never set foot.`),
+ N(`Sous la troisième lanterne du pont de Blackfriars, une silhouette t'attend, accoudée au parapet.`,`Under the third lantern of Blackfriars Bridge, a figure is waiting, leaning on the parapet.`),
+ {set:'li2named'},
+ {st:['li2','mc']},
+ D('li2','h',`Vous êtes venu{e}. Toute {g:seul|seule|seul·e}, dans les docks, en pleine nuit. Vous êtes {g:fou|folle|fou·folle}… ou {g:très courageux|très courageuse|très courageux·se}.`,`You came. Alone, by the docks, in the middle of the night. You're either mad… or very brave.`),
+ D('mc','n',`Votre billet disait que vous me diriez tout.`,`Your note said you'd tell me everything.`),
+ D('li2','s',`Tout ce que je sais, en tout cas.`,`Everything I know, at least.`),
+ D('li2','n',`J'ai été {a:élevé|élevée} par une Française, Marguerite. Elle était couturière à Paris, avant la Révolution. Elle est morte l'hiver dernier.`,`I was raised by a Frenchwoman, Marguerite. She was a seamstress in Paris before the Revolution. She died last winter.`),
+ D('li2','s',`Avant de partir, elle m'a donné ce pendentif. Elle m'a dit qu'il avait appartenu à la dame qu'elle avait servie toute sa jeunesse. Une dame nommée Isadora.`,`Before she passed, she gave me this pendant. She told me it had belonged to the lady she served all her youth. A lady named Isadora.`),
+ D('mc','o',`Isadora…`,`Isadora…`),
+ D('li2','n',`Le lys, c'était son emblème. Marguerite m'a fait promettre une chose : « Si un jour tu croises ce lys, suis-le. »`,`The lily was her emblem. Marguerite made me promise one thing: "If you ever come across that lily, follow it."`),
+ D('li2','a',`Et elle m'a dit aussi qu'une seule personne à Londres avait connu Isadora : la Duchesse d'Ashbury. C'est pour ça que je me suis {a:introduit|introduite} à son bal.`,`And she told me that only one person in London had known Isadora: the Duchess of Ashbury. That's why I sneaked into her ball.`),
+ D('mc','s',`(Mes parents… le médaillon… la Duchesse… Tout ramène à cette femme.)`,`(My parents… the locket… the Duchess… Everything leads back to that woman.)`),
+ D('li2','n',`À votre tour. D'où vient le lys que vous avez vu ? Et pourquoi avez-vous pâli quand j'ai dit son nom ?`,`Your turn. Where does the lily you saw come from? And why did you go pale when I said her name?`),
+ C('m5b',1,[
+  {t:[`Lui parler du médaillon et de la conversation de tes parents.`,`Tell {a:him|her} about the locket and your parents' conversation.`],set:'confided',fx:{li2:2},r:[
+   D('mc','s',`J'ai trouvé un médaillon caché dans ma malle. Le portrait d'une femme, avec ce lys au dos, et l'initiale « I. ». Et hier soir, j'ai entendu mes parents parler d'une certaine Isadora… morte depuis longtemps.`,`I found a locket hidden in my trunk. A portrait of a woman, with that lily on the back and the initial "I.". And last night I heard my parents talking about a certain Isadora… long dead.`),
+   D('li2','o',`Vos parents ? Le Comte et la Comtesse {last} connaissaient Isadora ?`,`Your parents? The Count and Countess {last} knew Isadora?`),
+   D('li2','s',`Alors nos histoires sont liées. Je ne sais pas encore comment… mais je vous jure que je vais le découvrir. Avec vous, si vous le voulez bien.`,`Then our stories are tied together. I don't know how yet… but I swear I'll find out. With you, if you'll let me.`)]},
+  {t:[`Rester prudent{e}. Tu ne {a:le|la} connais pas encore.`,`Stay careful. You barely know {a:him|her}.`],set:'silent',r:[
+   D('mc','n',`J'ai vu un lys semblable sur un bijou de famille. C'est tout. Sans doute une coïncidence.`,`I saw a similar lily on a family jewel. That's all. Probably a coincidence.`),
+   D('li2','s',`Vous ne me faites pas confiance. Je le comprends. Les gens comme vous ont appris à se méfier des gens comme moi.`,`You don't trust me. I understand. People like you are taught to distrust people like me.`),
+   D('li2','h',`Mais je n'abandonne pas facilement, {first}.`,`But I don't give up easily, {first}.`)]}
+ ]),
+ D('li2','n',`Je travaille chez Madame Fleury, la modiste française de Bond Street. Si vous avez besoin de moi, c'est là que vous me trouverez.`,`I work at Madame Fleury's, the French dressmaker on Bond Street. If you need me, that's where you'll find me.`),
+ N(`Une cloche sonne minuit à Saint-Paul. {a:Mateo|Nell} t'aide à monter dans un fiacre et reste sur le pont jusqu'à ce que la voiture disparaisse dans la nuit.`,`A bell at St Paul's strikes midnight. {a:Mateo|Nell} helps you into a hackney and stays on the bridge until the carriage disappears into the night.`)
+]),
+
+{bg:'bedroomday',mus:'calm',where:['Ta chambre','Your bedroom']},
+{st:['bess','mc']},
+N(`Tu te glisses dans ta chambre juste à temps. Trente secondes plus tard, on frappe à la porte.`,`You slip into your room just in time. Thirty seconds later, there's a knock at the door.`),
+D('bess','h',`C'est moi ! Votre mère a demandé de vos nouvelles. Je lui ai dit que vous dormiez comme un loir… et que vous ronfliez un peu.`,`It's me! Your mother asked after you. I told her you were sleeping like a log… and snoring a little.`),
+C('c3a',0,[
+ {t:[`« Bess, tu es un trésor. »`,`"Bess, you're a treasure."`],fx:{bess:1},r:[D('bess','h',`Je sais. Mais un trésor qui accepte les rubans en remerciement.`,`I know. But a treasure who accepts ribbons as thanks.`)]},
+ {t:[`« Je ne ronfle pas ! »`,`"I do not snore!"`],r:[D('bess','h',`Toutes les dames disent ça, {title}.`,`All the ladies say that, {title}.`)]},
+ {t:[`« Tu ne me demandes pas où j'étais ? »`,`"Aren't you going to ask where I was?"`],fx:{bess:1},r:[D('bess','n',`Moins j'en sais, moins je mentirai mal. Mais vous me raconterez tout quand ce sera fini.`,`The less I know, the less badly I'll lie. But you'll tell me everything when it's over.`)]}
+]),
+...IF('p2',[
+ N(`Sur ta coiffeuse t'attend un énorme bouquet de roses blanches. Une carte y est glissée, aux armes des Ashbury.`,`On your dressing table waits an enormous bouquet of white roses. A card is tucked into it, bearing the Ashbury crest.`),
+ N(`« Pour {first}, qui a quitté le thé trop vite. J'espère vous revoir très bientôt. — {li1} »`,`"For {first}, who left tea too soon. I hope to see you again very soon. — {li1}"`),
+ D('bess','o',`Des roses blanches ! Chez nous, ça veut dire « mes intentions sont sérieuses ».`,`White roses! Where I'm from, that means "my intentions are serious".`),
+ D('mc','s',`(Pourquoi est-ce que je ne ressens pas ce que je devrais ressentir ?)`,`(Why don't I feel what I'm supposed to feel?)`)
+]),
+{bg:'salon',where:['Le salon','The drawing room']},
+{st:['mother','mc']},
+D('mother','h',`Ah, te voilà. Grande nouvelle : la Duchesse nous invite dans sa loge à l'Opéra, demain soir. La Reine y sera.`,`Ah, there you are. Wonderful news: the Duchess has invited us to her box at the Opera tomorrow night. The Queen will be there.`),
+D('mother','n',`Tu ne peux pas porter une robe que tout Londres a déjà vue. Nous allons chez Madame Fleury, la modiste de Bond Street. Elle est française : au moins quelqu'un comprendra le bon goût.`,`You can't wear a gown all of London has already seen. We're going to Madame Fleury, the dressmaker on Bond Street. She's French: at least someone will understand good taste.`),
+...IF('p2',[D('mc','o',`(Madame Fleury… c'est là que travaille {a:Mateo|Nell} !)`,`(Madame Fleury… that's where {a:Mateo|Nell} works!)`)]),
+C('c3b',0,[
+ {t:[`« Avec quel argent, Mère ? »`,`"With what money, Mother?"`],r:[D('mother','a',`Avec le crédit que nous accorde encore notre nom. Ne pose plus jamais cette question à voix haute.`,`With the credit our name still affords us. Never ask that question out loud again.`)]},
+ {t:[`« Quelle merveilleuse idée ! »`,`"What a marvellous idea!"`],fx:{rep:1},r:[D('mother','h',`Enfin, un peu d'enthousiasme.`,`Finally, a little enthusiasm.`)]},
+ {t:[`« La Duchesse nous invite ? Après ce que je lui ai dit ? »`,`"The Duchess is inviting us? After what I said to her?"`],r:[D('mother','s',`Les invitations d'Augusta Ashbury ne sont jamais des cadeaux. Ce sont des examens.`,`Augusta Ashbury's invitations are never gifts. They're examinations.`)]}
+]),
+
+{bg:'shop',mus:'calm',card:['Bond Street','Bond Street'],sub:['Chez Madame Fleury','At Madame Fleury\'s'],where:['Chez Madame Fleury','At Madame Fleury\'s']},
+{st:['fleury','mc']},
+N(`La boutique de Madame Fleury est un écrin de soie : des rouleaux de tissu de toutes les couleurs, des plumes d'autruche, des rubans par centaines.`,`Madame Fleury's shop is a jewel box of silk: bolts of fabric in every colour, ostrich feathers, ribbons by the hundred.`),
+D('fleury','h',`Ah ! Enfin quelqu'un de Paris ! Bienvenue, {g:mon cher|ma chère|mon ange}. Ici, on parle la langue de la beauté.`,`Ah! At last, someone from Paris! Welcome, my dear. Here, we speak the language of beauty.`),
+C('c3c',0,[
+ {t:[`Lui répondre avec chaleur, comme à une vieille amie.`,`Answer warmly, as if to an old friend.`],r:[D('fleury','h',`Ah, ça fait du bien d'entendre un vrai accent ! Les Anglaises me prennent pour une sorcière quand je parle trop vite.`,`Ah, it feels good to hear a real accent! The English ladies think I'm a witch when I talk too fast.`)]},
+ {t:[`« Paris me manque terriblement. »`,`"I miss Paris terribly."`],r:[D('fleury','s',`À moi aussi, {g:mon cher|ma chère|mon ange}. Depuis vingt ans. On ne s'en remet jamais vraiment.`,`So do I, my dear. For twenty years. You never quite get over it.`)]}
+]),
+D('fleury','n',`Pour l'Opéra, il faut quelque chose d'inoubliable. {a:Mon apprenti|Mon apprentie} va vous apporter les plus belles soieries de la maison.`,`For the Opera, you need something unforgettable. My apprentice will bring you the finest silks in the house.`),
+{st:['li2','mc']},
+...IF('li2named',[
+ ...IF('p2',[D('li2','h',`{title}. Quelle surprise de vous voir ici… en plein jour.`,`{title}. What a surprise to see you here… in broad daylight.`),D('mc','h',`Une surprise totale, vraiment.`,`A complete surprise, truly.`)],
+  [D('li2','o',`Vous ! Je veux dire… {title}. Bienvenue chez Madame Fleury.`,`You! I mean… {title}. Welcome to Madame Fleury's.`),D('mc','o',`{a:Mateo|Nell} ? Vous travaillez ici ?`,`{a:Mateo|Nell}? You work here?`),D('li2','h',`Il faut bien que quelqu'un coupe les robes que je n'aurai jamais les moyens de porter.`,`Someone has to cut the gowns I'll never be able to afford.`)])
+],[
+ {set:'li2named'},
+ N(`{a:Un jeune homme|Une jeune femme} aux bras chargés de soie apparaît. En te voyant, {a:il|elle} manque de tout laisser tomber.`,`A young {a:man|woman} with arms full of silk appears. Seeing you, {a:he|she} nearly drops everything.`),
+ D('li2','o',`Oh. C'est vous.`,`Oh. It's you.`),
+ D('mc','o',`On se connaît ?`,`Do we know each other?`),
+ D('li2','h',`Pas vraiment. Disons que, la dernière fois, je vous ai {g:bousculé|bousculée|bousculé·e} sur une piste de danse… et que vous m'avez sauvé la vie.`,`Not really. Let's say that last time, I crashed into you on a dance floor… and you saved my life.`),
+ ...IF('betrayed',[D('li2','a',`Enfin, non. Vous m'avez dénoncé{a:|e}. Je confonds toujours.`,`Well, no. You turned me in. I always get those mixed up.`)]),
+ D('mc','o',`{a:L'inconnu|L'inconnue} du bal masqué !`,`The stranger from the masked ball!`),
+ D('li2','h',`{a:Mateo|Nell}. {a:Apprenti|Apprentie} de Madame Fleury le jour. {a:Intrus|Intruse} dans les bals la nuit.`,`{a:Mateo|Nell}. Madame Fleury's apprentice by day. Ball-crasher by night.`)
+]),
+N(`Tandis que {a:Mateo|Nell} déroule une soie couleur de lune, la clochette de la porte tinte.`,`As {a:Mateo|Nell} unrolls a moon-coloured silk, the shop bell tinkles.`),
+{st:['twinA','twinB']},
+D('twinA','h',`Tiens, tiens. {g:Le petit Français|La petite Française|Le petit Français} fait ses emplettes. Avec quel argent, je me le demande ?`,`Well, well. The little French upstart is shopping. With what money, I wonder?`),
+D('twinB','a',`Toi, là ! Oui, toi, {a:le commis|la commise}. Cette soie argentée, nous la prenons. Tout le rouleau.`,`You there! Yes, you, shop {a:boy|girl}. That silver silk, we'll take it. The whole bolt.`),
+D('li2','n',`Pardon, mais {title} l'a choisie en premier.`,`Forgive me, but {title} chose it first.`),
+D('twinA','a',`On ne t'a pas sonné{a:|e}. Les domestiques ne contredisent pas les Ashbury. Un mot à notre mère, et ta patronne ferme boutique.`,`Nobody asked you. Servants don't contradict the Ashburys. One word to our mother and your mistress closes shop.`),
+C('c3d',0,[
+ {t:[`Prendre la défense de {a:Mateo|Nell}.`,`Defend {a:Mateo|Nell}.`],set:'defendLi2',fx:{li2:2,rep:-1},r:[D('mc','a',`{a:Il|Elle} a raison, et vous le savez. Un peu de politesse ne ruinerait pas les Ashbury.`,`{a:He's|She's} right, and you know it. A little courtesy wouldn't ruin the Ashburys.`),{st:['twinA','mc']},D('twinA','o',`Tu prends le parti d'{a:un domestique|une domestique} ? Contre nous ?`,`You're siding with a servant? Against us?`),D('twinB','a',`Garde ta soie. Elle ira très bien avec ta réputation… usée jusqu'à la corde.`,`Keep your silk. It'll go nicely with your reputation… worn threadbare.`)]},
+ {t:[`Leur laisser la soie, avec un sourire.`,`Let them have the silk, with a smile.`],fx:{rep:1},r:[D('mc','h',`Prenez-la. L'argent vous va si bien au teint… il fait ressortir l'éclat de votre caractère.`,`Take it. Silver suits your complexion so well… it brings out the sparkle in your personality.`),D('twinB','o',`…C'était un compliment ?`,`…Was that a compliment?`),D('twinA','a',`Non, idiot{t:|e}.`,`No, you fool.`)]},
+ {t:[`Ne rien dire et laisser Madame Fleury gérer.`,`Say nothing and let Madame Fleury handle it.`],r:[{st:['fleury','twinA']},D('fleury','a',`Mesdemoiselles, messieurs, ma boutique, mes règles. La soie est réservée. Il me reste un très joli vert pomme pour vous.`,`Ladies, gentlemen, my shop, my rules. The silk is reserved. I have a lovely apple green left for you.`)]}
+]),
+{st:['li2','mc']},
+N(`Les {t:jumeaux|jumelles} repartent en claquant la porte. {a:Mateo|Nell} s'approche pour prendre tes mesures… et en profite pour murmurer.`,`The twins leave, slamming the door. {a:Mateo|Nell} comes over to take your measurements… and seizes the chance to whisper.`),
+D('li2','s',`Demain soir, à l'Opéra. Faites attention à vous. Ce n'est pas un hasard si la Duchesse vous invite dans sa loge.`,`Tomorrow night, at the Opera. Be careful. It's no accident the Duchess is inviting you to her box.`),
+D('li2','n',`J'y serai aussi, d'une certaine façon. Madame Fleury fournit les costumes du théâtre. Si vous avez besoin de moi, cherchez du côté des coulisses.`,`I'll be there too, in a way. Madame Fleury supplies the theatre's costumes. If you need me, look backstage.`),
+
+{bg:'salon',mus:'mystery',card:['La nuit tombe','Night falls'],sub:['',''],where:['Grosvenor Street','Grosvenor Street']},
+{st:['mc']},
+N(`Ce soir-là, la maison s'endort tôt. Tes parents sont sortis dîner chez un banquier. En passant devant le petit salon, tu remarques le secrétaire de ta mère, entrouvert.`,`That evening, the house goes to sleep early. Your parents have gone to dine with a banker. Passing the small drawing room, you notice your mother's writing desk, ajar.`),
+N(`À l'intérieur, une liasse de lettres nouées d'un ruban noir. Toutes à l'encre violette. Toutes signées d'une seule initiale : « I. »`,`Inside, a bundle of letters tied with a black ribbon. All in violet ink. All signed with a single initial: "I."`),
+D('mc','s',`(Je ne devrais pas… Mais ils me mentent depuis le début.)`,`(I shouldn't… But they've been lying to me from the start.)`),
+C('m6',1,[
+ {t:[`Lire les lettres.`,`Read the letters.`],set:'readLetters',r:[
+  N(`Tes mains tremblent en dénouant le ruban. L'écriture est fine, élégante, presque cruelle.`,`Your hands shake as you untie the ribbon. The handwriting is fine, elegant, almost cruel.`),
+  N(`« Je sais ce que vous avez pris à Isadora. Vous l'avez emporté loin de Paris, et vous croyez être à l'abri à Londres. Vous vous trompez. »`,`"I know what you took from Isadora. You carried it far from Paris and you believe you're safe in London. You are mistaken."`),
+  N(`« Rendez ce qui ne vous appartient pas avant la fin de la Saison. Sinon, tout Londres saura. — I. »`,`"Return what does not belong to you before the Season ends. Otherwise, all of London will know. — I."`),
+  D('mc','o',`(« Ce que vous avez pris à Isadora »… Notre fortune ? Mes parents auraient volé cette femme ?)`,`("What you took from Isadora"… Our fortune? Did my parents rob that woman?)`),
+  D('mc','s',`(Est-ce que tout ce que nous possédons lui appartenait ?)`,`(Did everything we own once belong to her?)`),
+  N(`En bas de la dernière lettre, un post-scriptum : « Nous nous verrons à Covent Garden. »`,`At the bottom of the last letter, a postscript: "We shall meet at Covent Garden."`)
+ ]},
+ {t:[`Refermer le secrétaire. Pas comme ça.`,`Close the desk. Not like this.`],set:'leftLetters',fx:{rep:1},r:[
+  D('mc','n',`(Non. Je veux la vérité, mais pas en volant les secrets de ma propre mère.)`,`(No. I want the truth, but not by stealing my own mother's secrets.)`),
+  {st:['bess','mc']},
+  D('bess','s',`{title}… Je ne devrais pas vous le dire. Mais hier, votre mère a brûlé une de ces lettres. J'ai ramassé ce qui restait dans la cheminée.`,`{title}… I shouldn't tell you this. But yesterday your mother burned one of those letters. I picked up what was left in the fireplace.`),
+  N(`Un fragment de papier noirci. On ne lit plus que quelques mots : « …Isadora… ce qui lui revient… Covent Garden… »`,`A blackened scrap of paper. Only a few words remain: "…Isadora… what is hers by right… Covent Garden…"`),
+  D('mc','o',`(Covent Garden… L'Opéra. Demain soir.)`,`(Covent Garden… The Opera. Tomorrow night.)`)
+ ]}
+]),
+{st:['mc']},
+D('mc','s',`(Quelqu'un sera à l'Opéra demain. Quelqu'un qui connaît la vérité sur Isadora.)`,`(Someone will be at the Opera tomorrow. Someone who knows the truth about Isadora.)`),
+N(`Cette nuit-là, tu ne dors presque pas. Dans le double fond de ta malle, le portrait du médaillon semble te regarder.`,`That night, you barely sleep. In the false bottom of your trunk, the portrait in the locket seems to be watching you.`),
+{end:3}
+);
+
+/* ===== CHAPITRE 4 — Une nuit à l'opéra ===== */
+STORY.push(
+{bg:'opera',mus:'ball',chap:4,card:['Chapitre 4','Chapter 4'],sub:['Une nuit à l\'opéra','A Night at the Opera'],where:['Covent Garden','Covent Garden']},
+{st:[]},
+N(`Le Théâtre royal de Covent Garden brille de mille feux. Des loges dorées, un rideau de velours pourpre, et tout le gratin de Londres qui fait semblant d'écouter la musique.`,`The Theatre Royal, Covent Garden, blazes with light. Gilded boxes, a crimson velvet curtain, and the cream of London pretending to listen to the music.`),
+N(`Dans ta nouvelle robe de soie, tu sens les lorgnettes se tourner vers toi à mesure que vous montez vers la loge des Ashbury.`,`In your new silk, you feel the opera glasses turn towards you as you climb to the Ashbury box.`),
+{st:['duchess','mc']},
+D('duchess','n',`{title}. Asseyez-vous à ma droite. Je veux vous avoir sous les yeux.`,`{title}. Sit on my right. I want to keep you where I can see you.`),
+D('mc','s',`(Sous les yeux… ou sous surveillance ?)`,`(Where she can see me… or keep watch on me?)`),
+{st:['li1','mc']},
+...IF('p1',[
+ ...IF('confided',[D('li1','h',`Vous êtes resplendissant{e}. Et rassurez-vous : votre secret est en sécurité. Ma mère n'en sait rien.`,`You look radiant. And rest assured: your secret is safe. My mother knows nothing.`)],
+  [D('li1','h',`Vous êtes resplendissant{e}. Ma mère vous observe comme un faucon. Restez près de moi, ce soir.`,`You look radiant. My mother is watching you like a hawk. Stay close to me tonight.`)])
+],[
+ D('li1','h',`Vous avez reçu mes roses ? J'espère qu'elles vous ont fait sourire. Moi, j'ai souri toute la journée en pensant à ce soir.`,`Did you get my roses? I hope they made you smile. I've been smiling all day thinking about tonight.`),
+ C('c4a',0,[
+  {t:[`« Elles sont magnifiques. Merci. »`,`"They're beautiful. Thank you."`],fx:{li1:1},r:[D('li1','h',`Alors ma soirée est déjà réussie.`,`Then my evening is already a success.`)]},
+  {t:[`« Vous n'auriez pas dû. »`,`"You shouldn't have."`],r:[D('li1','s',`Peut-être. Mais je ne regrette rien.`,`Perhaps. But I don't regret it.`)]}
+ ])
+]),
+N(`Les trois coups retentissent. Le rideau se lève sur « Les Noces de Figaro ». La salle entière se tourne… vers la loge royale.`,`The three knocks ring out. The curtain rises on "The Marriage of Figaro". The whole house turns… towards the royal box.`),
+{st:['queen','mc']},
+...IF('queenAmused',[D('queen','h',`Ah ! {g:Le jeune Français|La jeune Française|La jeune personne de Paris} qui salue à la Versailles ! Venez me parler à l'entracte.`,`Ah! The young Parisian who greets like Versailles! Come and talk to me at the interval.`)],
+ [D('queen','n',`{title}, n'est-ce pas ? Augusta m'a beaucoup parlé de vous. Beaucoup trop, peut-être.`,`{title}, isn't it? Augusta has told me a great deal about you. Perhaps too much.`)]),
+N(`Pendant le premier acte, un détail t'obsède : dans une loge sombre, de l'autre côté de la salle, une femme voilée de noir ne regarde pas la scène. Elle te regarde, toi.`,`During the first act, one detail obsesses you: in a dark box across the theatre, a woman veiled in black isn't watching the stage. She's watching you.`),
+...IF('readLetters',[D('mc','o',`(« Nous nous verrons à Covent Garden »… C'est elle. C'est « I. ».)`,`("We shall meet at Covent Garden"… It's her. It's "I.".)`)],
+ [D('mc','o',`(Covent Garden… le fragment de lettre. Est-ce que c'est elle ?)`,`(Covent Garden… the letter fragment. Could it be her?)`)]),
+
+{bg:'opera',mus:'mystery',card:['L\'entracte','The Interval'],sub:['',''],where:['Le foyer de l\'Opéra','The Opera foyer']},
+{st:['twinA','twinB']},
+N(`À l'entracte, le foyer bourdonne. Puis, d'un coup, le silence se propage autour de toi comme une tache d'encre.`,`At the interval, the foyer buzzes. Then, all at once, silence spreads around you like an ink stain.`),
+D('twinA','h',`Vous connaissez la nouvelle ? Notre cousin de Paris nous a écrit. La famille {last} est ruinée. Ruinée ! Ils ont des dettes jusqu'au cou.`,`Have you heard the news? Our cousin in Paris wrote to us. The {last} family is ruined. Ruined! They're up to their necks in debt.`),
+D('twinB','h',`Ils sont venus à Londres pour vendre leur {g:fils|fille|enfant} au plus offrant. Comme un cheval à la foire !`,`They came to London to sell their {g:son|daughter|child} to the highest bidder. Like a horse at the fair!`),
+N(`Des rires étouffés. Des éventails qui s'agitent. Des regards qui se détournent. Ta mère est devenue blanche comme un linge.`,`Stifled laughter. Fluttering fans. Eyes turning away. Your mother has gone white as a sheet.`),
+{st:['duchess','mc']},
+D('duchess','a',`{title}. Est-ce vrai ?`,`{title}. Is it true?`),
+N(`Tout le foyer retient son souffle. Toute ta vie à Londres va se jouer sur ta réponse.`,`The whole foyer holds its breath. Your entire life in London hinges on your answer.`),
+C('m7',1,[
+ {t:[`Nier avec aplomb pour protéger ta famille.`,`Deny it boldly to protect your family.`],set:'denied',fx:{rep:1},r:[
+  D('mc','a',`Des ragots de cousins jaloux, Votre Grâce. Si ma famille était ruinée, croyez-vous que je porterais la plus belle soie de Madame Fleury ?`,`Gossip from jealous cousins, Your Grace. If my family were ruined, do you think I'd be wearing Madame Fleury's finest silk?`),
+  N(`Quelques rires changent de camp. Les {t:jumeaux|jumelles} perdent de leur assurance.`,`A few laughs switch sides. The twins lose some of their swagger.`),
+  D('duchess','n',`Hm. Bien répondu. Que ce soit vrai, c'est une autre affaire.`,`Hm. Well answered. Whether it's true is another matter.`),
+  ...IF('confided',[...IF('p1',[{st:['li1','mc']},D('li1','s',`(Vous mentez pour survivre. Je ne vous en veux pas… mais je sais.)`,`(You're lying to survive. I don't blame you… but I know.)`)])])
+ ]},
+ {t:[`Dire la vérité, avec dignité.`,`Tell the truth, with dignity.`],set:'truth',fx:{rep:-1,li1:1,li2:1},r:[
+  D('mc','n',`Oui. Ma famille traverse des difficultés. Comme beaucoup de familles françaises depuis la guerre.`,`Yes. My family is going through difficulties. Like many French families since the war.`),
+  D('mc','a',`Mais je ne suis pas à vendre. Et je préfère être {g:pauvre|pauvre|pauvre} et {g:honnête|honnête|honnête} que {g:riche|riche|riche} et cruel{e} comme ceux qui lisent le courrier des autres.`,`But I am not for sale. And I'd rather be poor and honest than rich and cruel like those who read other people's letters.`),
+  N(`Un silence stupéfait. Puis, dans la loge royale, quelqu'un se met à applaudir doucement. La Reine.`,`A stunned silence. Then, from the royal box, someone begins to clap softly. The Queen.`),
+  {st:['queen','mc']},
+  D('queen','h',`Enfin quelqu'un qui dit la vérité dans ce théâtre. C'est plus rare qu'un ténor juste.`,`At last, someone telling the truth in this theatre. That's rarer than a tenor in tune.`),
+  SET('queenRespect')
+ ]}
+]),
+{st:['duchess','mc']},
+D('duchess','n',`Suivez-moi, {title}. Dans mon salon privé. Maintenant.`,`Follow me, {title}. To my private salon. Now.`),
+
+{bg:'salon',mus:'mystery',where:['Le salon privé de la Duchesse','The Duchess\'s private salon']},
+{st:['duchess','mc']},
+N(`La Duchesse referme la porte. Le brouhaha du foyer disparaît d'un coup. Elle te fixe longtemps, sans un mot.`,`The Duchess closes the door. The noise of the foyer vanishes at once. She stares at you for a long time, without a word.`),
+D('duchess','s',`Ma famille et la vôtre se ressemblent plus que vous ne le croyez, {title}. Nous avons toutes deux des secrets.`,`My family and yours are more alike than you think, {title}. We both have secrets.`),
+D('duchess','n',`J'ai lu votre dossier. Des dettes, oui. Mais ce n'est pas ce qui m'intéresse.`,`I've read your file. Debts, yes. But that's not what interests me.`),
+D('duchess','s',`Dites-moi… vos parents vous ont-ils déjà parlé d'une femme nommée Isadora de Valcourt ?`,`Tell me… have your parents ever mentioned a woman named Isadora de Valcourt?`),
+C('c4b',0,[
+ {t:[`« Qui était-elle ? »`,`"Who was she?"`],r:[D('duchess','s',`Mon amie la plus chère. Autrefois. Avant que la Révolution ne nous sépare. Elle est morte il y a près de vingt ans… à Paris.`,`My dearest friend. Once. Before the Revolution tore us apart. She died nearly twenty years ago… in Paris.`)]},
+ {t:[`Lui dire ce que tu sais : le nom, le lys, le médaillon.`,`Tell her what you know: the name, the lily, the locket.`],set:'toldDuchess',fx:{rep:1},r:[D('mc','s',`J'ai entendu ce nom dans la bouche de mes parents. Et j'ai trouvé un médaillon avec un lys gravé, et l'initiale « I. ».`,`I heard that name from my parents. And I found a locket engraved with a lily, and the initial "I.".`),D('duchess','o',`Le lys des Valcourt…`,`The Valcourt lily…`),N(`Pour la première fois, la Duchesse semble ébranlée. Elle s'assoit, lentement.`,`For the first time, the Duchess looks shaken. She sits down, slowly.`)]},
+ {t:[`« Jamais entendu parler. » (mentir)`,`"Never heard of her." (lie)`],r:[D('duchess','a',`Vous mentez aussi mal que votre père, {title}. C'est presque touchant.`,`You lie as badly as your father, {title}. It's almost touching.`)]}
+]),
+D('duchess','s',`Isadora était la femme la plus brillante de Paris. Et la plus imprudente. On dit qu'elle est morte de fièvre. Je n'y ai jamais cru.`,`Isadora was the most brilliant woman in Paris. And the most reckless. They say she died of a fever. I never believed it.`),
+D('duchess','n',`Depuis quelques semaines, je reçois des lettres. Encre violette. Signées « I. ». Comme si Isadora m'écrivait d'outre-tombe.`,`For some weeks now, I've been receiving letters. Violet ink. Signed "I.". As if Isadora were writing to me from beyond the grave.`),
+D('mc','o',`Ma mère en reçoit aussi !`,`My mother gets them too!`),
+D('duchess','a',`Alors écoutez-moi bien. Celui ou celle qui signe « I. » n'est pas un fantôme. Et ce n'est pas votre amie. Ne rencontrez jamais cette personne {g:seul|seule|seul·e}.`,`Then listen carefully. Whoever signs "I." is no ghost. And they are not your friend. Never meet them alone.`),
+D('duchess','n',`Maintenant, retournez dans la salle. Et souriez. À Londres, on ne pleure jamais en public.`,`Now go back to the house. And smile. In London, one never cries in public.`),
+
+{bg:'opera',mus:'tender',card:['Le dernier acte','The Final Act'],sub:['',''],where:['Les coulisses','Backstage']},
+...IF('p1',[
+ {bg:'terrace',where:['Le balcon de l\'Opéra','The Opera balcony']},
+ N(`Tu ne retournes pas dans la loge. Tu as besoin d'air. Tu trouves un petit balcon désert qui surplombe la place de Covent Garden.`,`You don't go back to the box. You need air. You find a small deserted balcony overlooking Covent Garden square.`),
+ {st:['li1','mc']},
+ D('li1','s',`Je vous cherchais partout. Ma mère vous a fait peur ? Elle fait peur à tout le monde. Même à la Reine, parfois.`,`I've been looking for you everywhere. Did my mother frighten you? She frightens everyone. Even the Queen, sometimes.`),
+ ...IF('truth',[D('li1','h',`Ce que vous avez dit, dans le foyer… Je n'ai jamais vu quelqu'un d'aussi courageux. Tout Londres vous regardait, et vous n'avez pas baissé les yeux.`,`What you said in the foyer… I've never seen anyone so brave. All of London was watching, and you didn't look away.`)],
+  [D('li1','h',`Vous avez remis {t:mes frères|mes sœurs} à leur place avec un sang-froid incroyable. Je crois que je suis {a:un peu jaloux|un peu jalouse} de votre aplomb.`,`You put my {t:brothers|sisters} in their place with incredible composure. I think I'm a little jealous of your nerve.`)]),
+ D('li1','n',`{first}… Peu importe votre fortune, votre famille, vos secrets. Ce n'est pas ça que je vois quand je vous regarde.`,`{first}… Your fortune, your family, your secrets — none of it matters. That's not what I see when I look at you.`),
+ N(`{a:Il|Elle} s'approche. Les lumières de la place dansent dans {a:ses|ses} yeux. Le monde entier semble suspendu.`,`{a:He|She} steps closer. The lights of the square dance in {a:his|her} eyes. The whole world seems to hold still.`),
+ C('m8',1,[
+  {t:[`L'embrasser.`,`Kiss {a:him|her}.`],set:'kissLi1',fx:{li1:3},r:[
+   N(`Tu franchis le dernier pas. Le baiser est doux, hésitant d'abord, puis plus sûr. Quelque part derrière vous, l'orchestre attaque le grand final.`,`You close the last step. The kiss is soft, hesitant at first, then surer. Somewhere behind you, the orchestra strikes up the grand finale.`),
+   D('li1','h',`Je crois que je vais me souvenir de « Figaro » toute ma vie.`,`I think I'll remember "Figaro" for the rest of my life.`),
+   D('mc','h',`Vous n'avez pas vu une seule minute du dernier acte.`,`You haven't seen a single minute of the last act.`),
+   D('li1','h',`Précisément.`,`Precisely.`)]},
+  {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi1',fx:{li1:1},r:[
+   D('mc','s',`{li1}… Pas ce soir. Il se passe trop de choses. Je ne veux pas que notre premier… que ce moment soit gâché par tout ça.`,`{li1}… Not tonight. Too much is happening. I don't want our first… I don't want this moment spoiled by all of it.`),
+   D('li1','h',`Alors j'attendrai. Je vous l'ai dit : je suis {a:patient|patiente}.`,`Then I'll wait. I told you: I'm patient.`),
+   N(`{a:Il|Elle} porte ta main gantée à ses lèvres. C'est presque plus troublant qu'un baiser.`,`{a:He|She} raises your gloved hand to {a:his|her} lips. It's almost more unsettling than a kiss.`)]}
+ ])
+],[
+ N(`Tu ne retournes pas dans la loge. Tu descends un escalier dérobé, puis un autre, jusqu'aux coulisses où s'entassent décors, perruques et costumes.`,`You don't go back to the box. You take a hidden staircase, then another, down to the wings where sets, wigs and costumes are piled high.`),
+ {st:['li2','mc']},
+ D('li2','o',`{first} ? Qu'est-ce que vous faites ici ? Le public n'a pas le droit de…`,`{first}? What are you doing here? The audience isn't allowed to…`),
+ D('li2','s',`J'ai entendu, pour le foyer. Toute la troupe en parle.`,`I heard about the foyer. The whole company is talking about it.`),
+ ...IF('truth',[D('li2','h',`« Je ne suis pas à vendre. » Je crois que je vais le broder sur un mouchoir.`,`"I am not for sale." I think I'll embroider it on a handkerchief.`)],
+  [D('li2','n',`Vous avez menti devant tout Londres sans trembler. Je ne sais pas si je dois être {a:impressionné|impressionnée} ou inquiet{a:|e}.`,`You lied in front of all of London without flinching. I don't know whether to be impressed or worried.`)]),
+ D('mc','s',`La Duchesse connaissait Isadora. Elle reçoit les mêmes lettres que ma mère. Et elle dit que « I. » est dangereux.`,`The Duchess knew Isadora. She gets the same letters as my mother. And she says "I." is dangerous.`),
+ D('li2','a',`Alors vous n'irez nulle part {g:seul|seule|seul·e}. Plus jamais. Pas tant que je suis là.`,`Then you won't go anywhere alone. Ever again. Not while I'm here.`),
+ N(`Entre deux portants de costumes, la lumière de la scène filtre à travers le rideau. Vous êtes si proches que tu sens son souffle.`,`Between two costume racks, stage light filters through the curtain. You're so close you can feel {a:his|her} breath.`),
+ C('m8b',1,[
+  {t:[`L'embrasser.`,`Kiss {a:him|her}.`],set:'kissLi2',fx:{li2:3},r:[
+   N(`C'est toi qui franchis le pas. Un baiser volé, dans la poussière des coulisses, pendant que la soprano chante l'amour à quelques mètres de vous.`,`You're the one who closes the gap. A stolen kiss, in the dust of the wings, while the soprano sings of love a few yards away.`),
+   D('li2','o',`Vous… vous savez que si quelqu'un nous voit, vous êtes {g:perdu|perdue|perdu·e} ?`,`You… you know if anyone sees us, you're ruined?`),
+   D('mc','h',`Je suis déjà ruiné{e}. Tout Londres le sait.`,`I'm already ruined. All of London knows it.`),
+   N(`{a:Mateo|Nell} éclate de rire, et t'embrasse à son tour.`,`{a:Mateo|Nell} bursts out laughing, and kisses you back.`)]},
+  {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi2',fx:{li2:1},r:[
+   D('mc','s',`Pas ici. Pas comme ça. Si on nous surprend, c'est vous qui finirez à Newgate, pas moi.`,`Not here. Not like this. If we're caught, you're the one who ends up in Newgate, not me.`),
+   D('li2','h',`Vous pensez à moi avant de penser à vous. Personne n'a jamais fait ça.`,`You think of me before yourself. No one's ever done that.`),
+   N(`{a:Il|Elle} remet doucement une mèche de cheveux derrière ton oreille, puis recule d'un pas.`,`{a:He|She} gently tucks a strand of hair behind your ear, then steps back.`)]}
+ ])
+]),
+
+{bg:'salon',mus:'mystery',card:['Grosvenor Street','Grosvenor Street'],sub:['Après minuit','After midnight'],where:['Grosvenor Street','Grosvenor Street']},
+{st:['father','mother']},
+N(`Le retour en voiture se fait dans un silence de mort. À peine la porte refermée, ton père s'effondre dans un fauteuil.`,`The carriage ride home passes in deathly silence. The moment the door closes, your father collapses into an armchair.`),
+D('father','s',`Tout Londres sait. Demain, les créanciers anglais frapperont à la porte. Ils ne nous feront plus crédit.`,`All of London knows. Tomorrow the English creditors will be at the door. They'll give us no more credit.`),
+...IF('truth',[D('mother','a',`Et c'est toi qui l'as confirmé, devant la Reine ! As-tu la moindre idée de ce que tu as fait ?`,`And you're the one who confirmed it, in front of the Queen! Do you have any idea what you've done?`),...IF('queenRespect',[D('mc','a',`La Reine a applaudi, Mère. Elle a applaudi.`,`The Queen applauded, Mother. She applauded.`),D('father','o',`…C'est vrai. Elle a applaudi. Ce n'est peut-être pas tout à fait perdu.`,`…That's true. She applauded. Perhaps all is not quite lost.`)])],
+ [D('mother','n',`Tu as menti avec panache. Je n'aurais pas fait mieux. Mais un mensonge ne tient qu'un temps à Londres.`,`You lied with flair. I couldn't have done better. But a lie only lasts so long in London.`)]),
+{st:['mother','mc']},
+D('mc','a',`Assez de secrets. La Duchesse m'a parlé d'Isadora de Valcourt. Qui était-elle pour vous ?`,`Enough secrets. The Duchess told me about Isadora de Valcourt. Who was she to you?`),
+N(`Ta mère pâlit. Ton père se lève d'un bond. Pendant un long moment, personne ne parle.`,`Your mother goes pale. Your father leaps to his feet. For a long moment, no one speaks.`),
+D('mother','s',`{first}… Il y a quelque chose que tu dois savoir. Quelque chose que nous aurions dû te dire il y a très longtemps…`,`{first}… There's something you need to know. Something we should have told you a very long time ago…`),
+{st:['bess','mc']},
+N(`On frappe à la porte. Trois coups secs. À une heure du matin.`,`A knock at the door. Three sharp raps. At one in the morning.`),
+D('bess','o',`Un petit garçon a déposé ça pour vous, {title}. Il s'est enfui en courant.`,`A little boy left this for you, {title}. He ran off.`),
+N(`Une enveloppe cachetée de cire noire. Ton nom, écrit à l'encre violette.`,`An envelope sealed with black wax. Your name, written in violet ink.`),
+C('c4c',0,[
+ {t:[`L'ouvrir immédiatement, devant tes parents.`,`Open it at once, in front of your parents.`],r:[N(`Ta mère tend la main pour t'en empêcher. Trop tard.`,`Your mother reaches out to stop you. Too late.`)]},
+ {t:[`Monter l'ouvrir dans ta chambre, {g:seul|seule|seul·e}.`,`Go and open it alone in your room.`],r:[N(`Tu montes l'escalier sans un mot. Derrière toi, ta mère appelle ton nom, encore et encore.`,`You climb the stairs without a word. Behind you, your mother calls your name, again and again.`)]}
+]),
+{st:['mc']},
+N(`« Ce qu'ils ont pris à Isadora n'était pas de l'or. Tu mérites de connaître la vérité. Viens seul{e} à la cathédrale Saint-Paul, demain à midi. — I. »`,`"What they took from Isadora was not gold. You deserve to know the truth. Come alone to St Paul's Cathedral, tomorrow at noon. — I."`),
+D('mc','o',`(Pas de l'or… Alors quoi ?)`,`(Not gold… Then what?)`),
+...IF('p1',[D('mc','s',`({li1} m'a dit de faire attention. La Duchesse m'a dit de ne jamais y aller {g:seul|seule|seul·e}…)`,`({li1} told me to be careful. The Duchess told me never to go alone…)`)],
+ [D('mc','s',`({a:Mateo|Nell} m'a fait promettre de ne plus jamais y aller {g:seul|seule|seul·e}…)`,`({a:Mateo|Nell} made me promise never to go alone again…)`)]),
+N(`En bas, tu entends ta mère pleurer. Pour la première fois de ta vie.`,`Downstairs, you hear your mother crying. For the first time in your life.`),
+{end:4}
+);
+
 {
 const $=id=>document.getElementById(id);
 const MEM={};
@@ -817,8 +1147,8 @@ const store={get(k){try{const v=localStorage.getItem(k);return v?JSON.parse(v):(
 let OPT=Object.assign({mus:60,sfx:70,lang:'fr',speed:1},store.get('ssl_opts')||{});
 const saveOpt=()=>store.set('ssl_opts',OPT);
 const T={
-fr:{title:'The Love Chronicles',sub:'Une romance de la Régence',cont:'Continuer',newg:'Nouvelle partie',saves:'Sauvegardes',opts:'Options',ver:'Chapitres 1 et 2',confirmNew:'Ta partie en cours sera effacée. Commencer une nouvelle histoire ?',yes:'Oui, recommencer',no:'Annuler',back:'Retour',next:'Suivant',start:'Commencer',stepT:{id:'Qui es-tu ?',look:'Choisis ton personnage',app:'Ton apparence',out:'Ta tenue',sum:'Prêt·e pour le bal ?'},first:'Prénom',last:'Nom de famille',pron:'Pronoms',pres:'Apparence',attr:'Tu es attiré·e par',men:'Les hommes',women:'Les femmes',fem:'Féminine',masc:'Masculine',prons:['Il','Elle','Iel'],final:'Ces choix sont définitifs : ils ne pourront plus être modifiés une fois l\'histoire commencée.',needName:'Choisis un prénom et un nom de famille.',tabs:['Peau','Coiffure','Couleur','Yeux','Nez','Bouche','Silhouette'],shape:'Forme',color:'Couleur',eyeShapes:['Ronds','En amande'],mouthShapes:['Fine','Pulpeuse'],noses:['Petit','Droit','Large'],bodies:['Très mince','Normale','En surpoids','Obèse'],hairF:{kinky:'Crépus',curly:'Bouclés',long:'Lisses longs',bob:'Carré lisse',bun:'Chignon'},hairM:{mlong:'Longs',mshort:'Courts',braids:'Tresses afro'},random:'Au hasard',save:'Sauver',load:'Charger',empty:'Emplacement vide',auto:'Sauvegarde auto',slot:'Emplacement',close:'Fermer',music:'Musique',sfxl:'Effets sonores',lang:'Langue',speed:'Vitesse du texte',speeds:['Lente','Normale','Rapide'],resume:'Reprendre',mainmenu:'Menu principal',paused:'Pause',saved:'Partie sauvegardée',major:'✦ Choix important ✦',choose:'Que fais-tu ?',conseq:'Ce choix aura des conséquences…',likes:'♥ {n} a apprécié',dislikes:'{n} n\'a pas apprécié',repUp:'Réputation +',repDown:'Réputation −',bessUp:'♥ Bess vous apprécie',endT:'Fin du chapitre {n}',nextCh:'Commencer le chapitre {n}',soon:'La suite arrive bientôt…',rel:'Relations',rep:'Réputation',majors:'Tes choix importants',ch2:'Le chapitre 2 arrive bientôt…',replay:'Recommencer l\'histoire',tapc:'Touche pour continuer',noSave:'Aucune sauvegarde pour le moment.',summary:'Pronoms {p} · attiré·e par {a}',cards:'Tenue'},
-en:{title:'The Love Chronicles',sub:'A Regency romance',cont:'Continue',newg:'New game',saves:'Saves',opts:'Settings',ver:'Chapters 1 and 2',confirmNew:'Your current game will be erased. Start a new story?',yes:'Yes, start over',no:'Cancel',back:'Back',next:'Next',start:'Begin',stepT:{id:'Who are you?',look:'Choose your character',app:'Your appearance',out:'Your outfit',sum:'Ready for the ball?'},first:'First name',last:'Surname',pron:'Pronouns',pres:'Presentation',attr:'You are attracted to',men:'Men',women:'Women',fem:'Feminine',masc:'Masculine',prons:['He','She','They'],final:'These choices are final: they can\'t be changed once the story begins.',needName:'Choose a first name and a surname.',tabs:['Skin','Hairstyle','Colour','Eyes','Nose','Mouth','Body'],shape:'Shape',color:'Colour',eyeShapes:['Round','Almond'],mouthShapes:['Thin','Full'],noses:['Small','Straight','Wide'],bodies:['Very slim','Average','Overweight','Obese'],hairF:{kinky:'Coily',curly:'Curly',long:'Long & straight',bob:'Straight bob',bun:'Bun'},hairM:{mlong:'Long',mshort:'Short',braids:'Afro braids'},random:'Random',save:'Save',load:'Load',empty:'Empty slot',auto:'Autosave',slot:'Slot',close:'Close',music:'Music',sfxl:'Sound effects',lang:'Language',speed:'Text speed',speeds:['Slow','Normal','Fast'],resume:'Resume',mainmenu:'Main menu',paused:'Paused',saved:'Game saved',major:'✦ Important choice ✦',choose:'What do you do?',conseq:'This choice will have consequences…',likes:'♥ {n} liked that',dislikes:'{n} didn\'t like that',repUp:'Reputation +',repDown:'Reputation −',bessUp:'♥ Bess likes you',endT:'End of Chapter {n}',nextCh:'Start Chapter {n}',soon:'More coming soon…',rel:'Relationships',rep:'Reputation',majors:'Your important choices',ch2:'Chapter 2 is coming soon…',replay:'Restart the story',tapc:'Tap to continue',noSave:'No saves yet.',summary:'Pronouns {p} · attracted to {a}',cards:'Outfit'}};
+fr:{title:'The Love Chronicles',sub:'Une romance de la Régence',cont:'Continuer',newg:'Nouvelle partie',saves:'Sauvegardes',opts:'Options',ver:'Chapitres 1 à 4',confirmNew:'Ta partie en cours sera effacée. Commencer une nouvelle histoire ?',yes:'Oui, recommencer',no:'Annuler',back:'Retour',next:'Suivant',start:'Commencer',stepT:{id:'Qui es-tu ?',look:'Choisis ton personnage',app:'Ton apparence',out:'Ta tenue',sum:'Prêt·e pour le bal ?'},first:'Prénom',last:'Nom de famille',pron:'Pronoms',pres:'Apparence',attr:'Tu es attiré·e par',men:'Les hommes',women:'Les femmes',fem:'Féminine',masc:'Masculine',prons:['Il','Elle','Iel'],final:'Ces choix sont définitifs : ils ne pourront plus être modifiés une fois l\'histoire commencée.',needName:'Choisis un prénom et un nom de famille.',tabs:['Peau','Coiffure','Couleur','Yeux','Nez','Bouche','Silhouette'],shape:'Forme',color:'Couleur',eyeShapes:['Ronds','En amande'],mouthShapes:['Fine','Pulpeuse'],noses:['Petit','Droit','Large'],bodies:['Très mince','Normale','En surpoids','Obèse'],hairF:{kinky:'Crépus',curly:'Bouclés',long:'Lisses longs',bob:'Carré lisse',bun:'Chignon'},hairM:{mlong:'Longs',mshort:'Courts',braids:'Tresses afro'},random:'Au hasard',save:'Sauver',load:'Charger',empty:'Emplacement vide',auto:'Sauvegarde auto',slot:'Emplacement',close:'Fermer',music:'Musique',sfxl:'Effets sonores',lang:'Langue',speed:'Vitesse du texte',speeds:['Lente','Normale','Rapide'],resume:'Reprendre',mainmenu:'Menu principal',paused:'Pause',saved:'Partie sauvegardée',major:'✦ Choix important ✦',choose:'Que fais-tu ?',conseq:'Ce choix aura des conséquences…',likes:'♥ {n} a apprécié',dislikes:'{n} n\'a pas apprécié',repUp:'Réputation +',repDown:'Réputation −',bessUp:'♥ Bess vous apprécie',endT:'Fin du chapitre {n}',nextCh:'Commencer le chapitre {n}',soon:'La suite arrive bientôt…',rel:'Relations',rep:'Réputation',majors:'Tes choix importants',ch2:'Le chapitre 2 arrive bientôt…',replay:'Recommencer l\'histoire',tapc:'Touche pour continuer',noSave:'Aucune sauvegarde pour le moment.',summary:'Pronoms {p} · attiré·e par {a}',cards:'Tenue'},
+en:{title:'The Love Chronicles',sub:'A Regency romance',cont:'Continue',newg:'New game',saves:'Saves',opts:'Settings',ver:'Chapters 1 to 4',confirmNew:'Your current game will be erased. Start a new story?',yes:'Yes, start over',no:'Cancel',back:'Back',next:'Next',start:'Begin',stepT:{id:'Who are you?',look:'Choose your character',app:'Your appearance',out:'Your outfit',sum:'Ready for the ball?'},first:'First name',last:'Surname',pron:'Pronouns',pres:'Presentation',attr:'You are attracted to',men:'Men',women:'Women',fem:'Feminine',masc:'Masculine',prons:['He','She','They'],final:'These choices are final: they can\'t be changed once the story begins.',needName:'Choose a first name and a surname.',tabs:['Skin','Hairstyle','Colour','Eyes','Nose','Mouth','Body'],shape:'Shape',color:'Colour',eyeShapes:['Round','Almond'],mouthShapes:['Thin','Full'],noses:['Small','Straight','Wide'],bodies:['Very slim','Average','Overweight','Obese'],hairF:{kinky:'Coily',curly:'Curly',long:'Long & straight',bob:'Straight bob',bun:'Bun'},hairM:{mlong:'Long',mshort:'Short',braids:'Afro braids'},random:'Random',save:'Save',load:'Load',empty:'Empty slot',auto:'Autosave',slot:'Slot',close:'Close',music:'Music',sfxl:'Sound effects',lang:'Language',speed:'Text speed',speeds:['Slow','Normal','Fast'],resume:'Resume',mainmenu:'Main menu',paused:'Paused',saved:'Game saved',major:'✦ Important choice ✦',choose:'What do you do?',conseq:'This choice will have consequences…',likes:'♥ {n} liked that',dislikes:'{n} didn\'t like that',repUp:'Reputation +',repDown:'Reputation −',bessUp:'♥ Bess likes you',endT:'End of Chapter {n}',nextCh:'Start Chapter {n}',soon:'More coming soon…',rel:'Relationships',rep:'Reputation',majors:'Your important choices',ch2:'Chapter 2 is coming soon…',replay:'Restart the story',tapc:'Tap to continue',noSave:'No saves yet.',summary:'Pronouns {p} · attracted to {a}',cards:'Outfit'}};
 const tr=k=>T[OPT.lang][k];
 const L2=a=>Array.isArray(a)?a[OPT.lang=='en'?1:0]:(a||'');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -882,11 +1212,11 @@ function charDef(id){
  case 'li2_old':return am?{p:{sex:'m',skin:2,hair:'mlong',hc:'#2e1c12',es:0,ec:'#4e2f1c',nose:1,mouth:1,lip:'#a8606a',body:1,out:{coat:'#4f4636',vest:'#a88a5a',btn:'#8a8a8a',cravat:'#ece6d6'}},acc:{mask:'#151515',trim:'#c0c0c8',feather:'#555'}}:{p:{sex:'f',skin:0,hair:'curly',hc:'#e0bd70',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#e8a19c',body:1,out:{fill:'#e8d7b5',sleeve:'#f2e6cc',trim:'#c9a46a'}},acc:{mask:'#ffffff',feather:'#f2b5c6'}};
  case 'guard_old':return {p:{sex:'m',skin:1,hair:'mshort',hc:'#43281a',es:0,ec:'#4e2f1c',nose:2,mouth:0,lip:'#c98a88',body:2,out:{coat:'#b3262f',vest:'#f0e6d0',btn:'#d9b54a',belts:1}},acc:{shako:1,side:1}};
  }}
-const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f'};
+const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f',fleury:'#a0527a'};
 const tw=()=>S.p.body=='m'?[OPT.lang=='en'?'Percival':'Perceval','Philippe']:['Prudence',OPT.lang=='en'?'Peregrine':'Pérégrine'];
 const li1n=()=>S.p.attr=='m'?'Edmund':'Rosalind';
 const li2n=()=>S.f&&S.f.li2named?(S.p.attr=='m'?'Mateo':'Nell'):(OPT.lang=='en'?'Masked stranger':(S.p.attr=='m'?'L\'inconnu masqué':'L\'inconnue masquée'));
-function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard'])}[id]||''}
+function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard']),fleury:'Madame Fleury'}[id]||''}
 function fmt(s){const P=S.p,en=OPT.lang=='en',gi={m:0,f:1,n:2}[P.pron],ai=P.attr=='m'?0:1,ti=P.body=='m'?0:1;
  return s.replace(/\{(\w+)(?::([^}]*))?\}/g,(m,k,a)=>{
   if(a!=null){const p=a.split('|'),i=k=='g'?gi:k=='a'?ai:ti;return p[Math.min(i,p.length-1)]}
@@ -1033,7 +1363,7 @@ function renderStage(st,speaker){const el=$('stage'),pres=new Set(st);
  [...el.children].forEach(c=>{if(!pres.has(c.dataset.id)){c.classList.remove('in');c.dataset.id='_';setTimeout(()=>c.remove(),420)}});
  st.forEach((id,k)=>{let c=[...el.children].find(x=>x.dataset.id==id);
   if(!c){c=document.createElement('div');c.className='ch';c.dataset.id=id;el.appendChild(c);requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}
-  const d=charDef(id),ex=S.ex[id]||'n',key=id+ex+(d.acc.mask||'')+(id=='mc'?JSON.stringify(S.p):'')+S.p.attr+S.p.body;
+  const d=charDef(id);if(!d){c.innerHTML='';c.dataset.key='';c.classList.toggle('on',id===speaker);return}const ex=S.ex[id]||'n',key=id+ex+(d.acc.mask||'')+(id=='mc'?JSON.stringify(S.p):'')+S.p.attr+S.p.body;
   if(c.dataset.key!==key){if(d.img){c.classList.add('pic');c.style.setProperty('--ar',d.img.w+'/'+d.img.h);c.style.setProperty('--ax',(d.img.eye[0]/d.img.w*100)+'%');c.style.height=(72/(d.img.waist||.4))+'%';c.style.top='3%';c.innerHTML=picHTML(d.img,d.acc.mask)}else{c.classList.remove('pic');c.style.height='';c.style.top='';if(!svgCache.has(key))svgCache.set(key,ART.draw(d.p,ex,d.acc));c.innerHTML=svgCache.get(key)}c.dataset.key=key}
   c.style.left=st.length==1?'50%':(k?'71%':'29%');c.classList.toggle('on',id===speaker)})}
 let tmr=0,full='',typing=false;
