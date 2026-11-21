@@ -11,7 +11,7 @@ D('mc','s',`Non, Madame. Je suis {g:son fils|sa fille|son enfant}.`,`No, Madame.
 D('roux','s',`{g:Son fils|Sa fille|Son enfant}… Alors tu as vécu. Je savais que tu avais vécu. Je t'ai mis{g:|e|·e} au monde, mon petit. Entre. Entre vite.`,`Her child… So you lived. I knew you had lived. I brought you into the world, little one. Come in. Come in quickly.`),
 
 {bg:'bedroomday',mus:'tender',where:['Chez Madame Roux','Madame Roux\'s home']},
-{st:['mc']},
+{st:['roux','mc']},
 N(`Madame Roux te fait asseoir près du feu. Elle te touche le visage, les mains, comme pour s'assurer que tu es réel{e}.`,`Madame Roux sits you down by the fire. She touches your face, your hands, as if to make sure you're real.`),
 D('roux','s',`C'était une nuit de neige. Isadora a souffert longtemps, mais tu es né{g:|e|·e} en pleine santé, avec un cri à réveiller tout le faubourg. Ton père pleurait comme un enfant.`,`It was a snowy night. Isadora suffered a long time, but you were born perfectly healthy, with a cry fit to wake the whole neighbourhood. Your father wept like a child.`),
 D('roux','a',`Isadora allait bien. Fatiguée, mais bien. Puis un valet a apporté un flacon. « Un remède fortifiant, de la part de votre sœur. » Une heure après l'avoir bu, elle était morte.`,`Isadora was fine. Tired, but fine. Then a footman brought a vial. "A fortifying remedy, from your sister." An hour after drinking it, she was dead.`),

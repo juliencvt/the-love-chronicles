@@ -1,9 +1,9 @@
 /* ===== CHAPITRE 9 — Le notaire ===== */
 STORY.push(
 {bg:'salon',mus:'mystery',chap:9,card:['Chapitre 9','Chapter 9'],sub:['Le notaire','The Notary'],where:['Le bureau de ton père','Your father\'s study']},
-{st:['father','mc']},
-N(`Le lendemain matin, un petit homme en noir attend dans le bureau de ton père, des lunettes sur le bout du nez et une sacoche pleine à craquer.`,`The next morning, a small man in black waits in your father's study, spectacles on the tip of his nose and a satchel fit to burst.`),
-D('dorval','n',`Maître Dorval, notaire de la famille Valcourt depuis trente ans. Enfin… de ce qu'il en reste. Asseyez-vous, je vous prie.`,`Mr Dorval, notary to the Valcourt family for thirty years. Well… what's left of it. Please, sit down.`),
+{st:['dorval','father']},
+N(`Le lendemain matin, un jeune homme blond en redingote bordeaux attend dans le bureau de ton père, l'air grave, une sacoche pleine à craquer à ses pieds.`,`The next morning, a young blond man in a burgundy frock coat waits in your father's study, looking grave, a satchel fit to burst at his feet.`),
+D('dorval','n',`Maître Dorval. Mon père a été le notaire des Valcourt pendant trente ans ; j'ai hérité de ses dossiers. Enfin… de ce qu'il en reste. Asseyez-vous, je vous prie.`,`Mr Dorval. My father was the Valcourts' notary for thirty years; I inherited his files. Well… what's left of them. Please, sit down.`),
 D('dorval','n',`Le testament du vieux marquis de Valcourt est clair : la fortune va à l'enfant d'Isadora. Les terres de Touraine, l'hôtel de la rue de Varenne, et une somme qui ferait rougir un banquier.`,`The old Marquis de Valcourt's will is clear: the fortune goes to Isadora's child. The lands in Touraine, the house on the Rue de Varenne, and a sum that would make a banker blush.`),
 D('dorval','s',`Mais ce matin, Madame Iris a déposé une requête devant la Cour. Elle affirme que l'enfant d'Isadora est mort à la naissance. Et que vous êtes… un imposteur que votre père a ramassé quelque part.`,`But this morning, Madame Iris filed a petition with the Court. She claims Isadora's child died at birth. And that you are… an impostor your father picked up somewhere.`),
 D('father','a',`C'est un mensonge ! J'ai tenu cet enfant dans mes bras le soir même.`,`That's a lie! I held this child in my arms that very night.`),

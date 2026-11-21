@@ -15,7 +15,7 @@ C('c17a',0,[
 ]),
 
 {bg:'court',mus:'mystery',card:['Cour de la Chancellerie','Court of Chancery'],sub:['Westminster Hall','Westminster Hall'],where:['La salle d\'audience','The courtroom']},
-{st:['iris','mc']},
+{st:['judge','iris']},
 N(`La salle d'audience est sombre et étouffante. Le juge, perruque poudrée, a l'air de s'ennuyer avant même d'avoir commencé. Iris est assise au premier rang, en velours noir, entourée de trois avocats.`,`The courtroom is dark and stifling. The judge, in a powdered wig, looks bored before he's even begun. Iris sits in the front row, in black velvet, surrounded by three lawyers.`),
 D('judge','n',`Affaire Valcourt contre {last}. Madame de Valcourt affirme que l'enfant de sa sœur est mort-né. Maître Dorval, qu'avez-vous à opposer ?`,`Valcourt versus {last}. Madame de Valcourt asserts that her sister's child was stillborn. Mr Dorval, what do you have to set against this?`),
 D('dorval','n',`Le témoignage du Comte {last}, père de l'enfant. Et celui de la sage-femme, Madame Roux, qui…`,`The testimony of Count {last}, the child's father. And that of the midwife, Madame Roux, who…`),
@@ -31,7 +31,7 @@ D('father','a',`C'est un faux !`,`It's a forgery!`),
  {set:'moleConfirmed'}
 ]),
 D('judge','n',`Sans le témoin annoncé, Maître Dorval, je crains que…`,`Without the promised witness, Mr Dorval, I fear that…`),
-N(`Les portes du fond s'ouvrent à la volée. Théo entre, couvert de boue de voyage, soutenant une vieille dame en noir qui avance à petits pas.`,`The doors at the back fly open. Theo enters, covered in travel mud, supporting an old lady in black who advances with small steps.`),
+N(`Les portes du fond s'ouvrent à la volée. Théo entre, couvert de boue de voyage, soutenant une vieille dame au châle brun qui avance à petits pas.`,`The doors at the back fly open. Theo enters, covered in travel mud, supporting an old lady in a brown shawl who advances with small steps.`),
 {st:['theo','mc']},
 D('theo','h',`Pardon pour le retard, Milord. La Manche était de mauvaise humeur.`,`Apologies for the delay, my lord. The Channel was in a foul mood.`),
 D('roux','a',`Je suis Madame Roux. J'ai mis cet enfant au monde. Je l'ai tenu{g:|e|·e} dans mes mains. Il criait comme un petit diable et il était bien vivant !`,`I am Madame Roux. I brought that child into the world. I held them in my hands. They screamed like a little devil and were very much alive!`),
