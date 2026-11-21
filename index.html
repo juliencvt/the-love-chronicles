@@ -79,6 +79,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
 .ch.pic{aspect-ratio:var(--ar);height:150%;bottom:auto;top:2%;transform:translateX(calc(var(--ax) * -1)) translateY(3%)}
 .ch.pic.on{transform:translateX(calc(var(--ax) * -1)) scale(1.03);transform-origin:var(--ax) 10%}
 .ch.pic img{width:100%;height:100%;display:block;user-select:none}
+.ch.pic img.pm{position:absolute;height:auto;filter:drop-shadow(0 2px 3px #0005)}
 .pmask{position:absolute}.pmask svg{width:100%;height:auto;display:block}
 #top{position:absolute;top:0;left:0;right:0;padding:calc(10px + env(safe-area-inset-top)) 12px 0;display:flex;justify-content:space-between;align-items:center;z-index:5;pointer-events:none}
 #top>*{pointer-events:auto}
@@ -852,7 +853,8 @@ const PICS={
  bess:{src:'assets/bess.webp',w:644,h:1500,eye:[270,165,48],waist:.42}};
 const preOf=P=>(PRE[P.body]&&PRE[P.body].length&&P.look!=null)?PRE[P.body][P.look]:null;
 const MASKSVG=(fill,trim)=>`<svg viewBox="-65 -26 130 52"><path fill-rule="evenodd" d="M-65 -4 C-58 -26 -12 -24 0 -10 C12 -24 58 -26 65 -4 C58 20 14 22 0 10 C-14 22 -58 20 -65 -4 Z M-39 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z M11 0 a14 9 0 1 0 28 0 a14 9 0 1 0 -28 0 Z" fill="${fill}" stroke="${trim}" stroke-width="2"/><path d="M58 -10 C76 -30 74 -48 60 -60 C64 -40 60 -22 58 -10 Z" fill="${trim}" opacity=".9" transform="scale(.8)"/></svg>`;
-function picHTML(pr,mask){return `<img src="${mask&&pr.msrc?pr.msrc:pr.src}" alt="" draggable="false">`}
+const MK={"f1": {"src": "assets/mk_mcf.webp", "l": 29.785, "t": 0.903, "w": 26.137, "ox": 24.69, "oy": 69.9, "r": -3.34}, "f2": {"src": "assets/mk_mcf.webp", "l": 28.121, "t": 2.348, "w": 30.886, "ox": 24.69, "oy": 69.9, "r": -3.2}, "f3": {"src": "assets/mk_mcf.webp", "l": 29.188, "t": 4.863, "w": 27.401, "ox": 24.69, "oy": 69.9, "r": -6.94}, "f4": {"src": "assets/mk_mcf.webp", "l": 29.092, "t": 1.946, "w": 29.6, "ox": 24.69, "oy": 69.9, "r": -3.23}, "f5": {"src": "assets/mk_mcf.webp", "l": 29.39, "t": -0.097, "w": 30.859, "ox": 24.69, "oy": 69.9, "r": -3.99}, "m1": {"src": "assets/mk_mcm.webp", "l": 18.158, "t": 2.163, "w": 45.636, "ox": 40.98, "oy": 64.74, "r": -6.65}, "m2": {"src": "assets/mk_mcm.webp", "l": 19.446, "t": 1.681, "w": 48.848, "ox": 40.98, "oy": 64.74, "r": -7.53}, "m3": {"src": "assets/mk_mcm.webp", "l": 21.763, "t": 1.998, "w": 44.447, "ox": 40.98, "oy": 64.74, "r": -8.25}, "m4": {"src": "assets/mk_mcm.webp", "l": 20.469, "t": 2.259, "w": 47.194, "ox": 40.98, "oy": 64.74, "r": -7.6}, "edmund": {"src": "assets/mk_greengold.webp", "l": 28.237, "t": 4.292, "w": 33.006, "ox": 28.0, "oy": 62.41, "r": -2.68}, "philippe": {"src": "assets/mk_greengold.webp", "l": 28.046, "t": 5.074, "w": 43.186, "ox": 28.0, "oy": 62.41, "r": -4.34}, "perceval": {"src": "assets/mk_bluegold.webp", "l": 28.79, "t": 5.428, "w": 47.059, "ox": 27.9, "oy": 62.51, "r": -8.91}, "mateo": {"src": "assets/mk_bluegold.webp", "l": 29.506, "t": 2.49, "w": 35.607, "ox": 27.9, "oy": 62.51, "r": -5.96}, "rosalind": {"src": "assets/mk_pink.webp", "l": 30.424, "t": 0.638, "w": 45.312, "ox": 24.73, "oy": 69.87, "r": -3.52}, "nell": {"src": "assets/mk_pink.webp", "l": 31.196, "t": -0.177, "w": 45.41, "ox": 24.73, "oy": 69.87, "r": -2.46}, "mother": {"src": "assets/mk_mother.webp", "l": 46.874, "t": 0.849, "w": 24.133, "ox": 21.41, "oy": 62.25, "r": 2.18}, "prudence": {"src": "assets/mk_prudence.webp", "l": 27.089, "t": 2.342, "w": 35.431, "ox": 24.27, "oy": 63.65, "r": -7.81}, "peregrine": {"src": "assets/mk_peregrine.webp", "l": 26.743, "t": 1.745, "w": 36.537, "ox": 24.31, "oy": 63.67, "r": -4.33}, "queen": {"src": "assets/mk_queen.webp", "l": 22.167, "t": 3.978, "w": 20.839, "ox": 31.09, "oy": 58.2, "r": -9.83}, "duchess": {"src": "assets/mk_duchess.webp", "l": 22.511, "t": 4.849, "w": 22.47, "ox": 31.19, "oy": 58.52, "r": -6.57}};
+function picHTML(pr,mask){const k=pr.src.slice(7,-5),q=MK[k];return `<img src="${pr.src}" alt="" draggable="false">${mask&&q?`<img class="pm" src="${q.src}" alt="" style="left:${q.l}%;top:${q.t}%;width:${q.w}%;transform-origin:${q.ox}% ${q.oy}%;transform:rotate(${q.r}deg)">`:''}`}
 let S=null;
 function mcArt(P,outfit){return {sex:P.body,skin:P.skin,hair:P.hair,hc:ART.HAIRC[P.hc],es:P.es,ec:ART.EYEC[P.ec],nose:P.nose,mouth:P.mouth,lip:ART.LIPC[P.lip],body:P.bt,out:(P.body=='f'?OUT_F:OUT_M)[outfit??P.outfit]}}
 function charDef(id){
@@ -861,22 +863,22 @@ function charDef(id){
  case 'mc':{const pr=preOf(P);if(pr)return {img:pr,acc:{mask:mk?'#fff3f6':null}};return {p:mcArt(P),acc:{mask:mk?'#fff3f6':null}}}
  case 'father':return {img:PICS.father,acc:{}};
  case 'father_old':return {p:{sex:'m',skin:0,hair:'mshort',hc:'#b8b1aa',es:0,ec:'#3d6fa8',nose:1,mouth:0,lip:'#c98a88',body:2,age:1,out:{coat:'#34363f',vest:'#8a1f2a',btn:'#d4af37'}},acc:{side:1}};
- case 'mother':return {img:PICS.mother,acc:{}};
+ case 'mother':return {img:PICS.mother,acc:{mask:mk?1:null}};
  case 'mother_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#7a4a2a',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#b0646e',body:1,age:1,out:{fill:'#8a9cc6',sleeve:'#a6b5d8',trim:'#f1ede4',acc:'pearls'}},acc:{}};
  case 'bess_old':return {p:{sex:'f',skin:1,hair:'bun',hc:'#a8502b',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#d77b80',body:2,out:{fill:'#77708a',sleeve:'#8d86a0',trim:'#fbf8f2',apron:1}},acc:{cap:1,freck:1}};
- case 'duchess':return {img:PICS.duchess,acc:{}};
- case 'queen':return {img:PICS.queen,acc:{}};
+ case 'duchess':return {img:PICS.duchess,acc:{mask:mk?1:null}};
+ case 'queen':return {img:PICS.queen,acc:{mask:mk?1:null}};
  case 'bess':return {img:PICS.bess,acc:{}};
  case 'guard':return {img:PICS.guard,acc:{}};
  case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
  case 'duchess_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#cfc8c2',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#a8606a',body:1,age:1,out:{fill:'#6d3d8a',sleeve:'#87579f',trim:'#e6c66a',acc:'jewels'}},acc:{tiara:1}};
- case 'twinA':return {img:twm?PICS.perceval:PICS.prudence,acc:{}};
+ case 'twinA':return {img:twm?PICS.perceval:PICS.prudence,acc:{mask:mk?1:null}};
  case 'twinA_old':return twm?{p:{sex:'m',skin:0,hair:'mshort',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:0,out:{coat:'#93bf2e',vest:'#ff8a3d',btn:'#fff176',cravat:'#ffe0ee'}},acc:{freck:1}}:{p:{sex:'f',skin:0,hair:'kinky',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:0,out:{fill:'#b5d334',sleeve:'#d0e86a',trim:'#ff8a3d',acc:'flowers'}},acc:{plume:1,freck:1}};
- case 'twinB':return {img:twm?PICS.philippe:PICS.peregrine,acc:{}};
+ case 'twinB':return {img:twm?PICS.philippe:PICS.peregrine,acc:{mask:mk?1:null}};
  case 'twinB_old':return twm?{p:{sex:'m',skin:0,hair:'mlong',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:2,out:{coat:'#ff8a3d',vest:'#9bc33a',btn:'#fff176',cravat:'#e8f7ff'}},acc:{freck:1}}:{p:{sex:'f',skin:0,hair:'bun',hc:'#e0661f',es:0,ec:'#7fa65a',nose:2,mouth:0,lip:'#e8a19c',body:2,out:{fill:'#ff9a3d',sleeve:'#ffb86b',trim:'#b5d334',acc:'pearls'}},acc:{plume:1,freck:1}};
  case 'li1':return {img:am?PICS.edmund:PICS.rosalind,acc:{mask:mk?(am?'#1b2a4a':'#efe4fa'):null}};
  case 'li1_old':return am?{p:{sex:'m',skin:0,hair:'mshort',hc:'#7a4f2e',es:0,ec:'#3d6fa8',nose:1,mouth:0,lip:'#c98a88',body:1,out:{coat:'#1f4a3c',vest:'#e9dcc0',btn:'#d4af37'}},acc:{mask:mk?'#1b2a4a':null}}:{p:{sex:'f',skin:0,hair:'long',hc:'#100c0c',es:1,ec:'#3a2418',nose:0,mouth:1,lip:'#c0525e',body:1,out:{fill:'#c8b6e8',sleeve:'#ddd0f2',trim:'#ffffff',acc:'pearls'}},acc:{tiara:mk?0:1,mask:mk?'#efe4fa':null,trim:'#b9b9cc'}};
- case 'li2':return {img:am?PICS.mateo:PICS.nell,acc:{mask:am?'#151515':'#ffffff'}};
+ case 'li2':return {img:am?PICS.mateo:PICS.nell,acc:{mask:mk?1:null}};
  case 'li2_old':return am?{p:{sex:'m',skin:2,hair:'mlong',hc:'#2e1c12',es:0,ec:'#4e2f1c',nose:1,mouth:1,lip:'#a8606a',body:1,out:{coat:'#4f4636',vest:'#a88a5a',btn:'#8a8a8a',cravat:'#ece6d6'}},acc:{mask:'#151515',trim:'#c0c0c8',feather:'#555'}}:{p:{sex:'f',skin:0,hair:'curly',hc:'#e0bd70',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#e8a19c',body:1,out:{fill:'#e8d7b5',sleeve:'#f2e6cc',trim:'#c9a46a'}},acc:{mask:'#ffffff',feather:'#f2b5c6'}};
  case 'guard_old':return {p:{sex:'m',skin:1,hair:'mshort',hc:'#43281a',es:0,ec:'#4e2f1c',nose:2,mouth:0,lip:'#c98a88',body:2,out:{coat:'#b3262f',vest:'#f0e6d0',btn:'#d9b54a',belts:1}},acc:{shako:1,side:1}};
  }}
