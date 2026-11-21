@@ -70,11 +70,11 @@ function charDef(id){
  case 'li2_old':return am?{p:{sex:'m',skin:2,hair:'mlong',hc:'#2e1c12',es:0,ec:'#4e2f1c',nose:1,mouth:1,lip:'#a8606a',body:1,out:{coat:'#4f4636',vest:'#a88a5a',btn:'#8a8a8a',cravat:'#ece6d6'}},acc:{mask:'#151515',trim:'#c0c0c8',feather:'#555'}}:{p:{sex:'f',skin:0,hair:'curly',hc:'#e0bd70',es:0,ec:'#3f7d4e',nose:0,mouth:1,lip:'#e8a19c',body:1,out:{fill:'#e8d7b5',sleeve:'#f2e6cc',trim:'#c9a46a'}},acc:{mask:'#ffffff',feather:'#f2b5c6'}};
  case 'guard_old':return {p:{sex:'m',skin:1,hair:'mshort',hc:'#43281a',es:0,ec:'#4e2f1c',nose:2,mouth:0,lip:'#c98a88',body:2,out:{coat:'#b3262f',vest:'#f0e6d0',btn:'#d9b54a',belts:1}},acc:{shako:1,side:1}};
  }}
-const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f',fleury:'#a0527a',iris:'#1e1a24',bailiff:'#6b6b6b'};
+const TAGC={mc:'#b07a2a',father:'#5b4a3a',mother:'#5b6e9a',bess:'#8a6a9a',queen:'#a8801f',duchess:'#6d3d8a',twinA:'#6f9a1a',twinB:'#d9762a',li1:'#2f5d8a',li2:'#3a3036',guard:'#b3262f',fleury:'#a0527a',iris:'#1e1a24',bailiff:'#6b6b6b',clem:'#d4a017',theo:'#3f6e5a',cordelia:'#9b7fc4'};
 const tw=()=>S.p.body=='m'?[OPT.lang=='en'?'Percival':'Perceval','Philippe']:['Prudence',OPT.lang=='en'?'Peregrine':'Pérégrine'];
 const li1n=()=>S.p.attr=='m'?'Edmund':'Rosalind';
 const li2n=()=>S.f&&S.f.li2named?(S.p.attr=='m'?'Mateo':'Nell'):(OPT.lang=='en'?'Masked stranger':(S.p.attr=='m'?'L\'inconnu masqué':'L\'inconnue masquée'));
-function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard']),fleury:'Madame Fleury',iris:S.f.irisNamed?'Iris de Valcourt':L2(['La dame en noir','The lady in black']),bailiff:L2(['L\'huissier','The bailiff'])}[id]||''}
+function nameOf(id){const P=S.p;return {mc:P.first,father:L2(['Père','Father']),mother:L2(['Mère','Mother']),bess:'Bess',queen:L2(['La Reine','The Queen']),duchess:L2(['La Duchesse','The Duchess']),twinA:tw()[0],twinB:tw()[1],li1:li1n(),li2:li2n(),guard:L2(['Garde','Guard']),fleury:'Madame Fleury',iris:S.f.irisNamed?'Iris de Valcourt':L2(['La dame en noir','The lady in black']),bailiff:L2(['L\'huissier','The bailiff']),clem:L2(['Clémentine','Clementine']),theo:L2(['Théo','Theo']),cordelia:'Cordelia'}[id]||''}
 function fmt(s){const P=S.p,en=OPT.lang=='en',gi={m:0,f:1,n:2}[P.pron],ai=P.attr=='m'?0:1,ti=P.body=='m'?0:1;
  return s.replace(/\{(\w+)(?::([^}]*))?\}/g,(m,k,a)=>{
   if(a!=null){const p=a.split('|'),i=k=='g'?gi:k=='a'?ai:ti;return p[Math.min(i,p.length-1)]}
@@ -202,6 +202,7 @@ function setBg(name,instant){if(curBg===name)return;curBg=name;const a=$('bgA'),
 function run(){for(let g=0;g<400;g++){const n=STORY[S.i];if(!n)return;
  if(n.bg){if(n.chap)S.chap=n.chap;if(S.bg!==n.bg)S.ex={};S.bg=n.bg;setBg(n.bg);if(n.mus){S.mus=n.mus;setMusic(n.mus)}if('mask' in n)S.masked=!!n.mask;if(n.where){S.where=n.where;$('where').textContent=L2(n.where)}
   if(n.card){mode='card';$('box').classList.add('hide');renderStage([],null);$('cardT').textContent=L2(n.card);$('cardS').textContent=L2(n.sub);$('card').classList.add('on');autosave();clearTimeout(cardT);cardT=setTimeout(endCard,2800);return}S.i++;continue}
+ if(n.top){S.f.topLi1=S.v.li1>=S.v.li2?1:0;S.i++;continue}
  if(n.st){S.st=n.st;S.i++;continue}
  if(typeof n.set=='string'&&!n.sp&&!n.ch){S.f[n.set]=1;S.i++;continue}
  if('mask' in n){S.masked=!!n.mask;S.i++;continue}

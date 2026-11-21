@@ -35,6 +35,39 @@ C('c6c',0,[
  {t:[`Éclater de rire avec tout le monde.`,`Burst out laughing with everyone else.`],fx:{rep:-1},r:[N(`Toute la garden-party rit aux éclats. {tB} se précipite pour repêcher {t:son frère|sa sœur} en te lançant un regard meurtrier.`,`The whole garden party roars with laughter. {tB} rushes to fish out {t:his|her} twin, shooting you a murderous look.`),D('twinB','a',`Tu vas nous le payer. Très cher.`,`You'll pay for this. Dearly.`)]}
 ]),
 
+{top:1},
+{st:['mc']},
+N(`Des applaudissements éclatent derrière toi. Sous une tente rayée, une jeune femme en robe bouton-d'or applaudit à tout rompre.`,`Applause breaks out behind you. Under a striped marquee, a young woman in a buttercup-yellow gown is clapping wildly.`),
+...IF('helpedTwin',[D('clem','h',`{t:Vous l'avez repêché|Vous l'avez repêchée} ? Quel dommage. Mais quelle classe !`,`You fished {t:him|her} out? What a shame. But what class!`)],[D('clem','h',`Bravo ! Dix ans que je rêve de voir {tA} prendre un bain dans la Tamise.`,`Bravo! I've dreamed for ten years of seeing {tA} take a bath in the Thames.`)]),
+D('theo','s',`Clem. On n'applaudit pas les noyades.`,`Clem. One does not applaud drownings.`),
+D('clem','h',`Ce n'est pas une noyade, Théo. C'est de la justice poétique.`,`It isn't a drowning, Theo. It's poetic justice.`),
+N(`Le jeune homme qui l'accompagne a les mêmes yeux noisette et le même sourire en coin, en plus sérieux. Il s'incline.`,`The young man with her has the same hazel eyes and the same crooked smile, only more serious. He bows.`),
+D('theo','n',`Lord Théodore Ashby. Et voici ma sœur, Lady Clémentine, qui n'a jamais appris à se tenir. Pardonnez-la.`,`Lord Theodore Ashby. And this is my sister, Lady Clementine, who never learned how to behave. Forgive her.`),
+D('clem','h',`Personne ne m'appelle Clémentine, à part ma tante et les huissiers. Appelez-moi Clem.`,`No one calls me Clementine except my aunt and the bailiffs. Call me Clem.`),
+D('clem','s',`Notre mère est fille d'un marchand de thé. Pour les jumeaux, nous sentons encore la boutique. Ils nous font vivre l'enfer depuis l'enfance.`,`Our mother is a tea merchant's daughter. To the twins, we still smell of the shop. They've made our lives hell since we were children.`),
+D('theo','n',`Ce qu'ils vous font subir depuis votre arrivée, nous connaissons par cœur. Alors nous nous sommes dit qu'il vous fallait des alliés.`,`What they've put you through since you arrived, we know by heart. So we thought you could use some allies.`),
+N(`Une troisième silhouette les rejoint : une jeune femme en robe lavande, d'une beauté de porcelaine, une ombrelle de dentelle à la main.`,`A third figure joins them: a young woman in lavender, with porcelain beauty and a lace parasol in hand.`),
+D('cordelia','h',`Clem ! Je te cherche partout. Tu as encore semé ton chaperon ?`,`Clem! I've been looking everywhere for you. Did you lose your chaperone again?`),
+D('clem','h',`Cordelia Thorne, mon amie depuis le berceau. Nos nourrices se disputaient déjà les bancs du parc. Si vous voulez un secret de Londres, demandez à Cordelia : elle les connaît tous.`,`Cordelia Thorne, my friend since the cradle. Our nurses used to fight over park benches. If you want a London secret, ask Cordelia: she knows them all.`),
+D('cordelia','h',`Clem exagère. Je les écoute, c'est tout. Ravie de vous rencontrer enfin, {title}. Tout Londres ne parle que de vous.`,`Clem exaggerates. I just listen, that's all. So pleased to finally meet you, {title}. All of London is talking about you.`),
+C('c6t',0,[
+ {t:[`« Des alliés ? Je ne dirai pas non. Je commence à en manquer. »`,`"Allies? I won't say no. I'm running short of them."`],set:'trioFriends',fx:{rep:1},r:[D('clem','h',`Parfait ! C'est décidé : à partir d'aujourd'hui, on se tutoie. Et on est quatre.`,`Perfect! It's settled: from today, no more formalities. And there are four of us.`),D('theo','s',`Que Dieu protège Londres.`,`God help London.`)]},
+ {t:[`« Pardonnez-moi. Ces derniers temps, j'ai appris à me méfier. »`,`"Forgive me. Lately, I've learned to be wary."`],set:'trioWary',r:[D('theo','h',`Sage. À votre place, je me méfierais de ma sœur.`,`Wise. In your place, I'd be wary of my sister.`),D('clem','h',`Théo ! … Prenez votre temps. Nous ne bougerons pas.`,`Theo! … Take your time. We're not going anywhere.`)]}
+]),
+...IF('topLi1',[
+ D('cordelia','n',`Vous connaissez {li1}, je crois ? Nos familles passent l'été ensemble dans le Kent depuis toujours.`,`You know {li1}, I believe? Our families have spent every summer together in Kent for ever.`),
+ D('clem','h',`À six ans, Cordelia a « épousé » {li1} sous le grand chêne, avec une bague en pâquerettes. J'étais témoin.`,`At six, Cordelia "married" {li1} under the great oak, with a daisy ring. I was the witness.`),
+ D('cordelia','h',`Des bêtises d'enfants !`,`Childish nonsense!`),
+ N(`Elle rit, un peu trop fort. Sous ses doigts gantés, une baleine de son ombrelle craque.`,`She laughs, a little too loudly. Under her gloved fingers, a rib of her parasol snaps.`)
+],[
+ D('cordelia','n',`Vous vous habillez chez Madame Fleury, n'est-ce pas ? Moi aussi. Son {a:apprenti|apprentie} a des doigts de fée.`,`You dress at Madame Fleury's, don't you? So do I. Her apprentice has magic fingers.`),
+ D('clem','h',`Cordelia a commandé quatre robes ce mois-ci. Quatre ! Pour quelqu'un qui « déteste les essayages »…`,`Cordelia ordered four gowns this month. Four! For someone who "hates fittings"…`),
+ D('cordelia','h',`Il faut bien être présentable.`,`One must be presentable.`),
+ N(`Ses joues rosissent. Son regard file vers le buffet, là où s'affairent les serveurs du traiteur… puis revient sur toi. Une seconde de trop.`,`Her cheeks turn pink. Her gaze darts to the buffet, where the caterer's servers bustle… then back to you. A second too long.`)
+]),
+D('theo','n',`Nous serons au bal de la Reine, demain. Gardez-nous une place près de vous.`,`We'll be at the Queen's ball tomorrow. Save us a place beside you.`),
+N(`Cordelia te serre la main en partant. Ses doigts sont froids, malgré le soleil.`,`Cordelia shakes your hand as they leave. Her fingers are cold, despite the sun.`),
+
 ...IF('p1',[
  {bg:'river',mus:'tender',where:['Sur la Tamise','On the Thames']},
  {st:['li1','mc']},
@@ -78,6 +111,7 @@ C('c6c',0,[
 
 {bg:'garden',mus:'mystery',where:['La roseraie de Kew','The Kew rose garden']},
 {st:['iris','mc']},
+N(`En entrant dans la roseraie, tu crois apercevoir une ombrelle de dentelle lavande s'éloigner en hâte au bout de l'allée. Puis plus rien.`,`As you enter the rose garden, you think you glimpse a lavender lace parasol hurrying away at the end of the path. Then nothing.`),
 N(`Dans une allée déserte de la roseraie, une ombre noire t'attend. Iris.`,`In a deserted path of the rose garden, a black shadow is waiting. Iris.`),
 ...IF('dealIris',[D('iris','a',`Le coffret. Où est-il ?`,`The box. Where is it?`),D('mc','n',`Ma mère l'a repris. Je n'ai pu garder qu'une lettre.`,`My mother took it back. I only managed to keep one letter.`)],
  [D('iris','n',`Tu as refusé mon marché. Mais je sais que tu as ouvert le coffret. Les murs de Grosvenor Street sont plus minces que tu ne crois.`,`You refused my deal. But I know you opened the box. The walls on Grosvenor Street are thinner than you think.`)]),
