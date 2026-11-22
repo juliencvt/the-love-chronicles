@@ -1177,7 +1177,7 @@ D('duchess','n',`Maintenant, retournez dans la salle. Et souriez. À Londres, on
    N(`Tu franchis le dernier pas. Le baiser est doux, hésitant d'abord, puis plus sûr. Quelque part derrière vous, l'orchestre attaque le grand final.`,`You close the last step. The kiss is soft, hesitant at first, then surer. Somewhere behind you, the orchestra strikes up the grand finale.`),
    D('li1','h',`Je crois que je vais me souvenir de « Figaro » toute ma vie.`,`I think I'll remember "Figaro" for the rest of my life.`),
    D('mc','h',`Vous n'avez pas vu une seule minute du dernier acte.`,`You haven't seen a single minute of the last act.`),
-   D('li1','h',`Précisément.`,`Precisely.`)]},
+   D('li1','h',`Précisément.`,`Precisely.`),{cg:'firstkiss'}]},
   {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi1',fx:{li1:1},r:[
    D('mc','s',`{li1}… Pas ce soir. Il se passe trop de choses. Je ne veux pas que notre premier… que ce moment soit gâché par tout ça.`,`{li1}… Not tonight. Too much is happening. I don't want our first… I don't want this moment spoiled by all of it.`),
    D('li1','h',`Alors j'attendrai. Je vous l'ai dit : je suis {a:patient|patiente}.`,`Then I'll wait. I told you: I'm patient.`),
@@ -1198,7 +1198,7 @@ D('duchess','n',`Maintenant, retournez dans la salle. Et souriez. À Londres, on
    N(`C'est toi qui franchis le pas. Un baiser volé, dans la poussière des coulisses, pendant que la soprano chante l'amour à quelques mètres de vous.`,`You're the one who closes the gap. A stolen kiss, in the dust of the wings, while the soprano sings of love a few yards away.`),
    D('li2','o',`Vous… vous savez que si quelqu'un nous voit, vous êtes {g:perdu|perdue|perdu·e} ?`,`You… you know if anyone sees us, you're ruined?`),
    D('mc','h',`Je suis déjà ruiné{e}. Tout Londres le sait.`,`I'm already ruined. All of London knows it.`),
-   N(`{a:Mateo|Nell} éclate de rire, et t'embrasse à son tour.`,`{a:Mateo|Nell} bursts out laughing, and kisses you back.`)]},
+   N(`{a:Mateo|Nell} éclate de rire, et t'embrasse à son tour.`,`{a:Mateo|Nell} bursts out laughing, and kisses you back.`),{cg:'firstkiss'}]},
   {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi2',fx:{li2:1},r:[
    D('mc','s',`Pas ici. Pas comme ça. Si on nous surprend, c'est vous qui finirez à Newgate, pas moi.`,`Not here. Not like this. If we're caught, you're the one who ends up in Newgate, not me.`),
    D('li2','h',`Vous pensez à moi avant de penser à vous. Personne n'a jamais fait ça.`,`You think of me before yourself. No one's ever done that.`),
@@ -1705,9 +1705,9 @@ C('c8b',0,[
  N(`La calèche des jumeaux repart. Clem éclate de rire. Théo soupire. Et toi, pour la première fois de la journée, tu souris.`,`The twins' carriage moves off. Clem bursts out laughing. Theo sighs. And for the first time today, you smile.`)
 ]),
 
-{bg:'garden',mus:'tender',card:['La nuit tombe','Nightfall'],sub:['',''],where:['Le jardin de Grosvenor Street','The Grosvenor Street garden']},
+{bg:'garden',mus:'tender',card:['Le coucher du soleil','Sunset'],sub:['',''],where:['Le jardin de Grosvenor Street','The Grosvenor Street garden']},
 {st:['mc']},
-N(`La maison dort. Tu ne trouves pas le sommeil, alors tu descends au jardin, en châle, sous la lune.`,`The house is asleep. You can't sleep, so you go down to the garden, wrapped in a shawl, under the moon.`),
+N(`Le soir tombe. Tu as besoin d'air, alors tu descends au jardin, au milieu des roses, pendant que le soleil couchant dore tout le ciel.`,`Evening is falling. You need air, so you go down to the garden among the roses, while the setting sun gilds the whole sky.`),
 ...IF('danceLi1',[
  N(`Un caillou heurte la grille. Derrière, une silhouette familière, sans chapeau, les cheveux en bataille. {li1}, qui a visiblement traversé Mayfair à pied.`,`A pebble strikes the gate. Behind it, a familiar figure, hatless, hair tousled. {li1}, who has clearly walked across Mayfair.`),
  {st:['lv','mc']},
@@ -1722,10 +1722,10 @@ D('lv','s',`Je n'ai pas arrêté de penser à votre visage, hier soir. Quand Iri
 D('mc','s',`Et maintenant ? Je ne suis plus {g:le fils|la fille|l'enfant} d'un comte. Je suis {g:un bâtard|une bâtarde|un enfant illégitime} avec un procès sur les bras.`,`And now? I'm no longer a count's child. I'm a bastard with a lawsuit on my hands.`),
 D('lv','h',`Maintenant ? Vous êtes exactement la même personne qu'avant-hier. Celle qui m'empêche de dormir.`,`Now? You're exactly the same person as the day before yesterday. The one who keeps me awake at night.`),
 C('m16',1,[
- {t:[`L'embrasser, là, sous la lune.`,`Kiss {a:him|her}, right there, under the moon.`],set:'kiss8',fx:{lv:3},r:[N(`Tu poses ta main sur sa joue. {lv} retient son souffle. Puis tu l'embrasses, doucement d'abord, puis comme si le reste du monde n'existait plus.`,`You lay your hand on {a:his|her} cheek. {lv} holds {a:his|her} breath. Then you kiss {a:him|her}, gently at first, then as if the rest of the world had ceased to exist.`),D('lv','o',`…Je vais devoir revenir demain soir. Et après-demain. C'est un problème.`,`…I'll have to come back tomorrow night. And the night after. That's a problem.`),D('mc','h',`Je laisserai la grille ouverte.`,`I'll leave the gate open.`),{cg:'firstkiss'}]},
+ {t:[`L'embrasser, là, au milieu des roses.`,`Kiss {a:him|her}, right there, among the roses.`],set:'kiss8',fx:{lv:3},r:[N(`Tu poses ta main sur sa joue. {lv} retient son souffle. Puis tu l'embrasses, doucement d'abord, puis comme si le reste du monde n'existait plus.`,`You lay your hand on {a:his|her} cheek. {lv} holds {a:his|her} breath. Then you kiss {a:him|her}, gently at first, then as if the rest of the world had ceased to exist.`),D('lv','o',`…Je vais devoir revenir demain soir. Et après-demain. C'est un problème.`,`…I'll have to come back tomorrow night. And the night after. That's a problem.`),D('mc','h',`Je laisserai la grille ouverte.`,`I'll leave the gate open.`),{cg:'jardin'}]},
  {t:[`Poser ta tête sur son épaule, sans un mot.`,`Rest your head on {a:his|her} shoulder, without a word.`],set:'shoulder8',fx:{lv:2},r:[N(`Tu laisses ta tête tomber sur son épaule. {lv} ne bouge plus, comme si un oiseau s'était posé sur {a:lui|elle}. Puis sa main trouve la tienne.`,`You let your head drop onto {a:his|her} shoulder. {lv} goes completely still, as if a bird had landed on {a:him|her}. Then {a:his|her} hand finds yours.`),D('lv','s',`Restez comme ça. Juste un moment. Le monde peut attendre.`,`Stay like that. Just for a moment. The world can wait.`)]}
 ]),
-N(`Vous restez là jusqu'à ce que les étoiles pâlissent. Quand {lv} repart, tu sens encore la chaleur de sa main dans la tienne.`,`You stay there until the stars fade. When {lv} leaves, you can still feel the warmth of {a:his|her} hand in yours.`),
+N(`Vous restez là jusqu'à ce que les premières étoiles s'allument. Quand {lv} repart, tu sens encore la chaleur de sa main dans la tienne.`,`You stay there until the first stars come out. When {lv} leaves, you can still feel the warmth of {a:his|her} hand in yours.`),
 {st:['mc']},
 N(`En remontant, tu remarques que la fenêtre du petit salon est entrouverte. Tu es pourtant sûr{e} de l'avoir fermée.`,`On your way back up, you notice the small parlour window is ajar. Yet you're sure you closed it.`),
 {end:8}
@@ -4127,9 +4127,9 @@ function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mb
  $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">${tr('ver')}</div>`}
 
 
-const CGS=new Set(['firstkiss_f2_edmund']);
-const CGSC=[{id:'firstkiss',t:['Le premier baiser','The First Kiss']},{id:'pembroke',t:['✨ Minuit dans la serre','✨ Midnight in the Conservatory'],sec:1},{id:'ascot',t:['✨ Au galop','✨ At a Gallop'],sec:1},{id:'vauxhall',t:['✨ Le phénix','✨ The Phoenix'],sec:1},{id:'chevet',t:['À ton chevet','At Your Bedside'],s2:1},{id:'wedding',t:['Le mariage','The Wedding'],s2:1}];
-function cgName(id){const sc=CGSC.find(x=>x.id==id),pr=preOf(S.p),mk=pr?pr.src.slice(7,-5):'x',li=RID(sc.s2?'fi':'lv'),lk=li=='li1'?(S.p.attr=='m'?'edmund':'rosalind'):(S.p.attr=='m'?'mateo':'nell');return `${id}_${mk}_${lk}${sc.o?'_'+(S.f[sc.o]?'a':'b'):''}`}
+const CGS=new Set(['jardin_f2_edmund']);
+const CGSC=[{id:'firstkiss',t:['Le premier baiser à l\'opéra','The First Kiss at the Opera'],rt:1},{id:'jardin',t:['Le baiser des roses','The Kiss Among the Roses']},{id:'pembroke',t:['✨ Minuit dans la serre','✨ Midnight in the Conservatory'],sec:1},{id:'ascot',t:['✨ Au galop','✨ At a Gallop'],sec:1},{id:'vauxhall',t:['✨ Le phénix','✨ The Phoenix'],sec:1},{id:'chevet',t:['À ton chevet','At Your Bedside'],s2:1},{id:'wedding',t:['Le mariage','The Wedding'],s2:1}];
+function cgName(id){const sc=CGSC.find(x=>x.id==id),pr=preOf(S.p),mk=pr?pr.src.slice(7,-5):'x',li=sc.rt?(S.f.p1?'li1':'li2'):RID(sc.s2?'fi':'lv'),lk=li=='li1'?(S.p.attr=='m'?'edmund':'rosalind'):(S.p.attr=='m'?'mateo':'nell');return `${id}_${mk}_${lk}${sc.o?'_'+(S.f[sc.o]?'a':'b'):''}`}
 function showCG(nm){mode='cg';$('box').className='hide';$('cgImg').src='assets/cg/'+nm+'.webp';$('cgP').textContent=tr(CGSC.find(x=>nm.startsWith(x.id+'_')).sec?'cgSec':'cgNew');$('cgv').classList.add('on');sfx('click')}
 function endCG(){$('cgv').classList.remove('on');mode=null;run()}
 function galModal(){const got=store.get('tlc_cg')||[];

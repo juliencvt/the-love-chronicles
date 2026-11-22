@@ -47,9 +47,9 @@ C('c8b',0,[
  N(`La calèche des jumeaux repart. Clem éclate de rire. Théo soupire. Et toi, pour la première fois de la journée, tu souris.`,`The twins' carriage moves off. Clem bursts out laughing. Theo sighs. And for the first time today, you smile.`)
 ]),
 
-{bg:'garden',mus:'tender',card:['La nuit tombe','Nightfall'],sub:['',''],where:['Le jardin de Grosvenor Street','The Grosvenor Street garden']},
+{bg:'garden',mus:'tender',card:['Le coucher du soleil','Sunset'],sub:['',''],where:['Le jardin de Grosvenor Street','The Grosvenor Street garden']},
 {st:['mc']},
-N(`La maison dort. Tu ne trouves pas le sommeil, alors tu descends au jardin, en châle, sous la lune.`,`The house is asleep. You can't sleep, so you go down to the garden, wrapped in a shawl, under the moon.`),
+N(`Le soir tombe. Tu as besoin d'air, alors tu descends au jardin, au milieu des roses, pendant que le soleil couchant dore tout le ciel.`,`Evening is falling. You need air, so you go down to the garden among the roses, while the setting sun gilds the whole sky.`),
 ...IF('danceLi1',[
  N(`Un caillou heurte la grille. Derrière, une silhouette familière, sans chapeau, les cheveux en bataille. {li1}, qui a visiblement traversé Mayfair à pied.`,`A pebble strikes the gate. Behind it, a familiar figure, hatless, hair tousled. {li1}, who has clearly walked across Mayfair.`),
  {st:['lv','mc']},
@@ -64,10 +64,10 @@ D('lv','s',`Je n'ai pas arrêté de penser à votre visage, hier soir. Quand Iri
 D('mc','s',`Et maintenant ? Je ne suis plus {g:le fils|la fille|l'enfant} d'un comte. Je suis {g:un bâtard|une bâtarde|un enfant illégitime} avec un procès sur les bras.`,`And now? I'm no longer a count's child. I'm a bastard with a lawsuit on my hands.`),
 D('lv','h',`Maintenant ? Vous êtes exactement la même personne qu'avant-hier. Celle qui m'empêche de dormir.`,`Now? You're exactly the same person as the day before yesterday. The one who keeps me awake at night.`),
 C('m16',1,[
- {t:[`L'embrasser, là, sous la lune.`,`Kiss {a:him|her}, right there, under the moon.`],set:'kiss8',fx:{lv:3},r:[N(`Tu poses ta main sur sa joue. {lv} retient son souffle. Puis tu l'embrasses, doucement d'abord, puis comme si le reste du monde n'existait plus.`,`You lay your hand on {a:his|her} cheek. {lv} holds {a:his|her} breath. Then you kiss {a:him|her}, gently at first, then as if the rest of the world had ceased to exist.`),D('lv','o',`…Je vais devoir revenir demain soir. Et après-demain. C'est un problème.`,`…I'll have to come back tomorrow night. And the night after. That's a problem.`),D('mc','h',`Je laisserai la grille ouverte.`,`I'll leave the gate open.`),{cg:'firstkiss'}]},
+ {t:[`L'embrasser, là, au milieu des roses.`,`Kiss {a:him|her}, right there, among the roses.`],set:'kiss8',fx:{lv:3},r:[N(`Tu poses ta main sur sa joue. {lv} retient son souffle. Puis tu l'embrasses, doucement d'abord, puis comme si le reste du monde n'existait plus.`,`You lay your hand on {a:his|her} cheek. {lv} holds {a:his|her} breath. Then you kiss {a:him|her}, gently at first, then as if the rest of the world had ceased to exist.`),D('lv','o',`…Je vais devoir revenir demain soir. Et après-demain. C'est un problème.`,`…I'll have to come back tomorrow night. And the night after. That's a problem.`),D('mc','h',`Je laisserai la grille ouverte.`,`I'll leave the gate open.`),{cg:'jardin'}]},
  {t:[`Poser ta tête sur son épaule, sans un mot.`,`Rest your head on {a:his|her} shoulder, without a word.`],set:'shoulder8',fx:{lv:2},r:[N(`Tu laisses ta tête tomber sur son épaule. {lv} ne bouge plus, comme si un oiseau s'était posé sur {a:lui|elle}. Puis sa main trouve la tienne.`,`You let your head drop onto {a:his|her} shoulder. {lv} goes completely still, as if a bird had landed on {a:him|her}. Then {a:his|her} hand finds yours.`),D('lv','s',`Restez comme ça. Juste un moment. Le monde peut attendre.`,`Stay like that. Just for a moment. The world can wait.`)]}
 ]),
-N(`Vous restez là jusqu'à ce que les étoiles pâlissent. Quand {lv} repart, tu sens encore la chaleur de sa main dans la tienne.`,`You stay there until the stars fade. When {lv} leaves, you can still feel the warmth of {a:his|her} hand in yours.`),
+N(`Vous restez là jusqu'à ce que les premières étoiles s'allument. Quand {lv} repart, tu sens encore la chaleur de sa main dans la tienne.`,`You stay there until the first stars come out. When {lv} leaves, you can still feel the warmth of {a:his|her} hand in yours.`),
 {st:['mc']},
 N(`En remontant, tu remarques que la fenêtre du petit salon est entrouverte. Tu es pourtant sûr{e} de l'avoir fermée.`,`On your way back up, you notice the small parlour window is ajar. Yet you're sure you closed it.`),
 {end:8}

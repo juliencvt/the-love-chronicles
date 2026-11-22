@@ -86,7 +86,7 @@ D('duchess','n',`Maintenant, retournez dans la salle. Et souriez. À Londres, on
    N(`Tu franchis le dernier pas. Le baiser est doux, hésitant d'abord, puis plus sûr. Quelque part derrière vous, l'orchestre attaque le grand final.`,`You close the last step. The kiss is soft, hesitant at first, then surer. Somewhere behind you, the orchestra strikes up the grand finale.`),
    D('li1','h',`Je crois que je vais me souvenir de « Figaro » toute ma vie.`,`I think I'll remember "Figaro" for the rest of my life.`),
    D('mc','h',`Vous n'avez pas vu une seule minute du dernier acte.`,`You haven't seen a single minute of the last act.`),
-   D('li1','h',`Précisément.`,`Precisely.`)]},
+   D('li1','h',`Précisément.`,`Precisely.`),{cg:'firstkiss'}]},
   {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi1',fx:{li1:1},r:[
    D('mc','s',`{li1}… Pas ce soir. Il se passe trop de choses. Je ne veux pas que notre premier… que ce moment soit gâché par tout ça.`,`{li1}… Not tonight. Too much is happening. I don't want our first… I don't want this moment spoiled by all of it.`),
    D('li1','h',`Alors j'attendrai. Je vous l'ai dit : je suis {a:patient|patiente}.`,`Then I'll wait. I told you: I'm patient.`),
@@ -107,7 +107,7 @@ D('duchess','n',`Maintenant, retournez dans la salle. Et souriez. À Londres, on
    N(`C'est toi qui franchis le pas. Un baiser volé, dans la poussière des coulisses, pendant que la soprano chante l'amour à quelques mètres de vous.`,`You're the one who closes the gap. A stolen kiss, in the dust of the wings, while the soprano sings of love a few yards away.`),
    D('li2','o',`Vous… vous savez que si quelqu'un nous voit, vous êtes {g:perdu|perdue|perdu·e} ?`,`You… you know if anyone sees us, you're ruined?`),
    D('mc','h',`Je suis déjà ruiné{e}. Tout Londres le sait.`,`I'm already ruined. All of London knows it.`),
-   N(`{a:Mateo|Nell} éclate de rire, et t'embrasse à son tour.`,`{a:Mateo|Nell} bursts out laughing, and kisses you back.`)]},
+   N(`{a:Mateo|Nell} éclate de rire, et t'embrasse à son tour.`,`{a:Mateo|Nell} bursts out laughing, and kisses you back.`),{cg:'firstkiss'}]},
   {t:[`Te retenir. Pas encore.`,`Hold back. Not yet.`],set:'waitLi2',fx:{li2:1},r:[
    D('mc','s',`Pas ici. Pas comme ça. Si on nous surprend, c'est vous qui finirez à Newgate, pas moi.`,`Not here. Not like this. If we're caught, you're the one who ends up in Newgate, not me.`),
    D('li2','h',`Vous pensez à moi avant de penser à vous. Personne n'a jamais fait ça.`,`You think of me before yourself. No one's ever done that.`),
