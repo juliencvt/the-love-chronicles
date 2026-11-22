@@ -129,11 +129,33 @@ input[type=range]{width:100%;accent-color:var(--plum);height:32px}
 .end .row i{font-style:normal;color:#d94a7a;letter-spacing:2px}
 .end ul{margin:6px 0 14px;padding-left:20px;font-size:15px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+#lib{background:linear-gradient(#2b1a33,#4a2a4f 40%,#2b1a33);overflow-y:auto;color:#fff}
+#lib .lhead{position:sticky;top:0;z-index:2;padding:calc(18px + env(safe-area-inset-top)) 20px 12px;background:linear-gradient(#2b1a33 70%,#2b1a3300);display:flex;align-items:center;justify-content:space-between}
+#lib .lhead h1{margin:0;font-size:30px;color:#fbe7ec;line-height:1}
+#lib .lhead small{display:block;font:700 12px Nunito;color:var(--gold2);letter-spacing:.12em;text-transform:uppercase}
+#lib .gear{width:44px;height:44px;border-radius:50%;background:#ffffff1a;border:1px solid #ffffff33;color:#fff;font-size:20px}
+#lib h2.sec{margin:8px 20px 12px;font:800 15px Nunito;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2)}
+#lib .grid{display:grid;gap:18px;padding:0 20px calc(30px + env(safe-area-inset-bottom))}
+.scard{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px #0008;border:2px solid var(--gold2);background:#3a2440;text-align:left;color:#fff;padding:0;width:100%}
+.scard .cov{position:relative;height:380px;overflow:hidden}
+.scard .cov .bgs{position:absolute;inset:0}.scard .cov .bgs svg{width:100%;height:100%;display:block}
+.scard .cov img{position:absolute;bottom:-40%;height:150%;filter:drop-shadow(0 6px 10px #0006)}
+.scard .cov .fade{position:absolute;inset:0;background:linear-gradient(#0000 40%,#2b1a33cc 62%,#2b1a33)}
+.scard .info{position:absolute;left:0;right:0;bottom:0;padding:16px 18px 18px}
+.scard h3{margin:0 0 4px;font-size:28px;line-height:1.05;color:#fff;text-shadow:0 2px 8px #000a}
+.scard .tags{font:700 12px Nunito;color:var(--gold2);letter-spacing:.06em;text-transform:uppercase}
+.scard p{margin:8px 0 10px;font-size:14px;line-height:1.4;opacity:.92}
+.scard .pill{display:inline-block;padding:6px 14px;border-radius:20px;background:var(--gold2);color:var(--plum);font:800 13px Nunito}
+.scard.soon{opacity:.75;border-style:dashed}
+.scard.soon .cov{height:150px;background:repeating-linear-gradient(135deg,#3a2440 0 14px,#43294a 14px 28px);display:flex;align-items:center;justify-content:center;font-size:44px}
+#menu .back{position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;z-index:3;padding:8px 14px;border-radius:20px;background:#fffaf6dd;border:2px solid var(--gold2);font:800 14px Nunito;color:var(--plum)}
 </style>
 </head>
 <body>
 <div id="app">
- <section id="menu" class="scr on"><div class="bgl" id="mbg"></div><div class="veil"></div>
+ <section id="lib" class="scr on"><div class="lhead"><div><small>The Love Chronicles</small><h1 class="serif" id="lTitle"></h1></div><button class="gear" id="lOpt" aria-label="Options">⚙</button></div><h2 class="sec" id="lSec"></h2><div class="grid" id="lGrid"></div></section>
+ <section id="menu" class="scr"><button class="back" id="mBack"></button><div class="bgl" id="mbg"></div><div class="veil"></div>
   <div class="logo"><small id="mSub"></small><h1 class="serif" id="mTitle"></h1>
   <svg class="orn" viewBox="0 0 180 24"><path d="M10 12 H70 M110 12 H170" stroke="#c9a24a" stroke-width="2"/><path d="M90 2 L98 12 L90 22 L82 12 Z" fill="#c9a24a"/><circle cx="76" cy="12" r="3" fill="#c9a24a"/><circle cx="104" cy="12" r="3" fill="#c9a24a"/></svg></div>
   <div class="list" id="mList"></div></section>
