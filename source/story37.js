@@ -47,7 +47,29 @@ C('m73',1,[
   {cg:'chevet'}
  ]}
 ]),
+N(`Quand tu fais mine de te lever pour souffler la bougie, sa main valide retient la tienne.`,`When you make to get up and blow out the candle, {a:his|her} good hand holds yours back.`),
+D('fi','s',`Reste. Pas dans le fauteuil. Ici.`,`Stay. Not in the armchair. Here.`),
+C('m73b',1,[
+ {t:[`Rester.`,`Stay.`],set:'nightBedside',fx:{fi:3},r:[
+  N(`Tu t'allonges près de {a:lui|elle}, du côté de son bras valide. Le matelas craque. Vous retenez votre souffle tous les deux, comme deux enfants pris en faute.`,`You lie down beside {a:him|her}, on the side of {a:his|her} good arm. The mattress creaks. You both hold your breath, like two children caught misbehaving.`),
+  N(`Ses doigts trouvent ta nuque. S'y attardent. Puis descendent le long de ton dos, si lentement que chaque centimètre devient un frisson.`,`{a:His|Her} fingers find the nape of your neck. Linger there. Then slide down your back, so slowly that every inch becomes a shiver.`),
+  D('fi','s',`Dis-moi d'arrêter.`,`Tell me to stop.`),
+  D('mc','s',`Jamais.`,`Never.`),
+  N(`Tu embrasses son cou, juste sous l'oreille, là où son pouls s'emballe. Son souffle chaud se brise contre ta tempe. Le lacet de ton col cède sous ses doigts. Puis un autre.`,`You kiss {a:his|her} neck, just below the ear, where {a:his|her} pulse is racing. {a:His|Her} hot breath breaks against your temple. The lace at your collar gives way under {a:his|her} fingers. Then another.`),
+  N(`Tu fais attention à sa blessure. {a:Il|Elle} n'y fait plus attention du tout. Ses lèvres suivent la ligne de ton épaule nue, et tu oublies le château, Iris, la crypte. Le monde entier.`,`You're careful of {a:his|her} wound. {a:He|She} isn't careful of it at all anymore. {a:His|Her} lips trace the line of your bare shoulder, and you forget the château, Iris, the crypt. The whole world.`),
+  D('fi','s',`Ton cœur bat si fort que je l'entends.`,`Your heart is beating so hard I can hear it.`),
+  D('mc','h',`C'est le tien.`,`That's yours.`),
+  N(`La bougie vacille. Puis s'éteint. Et ce qui se passe ensuite n'appartient qu'à vous deux.`,`The candle flickers. Then goes out. And what happens next belongs to the two of you alone.`),
+  N(`À l'aube, tu te réveilles la tête sur son épaule. Les draps sentent la cire et la lavande. {fi} te regarde dormir, et visiblement depuis longtemps.`,`At dawn, you wake with your head on {a:his|her} shoulder. The sheets smell of wax and lavender. {fi} is watching you sleep, and clearly has been for a while.`),
+  D('fi','h',`Gaspard va me demander pourquoi mes points ont sauté.`,`Gaspard is going to ask me why my stitches came loose.`),
+  D('mc','h',`Tu diras que tu es tombé{a:|e} du lit.`,`Tell him you fell out of bed.`),
+  D('fi','h',`C'est presque vrai.`,`That's almost true.`)
+ ]},
+ {t:[`« Pas ce soir. Je veux que ce soit notre nuit de noces. »`,`"Not tonight. I want it to be our wedding night."`],set:'waitWedding',fx:{fi:2},r:[
+  D('fi','s',`Alors je compterai les jours. Un par un.`,`Then I'll count the days. One by one.`),
 N(`Tu t'endors sur le fauteuil, au bord du lit, ta main dans la sienne. Comme à Londres, le soir de l'évasion. Comme tous les soirs, désormais.`,`You fall asleep in the armchair at the edge of the bed, your hand in {a:his|hers}. Like in London, the night of the escape. Like every night, from now on.`),
+ ]}
+]),
 
 {bg:'chateau',mus:'calm',card:['Le lendemain','The next day'],sub:['',''],where:['La cour du château','The château courtyard']},
 {st:['clem','mc']},

@@ -1,7 +1,22 @@
 /* ===== SAISON 2 — CHAPITRE 22 — Épilogue ===== */
 STORY.push(
 ...IF('goodEnd',[
- {bg:'river',mus:'tender',chap:44,card:['Saison 2 · Chapitre 22','Season 2 · Chapter 22'],sub:['Lune de miel','Honeymoon'],where:['Venise','Venice']},
+ {bg:'bedroom',mus:'tender',chap:44,card:['Saison 2 · Chapitre 22','Season 2 · Chapter 22'],sub:['Lune de miel','Honeymoon'],where:['La chambre nuptiale','The bridal chamber']},
+ {st:['fi','mc']},
+ N(`Le soir des noces. Les invités sont partis. Les bougies brûlent depuis des heures, et la porte est enfin fermée à clé.`,`The wedding night. The guests have gone. The candles have been burning for hours, and the door is finally locked.`),
+ D('fi','s',`J'ai une promesse à tenir. Les gants.`,`I have a promise to keep. The gloves.`),
+ N(`{fi} prend ta main. Défait le premier bouton de nacre, au poignet. Puis le deuxième. {a:Il|Elle} embrasse chaque centimètre de peau qu'{a:il|elle} découvre.`,`{fi} takes your hand. Undoes the first mother-of-pearl button at the wrist. Then the second. {a:He|She} kisses every inch of skin {a:he|she} uncovers.`),
+ N(`Le gant glisse. Puis l'autre. Tu n'aurais jamais cru qu'on puisse trembler autant pour deux morceaux de soie.`,`The glove slips off. Then the other. You never thought anyone could tremble so much over two pieces of silk.`),
+ C('m87n',1,[
+  {t:[`Défaire à ton tour {a:sa cravate|les lacets de sa robe}.`,`Undo {a:his cravat|the laces of her gown} in turn.`],set:'wnLead',fx:{fi:2},r:[N(`Tes doigts s'emmêlent, maladroits. {fi} rit tout bas contre ta bouche et ne t'aide pas du tout. Exprès.`,`Your fingers tangle, clumsy. {fi} laughs softly against your mouth and doesn't help you at all. On purpose.`)]},
+  {t:[`Fermer les yeux et te laisser faire.`,`Close your eyes and let {a:him|her}.`],set:'wnLet',fx:{fi:2},r:[N(`Tu fermes les yeux. Tu ne sens plus que ses mains, son souffle, la soie qui cède. Le monde se réduit à ça.`,`You close your eyes. All you feel is {a:his|her} hands, {a:his|her} breath, the silk giving way. The world shrinks to that.`)]}
+ ]),
+ N(`Le reste tombe, pièce après pièce, sur le tapis. Ses mains sont chaudes, partout, lentes, comme si {fi} avait toute la vie devant {a:lui|elle}. Et c'est le cas.`,`The rest falls, piece by piece, onto the rug. {a:His|Her} hands are warm, everywhere, slow, as if {fi} had a whole lifetime ahead. And {a:he|she} does.`),
+ N(`Son souffle dans ton cou. Ton prénom murmuré contre ta peau, encore et encore, comme une prière. Les draps froids, puis brûlants.`,`{a:His|Her} breath on your neck. Your name murmured against your skin, again and again, like a prayer. The sheets cold, then burning.`),
+ D('mc','s',`Plus de secrets, ce soir.`,`No more secrets tonight.`),
+ D('fi','s',`Plus aucun. Juste toi.`,`None. Just you.`),
+ N(`Une à une, les bougies s'éteignent. Celle de la table de nuit tient la dernière. Puis elle aussi renonce, et la nuit vous appartient.`,`One by one, the candles go out. The one on the nightstand holds out the longest. Then it too gives up, and the night belongs to you.`),
+ {bg:'river',mus:'tender',card:['Un mois plus tard','A month later'],sub:['Venise','Venice'],where:['Venise','Venice']},
  {st:['fi','mc']},
  N(`Un mois plus tard. Venise. Une gondole glisse sur le Grand Canal au coucher du soleil. Les palais se reflètent dans l'eau, roses et dorés, comme s'ils étaient peints sur du verre.`,`A month later. Venice. A gondola glides down the Grand Canal at sunset. The palaces are reflected in the water, pink and gold, as if painted on glass.`),
  D('fi','h',`Comment je dois t'appeler, maintenant ? « Mon {g:mari|épouse|époux·se} » ? Je n'arrive toujours pas à m'y habituer.`,`What am I supposed to call you now? We never settled that question.`),

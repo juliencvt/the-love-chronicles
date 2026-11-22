@@ -44,5 +44,15 @@ C('m80',1,[
  {t:[`« Une seule. Danser avec toi ici, maintenant, sans musique. »`,`"Just one. Dance with you here, now, without music."`],set:'lastDance',fx:{fi:3},r:[N(`Vous dansez sous les lanternes éteintes, dans le silence, comme dans la galerie de Valcourt. {fi} chante faux. Tu ris. Les gardiens des jardins vous regardent sans oser vous chasser.`,`You dance beneath the darkened lanterns, in silence, as in the Valcourt gallery. {fi} sings off-key. You laugh. The garden keepers watch without daring to throw you out.`)]},
  {t:[`« Aucun. La liberté, c'est toi. »`,`"None. You're my freedom."`],set:'freedomIsYou',fx:{fi:3},r:[D('fi','s',`… Tu ne peux pas dire des choses pareilles à deux heures du matin. Je vais pleurer, et Clem va le savoir, et elle ne me laissera jamais l'oublier.`,`… You can't say things like that at two in the morning. I'll cry, and Clem will find out, and she'll never let me forget it.`),N(`{fi} pleure quand même. Un peu. Tu l'embrasses sur les paupières.`,`{fi} cries anyway. A little. You kiss {a:his|her} eyelids.`)]}
 ]),
+{bg:'street',mus:'tender',card:['Trois heures du matin','Three in the morning'],sub:['',''],where:['Dans la calèche','In the carriage']},
+{st:['fi','mc']},
+N(`Dans la calèche qui te ramène, les rideaux sont tirés. Les sabots claquent sur les pavés. {fi} ne dit rien. {a:Il|Elle} prend ta main gantée, la retourne, et pose ses lèvres à l'intérieur de ton poignet, là où le gant s'arrête.`,`In the carriage taking you home, the curtains are drawn. Hooves clatter on the cobbles. {fi} says nothing. {a:He|She} takes your gloved hand, turns it over, and presses {a:his|her} lips to the inside of your wrist, just where the glove ends.`),
+N(`Un frisson te traverse, de la nuque jusqu'aux chevilles.`,`A shiver runs through you, from the nape of your neck to your ankles.`),
+D('fi','s',`Le soir de nos noces, c'est moi qui t'enlèverai ces gants. Bouton par bouton.`,`On our wedding night, I'll be the one to take off these gloves. Button by button.`),
+C('c40n',0,[
+ {t:[`L'attirer contre toi et l'embrasser.`,`Pull {a:him|her} close and kiss {a:him|her}.`],fx:{fi:1},r:[N(`Le baiser a un goût de punch et de feux d'artifice. Ses mains se perdent dans ton dos, dans tes cheveux. La calèche cahote et vous jette l'un contre l'autre, et aucun de vous ne s'en plaint.`,`The kiss tastes of punch and fireworks. {a:His|Her} hands lose themselves in your back, in your hair. The carriage jolts and throws you against each other, and neither of you complains.`)]},
+ {t:[`« Je compterai les heures. »`,`"I'll be counting the hours."`],fx:{fi:1},r:[D('fi','s',`Moi, je compte déjà les minutes.`,`I'm already counting the minutes.`)]}
+]),
+N(`La calèche s'arrête. Grosvenor Street. Sur le perron, ta mère attend en bonnet de nuit, une chandelle à la main. Elle te regarde. Elle regarde la calèche. Elle ne dit rien. C'est pire.`,`The carriage stops. Grosvenor Street. On the doorstep, your mother waits in her nightcap, a candle in her hand. She looks at you. She looks at the carriage. She says nothing. That's worse.`),
 {end:40}
 );
