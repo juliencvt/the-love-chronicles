@@ -5,6 +5,7 @@ STORY.push(
 N(`Le grand jour d'Ascot. Toute la bonne société sera là, la Reine en tête. Et toi aussi, avec deux nouvelles tenues étalées sur le lit.`,`The great day at Ascot. All of high society will be there, the Queen at its head. And so will you, with two new outfits laid out on the bed.`),
 D('bess','h',`Madame Fleury dit qu'à Ascot, on ne regarde pas les chevaux. On regarde les chapeaux.`,`Madame Fleury says that at Ascot, no one watches the horses. They watch the hats.`),
 N(`D'un côté, {t:un habit gris perle, un gilet brodé de myosotis et un haut-de-forme impeccable|une robe de soie jaune d'or brodée de fleurs, avec un petit diadème doré}. De l'autre, {t:un habit d'équitation vert bouteille, des bottes cirées comme des miroirs|une tenue d'amazone vert émeraude, coupée comme un uniforme d'officier}.`,`On one side, {t:a pearl-grey coat, a waistcoat embroidered with forget-me-nots and an immaculate top hat|a golden-yellow silk gown embroidered with flowers, with a small gilt tiara}. On the other, {t:a bottle-green riding coat and boots polished like mirrors|an emerald-green riding habit, cut like an officer's uniform}.`),
+D('bess','s',`(tout bas) On m'a dit que {lv} passera toute la journée près des chevaux. Une tenue de cavali{t:er|ère}, ce serait… pratique. Je dis ça, je dis rien.`,`(whispering) I hear {lv} will spend the whole day near the horses. A riding outfit would be… practical. Just saying.`),
 C('o14',0,[
  {t:[`👗 {t:Le gris perle et les myosotis|La soie jaune d'or et le diadème}. Classique, lumineux.`,`👗 The {t:pearl grey and forget-me-nots|golden silk and the tiara}. Classic and luminous.`],set:'o14a',fx:{rep:1},r:[D('bess','h',`Vous allez éclipser la Reine. Ne le lui dites pas.`,`You'll outshine the Queen. Don't tell her.`)]},
  {t:[`👗 {t:L'habit vert bouteille|L'amazone vert émeraude}. Audacieux, prêt{t:|e} à monter à cheval.`,`👗 The {t:bottle-green coat|emerald riding habit}. Daring, ready to ride.`],set:'o14b',fx:{lv:1},r:[D('bess','o',`On dirait que vous partez à la guerre. … C'est un compliment !`,`You look like you're going to war. … That's a compliment!`)]}
@@ -43,9 +44,17 @@ C('m27',1,[
  {t:[`Parier tout ce que tu as sur {lv}.`,`Bet everything you have on {lv}.`],set:'betLv',fx:{lv:2},r:[D('mc','h',`Dix guinées sur vous. Ne me ruinez pas : je le suis déjà assez.`,`Ten guineas on you. Don't ruin me: I'm ruined enough already.`),D('lv','h',`Pression supplémentaire. Merci beaucoup.`,`Extra pressure. Thank you so much.`)]}
 ]),
 N(`Le départ est donné. Les chevaux s'élancent dans un grondement de tonnerre. Toute la tribune se lève. Toi aussi. Tu cries son nom sans même t'en rendre compte.`,`They're off. The horses surge forward in a roar of thunder. The whole stand rises. So do you. You're shouting {a:his|her} name without even realising it.`),
-{cg:'ascot'},
 N(`Dernier virage. {lv} est troisième… deuxième… Au poteau, une tête d'avance ! La foule explose.`,`Final bend. {lv} is third… second… At the post, by a head! The crowd erupts.`),
 ...IF('betLv',[N(`Tu viens de gagner soixante guinées. Clem te secoue par les épaules en hurlant.`,`You've just won sixty guineas. Clem shakes you by the shoulders, screaming.`)]),
+...IF('o14b',[
+ {bg:'racecourse',mus:'tender',card:['✨ Scène secrète','✨ Secret scene'],sub:['Au galop','At a Gallop'],where:['Les prés d\'Ascot','The Ascot meadows']},
+ {st:['lv','mc']},
+ N(`Après la course, pendant que tout le monde trinque, {lv} t'entraîne derrière les écuries. Un cheval sellé attend, le cheval vainqueur.`,`After the race, while everyone is toasting, {lv} leads you behind the stables. A saddled horse is waiting: the winner.`),
+ D('lv','h',`Habillé{g:|e|·e} comme ça, tu ne vas quand même pas rester dans les tribunes ? Monte.`,`Dressed like that, you're surely not staying in the stands? Get on.`),
+ N(`{lv} t'aide à te hisser en selle, puis monte derrière toi. Ses bras t'entourent pour tenir les rênes. Le cheval s'élance à travers les prés, loin des chapeaux et des regards.`,`{lv} helps you into the saddle, then mounts behind you. {a:His|Her} arms wrap around you to hold the reins. The horse sets off across the meadows, far from the hats and the stares.`),
+ N(`Le vent dans tes cheveux, son souffle contre ta nuque, son rire dans ton oreille. Tu n'as jamais été aussi libre.`,`Wind in your hair, {a:his|her} breath against your neck, {a:his|her} laughter in your ear. You've never felt so free.`),
+ {cg:'ascot'}
+]),
 {st:['cordelia','mc']},
 N(`Dans la bousculade, quelqu'un te heurte violemment. Cordelia, qui s'accroche à ton bras pour ne pas tomber.`,`In the crush, someone collides with you hard. Cordelia, clinging to your arm so as not to fall.`),
 D('cordelia','o',`Oh, pardon ! Cette foule est épouvantable ! Tu n'as rien ?`,`Oh, sorry! This crowd is dreadful! Are you all right?`),
