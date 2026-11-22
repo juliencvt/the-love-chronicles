@@ -44,7 +44,7 @@ N(`D'un côté, {li1}, impeccable, la main déjà tendue. De l'autre, en livrée
 {st:['li1','li2']},
 D('li1','h',`{first}. Ma valse, je crois ?`,`{first}. My waltz, I believe?`),
 D('li2','h',`Ou alors… une promenade sur la terrasse. Loin des regards.`,`Or else… a stroll on the terrace. Away from prying eyes.`),
-N(`⚠️ Attention : ce choix va déterminer toute la suite de ta relation amoureuse. Il est définitif.`,`⚠️ Warning: this choice will decide the whole future of your love story. It is final.`),
+N(`⚠️ Attention : ce choix va déterminer ta relation amoureuse pour toute la saison 1.`,`⚠️ Warning: this choice will decide your love story for the whole of Season 1.`),
 C('m13',1,[
  {t:[`Danser avec {li1}, devant toute la cour.`,`Dance with {li1}, in front of the whole court.`],set:'danceLi1',fx:{li1:2},r:[
   {st:['li1','mc']},

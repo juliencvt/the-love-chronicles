@@ -1,6 +1,6 @@
 # The Love Chronicles
 
-Romance à choix dans le Londres de la Régence (1813) — saison 1 complète, chapitres 1 à 22.
+Romance à choix dans le Londres de la Régence (1813) — saisons 1 et 2, 44 chapitres.
 
 **Jouer :** https://juliencvt.github.io/the-love-chronicles/ (installable sur Android depuis Chrome : menu ⋮ → « Installer l'application »).
 

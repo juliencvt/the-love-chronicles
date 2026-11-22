@@ -260,6 +260,17 @@ court(k){let s=`<defs>${lg('s'+k,'#6b4a35','#3e2a1f')}${glow('c'+k,'#ffe7b0')}</
  s+=`<rect x="80" y="300" width="240" height="200" fill="#4a3021"/><rect x="70" y="290" width="260" height="20" fill="#8a6446"/><rect x="170" y="230" width="60" height="70" fill="#7a1f2b"/><circle cx="200" cy="215" r="18" fill="#efe6d4"/><path d="M186 200 Q200 180 214 200 L216 230 L184 230 Z" fill="#f4f1ea"/>`;
  s+=`<circle cx="60" cy="200" r="70" fill="url(#c${k})" opacity=".6"/><circle cx="340" cy="200" r="70" fill="url(#c${k})" opacity=".6"/>`;
  s+=`<rect y="500" width="400" height="300" fill="#2f2018"/>`;for(let r=0;r<4;r++)s+=`<rect x="0" y="${530+r*65}" width="400" height="18" fill="#5e4532"/><rect x="0" y="${548+r*65}" width="400" height="24" fill="#4a3526"/>`;return s},
+chateau(k){let s=`<defs>${lg('s'+k,'#cfe3f2','#f7e9d8')}${lg('w'+k,'#8fb0c4','#5e8299')}</defs><rect width="400" height="800" fill="url(#s${k})"/><ellipse cx="90" cy="110" rx="60" ry="14" fill="#fff" opacity=".8"/><ellipse cx="310" cy="160" rx="50" ry="12" fill="#fff" opacity=".7"/>`;
+ s+=`<path d="M0 420 Q100 380 200 400 Q300 370 400 395 L400 470 L0 470 Z" fill="#8fae78"/>`;
+ const tower=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#f2ebdf"/><path d="M${x-6} ${y} L${x+w/2} ${y-w*1.3} L${x+w+6} ${y} Z" fill="#4a5568"/>${[0,1,2].map(i=>`<rect x="${x+w/2-5}" y="${y+18+i*38}" width="10" height="18" rx="5" fill="#5a6b7a"/>`).join('')}`;
+ s+=`<rect x="90" y="250" width="220" height="190" fill="#efe7d9"/><path d="M80 250 L200 190 L320 250 Z" fill="#4a5568"/>`;
+ for(let r=0;r<3;r++)for(let c=0;c<6;c++)s+=`<rect x="${104+c*34}" y="${272+r*50}" width="14" height="26" rx="7" fill="#5a6b7a"/>`;
+ s+=tower(40,220,56,230)+tower(304,220,56,230)+tower(176,150,48,100);
+ s+=`<rect x="186" y="380" width="28" height="60" rx="14" fill="#6b5640"/>`;
+ s+=`<rect y="440" width="400" height="110" fill="url(#w${k})"/><path d="M90 440 L310 440 L300 480 L100 480 Z" fill="#efe7d9" opacity=".35"/>`;for(let i=0;i<14;i++)s+=`<path d="M${(i*53)%400} ${455+(i*17)%80} q14 -4 28 0" stroke="#fff" stroke-width="2" fill="none" opacity=".5"/>`;
+ s+=`<rect y="550" width="400" height="250" fill="#7fa36a"/><path d="M160 800 L190 550 L210 550 L240 800 Z" fill="#d8c9a8"/>`;
+ for(let i=0;i<9;i++){const x=i<4?20+i*36:250+(i-4)*34,y=600+(i%3)*50;s+=`<path d="M${x} ${y} q12 -26 24 0 q-12 10 -24 0" fill="#5e8a52"/><rect x="${x+10}" y="${y}" width="4" height="16" fill="#6b5640"/>`}
+ for(let i=0;i<12;i++)s+=`<circle cx="${(i*67)%400}" cy="${700+(i*23)%90}" r="4" fill="${['#f3d38c','#fff','#e8a0b4'][i%3]}"/>`;return s},
 cellar(k){let s=`<defs>${lg('s'+k,'#2a2630','#121016')}${glow('c'+k,'#ffb860')}</defs><rect width="400" height="800" fill="url(#s${k})"/>`;
  for(let r=0;r<16;r++)for(let c=0;c<6;c++)s+=`<rect x="${c*72+(r%2)*36-30}" y="${r*42}" width="66" height="36" rx="5" fill="#3a3540" opacity="${.5+((r*c)%3)*.12}"/>`;
  s+=`<path d="M60 800 L60 250 Q200 100 340 250 L340 800" stroke="#4a4450" stroke-width="30" fill="none"/>`;
