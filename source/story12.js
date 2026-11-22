@@ -40,6 +40,16 @@ N(`Elle sort d'un coffre un paquet ficelé, scellé d'un lys de cire. Dedans : u
  ])
 ]),
 
+{bg:'street',mus:'tender',where:['Rue du Bac','Rue du Bac']},
+{st:['mc']},
+N(`En repartant, tes pas te mènent d'eux-mêmes rue du Bac. La maison de Camille. Le heurtoir en forme de main, que vous trouviez si drôle à dix ans.`,`On your way back, your feet carry you to the Rue du Bac on their own. Camille's house. The hand-shaped door knocker you found so funny at ten.`),
+N(`C'est la vieille gouvernante qui ouvre. Mademoiselle Camille ? Partie depuis un mois chez sa tante, à Lyon. Elle ne rentrera pas avant l'automne.`,`The old housekeeper opens the door. Mademoiselle Camille? Gone to her aunt's in Lyon this past month. She won't be back before autumn.`),
+D('mc','s',`(Je suis à Paris, à trois rues de chez elle, et elle est à Lyon. Évidemment.)`,`(I'm in Paris, three streets from her house, and she's in Lyon. Of course.)`),
+C('c12cam',0,[
+ {t:[`Lui laisser un mot : « J'étais là. Je reviendrai. »`,`Leave her a note: "I was here. I'll come back."`],set:'camNote',r:[N(`Tu griffonnes trois lignes sur une page de ton carnet. La gouvernante promet de la poser sur son oreiller.`,`You scribble three lines on a page of your notebook. The housekeeper promises to leave it on her pillow.`)]},
+ {t:[`Lui laisser le petit nœud de ruban de ton col.`,`Leave her the little ribbon bow from your collar.`],set:'camRibbon',r:[N(`Tu détaches le ruban et le confies à la gouvernante. Camille comprendra. C'était votre signe secret, quand vous étiez enfants.`,`You untie the ribbon and hand it to the housekeeper. Camille will understand. It was your secret sign when you were children.`)]}
+]),
+
 {bg:'paris',mus:'mystery',where:['Saint-Sulpice','Saint-Sulpice']},
 {st:['theo','lv']},
 N(`Le soir, Théo et {lv} reviennent de Saint-Sulpice, la mine sombre.`,`In the evening, Theo and {lv} come back from Saint-Sulpice looking grim.`),

@@ -1,6 +1,13 @@
 /* ===== CHAPITRE 22 — Le grand bal de fin de saison ===== */
 STORY.push(
 {bg:'bedroom',mus:'tender',chap:22,card:['Chapitre 22','Chapter 22'],sub:['Le grand bal de fin de saison','The End-of-Season Ball'],where:['Ta chambre','Your bedroom']},
+{st:['mc']},
+N(`Sur ta coiffeuse, une lettre arrivée le matin même. Le cachet de Lyon.`,`On your dressing table, a letter that arrived this very morning. A Lyon postmark.`),
+N(`« Tu étais À PARIS et je n'étais pas là ?! Je ne m'en remettrai jamais. Ma gouvernante dit que tu étais pâle et que tu avais l'air d'avoir un secret. Ma tante dit que je suis insupportable depuis. Elle a raison. Promets-moi qu'on se reverra. Promets. — Camille »`,`"You were IN PARIS and I wasn't there?! I'll never get over it. My housekeeper says you were pale and looked like you had a secret. My aunt says I've been unbearable ever since. She's right. Promise me we'll see each other again. Promise. — Camille"`),
+C('c22cam',0,[
+ {t:[`« Je te le promets. Un jour, je reviens à Paris. »`,`"I promise. One day, I'll come back to Paris."`],set:'camPromise',r:[D('mc','h',`(Et cette fois, je ne la raterai pas.)`,`(And this time, I won't miss her.)`)]},
+ {t:[`« Je t'écrirai tout. Chaque bal, chaque secret. »`,`"I'll write you everything. Every ball, every secret."`],r:[D('mc','h',`(Enfin… presque tous les secrets.)`,`(Well… almost every secret.)`)]}
+]),
 {st:['mother','mc']},
 N(`Le soir du dernier bal de la Saison. Ta mère entre dans ta chambre avec un écrin de velours bleu, qu'elle tient comme un objet sacré.`,`The night of the last ball of the Season. Your mother comes into your room with a blue velvet case, which she holds like something sacred.`),
 D('mother','s',`Ton père l'a gardé dix-huit ans au fond d'un tiroir. Il était à elle. Je crois qu'il est temps qu'il soit à toi.`,`Your father kept it at the bottom of a drawer for eighteen years. It was hers. I think it's time it was yours.`),

@@ -80,6 +80,13 @@ C('c3a',0,[
  D('bess','o',`Des roses blanches ! Chez nous, ça veut dire « mes intentions sont sérieuses ».`,`White roses! Where I'm from, that means "my intentions are serious".`),
  D('mc','s',`(Pourquoi est-ce que je ne ressens pas ce que je devrais ressentir ?)`,`(Why don't I feel what I'm supposed to feel?)`)
 ]),
+N(`Bess te tend aussi une enveloppe couverte de timbres français. Tu reconnais l'écriture penchée de Camille avant même de l'ouvrir.`,`Bess also hands you an envelope covered in French stamps. You recognise Camille's slanted handwriting before you even open it.`),
+N(`« Mon cœur ! Paris est d'un ennui mortel sans toi. Plus personne pour se moquer des chapeaux de Madame de Rochefort à la messe. Raconte-moi TOUT : les bals, les Anglais, et surtout s'il y a quelqu'un qui te fait rougir. Je veux des détails. — Camille »`,`"My darling! Paris is deadly dull without you. No one left to mock Madame de Rochefort's hats at Mass. Tell me EVERYTHING: the balls, the English, and above all whether anyone makes you blush. I want details. — Camille"`),
+C('c3cam',0,[
+ {t:[`Lui raconter ta rencontre de la veille.`,`Tell her about last night's encounter.`],set:'camTold',r:[D('mc','h',`(Elle va hurler en lisant ça. Je l'entends d'ici.)`,`(She's going to scream reading this. I can hear her from here.)`)]},
+ {t:[`Garder le secret, pour l'instant.`,`Keep it secret, for now.`],r:[D('mc','s',`(« Rien de spécial, ma chérie. » Elle ne me croira jamais.)`,`("Nothing special, darling." She'll never believe me.)`)]}
+]),
+
 {bg:'salon',where:['Le salon','The drawing room']},
 {st:['mother','mc']},
 D('mother','h',`Ah, te voilà. Grande nouvelle : la Duchesse nous invite dans sa loge à l'Opéra, demain soir. La Reine y sera.`,`Ah, there you are. Wonderful news: the Duchess has invited us to her box at the Opera tomorrow night. The Queen will be there.`),

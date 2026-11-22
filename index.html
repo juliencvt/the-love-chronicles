@@ -1011,6 +1011,13 @@ C('c3a',0,[
  D('bess','o',`Des roses blanches ! Chez nous, ça veut dire « mes intentions sont sérieuses ».`,`White roses! Where I'm from, that means "my intentions are serious".`),
  D('mc','s',`(Pourquoi est-ce que je ne ressens pas ce que je devrais ressentir ?)`,`(Why don't I feel what I'm supposed to feel?)`)
 ]),
+N(`Bess te tend aussi une enveloppe couverte de timbres français. Tu reconnais l'écriture penchée de Camille avant même de l'ouvrir.`,`Bess also hands you an envelope covered in French stamps. You recognise Camille's slanted handwriting before you even open it.`),
+N(`« Mon cœur ! Paris est d'un ennui mortel sans toi. Plus personne pour se moquer des chapeaux de Madame de Rochefort à la messe. Raconte-moi TOUT : les bals, les Anglais, et surtout s'il y a quelqu'un qui te fait rougir. Je veux des détails. — Camille »`,`"My darling! Paris is deadly dull without you. No one left to mock Madame de Rochefort's hats at Mass. Tell me EVERYTHING: the balls, the English, and above all whether anyone makes you blush. I want details. — Camille"`),
+C('c3cam',0,[
+ {t:[`Lui raconter ta rencontre de la veille.`,`Tell her about last night's encounter.`],set:'camTold',r:[D('mc','h',`(Elle va hurler en lisant ça. Je l'entends d'ici.)`,`(She's going to scream reading this. I can hear her from here.)`)]},
+ {t:[`Garder le secret, pour l'instant.`,`Keep it secret, for now.`],r:[D('mc','s',`(« Rien de spécial, ma chérie. » Elle ne me croira jamais.)`,`("Nothing special, darling." She'll never believe me.)`)]}
+]),
+
 {bg:'salon',where:['Le salon','The drawing room']},
 {st:['mother','mc']},
 D('mother','h',`Ah, te voilà. Grande nouvelle : la Duchesse nous invite dans sa loge à l'Opéra, demain soir. La Reine y sera.`,`Ah, there you are. Wonderful news: the Duchess has invited us to her box at the Opera tomorrow night. The Queen will be there.`),
@@ -1982,6 +1989,16 @@ N(`Elle sort d'un coffre un paquet ficelé, scellé d'un lys de cire. Dedans : u
  ])
 ]),
 
+{bg:'street',mus:'tender',where:['Rue du Bac','Rue du Bac']},
+{st:['mc']},
+N(`En repartant, tes pas te mènent d'eux-mêmes rue du Bac. La maison de Camille. Le heurtoir en forme de main, que vous trouviez si drôle à dix ans.`,`On your way back, your feet carry you to the Rue du Bac on their own. Camille's house. The hand-shaped door knocker you found so funny at ten.`),
+N(`C'est la vieille gouvernante qui ouvre. Mademoiselle Camille ? Partie depuis un mois chez sa tante, à Lyon. Elle ne rentrera pas avant l'automne.`,`The old housekeeper opens the door. Mademoiselle Camille? Gone to her aunt's in Lyon this past month. She won't be back before autumn.`),
+D('mc','s',`(Je suis à Paris, à trois rues de chez elle, et elle est à Lyon. Évidemment.)`,`(I'm in Paris, three streets from her house, and she's in Lyon. Of course.)`),
+C('c12cam',0,[
+ {t:[`Lui laisser un mot : « J'étais là. Je reviendrai. »`,`Leave her a note: "I was here. I'll come back."`],set:'camNote',r:[N(`Tu griffonnes trois lignes sur une page de ton carnet. La gouvernante promet de la poser sur son oreiller.`,`You scribble three lines on a page of your notebook. The housekeeper promises to leave it on her pillow.`)]},
+ {t:[`Lui laisser le petit nœud de ruban de ton col.`,`Leave her the little ribbon bow from your collar.`],set:'camRibbon',r:[N(`Tu détaches le ruban et le confies à la gouvernante. Camille comprendra. C'était votre signe secret, quand vous étiez enfants.`,`You untie the ribbon and hand it to the housekeeper. Camille will understand. It was your secret sign when you were children.`)]}
+]),
+
 {bg:'paris',mus:'mystery',where:['Saint-Sulpice','Saint-Sulpice']},
 {st:['theo','lv']},
 N(`Le soir, Théo et {lv} reviennent de Saint-Sulpice, la mine sombre.`,`In the evening, Theo and {lv} come back from Saint-Sulpice looking grim.`),
@@ -2749,6 +2766,13 @@ D('lv','h',`Si je te le disais maintenant, ce ne serait plus une surprise. Dors 
 /* ===== CHAPITRE 22 — Le grand bal de fin de saison ===== */
 STORY.push(
 {bg:'bedroom',mus:'tender',chap:22,card:['Chapitre 22','Chapter 22'],sub:['Le grand bal de fin de saison','The End-of-Season Ball'],where:['Ta chambre','Your bedroom']},
+{st:['mc']},
+N(`Sur ta coiffeuse, une lettre arrivée le matin même. Le cachet de Lyon.`,`On your dressing table, a letter that arrived this very morning. A Lyon postmark.`),
+N(`« Tu étais À PARIS et je n'étais pas là ?! Je ne m'en remettrai jamais. Ma gouvernante dit que tu étais pâle et que tu avais l'air d'avoir un secret. Ma tante dit que je suis insupportable depuis. Elle a raison. Promets-moi qu'on se reverra. Promets. — Camille »`,`"You were IN PARIS and I wasn't there?! I'll never get over it. My housekeeper says you were pale and looked like you had a secret. My aunt says I've been unbearable ever since. She's right. Promise me we'll see each other again. Promise. — Camille"`),
+C('c22cam',0,[
+ {t:[`« Je te le promets. Un jour, je reviens à Paris. »`,`"I promise. One day, I'll come back to Paris."`],set:'camPromise',r:[D('mc','h',`(Et cette fois, je ne la raterai pas.)`,`(And this time, I won't miss her.)`)]},
+ {t:[`« Je t'écrirai tout. Chaque bal, chaque secret. »`,`"I'll write you everything. Every ball, every secret."`],r:[D('mc','h',`(Enfin… presque tous les secrets.)`,`(Well… almost every secret.)`)]}
+]),
 {st:['mother','mc']},
 N(`Le soir du dernier bal de la Saison. Ta mère entre dans ta chambre avec un écrin de velours bleu, qu'elle tient comme un objet sacré.`,`The night of the last ball of the Season. Your mother comes into your room with a blue velvet case, which she holds like something sacred.`),
 D('mother','s',`Ton père l'a gardé dix-huit ans au fond d'un tiroir. Il était à elle. Je crois qu'il est temps qu'il soit à toi.`,`Your father kept it at the bottom of a drawer for eighteen years. It was hers. I think it's time it was yours.`),
@@ -2891,6 +2915,10 @@ C('c24a',0,[
  {t:[`Lui répondre tout de suite, sur trois pages.`,`Write back at once, three pages long.`],fx:{rep:1},r:[D('mc','h',`(Trois pages. Dont une entière sur la tête de la Duchesse quand j'ai dit oui.)`,`(Three pages. One of them entirely about the Duchess's face when I said yes.)`)]},
  {t:[`Sourire et garder la lettre près de ton cœur.`,`Smile and keep the letter close to your heart.`],r:[D('bess','s',`Elle va nous manquer, cette tornade rousse.`,`We'll miss that red-haired whirlwind.`)]}
 ]),
+
+N(`Sous la lettre de Georgie, une enveloppe plus fine, aux timbres français. Camille.`,`Beneath Georgie's letter, a thinner envelope with French stamps. Camille.`),
+N(`« Les nouvelles vont vite, même jusqu'à Paris. On raconte que {fi} t'a demandé{g:|e|·e} en mariage devant tout le palais ?! Je veux être là pour ton mariage. Je viendrai, même s'il faut traverser la Manche à la nage. — Camille »`,`"News travels fast, even to Paris. They say {fi} proposed to you in front of the whole palace?! I want to be at your wedding. I'll come, even if I have to swim the Channel. — Camille"`),
+D('mc','h',`(Camille à mon mariage. Ce serait le plus beau des cadeaux.)`,`(Camille at my wedding. That would be the best gift of all.)`),
 
 {bg:'salon',mus:'mystery',where:['Le bureau de Lord Pembroke','Lord Pembroke\'s study']},
 {st:['lordp','mc']},
@@ -3687,6 +3715,16 @@ C('m75',1,[
  ]}
 ]),
 
+{bg:'bedroomday',mus:'mystery',where:['Ta chambre','Your bedroom']},
+{st:['bess','mc']},
+D('bess','s',`Une lettre de Paris, {title}. Le coursier dit qu'elle a été envoyée en urgence.`,`A letter from Paris, {title}. The courier says it was sent in haste.`),
+N(`« Pardonne-moi. Je ne pourrai pas venir à ton mariage. Je ne peux pas t'expliquer par lettre, pas encore. Mais il se passe des choses étranges à Paris. Hier, une dame voilée est venue rue du Bac. Elle a demandé si j'avais de tes nouvelles. Elle connaissait le nom des Valcourt. Sois prudent{g:|e|·e}. Je t'embrasse mille fois. — Camille »`,`"Forgive me. I won't be able to come to your wedding. I can't explain in a letter, not yet. But strange things are happening in Paris. Yesterday, a veiled lady came to the Rue du Bac. She asked if I had news of you. She knew the Valcourt name. Be careful. A thousand kisses. — Camille"`),
+D('mc','o',`(Une dame voilée… qui connaît le nom des Valcourt ?)`,`(A veiled lady… who knows the Valcourt name?)`),
+C('c38cam',0,[
+ {t:[`En parler ce soir à {fi}.`,`Tell {fi} tonight.`],set:'camToldFi',fx:{fi:1},r:[D('mc','s',`(Plus de secrets entre nous. Je le lui dirai ce soir.)`,`(No more secrets between us. I'll tell {a:him|her} tonight.)`)]},
+ {t:[`Garder la lettre pour toi. Pas avant le mariage.`,`Keep the letter to yourself. Not before the wedding.`],set:'camSecret',r:[D('bess','s',`Vous êtes tout{g:|e|·e} pâle, {title}. Mauvaises nouvelles ?`,`You've gone quite pale, {title}. Bad news?`),D('mc','s',`(Rien qui ne puisse attendre trois semaines.)`,`(Nothing that can't wait three weeks.)`)]}
+]),
+
 {bg:'bedroom',mus:'tender',card:['Le soir','Evening'],sub:['',''],where:['Ta chambre','Your bedroom']},
 {st:['fi','mc']},
 N(`Le soir, {fi} te rejoint, le bras en écharpe. {a:Il|Elle} insiste pour vérifier ses points de suture devant le miroir, comme pour admirer ton travail.`,`In the evening, {fi} joins you, arm in a sling. {a:He|She} insists on checking the stitches in the mirror, as if admiring your handiwork.`),
@@ -3971,7 +4009,10 @@ STORY.push(
   {t:[`« On rentre. On la cherche. Dès demain. »`,`"We're going home. We'll look for her. Starting tomorrow."`],set:'searchIsadora',r:[D('fi','s',`Alors on la cherchera. Ensemble. Comme toujours.`,`Then we'll look for her. Together. As always.`)]},
   {t:[`Serrer la lettre contre ton cœur, sans un mot.`,`Press the letter to your heart, without a word.`],set:'holdLetter',r:[N(`Tu ne dis rien. {fi} te prend dans ses bras. Par la fenêtre, Venise scintille comme si rien n'avait changé. Tout a changé.`,`You say nothing. {fi} takes you in {a:his|her} arms. Through the window, Venice glitters as if nothing had changed. Everything has.`)]}
  ]),
- N(`À suivre dans la saison 3…`,`To be continued in Season 3…`)
+ N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
+N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
+D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
+N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
 ],[
  {bg:'bedroom',mus:'mystery',chap:44,card:['Saison 2 · Chapitre 22','Season 2 · Chapter 22'],sub:['Le prix du bonheur','The Price of Happiness'],where:['Pembroke House','Pembroke House']},
  {st:['lordp','mc']},
@@ -3996,7 +4037,10 @@ STORY.push(
   {t:[`Courir dans la foule, chercher la femme voilée.`,`Run into the crowd, look for the veiled woman.`],set:'runVeiled',r:[N(`Tu cours entre les parapluies, tu appelles. Personne. Juste, sur le pavé mouillé, une violette. Comme celles qu'Henri apportait à Isadora.`,`You run among the umbrellas, calling out. No one. Just, on the wet cobbles, a violet. Like the ones Henri used to bring Isadora.`)]},
   {t:[`Serrer la lettre contre ton cœur et prendre la main de {fi}.`,`Press the letter to your heart and take {fi}'s hand.`],set:'holdLetterB',fx:{fi:2},r:[D('fi','s',`Quoi que ce soit, on le découvrira ensemble. Je te l'ai promis devant Dieu, il y a une semaine.`,`Whatever this is, we'll find out together. I promised you before God, a week ago.`)]}
  ]),
- N(`À suivre dans la saison 3…`,`To be continued in Season 3…`)
+ N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
+N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
+D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
+N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
 ]),
 {end:44}
 );

@@ -24,7 +24,10 @@ STORY.push(
   {t:[`« On rentre. On la cherche. Dès demain. »`,`"We're going home. We'll look for her. Starting tomorrow."`],set:'searchIsadora',r:[D('fi','s',`Alors on la cherchera. Ensemble. Comme toujours.`,`Then we'll look for her. Together. As always.`)]},
   {t:[`Serrer la lettre contre ton cœur, sans un mot.`,`Press the letter to your heart, without a word.`],set:'holdLetter',r:[N(`Tu ne dis rien. {fi} te prend dans ses bras. Par la fenêtre, Venise scintille comme si rien n'avait changé. Tout a changé.`,`You say nothing. {fi} takes you in {a:his|her} arms. Through the window, Venice glitters as if nothing had changed. Everything has.`)]}
  ]),
- N(`À suivre dans la saison 3…`,`To be continued in Season 3…`)
+ N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
+N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
+D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
+N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
 ],[
  {bg:'bedroom',mus:'mystery',chap:44,card:['Saison 2 · Chapitre 22','Season 2 · Chapter 22'],sub:['Le prix du bonheur','The Price of Happiness'],where:['Pembroke House','Pembroke House']},
  {st:['lordp','mc']},
@@ -49,7 +52,10 @@ STORY.push(
   {t:[`Courir dans la foule, chercher la femme voilée.`,`Run into the crowd, look for the veiled woman.`],set:'runVeiled',r:[N(`Tu cours entre les parapluies, tu appelles. Personne. Juste, sur le pavé mouillé, une violette. Comme celles qu'Henri apportait à Isadora.`,`You run among the umbrellas, calling out. No one. Just, on the wet cobbles, a violet. Like the ones Henri used to bring Isadora.`)]},
   {t:[`Serrer la lettre contre ton cœur et prendre la main de {fi}.`,`Press the letter to your heart and take {fi}'s hand.`],set:'holdLetterB',fx:{fi:2},r:[D('fi','s',`Quoi que ce soit, on le découvrira ensemble. Je te l'ai promis devant Dieu, il y a une semaine.`,`Whatever this is, we'll find out together. I promised you before God, a week ago.`)]}
  ]),
- N(`À suivre dans la saison 3…`,`To be continued in Season 3…`)
+ N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
+N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
+D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
+N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
 ]),
 {end:44}
 );

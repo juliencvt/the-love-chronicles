@@ -43,6 +43,16 @@ C('m75',1,[
  ]}
 ]),
 
+{bg:'bedroomday',mus:'mystery',where:['Ta chambre','Your bedroom']},
+{st:['bess','mc']},
+D('bess','s',`Une lettre de Paris, {title}. Le coursier dit qu'elle a été envoyée en urgence.`,`A letter from Paris, {title}. The courier says it was sent in haste.`),
+N(`« Pardonne-moi. Je ne pourrai pas venir à ton mariage. Je ne peux pas t'expliquer par lettre, pas encore. Mais il se passe des choses étranges à Paris. Hier, une dame voilée est venue rue du Bac. Elle a demandé si j'avais de tes nouvelles. Elle connaissait le nom des Valcourt. Sois prudent{g:|e|·e}. Je t'embrasse mille fois. — Camille »`,`"Forgive me. I won't be able to come to your wedding. I can't explain in a letter, not yet. But strange things are happening in Paris. Yesterday, a veiled lady came to the Rue du Bac. She asked if I had news of you. She knew the Valcourt name. Be careful. A thousand kisses. — Camille"`),
+D('mc','o',`(Une dame voilée… qui connaît le nom des Valcourt ?)`,`(A veiled lady… who knows the Valcourt name?)`),
+C('c38cam',0,[
+ {t:[`En parler ce soir à {fi}.`,`Tell {fi} tonight.`],set:'camToldFi',fx:{fi:1},r:[D('mc','s',`(Plus de secrets entre nous. Je le lui dirai ce soir.)`,`(No more secrets between us. I'll tell {a:him|her} tonight.)`)]},
+ {t:[`Garder la lettre pour toi. Pas avant le mariage.`,`Keep the letter to yourself. Not before the wedding.`],set:'camSecret',r:[D('bess','s',`Vous êtes tout{g:|e|·e} pâle, {title}. Mauvaises nouvelles ?`,`You've gone quite pale, {title}. Bad news?`),D('mc','s',`(Rien qui ne puisse attendre trois semaines.)`,`(Nothing that can't wait three weeks.)`)]}
+]),
+
 {bg:'bedroom',mus:'tender',card:['Le soir','Evening'],sub:['',''],where:['Ta chambre','Your bedroom']},
 {st:['fi','mc']},
 N(`Le soir, {fi} te rejoint, le bras en écharpe. {a:Il|Elle} insiste pour vérifier ses points de suture devant le miroir, comme pour admirer ton travail.`,`In the evening, {fi} joins you, arm in a sling. {a:He|She} insists on checking the stitches in the mirror, as if admiring your handiwork.`),

@@ -13,6 +13,10 @@ C('c24a',0,[
  {t:[`Sourire et garder la lettre près de ton cœur.`,`Smile and keep the letter close to your heart.`],r:[D('bess','s',`Elle va nous manquer, cette tornade rousse.`,`We'll miss that red-haired whirlwind.`)]}
 ]),
 
+N(`Sous la lettre de Georgie, une enveloppe plus fine, aux timbres français. Camille.`,`Beneath Georgie's letter, a thinner envelope with French stamps. Camille.`),
+N(`« Les nouvelles vont vite, même jusqu'à Paris. On raconte que {fi} t'a demandé{g:|e|·e} en mariage devant tout le palais ?! Je veux être là pour ton mariage. Je viendrai, même s'il faut traverser la Manche à la nage. — Camille »`,`"News travels fast, even to Paris. They say {fi} proposed to you in front of the whole palace?! I want to be at your wedding. I'll come, even if I have to swim the Channel. — Camille"`),
+D('mc','h',`(Camille à mon mariage. Ce serait le plus beau des cadeaux.)`,`(Camille at my wedding. That would be the best gift of all.)`),
+
 {bg:'salon',mus:'mystery',where:['Le bureau de Lord Pembroke','Lord Pembroke\'s study']},
 {st:['lordp','mc']},
 N(`L'après-midi, tu te rends à Pembroke House. La lettre de Cordelia te brûle la poche depuis le bal. « Demande à Lord Pembroke pourquoi il m'a recueillie. »`,`In the afternoon, you go to Pembroke House. Cordelia's letter has been burning a hole in your pocket since the ball. "Ask Lord Pembroke why he took me in."`),
