@@ -4135,6 +4135,7 @@ const PICS={
  queen:{src:'assets/queen.webp',w:1447,h:1500,eye:[423,156,48],waist:.42},
  bess:{src:'assets/bess.webp',w:644,h:1500,eye:[270,165,48],waist:.42},
  theo:{src:'assets/theo.webp',w:624,h:1500,eye:[215,170,48],waist:.42},
+ alistair:{src:'assets/alistair.webp',w:495,h:1500,eye:[175,110,45],waist:.42},
  clem:{src:'assets/clem.webp',w:980,h:1500,eye:[419,180,48],waist:.42},
  cordelia:{src:'assets/cordelia.webp',w:982,h:1500,eye:[442,180,48],waist:.42},
  georgie:{src:'assets/georgie.webp',w:977,h:1500,eye:[435,180,48],waist:.42},
@@ -4162,7 +4163,7 @@ function charDef(id){
  case 'duchess':return {img:PICS.duchess,acc:{mask:mk?1:null}};
  case 'queen':return {img:PICS.queen,acc:{mask:mk?1:null}};
  case 'bess':return {img:PICS.bess,acc:{}};
- case 'theo':case 'clem':case 'cordelia':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':return {img:PICS[id],acc:{}};
+ case 'theo':case 'clem':case 'cordelia':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':case 'alistair':return {img:PICS[id],acc:{}};
  case 'guard':return {img:PICS.guard,acc:{}};
  case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
  case 'duchess_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#cfc8c2',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#a8606a',body:1,age:1,out:{fill:'#6d3d8a',sleeve:'#87579f',trim:'#e6c66a',acc:'jewels'}},acc:{tiara:1}};
