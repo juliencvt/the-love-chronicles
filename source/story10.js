@@ -5,16 +5,16 @@ STORY.push(
 N(`Le soir du bal, deux boîtes enrubannées attendent sur ton lit. Bess tourne autour comme un chat autour d'un pot de crème.`,`On the night of the ball, two beribboned boxes await on your bed. Bess circles them like a cat around a pot of cream.`),
 ...IF('danceLi1',[D('bess','h',`Madame Fleury les a livrées ce matin. Votre mère a payé l'une, et la Duchesse… l'autre. Elle a dit que c'était « un prêt ». Ha !`,`Madame Fleury delivered them this morning. Your mother paid for one, and the Duchess… the other. She said it was "a loan". Ha!`)],
  [D('bess','h',`Livrées de l'atelier Fleury. Il y a un mot : « Je n'arrivais pas à choisir. Choisissez pour moi. » Pas de signature. Pas besoin.`,`Delivered from Fleury's workshop. There's a note: "I couldn't choose. Choose for me." No signature. No need.`)]),
-N(`Dans la première boîte, {t:un habit|une robe} de soie bleu nuit, brodé{t:|e} de fils d'argent comme un ciel d'hiver. Dans la seconde, {t:un habit|une robe} cramoisi{t:|e}, audacieux{t:|se}, qui ne laissera personne indifférent.`,`In the first box, {t:a coat|a gown} of midnight-blue silk, embroidered with silver thread like a winter sky. In the second, a bold crimson {t:coat|gown} that will leave no one indifferent.`),
+N(`Dans la première boîte, {t:un habit|une robe} de soie bleu nuit, brodé{t:|e} de fils d'argent comme un ciel d'hiver. Dans la seconde, {t:un habit|une robe} de soie vert émeraude, brodé{t:|e} d'or, audacieu{t:x|se}, qui ne laissera personne indifférent.`,`In the first box, {t:a coat|a gown} of midnight-blue silk, embroidered with silver thread like a winter sky. In the second, a bold emerald-green silk {t:coat|gown} embroidered with gold, which will leave no one indifferent.`),
 C('o10',0,[
  {t:[`👗 {t:L'habit|La robe} bleu nuit et argent. Élégance et mystère.`,`👗 The midnight-blue and silver. Elegance and mystery.`],set:'o10a',fx:{rep:1},r:[D('bess','h',`Vous ressemblez à une nuit d'étoiles. Ils vont tous se taire en vous voyant entrer.`,`You look like a starry night. They'll all fall silent when you walk in.`)]},
- {t:[`👗 {t:L'habit|La robe} cramoisi{t:|e}. Qu'ils me regardent, puisqu'ils parlent de moi.`,`👗 The crimson. Let them look, since they're talking about me.`],set:'o10b',fx:{lv:1},r:[D('bess','o',`Seigneur ! Lady Pembroke va s'étouffer avec son punch. J'adore.`,`Lord! Lady Pembroke will choke on her punch. I love it.`)]}
+ {t:[`👗 {t:L'habit|La robe} vert émeraude et or. Qu'ils me regardent, puisqu'ils parlent de moi.`,`👗 The emerald and gold. Let them look, since they're talking about me.`],set:'o10b',fx:{lv:1},r:[D('bess','o',`Seigneur ! Lady Pembroke va s'étouffer avec son punch. J'adore.`,`Lord! Lady Pembroke will choke on her punch. I love it.`)]}
 ]),
 
 {bg:'ball',mus:'ball',card:['Pembroke House','Pembroke House'],sub:['Le bal','The Ball'],where:['La salle de bal des Pembroke','The Pembroke ballroom']},
 {st:['ladyp','lordp']},
 N(`Pembroke House brille de mille bougies. Lady Pembroke reçoit en haut de l'escalier, un sourire de porcelaine sur les lèvres.`,`Pembroke House glitters with a thousand candles. Lady Pembroke receives at the top of the stairs, a porcelain smile on her lips.`),
-...IF('o10b',[D('ladyp','a',`Du rouge. Évidemment. Il fallait bien que vous vous fassiez remarquer.`,`Red. Of course. You simply had to be noticed.`),D('lordp','h',`Superbe ! Enfin quelqu'un qui réveille cette maison.`,`Superb! At last someone to wake this house up.`)],
+...IF('o10b',[D('ladyp','a',`Du vert émeraude. Évidemment. Il fallait bien que vous vous fassiez remarquer.`,`Emerald green. Of course. You simply had to be noticed.`),D('lordp','h',`Superbe ! Enfin quelqu'un qui réveille cette maison.`,`Superb! At last someone to wake this house up.`)],
  [D('ladyp','n',`Hm. Bleu nuit. Au moins, vous avez du goût. C'est déjà ça.`,`Hm. Midnight blue. At least you have taste. That's something.`),D('lordp','h',`Ravissant{t:|e} ! Ma femme vous adore, elle ne sait juste pas le montrer.`,`Lovely! My wife adores you, she just doesn't know how to show it.`)]),
 D('lordp','s',`Venez me voir dans mon bureau, plus tard. J'ai une proposition à vous faire. Une affaire de… transport.`,`Come and see me in my study later. I have a proposal for you. A matter of… transport.`),
 {st:['clem','georgie']},
@@ -54,7 +54,8 @@ C('m19',1,[
    [D('lv','a',`Ce n'est pas mon écriture. Regardez : je fais mes « M » comme Marguerite me l'a appris, avec une boucle. Celui-ci n'en a pas.`,`That isn't my handwriting. Look: I make my capitals the way Marguerite taught me, with a loop. This one has none.`)]),
   D('lv','s',`Quelqu'un veut nous séparer. Et je n'aime pas du tout ce que ça veut dire.`,`Someone wants to drive us apart. And I don't like what that means at all.`),
   D('mc','h',`Alors ne les laissons pas faire.`,`Then let's not let them.`),
-  N(`{lv} te prend la main et t'entraîne dans la serre des Pembroke, à l'abri des regards. Entre les orangers, sous les vitres embuées, {a:il|elle} t'embrasse comme pour effacer le doute.`,`{lv} takes your hand and leads you into the Pembroke conservatory, away from prying eyes. Among the orange trees, under the misted glass, {a:he|she} kisses you as if to erase the doubt.`)
+  N(`{lv} te prend la main et t'entraîne dans la serre des Pembroke, à l'abri des regards. Entre les orangers, sous les vitres embuées, {a:il|elle} t'embrasse comme pour effacer le doute.`,`{lv} takes your hand and leads you into the Pembroke conservatory, away from prying eyes. Among the orange trees, under the misted glass, {a:he|she} kisses you as if to erase the doubt.`),
+  {cg:'pembroke'}
  ]},
  {t:[`Te taire et prendre tes distances.`,`Say nothing and keep your distance.`],set:'doubtLv',fx:{lv:-1},r:[
   D('mc','s',`Ce n'est rien. Un peu de fatigue. Excusez-moi.`,`It's nothing. A little tired. Excuse me.`),

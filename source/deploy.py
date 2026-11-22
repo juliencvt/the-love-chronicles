@@ -5,8 +5,10 @@ h=h.replace('<title>The Love Chronicles</title>','<title>The Love Chronicles</ti
 h=h.replace('</body>','<script>try{if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}</script>\n</body>')
 open(R+'/index.html','w').write(h)
 for f in glob.glob('assets/*.webp'): shutil.copy(f,R+'/assets/')
+os.makedirs(R+'/assets/cg',exist_ok=True)
+for f in glob.glob('assets/cg/*.webp'): shutil.copy(f,R+'/assets/cg/')
 sw=open(R+'/sw.js').read(); v=int(re.search(r"tlc-v(\d+)",sw).group(1))+1
-files=['./','index.html','manifest.webmanifest']+['icons/'+f for f in sorted(os.listdir(R+'/icons'))]+['assets/'+f for f in sorted(os.listdir(R+'/assets'))]
+files=['./','index.html','manifest.webmanifest']+['icons/'+f for f in sorted(os.listdir(R+'/icons'))]+['assets/'+f for f in sorted(os.listdir(R+'/assets')) if f.endswith('.webp')]+['assets/cg/'+f for f in sorted(os.listdir(R+'/assets/cg'))]
 sw=re.sub(r"tlc-v\d+","tlc-v%d"%v,sw); sw=re.sub(r"const F=\[.*?\];","const F=%s;"%str(files).replace("'",'"'),sw,flags=re.S)
 open(R+'/sw.js','w').write(sw)
 for f in ['art.js']+['story%s.js'%('' if n==1 else n) for n in range(1,45) if n==1 or __import__('os').path.exists('story%d.js'%n)]+['main.js','shell.html','build.py','cut.py','deploy.py']: shutil.copy(f,R+'/source/')

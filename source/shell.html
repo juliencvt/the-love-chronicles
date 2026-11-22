@@ -150,6 +150,12 @@ input[type=range]{width:100%;accent-color:var(--plum);height:32px}
 .scard.soon{opacity:.75;border-style:dashed}
 .scard.soon .cov{height:150px;background:repeating-linear-gradient(135deg,#3a2440 0 14px,#43294a 14px 28px);display:flex;align-items:center;justify-content:center;font-size:44px}
 #menu .back{position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;z-index:3;padding:8px 14px;border-radius:20px;background:#fffaf6dd;border:2px solid var(--gold2);font:800 14px Nunito;color:var(--plum)}
+#cgv{position:absolute;inset:0;z-index:16;display:none;flex-direction:column;align-items:center;justify-content:center;background:#1a0e1ef2;padding:14px}#cgv.on{display:flex}
+#cgv img{max-width:100%;max-height:82%;border-radius:18px;border:3px solid var(--gold2);box-shadow:0 10px 40px #000a;animation:cgIn .6s ease}
+#cgv p{color:#fff;font:italic 19px "Cormorant Garamond",serif;text-align:center;margin:16px 0 0}
+@keyframes cgIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.galrow{display:flex;gap:8px;overflow-x:auto;margin:4px 0 12px}.galth{width:120px;height:90px;object-fit:cover;border-radius:10px;border:2px solid var(--gold2)}
+.gallock{width:120px;height:90px;border-radius:10px;background:#3a244022;display:grid;place-items:center;font-weight:800;color:var(--plum)}
 </style>
 </head>
 <body>
@@ -166,6 +172,7 @@ input[type=range]{width:100%;accent-color:var(--plum);height:32px}
   <div id="top"><button class="ib" id="pauseBtn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14" stroke="#5b2f5e" stroke-width="2.4" stroke-linecap="round"/></svg></button><span class="where" id="where"></span></div>
   <div id="box"><div id="tag"></div><div id="txt"></div><div id="nxt">▼</div></div>
   <div id="choices"></div><div id="toast"></div>
+  <div id="cgv"><img id="cgImg" alt=""><p id="cgP"></p></div>
   <div id="item"><div><div class="locket" id="locket"></div><p id="itemP"></p></div></div>
   <div class="card" id="card"><div><h2 id="cardT"></h2><p id="cardS"></p></div></div>
  </section>

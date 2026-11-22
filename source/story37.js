@@ -37,12 +37,14 @@ C('m73',1,[
   N(`Tu te penches. Ce n'est pas un baiser doux, cette fois. C'est un baiser qui a attendu toute la journée, toute la peur de la crypte, tout le sang, toutes les heures où tu as cru {a:le|la} perdre.`,`You lean in. It isn't a gentle kiss this time. It's a kiss that has waited all day, through all the fear in the crypt, all the blood, all the hours you thought you'd lose {a:him|her}.`),
   N(`{fi} t'attire contre {a:lui|elle} avec son bras valide, oubliant sa blessure. Puis {a:il|elle} grimace, et tu ris contre ses lèvres, et {a:il|elle} t'embrasse encore pour te faire taire.`,`{fi} pulls you close with {a:his|her} good arm, forgetting the wound. Then {a:he|she} winces, and you laugh against {a:his|her} lips, and {a:he|she} kisses you again to shut you up.`),
   D('fi','s',`Je me ferais tirer dessus tous les jours, pour ça.`,`I'd get shot every day for this.`),
-  D('mc','a',`Ne dis jamais ça. Jamais.`,`Don't ever say that. Never.`)
+  D('mc','a',`Ne dis jamais ça. Jamais.`,`Don't ever say that. Never.`),
+  {cg:'chevet'}
  ]},
  {t:[`Attendre. Laisser {fi} faire le dernier pas.`,`Wait. Let {fi} take the last step.`],set:'waitBedside',fx:{fi:3},r:[
   N(`Tu ne bouges pas. Tu attends. Une seconde. Deux. Une éternité.`,`You don't move. You wait. One second. Two. An eternity.`),
   N(`Puis {fi} se redresse, malgré la douleur, et pose ses lèvres sur les tiennes. Doucement, d'abord. Comme une question. Puis comme une réponse.`,`Then {fi} sits up, despite the pain, and presses {a:his|her} lips to yours. Gently at first. Like a question. Then like an answer.`),
-  D('fi','s',`Ça valait le coup d'attendre.`,`It was worth the wait.`)
+  D('fi','s',`Ça valait le coup d'attendre.`,`It was worth the wait.`),
+  {cg:'chevet'}
  ]}
 ]),
 N(`Tu t'endors sur le fauteuil, au bord du lit, ta main dans la sienne. Comme à Londres, le soir de l'évasion. Comme tous les soirs, désormais.`,`You fall asleep in the armchair at the edge of the bed, your hand in {a:his|hers}. Like in London, the night of the escape. Like every night, from now on.`),

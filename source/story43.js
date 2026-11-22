@@ -35,6 +35,7 @@ N(`Vient le moment de la coupe. Le vin des mariés, que vous devez boire ensembl
  N(`Toute l'église éclate de rire. Vous buvez la coupe ensemble. Le vin est doux. Il a le goût d'une fin heureuse.`,`The whole church bursts out laughing. You drink from the cup together. The wine is sweet. It tastes of a happy ending.`),
  N(`« Je vous déclare unis devant Dieu et devant les hommes. »`,`"I now pronounce you joined before God and before all."`),
  {st:['fi','mc']},
+ {cg:'wedding'},
  C('m86',1,[
   {t:[`L'embrasser comme si personne ne regardait.`,`Kiss {a:him|her} as if nobody were watching.`],set:'bigKiss',fx:{fi:3},r:[N(`Tu attrapes {fi} par le col et tu l'embrasses. Longtemps. Très longtemps. La Duchesse toussote. La Reine applaudit. Clem siffle comme un cocher.`,`You grab {fi} by the collar and kiss {a:him|her}. For a long time. A very long time. The Duchess coughs. The Queen applauds. Clem whistles like a coachman.`)]},
   {t:[`Un baiser doux, front contre front, en souriant.`,`A gentle kiss, forehead to forehead, smiling.`],set:'softKiss',fx:{fi:3},r:[N(`Un baiser tout doux. Puis vos fronts se touchent, et vous restez comme ça, à sourire, pendant que toute l'église se lève pour applaudir.`,`A very gentle kiss. Then your foreheads touch, and you stay like that, smiling, while the whole church rises to applaud.`)]}
@@ -48,6 +49,7 @@ N(`Vient le moment de la coupe. Le vin des mariés, que vous devez boire ensembl
  N(`Un murmure d'horreur parcourt l'église. Le prêtre, livide, termine la cérémonie à toute vitesse.`,`A murmur of horror runs through the church. The priest, ashen, rushes through the rest of the ceremony.`),
  N(`« Je vous déclare unis devant Dieu et devant les hommes. »`,`"I now pronounce you joined before God and before all."`),
  {st:['fi','mc']},
+ {cg:'wedding'},
  N(`Vous vous embrassez, vite, les mains tremblantes. Ce n'est pas le baiser dont tu rêvais. Mais vous êtes mariés. Vivants. Ensemble.`,`You kiss, quickly, hands shaking. It isn't the kiss you dreamed of. But you're married. Alive. Together.`),
  {bg:'street',mus:'mystery',where:['Le parvis de l\'église','The church steps']},
  N(`Sur le parvis, les cloches sonnent. Les pétales tombent. La foule crie vos noms. Pendant une seconde, une seule, tu crois que c'est fini.`,`On the church steps, the bells ring. Petals fall. The crowd shouts your names. For a second, just one, you think it's over.`),
