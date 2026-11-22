@@ -4129,7 +4129,7 @@ function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mb
 
 const CGS=new Set(['jardin_f2_mateo']);
 const CGSC=[{id:'firstkiss',t:['Le premier baiser à l\'opéra','The First Kiss at the Opera'],rt:1},{id:'jardin',t:['Le baiser des roses','The Kiss Among the Roses']},{id:'pembroke',t:['✨ Minuit dans la serre','✨ Midnight in the Conservatory'],sec:1},{id:'ascot',t:['✨ Au galop','✨ At a Gallop'],sec:1},{id:'vauxhall',t:['✨ Le phénix','✨ The Phoenix'],sec:1},{id:'chevet',t:['À ton chevet','At Your Bedside'],s2:1},{id:'wedding',t:['Le mariage','The Wedding'],s2:1}];
-function cgName(id){const sc=CGSC.find(x=>x.id==id),pr=preOf(S.p),mk=pr?pr.src.slice(7,-5):'x',li=sc.rt?(S.f.p1?'li1':'li2'):RID(sc.s2?'fi':'lv'),lk=li=='li1'?(S.p.attr=='m'?'edmund':'rosalind'):(S.p.attr=='m'?'mateo':'nell');return `${id}_${mk}_${lk}${sc.o?'_'+(S.f[sc.o]?'a':'b'):''}`}
+function cgName(id){const sc=CGSC.find(x=>x.id==id),pr=preOf(S.p),mk=pr?pr.src.slice(7,-5):'x',li=sc.rt?(S.f.p1?'li1':'li2'):RID(sc.s2?'fi':'lv'),lk=li=='li1'?(S.p.attr=='m'?'edmund':'rosalind'):(S.p.attr=='m'?'mateo':'nell');const full=`${id}_${mk}_${lk}`;return CGS.has(full)?full:`${id}_${lk}`}
 function showCG(nm){mode='cg';$('box').className='hide';$('cgImg').src='assets/cg/'+nm+'.webp';$('cgP').textContent=tr(CGSC.find(x=>nm.startsWith(x.id+'_')).sec?'cgSec':'cgNew');$('cgv').classList.add('on');sfx('click')}
 function endCG(){$('cgv').classList.remove('on');mode=null;run()}
 function galModal(){const got=store.get('tlc_cg')||[];
