@@ -42,6 +42,13 @@ const PICS={
  theo:{src:'assets/theo.webp',w:624,h:1500,eye:[215,170,48],waist:.42},
  alistair:{src:'assets/alistair.webp',w:495,h:1500,eye:[175,110,45],waist:.42},
  fleury:{src:'assets/fleury.webp',w:714,h:1500,eye:[280,190,40],waist:.42},
+ beppe:{src:'assets/beppe.webp',w:746,h:1500,eye:[440,150,45],waist:.42},
+ kid:{src:'assets/kid.webp',w:552,h:1500,eye:[262,175,50],waist:.6,top:24},
+ kid2:{src:'assets/kid2.webp',w:636,h:1500,eye:[300,175,50],waist:.6,top:24},
+ camille:{src:'assets/camille.webp',w:587,h:1500,eye:[268,125,42],waist:.42},
+ lucian:{src:'assets/lucian.webp',w:448,h:1500,eye:[226,120,40],waist:.42},
+ agathe:{src:'assets/agathe.webp',w:473,h:1500,eye:[228,130,40],waist:.42},
+ volkov:{src:'assets/volkov.webp',w:594,h:1500,eye:[245,120,40],waist:.42},
  clem:{src:'assets/clem.webp',w:980,h:1500,eye:[419,180,48],waist:.42},
  cordelia:{src:'assets/cordelia.webp',w:982,h:1500,eye:[442,180,48],waist:.42},
  georgie:{src:'assets/georgie.webp',w:977,h:1500,eye:[435,180,48],waist:.42},
@@ -69,7 +76,8 @@ function charDef(id){
  case 'duchess':return {img:PICS.duchess,acc:{mask:mk?1:null}};
  case 'queen':return {img:PICS.queen,acc:{mask:mk?1:null}};
  case 'bess':return {img:PICS.bess,acc:{}};
- case 'theo':case 'clem':case 'cordelia':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':case 'alistair':case 'fleury':return {img:PICS[id],acc:{}};
+ case 'theo':case 'clem':case 'cordelia':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':case 'alistair':case 'fleury':case 'beppe':case 'camille':case 'lucian':case 'agathe':case 'volkov':return {img:PICS[id],acc:{}};
+ case 'kid':return {img:S.chap>=59?PICS.kid2:PICS.kid,acc:{}};
  case 'guard':return {img:PICS.guard,acc:{}};
  case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
  case 'duchess_old':return {p:{sex:'f',skin:0,hair:'bun',hc:'#cfc8c2',es:1,ec:'#76828c',nose:1,mouth:0,lip:'#a8606a',body:1,age:1,out:{fill:'#6d3d8a',sleeve:'#87579f',trim:'#e6c66a',acc:'jewels'}},acc:{tiara:1}};
@@ -257,12 +265,12 @@ function renderStage(st,speaker){const el=$('stage'),pres=new Set(st);
  [...el.children].forEach(c=>{if(!pres.has(c.dataset.id)){c.classList.remove('in');c.dataset.id='_';setTimeout(()=>c.remove(),420)}});
  st.forEach((id,k)=>{let c=[...el.children].find(x=>x.dataset.id==id);
   if(!c){c=document.createElement('div');c.className='ch';c.dataset.id=id;el.appendChild(c);requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.add('in')))}
-  const d=charDef(id);if(!d){c.innerHTML='';c.dataset.key='';c.classList.toggle('on',id===speaker);return}const ex=S.ex[id]||'n',key=id+ex+(d.acc.mask||'')+(id=='mc'?JSON.stringify(S.p):'')+S.p.attr+S.p.body;
-  if(c.dataset.key!==key){if(d.img){c.classList.add('pic');c.style.setProperty('--ar',d.img.w+'/'+d.img.h);c.style.setProperty('--ax',(d.img.eye[0]/d.img.w*100)+'%');c.style.height=(72/(d.img.waist||.4))+'%';c.style.top='3%';c.innerHTML=picHTML(d.img,d.acc.mask)}else{c.classList.remove('pic');c.style.height='';c.style.top='';if(!svgCache.has(key))svgCache.set(key,ART.draw(d.p,ex,d.acc));c.innerHTML=svgCache.get(key)}c.dataset.key=key}
+  const d=charDef(id);if(!d){c.innerHTML='';c.dataset.key='';c.classList.toggle('on',id===speaker);return}const ex=S.ex[id]||'n',key=(d.img?d.img.src:'')+id+ex+(d.acc.mask||'')+(id=='mc'?JSON.stringify(S.p):'')+S.p.attr+S.p.body;
+  if(c.dataset.key!==key){if(d.img){c.classList.add('pic');c.style.setProperty('--ar',d.img.w+'/'+d.img.h);c.style.setProperty('--ax',(d.img.eye[0]/d.img.w*100)+'%');c.style.height=(72/(d.img.waist||.4))+'%';c.style.top=(d.img.top||3)+'%';c.innerHTML=picHTML(d.img,d.acc.mask)}else{c.classList.remove('pic');c.style.height='';c.style.top='';if(!svgCache.has(key))svgCache.set(key,ART.draw(d.p,ex,d.acc));c.innerHTML=svgCache.get(key)}c.dataset.key=key}
   c.style.left=st.length==1?'50%':(k?'71%':'29%');c.classList.toggle('on',id===speaker)})}
 let tmr=0,full='',typing=false;
 function showLine(n){if(['lv','cx','ot','fi','rj'].includes(n.sp))n=Object.assign({},n,{sp:RID(n.sp)});$('choices').className='';$('veil').classList.remove('on');
- let st=S.st.slice();if(n.sp!='n'&&!st.includes(n.sp)&&charDef(n.sp))st=[n.sp];if(n.ex)S.ex[n.sp]=n.ex;renderStage(st,n.sp=='n'?null:n.sp);
+ let st=S.st.slice();if(n.sp!='n'&&!st.includes(n.sp)&&charDef(n.sp))st=(S.chap>=45&&st.includes('mc'))?[n.sp,'mc']:[n.sp];if(n.ex)S.ex[n.sp]=n.ex;renderStage(st,n.sp=='n'?null:n.sp);
  const txt=fmt(L2([n.fr,n.en])),b=$('box');b.className=n.sp=='n'?'narr':(txt.startsWith('(')?'th':'');
  const tg=$('tag');tg.textContent=n.sp=='n'?'':nameOf(n.sp);tg.style.background=TAGC[n.sp]||'';type(txt)}
 function type(s){clearInterval(tmr);full=s;let i=0;typing=true;$('box').classList.remove('done');$('txt').textContent='';const sp=[42,22,7][OPT.speed];
@@ -275,7 +283,7 @@ function showAsk(n){$('box').className='hide';$('veil').classList.add('on');rend
  const c=$('choices');c.className='on major';const sug=n.sug||[];
  c.innerHTML=`<div class="hd">${esc(L2(n.t))}</div><input id="askIn" maxlength="14" autocomplete="off" placeholder="${esc(L2(n.ph||['Prénom','Name']))}" style="min-height:54px;padding:12px 18px;border-radius:18px;border:2px solid var(--gold);font:700 18px inherit;color:var(--plum);text-align:center"><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">${sug.map(v=>`<button class="opt sug" data-v="${esc(v)}" style="min-height:40px;padding:6px 14px;font-size:15px">${esc(v)}</button>`).join('')}</div><button class="opt" id="askOk" style="text-align:center">${OPT.lang=='en'?'Confirm':'Valider'}</button>`;sfx('major')}
 $('choices').addEventListener('click',e=>{if(mode!='ask')return;const sg=e.target.closest('.sug');if(sg){$('askIn').value=sg.dataset.v;return}
- if(!e.target.closest('#askOk'))return;const n=STORY[S.i];let v=($('askIn').value||'').trim().replace(/[<>{}|]/g,'');if(!v)v=(n.sug||['Rose'])[0];v=v.charAt(0).toUpperCase()+v.slice(1);
+ if(!e.target.closest('#askOk'))return;const n=STORY[S.i];let v=($('askIn').value||'').trim().replace(/[<>{}|]/g,'');if(!v){$('askIn').focus();$('askIn').style.borderColor='#c0392b';return}v=v.charAt(0).toUpperCase()+v.slice(1);
  S.p.kid=v;mode=null;sfx('choice');$('choices').className='';$('choices').innerHTML='';$('veil').classList.remove('on');S.i++;run()});
 function showChoice(ch){$('box').className='hide';$('veil').classList.add('on');
  let st=S.st.slice();if(!st.includes('mc'))st=st.length>1?[st[0],'mc']:[...st,'mc'];renderStage(st,'mc');
