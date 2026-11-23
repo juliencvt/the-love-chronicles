@@ -5842,6 +5842,7 @@ const PICS={
  kid:{src:'assets/kid.webp',w:552,h:1500,eye:[262,175,50],waist:.6,top:24},
  kid2:{src:'assets/kid2.webp',w:636,h:1500,eye:[300,175,50],waist:.6,top:24},
  cordeliam:{src:'assets/cordeliam.webp',w:500,h:1500,eye:[234,120,40],waist:.42},
+ jules:{src:'assets/jules.webp',w:425,h:1500,eye:[214,190,45],waist:.52,top:12},
  camille:{src:'assets/camille.webp',w:587,h:1500,eye:[268,125,42],waist:.42},
  lucian:{src:'assets/lucian.webp',w:448,h:1500,eye:[226,120,40],waist:.42},
  agathe:{src:'assets/agathe.webp',w:473,h:1500,eye:[228,130,40],waist:.42},
@@ -5874,7 +5875,7 @@ function charDef(id){
  case 'queen':return {img:PICS.queen,acc:{mask:mk?1:null}};
  case 'bess':return {img:PICS.bess,acc:{}};
  case 'cordelia':if(S.chap>=52&&S.chap<=62)return {img:PICS.cordeliam,acc:{}};
- case 'theo':case 'clem':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':case 'alistair':case 'fleury':case 'beppe':case 'camille':case 'lucian':case 'agathe':case 'volkov':return {img:PICS[id],acc:{}};
+ case 'theo':case 'clem':case 'georgie':case 'ladyp':case 'lordp':case 'iris':case 'dorval':case 'judge':case 'roux':case 'alistair':case 'fleury':case 'beppe':case 'camille':case 'lucian':case 'agathe':case 'volkov':case 'jules':return {img:PICS[id],acc:{}};
  case 'kid':return {img:S.chap>=59?PICS.kid2:PICS.kid,acc:{}};
  case 'guard':return {img:PICS.guard,acc:{}};
  case 'queen_old':return {p:{sex:'f',skin:3,hair:'bun',hc:'#e2ddd8',es:1,ec:'#4e2f1c',nose:2,mouth:1,lip:'#874349',body:2,age:1,out:{fill:'#f4ecd8',sleeve:'#fffaf0',trim:'#d4af37',acc:'jewels'}},acc:{crown:1}};
