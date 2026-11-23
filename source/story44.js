@@ -16,33 +16,15 @@ STORY.push(
  D('mc','s',`Plus de secrets, ce soir.`,`No more secrets tonight.`),
  D('fi','s',`Plus aucun. Juste toi.`,`None. Just you.`),
  N(`Une à une, les bougies s'éteignent. Celle de la table de nuit tient la dernière. Puis elle aussi renonce, et la nuit vous appartient.`,`One by one, the candles go out. The one on the nightstand holds out the longest. Then it too gives up, and the night belongs to you.`),
- {bg:'river',mus:'tender',card:['Un mois plus tard','A month later'],sub:['Venise','Venice'],where:['Venise','Venice']},
- {st:['fi','mc']},
- N(`Un mois plus tard. Venise. Une gondole glisse sur le Grand Canal au coucher du soleil. Les palais se reflètent dans l'eau, roses et dorés, comme s'ils étaient peints sur du verre.`,`A month later. Venice. A gondola glides down the Grand Canal at sunset. The palaces are reflected in the water, pink and gold, as if painted on glass.`),
- D('fi','h',`Comment je dois t'appeler, maintenant ? « Mon {g:mari|épouse|époux·se} » ? Je n'arrive toujours pas à m'y habituer.`,`What am I supposed to call you now? We never settled that question.`),
- D('mc','h',`Appelle-moi comme avant. Ça me va très bien.`,`Call me what you always have. It suits me very well.`),
- N(`Les nouvelles de Londres arrivent par chaque courrier : Iris a été jugée et condamnée à la déportation, à vie, en Nouvelle-Galles du Sud. Clem et Alistair se marient au printemps. Ta mère et la Duchesse prennent le thé ensemble tous les jeudis et se disputent toujours. Elles adorent ça.`,`News from London arrives with every post: Iris has been tried and sentenced to transportation for life, to New South Wales. Clem and Alistair marry in the spring. Your mother and the Duchess take tea together every Thursday and still argue. They love it.`),
- ...IF('pearlsSafe',[N(`Les Larmes de Valcourt sont à ton cou. Quarante perles noires, toutes retrouvées. Tu les portes pour Isadora.`,`The Tears of Valcourt are around your neck. Forty black pearls, all recovered. You wear them for Isadora.`)],[N(`On a retrouvé les Larmes de Valcourt dans la malle d'Iris, à Douvres. Il en manquait trois. Les trente-sept autres sont à ton cou. Tu les portes pour Isadora.`,`The Tears of Valcourt were found in Iris's trunk at Dover. Three were missing. The other thirty-seven are around your neck. You wear them for Isadora.`)]),
- C('m87',1,[
-  {t:[`Demander au gondolier de vous laisser au pont des Soupirs, pour un baiser sous le pont, comme le veut la légende.`,`Ask the gondolier to take you under the Bridge of Sighs, for a kiss beneath it, as legend demands.`],set:'sighsKiss',fx:{fi:3},r:[N(`Sous le pont des Soupirs, au moment où les cloches de Saint-Marc sonnent, tu embrasses {fi}. La légende dit que les amoureux qui s'embrassent ici s'aimeront pour l'éternité. Tu n'as pas besoin de légende. Mais c'est joli quand même.`,`Under the Bridge of Sighs, just as the bells of St Mark's ring out, you kiss {fi}. Legend says lovers who kiss here will love each other for eternity. You don't need a legend. But it's lovely all the same.`)]},
-  {t:[`Rester allongés dans la gondole, ta tête sur ses genoux, à regarder le ciel.`,`Lie in the gondola, your head in {a:his|her} lap, watching the sky.`],set:'gondolaSky',fx:{fi:3},r:[N(`Tu poses ta tête sur ses genoux. {fi} joue avec tes cheveux. Au-dessus de vous, le ciel passe du rose au violet, puis au bleu nuit. La première étoile apparaît.`,`You rest your head in {a:his|her} lap. {fi} plays with your hair. Above you, the sky turns from pink to violet, then midnight blue. The first star appears.`),D('fi','s',`Alistair dirait que c'est Vénus. Moi je dis que c'est Isadora. Elle nous regarde.`,`Alistair would say that's Venus. I say it's Isadora. She's watching us.`)]}
- ]),
- {bg:'bedroom',mus:'mystery',card:['Le soir','Evening'],sub:['',''],where:['Le palais Dandolo','Palazzo Dandolo']},
- {st:['fi','mc']},
- N(`Le soir, de retour au palais où vous logez, le concierge vous tend une lettre. Elle est arrivée le matin même. Sans timbre. Sans expéditeur.`,`In the evening, back at the palazzo where you're staying, the concierge hands you a letter. It arrived that very morning. No stamp. No sender.`),
- N(`Tu reconnais l'écriture au premier coup d'œil. Tu l'as lue cent fois dans un cahier de cuir rouge. Les mêmes boucles. Le même « I » orné.`,`You recognise the handwriting at first glance. You've read it a hundred times in a red leather notebook. The same loops. The same ornate "I".`),
- N(`« Mon enfant. On m'a dit que tu t'étais marié{g:|e|·e}. Je n'ai jamais été aussi fière. Ne me cherche pas. Pas encore. Mais sache que je suis vivante. — Maman. »`,`"My child. I'm told you've married. I've never been so proud. Don't look for me. Not yet. But know that I'm alive. — Mama."`),
- N(`La lettre est datée du 2 octobre 1813. Isadora est morte en janvier 1795.`,`The letter is dated 2 October 1813. Isadora died in January 1795.`),
- D('fi','o',`C'est… c'est impossible.`,`That's… that's impossible.`),
- D('mc','o',`(Isadora. Vivante ?)`,`(Isadora. Alive?)`),
- C('m88',1,[
-  {t:[`« On rentre. On la cherche. Dès demain. »`,`"We're going home. We'll look for her. Starting tomorrow."`],set:'searchIsadora',r:[D('fi','s',`Alors on la cherchera. Ensemble. Comme toujours.`,`Then we'll look for her. Together. As always.`)]},
-  {t:[`Serrer la lettre contre ton cœur, sans un mot.`,`Press the letter to your heart, without a word.`],set:'holdLetter',r:[N(`Tu ne dis rien. {fi} te prend dans ses bras. Par la fenêtre, Venise scintille comme si rien n'avait changé. Tout a changé.`,`You say nothing. {fi} takes you in {a:his|her} arms. Through the window, Venice glitters as if nothing had changed. Everything has.`)]}
- ]),
- N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
-N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
-D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
-N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
+  {bg:'bedroom',mus:'tender',card:['Le lendemain','The next morning'],sub:['',''],where:['La chambre nuptiale','The bridal chamber']},
+  {st:['fi','mc']},
+  N(`Le lendemain, tu te réveilles la tête sur son épaule. Dehors, la calèche est déjà chargée. Vos malles, les cadeaux, et un panier de Bess qui pourrait nourrir un régiment.`,`The next morning, you wake with your head on {a:his|her} shoulder. Outside, the carriage is already loaded. Your trunks, the gifts, and a basket from Bess that could feed a regiment.`),
+  D('fi','h',`Debout, {g:mon mari|mon épouse|mon amour}. Venise nous attend. Et je refuse d'arriver en retard à ma propre lune de miel.`,`Up you get, my love. Venice is waiting. And I refuse to be late for my own honeymoon.`),
+  N(`Sur le plateau du petit-déjeuner, une lettre aux timbres français. L'écriture penchée de Camille.`,`On the breakfast tray, a letter with French stamps. Camille's slanted handwriting.`),
+  N(`« Mille bonheurs à vous deux. Et une chose, même si ce n'est pas le moment : le jeune homme de la rue du Bac est revenu. Sauf que ce n'est pas un jeune homme, j'en mettrais ma main au feu. Je t'en dirai plus quand je serai sûre. En attendant, profite de ta lune de miel. Tu l'as méritée. — Camille »`,`"A thousand joys to you both. And one thing, even if it's not the moment: the young man from the Rue du Bac came back. Except it isn't a young man, I'd swear to it. I'll tell you more when I'm sure. Meanwhile, enjoy your honeymoon. You've earned it. — Camille"`),
+  D('mc','o',`(Pas un jeune homme… Alors qui ?)`,`(Not a young man… Then who?)`),
+  D('fi','h',`Tu as cette petite ride entre les sourcils. Range cette lettre. Pendant un mois, le monde n'existe plus.`,`You've got that little crease between your brows. Put that letter away. For one month, the world doesn't exist.`),
+  N(`À suivre dans la saison 3 : Venise, puis Paris…`,`To be continued in Season 3: Venice, then Paris…`)
 ],[
  {bg:'bedroom',mus:'mystery',chap:44,card:['Saison 2 · Chapitre 22','Season 2 · Chapter 22'],sub:['Le prix du bonheur','The Price of Happiness'],where:['Pembroke House','Pembroke House']},
  {st:['lordp','mc']},
@@ -59,18 +41,11 @@ N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…
  {bg:'cathedral',mus:'tender',card:['Une semaine plus tard','A week later'],sub:['',''],where:['Le cimetière de Pembroke','The Pembroke graveyard']},
  {st:['fi','mc']},
  N(`L'enterrement a lieu un matin de pluie. Iris a été arrêtée sur les marches de l'église. Elle sera pendue pour le meurtre de Lord Pembroke. Ça ne console personne.`,`The funeral takes place on a rainy morning. Iris was arrested on the church steps. She'll hang for the murder of Lord Pembroke. It consoles no one.`),
- N(`Après la cérémonie, une femme voilée s'approche de toi, te glisse une enveloppe dans la main, et disparaît dans la foule des parapluies avant que tu aies pu voir son visage.`,`After the service, a veiled woman approaches you, slips an envelope into your hand, and vanishes among the umbrellas before you can see her face.`),
- N(`Tu reconnais l'écriture au premier coup d'œil. Tu l'as lue cent fois dans un cahier de cuir rouge. Les mêmes boucles. Le même « I » orné.`,`You recognise the handwriting at first glance. You've read it a hundred times in a red leather notebook. The same loops. The same ornate "I".`),
- N(`« Mon enfant. Arthur m'a protégée une dernière fois. Je ne laisserai pas son sacrifice être vain. Ne me cherche pas. Pas encore. Mais sache que je suis vivante. — Maman. »`,`"My child. Arthur protected me one last time. I won't let his sacrifice be in vain. Don't look for me. Not yet. But know that I'm alive. — Mama."`),
- D('fi','o',`Isadora ? Mais… elle est morte il y a dix-huit ans.`,`Isadora? But… she died eighteen years ago.`),
- C('m88b',1,[
-  {t:[`Courir dans la foule, chercher la femme voilée.`,`Run into the crowd, look for the veiled woman.`],set:'runVeiled',r:[N(`Tu cours entre les parapluies, tu appelles. Personne. Juste, sur le pavé mouillé, une violette. Comme celles qu'Henri apportait à Isadora.`,`You run among the umbrellas, calling out. No one. Just, on the wet cobbles, a violet. Like the ones Henri used to bring Isadora.`)]},
-  {t:[`Serrer la lettre contre ton cœur et prendre la main de {fi}.`,`Press the letter to your heart and take {fi}'s hand.`],set:'holdLetterB',fx:{fi:2},r:[D('fi','s',`Quoi que ce soit, on le découvrira ensemble. Je te l'ai promis devant Dieu, il y a une semaine.`,`Whatever this is, we'll find out together. I promised you before God, a week ago.`)]}
- ]),
- N(`Le soir même, une deuxième lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a second letter waits on your writing desk. Camille's slanted handwriting.`),
-N(`« Je l'ai revue. La dame voilée. Elle était à Saint-Sulpice, devant le registre où ton nom est écrit. Viens à Paris. Viens vite. Cette fois, je serai là. Je te le promets. — Camille »`,`"I saw her again. The veiled lady. She was at Saint-Sulpice, in front of the register where your name is written. Come to Paris. Come quickly. This time, I'll be there. I promise. — Camille"`),
-D('mc','s',`(Paris. Après tout ce temps… Camille, j'arrive.)`,`(Paris. After all this time… Camille, I'm coming.)`),
-N(`À suivre dans la saison 3 : Paris…`,`To be continued in Season 3: Paris…`)
+ N(`Le soir même, une lettre t'attend sur ton secrétaire. L'écriture penchée de Camille.`,`That same evening, a letter waits on your writing desk. Camille's slanted handwriting.`),
+ N(`« J'ai appris pour Lord Pembroke. Je suis tellement désolée. Je ne sais pas quoi dire, alors je dis juste : je pense à toi, tous les jours. Et une chose, même si ce n'est pas le moment : le jeune homme de la rue du Bac est revenu. Sauf que ce n'est pas un jeune homme, j'en mettrais ma main au feu. Je t'en dirai plus quand je serai sûre. — Camille »`,`"I heard about Lord Pembroke. I'm so sorry. I don't know what to say, so I'll just say: I think of you every day. And one thing, even if it's not the moment: the young man from the Rue du Bac came back. Except it isn't a young man, I'd swear to it. I'll tell you more when I'm sure. — Camille"`),
+ D('mc','o',`(Pas un jeune homme… Alors qui ?)`,`(Not a young man… Then who?)`),
+ D('fi','s',`Quand tout ça sera un peu moins lourd, je t'emmène loin d'ici. Venise. Je te le promets.`,`When all this weighs a little less, I'll take you far from here. Venice. I promise.`),
+ N(`À suivre dans la saison 3 : Venise, puis Paris…`,`To be continued in Season 3: Venice, then Paris…`)
 ]),
 {end:44}
 );
