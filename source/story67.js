@@ -38,7 +38,7 @@ D('mc','s',`À quoi ?`,`About what?`),
 D('fi','s',`À la petite chambre au bout du couloir du troisième étage. Celle qui donne sur le jardin. Elle est vide. Elle a l'air d'attendre un garçon qui fait de la fumée rouge.`,`The little room at the end of the third-floor corridor. The one overlooking the garden. It's empty. It looks like it's waiting for a boy who makes red smoke.`),
 C('m130',1,[
  {t:[`« Oui. J'y pense depuis Noël. »`,`"Yes. I've been thinking about it since Christmas."`],set:'thinkJules',fx:{jul:2,fi:2},r:[D('fi','h',`Alors on en parle à Sœur Agathe. Après le mariage de Camille. Quand tout sera calme.`,`Then we'll talk to Sister Agathe. After Camille's wedding. When everything's calm.`),N(`Quand tout sera calme. Tu souris. Tu ne sais pas encore à quel point ces trois mots vont sonner faux, dans quelques jours.`,`When everything's calm. You smile. You don't yet know how hollow those three words will sound in a few days.`)]},
- {t:[`« Pas encore. Laissons d'abord Lou grandir un peu. »`,`"Not yet. Let's let Lou grow a little first."`],set:'waitJules',fx:{fi:1},r:[D('fi','n',`Tu as raison. Un à la fois. Mais la chambre ne bougera pas. Elle attendra.`,`You're right. One at a time. But the room won't go anywhere. It'll wait.`)]}
+ {t:[`« Pas encore. Laissons d'abord {kid} grandir un peu. »`,`"Not yet. Let's let {kid} grow a little first."`],set:'waitJules',fx:{fi:1},r:[D('fi','n',`Tu as raison. Un à la fois. Mais la chambre ne bougera pas. Elle attendra.`,`You're right. One at a time. But the room won't go anywhere. It'll wait.`)]}
 ]),
 {bg:'salon',mus:'calm',card:['Rue du Bac','Rue du Bac'],sub:['',''],where:['Chez Camille','At Camille\'s']},
 {st:['camille','mc']},
@@ -56,7 +56,7 @@ D('camille','h',`Comme un ours qui a beaucoup bu.`,`Like a bear that's been drin
 {bg:'emptyhouse',mus:'tender',card:['Le soir','Evening'],sub:['',''],where:['Quai d\'Anjou','Quai d\'Anjou']},
 {st:['fi','mc']},
 N(`Le soir, une fois {kid} endormie (après trois histoires, deux chansons et une négociation serrée sur le nombre de chevaux autorisés dans le lit), {fi} t'attend dans le grand salon. {a:Il|Elle} a allumé le feu, sorti deux verres et remonté la boîte à musique rapportée de Venise.`,`That evening, once {kid} is asleep (after three stories, two songs and a hard-fought negotiation over the number of horses allowed in bed), {fi} is waiting for you in the drawing room. {a:He|She} has lit the fire, taken out two glasses, and wound up the music box you brought back from Venice.`),
-D('fi','s',`On ne s'est pas vus seuls depuis… je ne sais même plus. Il y a toujours quelqu'un. Lou, Jules, Camille, Berthe, un canard.`,`We haven't been alone since… I don't even remember. There's always someone. Lou, Jules, Camille, Berthe, a duck.`),
+D('fi','s',`On ne s'est pas vus seuls depuis… je ne sais même plus. Il y a toujours quelqu'un. {kid}, Jules, Camille, Berthe, un canard.`,`We haven't been alone since… I don't even remember. There's always someone. {kid}, Jules, Camille, Berthe, a duck.`),
 D('mc','h',`Les canards ne comptent pas.`,`Ducks don't count.`),
 D('fi','h',`Celui de ce matin avait l'air de nous juger. Il compte.`,`The one this morning looked like it was judging us. It counts.`),
 N(`La boîte à musique joue une valse lente, un peu fausse, celle de la place Saint-Marc. {fi} te tend la main.`,`The music box plays a slow waltz, a little out of tune, the one from Saint Mark's Square. {fi} holds out a hand to you.`),
