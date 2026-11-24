@@ -11,5 +11,5 @@ sw=open(R+'/sw.js').read(); v=int(re.search(r"tlc-v(\d+)",sw).group(1))+1
 files=['./','index.html','manifest.webmanifest']+['icons/'+f for f in sorted(os.listdir(R+'/icons'))]+['assets/'+f for f in sorted(os.listdir(R+'/assets')) if f.endswith('.webp')]+['assets/cg/'+f for f in sorted(os.listdir(R+'/assets/cg'))]
 sw=re.sub(r"tlc-v\d+","tlc-v%d"%v,sw); sw=re.sub(r"const F=\[.*?\];","const F=%s;"%str(files).replace("'",'"'),sw,flags=re.S)
 open(R+'/sw.js','w').write(sw)
-for f in ['art.js']+['story%s.js'%('' if n==1 else n) for n in range(1,90) if n==1 or __import__('os').path.exists('story%d.js'%n)]+['main.js','shell.html','build.py','cut.py','deploy.py']: shutil.copy(f,R+'/source/')
+for f in ['art.js']+['story%s.js'%('' if n==1 else n) for n in list(range(1,90))+list(range(101,170)) if n==1 or __import__('os').path.exists('story%d.js'%n)]+['main.js','shell.html','build.py','cut.py','deploy.py']: shutil.copy(f,R+'/source/')
 print('cache v',v)
