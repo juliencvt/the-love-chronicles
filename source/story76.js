@@ -20,7 +20,7 @@ N(`Tu tournes la tête vers {a:lui|elle}. Le soleil couchant éclaire son visage
 ]),
 N(`{a:Il|Elle} se penche vers toi. Lentement. Très lentement. En te laissant tout le temps du monde pour reculer. Son front touche le tien. Tu sens son souffle, tiède, qui tremble. Tu sens l'odeur de sa peau, du soleil, de l'eau de la Seine. Ses lèvres sont à un souffle des tiennes. Un seul.`,`{a:He|She} leans towards you. Slowly. Very slowly. Giving you all the time in the world to pull back. {a:His|Her} forehead touches yours. You feel {a:his|her} breath, warm, trembling. You smell {a:his|her} skin, the sun, the water of the Seine. {a:His|Her} lips are a breath away from yours. Just one.`),
 D('rj','s',`Dis-moi d'arrêter. Dis-le, et j'arrête. Je te le jure.`,`Tell me to stop. Say it, and I'll stop. I swear.`),
-N(`Sous ta robe, contre ta peau, l'alliance de {fi} pèse soudain très lourd.`,`Under your clothes, against your skin, {fi}'s ring suddenly feels very heavy.`),
+N(`Sous tes vêtements, contre ta peau, l'alliance de {fi} pèse soudain très lourd.`,`Under your clothes, against your skin, {fi}'s ring suddenly feels very heavy.`),
 C('m150',1,[
  {t:[`Ne rien dire. Combler le dernier souffle. L'embrasser.`,`Say nothing. Close that last breath of distance. Kiss {a:him|her}.`],set:'rjKiss',fx:{rj:8,fi:-8},r:[
   N(`Tu ne dis rien. C'est toi qui combles le dernier souffle.`,`You say nothing. It's you who closes that last breath of distance.`),
@@ -41,7 +41,7 @@ C('m150',1,[
   D('rj','s',`Je sais. C'est pour ça que je t'aime, je crois. Parce que tu aimes comme ça. Entièrement. Pour toujours. Même quand ça fait mal.`,`I know. That's why I love you, I think. Because you love like that. Completely. For ever. Even when it hurts.`),
   N(`{a:Il|Elle} prend ta main. {a:Il|Elle} y dépose un baiser, un seul, sur les doigts. Comme un chevalier dans un vieux roman. Puis {a:il|elle} la lâche.`,`{a:He|She} takes your hand. {a:He|She} lays one kiss on it, on your fingers. Like a knight in an old romance. Then {a:he|she} lets go.`),
   D('rj','h',`Alors je serai ton ami{a:|e}. Le meilleur. Tu verras. Je suis très doué{a:|e} pour les choses difficiles.`,`Then I'll be your friend. The best one. You'll see. I'm very good at difficult things.`),
-  N(`Vous rentrez côte à côte, sans vous toucher, le long du quai. Le ciel est violet, puis bleu nuit. À la porte, vous vous dites bonsoir comme deux vieux amis. Tu montes l'escalier. Tu t'assois sur ton lit. Tu sors l'alliance de sous ta robe. Tu la serres dans ta main. Elle est tiède.`,`You walk home side by side along the quay, without touching. The sky turns violet, then midnight blue. At the door, you say goodnight like two old friends. You climb the stairs. You sit on your bed. You take the ring out from under your clothes. You hold it in your hand. It's warm.`),
+  N(`Vous rentrez côte à côte, sans vous toucher, le long du quai. Le ciel est violet, puis bleu nuit. À la porte, vous vous dites bonsoir comme deux vieux amis. Tu montes l'escalier. Tu t'assois sur ton lit. Tu sors l'alliance de sous tes vêtements. Tu la serres dans ta main. Elle est tiède.`,`You walk home side by side along the quay, without touching. The sky turns violet, then midnight blue. At the door, you say goodnight like two old friends. You climb the stairs. You sit on your bed. You take the ring out from under your clothes. You hold it in your hand. It's warm.`),
  ]}
 ]),
 {bg:'bedroom',mus:'mystery',card:['Minuit','Midnight'],sub:['',''],where:['Quai d\'Anjou','Quai d\'Anjou']},
