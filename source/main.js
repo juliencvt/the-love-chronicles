@@ -134,7 +134,7 @@ let menuBgDone=false;
 function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mbg').innerHTML=ART.bg('ball');menuBgDone=true}
  $('mTitle').textContent=L2(STORIES.find(x=>x.id==CUR).title);$('mSub').textContent=tr('sub');document.documentElement.lang=OPT.lang;
  const has=!!saves().auto;
- $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get('tlc_ch')||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">💎 ${gD()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
+ $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get(CK())||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">💎 ${gD()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
 
 
 
@@ -241,8 +241,8 @@ const CGSC=[{id:'firstkiss',t:['Le premier baiser à l\'opéra','The First Kiss 
 function cgName(id){const sc=CGSC.find(x=>x.id==id),pr=preOf(S.p),mk=pr?pr.src.slice(7,-5):'x',li=sc.rt?(S.f.p1?'li1':'li2'):RID(sc.s2?'fi':'lv'),lk=li=='li1'?(S.p.attr=='m'?'edmund':'rosalind'):(S.p.attr=='m'?'mateo':'nell');const full=`${id}_${mk}_${lk}`;return CGS.has(full)?full:`${id}_${lk}`}
 function showCG(nm){mode='cg';$('box').className='hide';$('cgImg').src='assets/cg/'+nm+'.webp';$('cgP').textContent=tr(CGSC.find(x=>nm.startsWith(x.id+'_')).sec?'cgSec':'cgNew');$('cgv').classList.add('on');sfx('click')}
 function endCG(){$('cgv').classList.remove('on');mode=null;run()}
-function galModal(){const got=store.get('tlc_cg')||[];
- modal(`<h3>${tr('gal')}</h3><p style="text-align:center;margin:0 0 10px;opacity:.8">${got.length} ${tr('galN')}</p>`+CGSC.map(sc=>{const mine=got.filter(n=>n.startsWith(sc.id+'_'));return `<span class="lab">${L2(sc.t)}</span><div class="galrow">${mine.length?mine.map(n=>`<img class="galth" data-g="${n}" src="assets/cg/${n}.webp" alt="">`).join(''):'<div class="gallock">🔒 ???</div>'}</div>`}).join('')+`<div class="stack"><button class="btn" id="gClose">${tr('close')}</button></div>`,'gal');
+function galModal(){const got=store.get(GK())||[],LS=CGL();
+ modal(`<h3>${tr('gal')}</h3><p style="text-align:center;margin:0 0 10px;opacity:.8">${got.length} ${tr('galN')}</p>`+(LS.length?'':`<p style="text-align:center;opacity:.7">${L2(['Les illustrations de cette histoire arrivent bientôt…','Illustrations for this story are coming soon…'])}</p>`)+LS.map(sc=>{const mine=got.filter(n=>n.startsWith(sc.id+'_'));return `<span class="lab">${L2(sc.t)}</span><div class="galrow">${mine.length?mine.map(n=>`<img class="galth" data-g="${n}" src="assets/cg/${n}.webp" alt="">`).join(''):'<div class="gallock">🔒 ???</div>'}</div>`}).join('')+`<div class="stack"><button class="btn" id="gClose">${tr('close')}</button></div>`,'gal');
  $('gClose').onclick=closeModal;document.querySelectorAll('.galth').forEach(im=>im.onclick=()=>{modal(`<img src="assets/cg/${im.dataset.g}.webp" style="width:100%;border-radius:14px"><div class="stack"><button class="btn" id="gBack">${tr('back')}</button></div>`,'gal');$('gBack').onclick=galModal})}
 $('cgv').addEventListener('click',endCG);
 const STORIES=[{id:'valcourt',title:['Le Secret de Valcourt','The Valcourt Secret'],tags:['Romance · Régence · Londres 1813','Romance · Regency · London 1813'],desc:['Une famille noble ruinée, un secret de naissance, une Saison à Londres… et deux cœurs à conquérir.','A ruined noble family, a secret birth, a London Season… and two hearts to win.'],status:['Complète · 4 saisons','Complete · 4 seasons'],bg:'ballnight',cov:['f1','edmund']},{id:'pirate',title:['La Fiancée du Corsaire','The Corsair\'s Bride'],tags:['Romance · Aventure · Caraïbes 1718','Romance · Adventure · Caribbean 1718'],desc:['Fille du gouverneur de la Jamaïque, promise à un aristocrate venu de Londres… jusqu\'à la nuit où les pirates attaquent Port-Royal.','The Governor of Jamaica\'s daughter, promised to an aristocrat from London… until the night pirates raid Port Royal.'],status:['Saison 1 · en cours','Season 1 · in progress'],bg:'ship',cov:['f1',null]}];
@@ -262,7 +262,7 @@ function modal(html,cls=''){$('sheet').className='sheet '+cls;$('sheet').innerHT
 function closeModal(){$('modal').classList.remove('on')}
 $('modal').addEventListener('click',e=>{if(e.target.id=='modal'&&!$('sheet').classList.contains('end'))closeModal()});
 function confirmBox(msg,ok){modal(`<h3>${tr('newg')}</h3><p style="text-align:center">${esc(msg)}</p><div class="stack"><button class="btn pri" id="mOk">${tr('yes')}</button><button class="btn" id="mNo">${tr('no')}</button></div>`);$('mOk').onclick=()=>{closeModal();ok()};$('mNo').onclick=closeModal}
-let CUR='valcourt';const SK=()=>'ssl_saves'+(CUR=='valcourt'?'':'_'+CUR);const saves=()=>store.get(SK())||{};
+let CUR='valcourt';const SK=()=>'ssl_saves'+(CUR=='valcourt'?'':'_'+CUR);const saves=()=>store.get(SK())||{};const CK=()=>'tlc_ch'+(CUR=='valcourt'?'':'_'+CUR);const GK=()=>'tlc_cg'+(CUR=='valcourt'?'':'_'+CUR);const CGL=()=>CUR=='valcourt'?CGSC:[];
 const SB=()=>(S&&S.sid=='pirate')||(!S&&CUR=='pirate')?100:0,STOT=()=>((S&&S.sid)||CUR)=='pirate'?22:88;
 function savesModal(canSave){const sv=saves();const keys=canSave?['s1','s2','s3']:['auto','s1','s2','s3'];
  const row=k=>{const s=sv[k];const nm=k=='auto'?tr('auto'):`${tr('slot')} ${k.slice(1)}`;
@@ -346,10 +346,10 @@ function setBg(name,instant){if(curBg===name)return;curBg=name;const a=$('bgA'),
  if(instant)requestAnimationFrame(()=>requestAnimationFrame(()=>{on.style.transition=off.style.transition=''}))}
 
 const CHS={},CHL=[];(()=>{const ends=[];STORY.forEach((n,i)=>{if(n.end)ends.push([i,n.end])});ends.forEach(([i,n])=>{let st=n==1?0:(ends.find(e=>e[1]==n-1)||[-1])[0]+1;if(st<=0&&n>100)st=STORY.findIndex(x=>x.chap==n);if(st<0)return;CHS[st]=n;let t=null;for(let j=st;j<i;j++){if(STORY[j].card){t=STORY[j].sub;break}}CHL.push({n,st,t})})})();
-function chapSnap(){if(CHS[S.i]==null||S._at===S.i)return;S._at=S.i;const c=JSON.parse(JSON.stringify(S));delete c.cs;S.cs=c;const m=store.get('tlc_ch')||{};m[CHS[S.i]]=c;store.set('tlc_ch',m)}
+function chapSnap(){if(CHS[S.i]==null||S._at===S.i)return;S._at=S.i;const c=JSON.parse(JSON.stringify(S));delete c.cs;S.cs=c;const m=store.get(CK())||{};m[CHS[S.i]]=c;store.set(CK(),m)}
 function playFrom(c){const k=JSON.parse(JSON.stringify(c));delete k.cs;S=JSON.parse(JSON.stringify(k));S.cs=k;S.ts=Date.now();startGame()}
 function chapLbl(n){n=n>100?n-100:n;const se=Math.ceil(n/22),c=n-(se-1)*22;return L2(['Chapitre '+c,'Chapter '+c])}
-function chapsModal(){const m=store.get('tlc_ch')||{},au=saves().auto;let h=`<h3>${L2(['Chapitres','Chapters'])}</h3><p style="text-align:center;margin:0 0 8px;font-size:14px;opacity:.8">${L2(['✓ = chapitre déjà atteint (avec tes choix). Les autres reprennent les choix de ta dernière partie.','✓ = chapter already reached (with your choices). Others reuse your latest game\'s choices.'])}</p><div style="max-height:60vh;overflow:auto">`;
+function chapsModal(){const m=store.get(CK())||{},au=saves().auto;let h=`<h3>${L2(['Chapitres','Chapters'])}</h3><p style="text-align:center;margin:0 0 8px;font-size:14px;opacity:.8">${L2(['✓ = chapitre déjà atteint (avec tes choix). Les autres reprennent les choix de ta dernière partie.','✓ = chapter already reached (with your choices). Others reuse your latest game\'s choices.'])}</p><div style="max-height:60vh;overflow:auto">`;
  const B0=CUR=='pirate'?100:0;for(let se=1;se<=4;se++){const L=CHL.filter(x=>(B0?x.n>100:x.n<=100)&&Math.ceil((x.n-B0)/22)==se);if(!L.length)continue;h+=`<span class="lab" style="display:block;margin:12px 0 6px">${L2(['Saison ','Season '])+se}</span>`;
   L.forEach(x=>{const ok=m[x.n]||au;h+=`<button class="btn" data-ch="${x.n}" ${ok?'':'disabled'} style="display:block;width:100%;text-align:left;margin:4px 0;padding:10px 14px">${m[x.n]?'✓ ':''}${chapLbl(x.n)}${x.t?' · '+esc(L2(x.t)):''}</button>`})}
  h+=`</div><div class="stack"><button class="btn" id="chX">${tr('close')}</button></div>`;modal(h);$('chX').onclick=closeModal;
@@ -369,7 +369,7 @@ function run(){for(let g=0;g<400;g++){chapSnap();const n=STORY[S.i];if(!n)return
  if(n.fx){applyFx(n.fx);S.i++;continue}
  if(n.sp){mode='line';showLine(n);autosave();return}
  if(n.ch){mode='choice';showChoice(n.ch);autosave();return}
- if(n.cg){S.i++;const nm=cgName(n.cg);if(CGS.has(nm)){const g=store.get('tlc_cg')||[];if(!g.includes(nm)){g.push(nm);store.set('tlc_cg',g)}showCG(nm);return}continue}
+ if(n.cg){S.i++;const nm=cgName(n.cg);if(CGS.has(nm)){const g=store.get(GK())||[];if(!g.includes(nm)){g.push(nm);store.set(GK(),g)}showCG(nm);return}continue}
  if(n.ask){mode='ask';showAsk(n);autosave();return}
  if(n.item){mode='item';showItem();return}
  if(n.end){mode='end';autosave();showEnd(n.end);return}
