@@ -133,7 +133,7 @@ let menuBgDone=false;
 function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mbg').innerHTML=ART.bg('ball');menuBgDone=true}
  $('mTitle').textContent=tr('title');$('mSub').textContent=tr('sub');document.documentElement.lang=OPT.lang;
  const has=!!saves().auto;
- $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">${tr('ver')}</div>`}
+ $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get('tlc_ch')||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">${tr('ver')}</div>`}
 
 
 const CGS=new Set(/*CGLIST*/[]);
@@ -155,7 +155,7 @@ $('mBack').onclick=()=>{sfx('click');show('lib');renderLib()};
 $('mList').addEventListener('click',e=>{const a=e.target.closest('button')?.dataset.a;if(!a)return;sfx('click');
  if(a=='cont'){loadState(saves().auto)}
  if(a=='new'){if(saves().auto)confirmBox(tr('confirmNew'),()=>{const sv=saves();delete sv.auto;store.set('ssl_saves',sv);startCreate()});else startCreate()}
- if(a=='gal')galModal();if(a=='saves')savesModal(false);if(a=='opts')optsModal()});
+ if(a=='gal')galModal();if(a=='chaps')chapsModal();if(a=='saves')savesModal(false);if(a=='opts')optsModal()});
 
 /* ---------- modal helpers ---------- */
 function modal(html,cls=''){$('sheet').className='sheet '+cls;$('sheet').innerHTML=html;$('modal').classList.add('on')}
@@ -242,7 +242,17 @@ function startGame(){closeModal();show('game');curBg=null;$('stage').innerHTML='
 function setBg(name,instant){if(curBg===name)return;curBg=name;const a=$('bgA'),b=$('bgB'),[on,off]=front=='A'?[b,a]:[a,b];on.innerHTML=ART.bg(name);
  if(instant){on.style.transition=off.style.transition='none'}on.style.opacity=1;off.style.opacity=0;front=front=='A'?'B':'A';
  if(instant)requestAnimationFrame(()=>requestAnimationFrame(()=>{on.style.transition=off.style.transition=''}))}
-function run(){for(let g=0;g<400;g++){const n=STORY[S.i];if(!n)return;
+
+const CHS={},CHL=[];(()=>{const ends=[];STORY.forEach((n,i)=>{if(n.end)ends.push([i,n.end])});ends.forEach(([i,n])=>{const st=n==1?0:(ends.find(e=>e[1]==n-1)||[-1])[0]+1;if(st<0)return;CHS[st]=n;let t=null;for(let j=st;j<i;j++){if(STORY[j].card){t=STORY[j].sub;break}}CHL.push({n,st,t})})})();
+function chapSnap(){if(CHS[S.i]==null||S._at===S.i)return;S._at=S.i;const c=JSON.parse(JSON.stringify(S));delete c.cs;S.cs=c;const m=store.get('tlc_ch')||{};m[CHS[S.i]]=c;store.set('tlc_ch',m)}
+function playFrom(c){const k=JSON.parse(JSON.stringify(c));delete k.cs;S=JSON.parse(JSON.stringify(k));S.cs=k;S.ts=Date.now();startGame()}
+function chapLbl(n){const se=Math.ceil(n/22),c=n-(se-1)*22;return L2(['Chapitre '+c,'Chapter '+c])}
+function chapsModal(){const m=store.get('tlc_ch')||{},au=saves().auto;let h=`<h3>${L2(['Chapitres','Chapters'])}</h3><p style="text-align:center;margin:0 0 8px;font-size:14px;opacity:.8">${L2(['✓ = chapitre déjà atteint (avec tes choix). Les autres reprennent les choix de ta dernière partie.','✓ = chapter already reached (with your choices). Others reuse your latest game\'s choices.'])}</p><div style="max-height:60vh;overflow:auto">`;
+ for(let se=1;se<=4;se++){const L=CHL.filter(x=>Math.ceil(x.n/22)==se);if(!L.length)continue;h+=`<span class="lab" style="display:block;margin:12px 0 6px">${L2(['Saison ','Season '])+se}</span>`;
+  L.forEach(x=>{const ok=m[x.n]||au;h+=`<button class="btn" data-ch="${x.n}" ${ok?'':'disabled'} style="display:block;width:100%;text-align:left;margin:4px 0;padding:10px 14px">${m[x.n]?'✓ ':''}${chapLbl(x.n)}${x.t?' · '+esc(L2(x.t)):''}</button>`})}
+ h+=`</div><div class="stack"><button class="btn" id="chX">${tr('close')}</button></div>`;modal(h);$('chX').onclick=closeModal;
+ $('sheet').querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{const n=+b.dataset.ch,x=CHL.find(y=>y.n==n);let c=m[n];if(!c){c=JSON.parse(JSON.stringify(au));c.i=x.st;c._at=x.st;c.st=[];c.ex={};if(!c.p.kid)c.p.kid=OPT.lang=='en'?'Lou':'Lou'}sfx('click');playFrom(c)})}
+function run(){for(let g=0;g<400;g++){chapSnap();const n=STORY[S.i];if(!n)return;
  if(n.bg){if(n.chap){S.chap=n.chap}if(S.bg!==n.bg)S.ex={};S.bg=n.bg;setBg(n.bg);if(n.mus){S.mus=n.mus;setMusic(n.mus)}if('mask' in n)S.masked=!!n.mask;if(n.where){S.where=n.where;$('where').textContent=L2(n.where)}
   if(n.card){mode='card';$('box').classList.add('hide');renderStage([],null);$('cardT').textContent=L2(n.card);$('cardS').textContent=L2(n.sub);$('card').classList.add('on');autosave();clearTimeout(cardT);cardT=setTimeout(endCard,2800);return}S.i++;continue}
  if(n.chk){if((S.v[n.chk[0]]||0)>=n.chk[1])S.f[n.chk[2]]=1;S.i++;continue}
@@ -331,8 +341,8 @@ function showEnd(num){num=num||1;$('box').className='hide';const sc=7/Math.max(7
  <div class="stack">${hasNext?`<button class="btn pri" id="eNext">${num==22?tr('startS2'):num==44?tr('startS3'):num==66?tr('startS4'):tr('nextCh').replace('{n}',cl(num+1))}</button>`:''}<button class="btn ${hasNext?'':'pri'}" id="eRe">${tr('replay')}</button><button class="btn" id="eMenu">${tr('mainmenu')}</button></div>`,'end');
  if(hasNext)$('eNext').onclick=()=>{closeModal();S.i++;run()};
  $('eRe').onclick=()=>{S=newState(S.p);startGame()};$('eMenu').onclick=()=>{closeModal();show('menu');renderMenu()}}
-$('pauseBtn').onclick=()=>{sfx('click');modal(`<h3>${tr('paused')}</h3><div class="stack"><button class="btn pri" id="pR">${tr('resume')}</button><button class="btn" id="pS">${tr('saves')}</button><button class="btn" id="pO">${tr('opts')}</button><button class="btn" id="pM">${tr('mainmenu')}</button></div>`);
- $('pR').onclick=closeModal;$('pS').onclick=()=>savesModal(true);$('pO').onclick=optsModal;$('pM').onclick=()=>{autosave();closeModal();clearInterval(tmr);mode=null;show('menu');renderMenu()}};
+$('pauseBtn').onclick=()=>{sfx('click');modal(`<h3>${tr('paused')}</h3><div class="stack"><button class="btn pri" id="pR">${tr('resume')}</button><button class="btn" id="pC">${L2(['Recommencer le chapitre','Restart chapter'])}</button><button class="btn" id="pS">${tr('saves')}</button><button class="btn" id="pO">${tr('opts')}</button><button class="btn" id="pM">${tr('mainmenu')}</button></div>`);
+ $('pR').onclick=closeModal;$('pC').onclick=()=>{const c=S.cs;if(!c){closeModal();return}modal(`<h3>${L2(['Recommencer le chapitre','Restart chapter'])}</h3><p style="text-align:center">${L2(['Tu reviens au début du chapitre, avec tes choix d\'avant ce chapitre. Tes sauvegardes manuelles ne sont pas touchées.','You go back to the start of the chapter, with your choices from before it. Your manual saves are untouched.'])}</p><div class="stack"><button class="btn pri" id="mOk">${tr('yes')}</button><button class="btn" id="mNo">${tr('no')}</button></div>`);$('mOk').onclick=()=>playFrom(c);$('mNo').onclick=closeModal};$('pS').onclick=()=>savesModal(true);$('pO').onclick=optsModal;$('pM').onclick=()=>{autosave();closeModal();clearInterval(tmr);mode=null;show('menu');renderMenu()}};
 
 renderMenu();renderLib();setMusic('calm');
 window.__dbg={get S(){return S},run,LBL,STORY};
