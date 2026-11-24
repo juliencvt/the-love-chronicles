@@ -15,7 +15,7 @@ STORY.push(
  N(`Son souffle dans ton cou. Ton prénom murmuré contre ta peau, encore et encore, comme une prière. Les draps froids, puis brûlants.`,`{a:His|Her} breath on your neck. Your name murmured against your skin, again and again, like a prayer. The sheets cold, then burning.`),
  D('mc','s',`Plus de secrets, ce soir.`,`No more secrets tonight.`),
  D('fi','s',`Plus aucun. Juste toi.`,`None. Just you.`),
- N(`Une à une, les bougies s'éteignent. Celle de la table de nuit tient la dernière. Puis elle aussi renonce, et la nuit vous appartient.`,`One by one, the candles go out. The one on the nightstand holds out the longest. Then it too gives up, and the night belongs to you.`),
+ N(`Au loin, les cloches de Saint-George sonnent une heure. Puis deux. Vous ne les comptez plus. Ce soir, le temps n'existe plus, et la nuit vous appartient.`,`In the distance, the bells of St George's strike one. Then two. You stop counting. Tonight time no longer exists, and the night belongs to you.`),
   {bg:'bedroom',mus:'tender',card:['Le lendemain','The next morning'],sub:['',''],where:['La chambre nuptiale','The bridal chamber']},
   {st:['fi','mc']},
   N(`Le lendemain, tu te réveilles la tête sur son épaule. Dehors, la calèche est déjà chargée. Vos malles, les cadeaux, et un panier de Bess qui pourrait nourrir un régiment.`,`The next morning, you wake with your head on {a:his|her} shoulder. Outside, the carriage is already loaded. Your trunks, the gifts, and a basket from Bess that could feed a regiment.`),

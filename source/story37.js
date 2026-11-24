@@ -59,7 +59,7 @@ C('m73b',1,[
   N(`Tu fais attention à sa blessure. {a:Il|Elle} n'y fait plus attention du tout. Ses lèvres suivent la ligne de ton épaule nue, et tu oublies le château, Iris, la crypte. Le monde entier.`,`You're careful of {a:his|her} wound. {a:He|She} isn't careful of it at all anymore. {a:His|Her} lips trace the line of your bare shoulder, and you forget the château, Iris, the crypt. The whole world.`),
   D('fi','s',`Ton cœur bat si fort que je l'entends.`,`Your heart is beating so hard I can hear it.`),
   D('mc','h',`C'est le tien.`,`That's yours.`),
-  N(`La bougie vacille. Puis s'éteint. Et ce qui se passe ensuite n'appartient qu'à vous deux.`,`The candle flickers. Then goes out. And what happens next belongs to the two of you alone.`),
+  N(`Dehors, la pluie se met à tomber contre les vitres, douce, régulière, comme pour couvrir vos murmures. Et ce qui se passe ensuite ne regarde que vous deux.`,`Outside, rain begins to fall against the windows, soft and steady, as if to cover your murmurs. And what happens next concerns no one but the two of you.`),
   N(`À l'aube, tu te réveilles la tête sur son épaule. Les draps sentent la cire et la lavande. {fi} te regarde dormir, et visiblement depuis longtemps.`,`At dawn, you wake with your head on {a:his|her} shoulder. The sheets smell of wax and lavender. {fi} is watching you sleep, and clearly has been for a while.`),
   D('fi','h',`Gaspard va me demander pourquoi mes points ont sauté.`,`Gaspard is going to ask me why my stitches came loose.`),
   D('mc','h',`Tu diras que tu es tombé{a:|e} du lit.`,`Tell him you fell out of bed.`),
