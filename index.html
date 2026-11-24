@@ -7766,12 +7766,15 @@ let menuBgDone=false;
 function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mbg').innerHTML=ART.bg('ball');menuBgDone=true}
  $('mTitle').textContent=L2(STORIES.find(x=>x.id==CUR).title);$('mSub').textContent=tr('sub');document.documentElement.lang=OPT.lang;
  const has=!!saves().auto;
- $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get('tlc_ch')||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">💎 ${gems()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
+ $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get('tlc_ch')||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">💎 ${gD()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
 
 
 
-function gems(){const g=store.get('tlc_gems');return g==null?30:g}
-function setGems(v){store.set('tlc_gems',Math.max(0,v))}
+function gInf(){return !!store.get('tlc_inf')}
+function gems(){if(gInf())return 1e9;const g=store.get('tlc_gems');return g==null?30:g}
+function gD(){return gInf()?'∞':gems()}
+function setGems(v){if(gInf())return;store.set('tlc_gems',Math.max(0,v))}
+let verTap=0,verT=0;document.addEventListener('click',e=>{if(!e.target.closest('#mList .ver'))return;const n=Date.now();verTap=n-verT<1500?verTap+1:1;verT=n;if(verTap>=7){verTap=0;store.set('tlc_inf',!gInf());toast(gInf()?'💎 ∞ activé':'💎 ∞ désactivé');renderMenu()}});
 function gemReward(n){const d=store.get('tlc_gemch')||[];if(d.includes(n))return 0;d.push(n);store.set('tlc_gemch',d);setGems(gems()+2);return 2}
 (()=>{const st=document.createElement('style');st.textContent='.opt.prem{border:2px solid #d4a017!important;background:linear-gradient(135deg,#fff8e1,#fde7f0)!important}.gemTag{display:inline-block;background:#d4a017;color:#fff;border-radius:10px;padding:1px 8px;margin-right:8px;font-size:.85em;font-weight:700}.gemBal{float:right;font-size:.85em;opacity:.85}';document.head.appendChild(st)})();
 const HIST={
@@ -8039,10 +8042,10 @@ $('choices').addEventListener('click',e=>{if(mode!='ask')return;const sg=e.targe
 function showChoice(ch){$('box').className='hide';$('veil').classList.add('on');
  let st=S.st.slice();if(!st.includes('mc'))st=st.length>1?[st[0],'mc']:[...st,'mc'];renderStage(st,'mc');
  const c=$('choices');c.className='on'+(ch.major?' major':'');
- c.innerHTML=`<div class="hd">${ch.major?tr('major'):tr('choose')}${ch.o.some(o=>o.gem)?` <span class="gemBal">💎 ${gems()}</span>`:''}</div>`+ch.o.map((o,k)=>`<button class="opt${o.gem?' prem':''}" data-k="${k}" style="animation-delay:${k*.07}s">${o.gem?`<span class="gemTag">💎 ${o.gem}</span>`:''}${esc(fmt(L2(o.t)))}</button>`).join('');
+ c.innerHTML=`<div class="hd">${ch.major?tr('major'):tr('choose')}${ch.o.some(o=>o.gem)?` <span class="gemBal">💎 ${gD()}</span>`:''}</div>`+ch.o.map((o,k)=>`<button class="opt${o.gem?' prem':''}" data-k="${k}" style="animation-delay:${k*.07}s">${o.gem?`<span class="gemTag">💎 ${o.gem}</span>`:''}${esc(fmt(L2(o.t)))}</button>`).join('');
  if(ch.major)sfx('major')}
 $('choices').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||mode!='choice')return;const ch=STORY[S.i].ch,o=ch.o[+b.dataset.k];
- if(o.gem){if(gems()<o.gem){toast(OPT.lang=='en'?'Not enough diamonds 💎':'Pas assez de diamants 💎');return}setGems(gems()-o.gem);toast('−'+o.gem+' 💎')}
+ if(o.gem){if(gems()<o.gem){toast(OPT.lang=='en'?'Not enough diamonds 💎':'Pas assez de diamants 💎');return}setGems(gems()-o.gem);if(!gInf())toast('−'+o.gem+' 💎')}
  mode=null;sfx('choice');$('choices').className='';$('veil').classList.remove('on');
  if(o.set)S.f[o.set]=1;applyFx(o.fx);if(ch.major){S.maj.push({c:S.chap||1,t:o.t});toast(tr('conseq'))}
  S.i=LBL[o.go];run()});
@@ -8077,7 +8080,7 @@ function showEnd(num){num=num||1;$('box').className='hide';const sc=7/Math.max(7
  const K=num>100?num-100:num,cl=n=>{n=n>100?n-100:n;return n>66?n-66:n>44?n-44:n>22?n-22:n};
  modal(`<h3>${K==22?tr('s1end'):K==44?tr('s2end'):K==66?tr('s3end'):K==88?tr('s4end'):tr('endT').replace('{n}',cl(num))}</h3><p style="text-align:center;margin:0;font:italic 20px 'Cormorant Garamond',serif">${hasNext?'':tr(K==88?'s4sub':K==66?'s3sub':K==44?'s2sub':K==22?'s1sub':'soon')}</p>
  <span class="lab" style="margin-top:14px">${tr('rel')}</span><div class="hearts"><div class="row">${li1n()}<i>${bar(pct('li1',num))}</i></div><div class="row">${esc(li2n())}<i>${bar(pct('li2',num))}</i></div><div class="row">${tr('rep')}<i>${h(S.v.rep+2)}</i></div></div>
- <p style="text-align:center;margin:10px 0 0;font-weight:700">💎 ${(()=>{const r=gemReward(num);return (r?'+'+r+' · ':'')+gems()})()}</p>
+ <p style="text-align:center;margin:10px 0 0;font-weight:700">💎 ${(()=>{const r=gemReward(num);return (r?'+'+r+' · ':'')+gD()})()}</p>
  <span class="lab">${tr('majors')}</span><ul>${majs.map(t=>`<li>${esc(fmt(L2(t)))}</li>`).join('')}</ul>
  <div class="stack">${hasNext?`<button class="btn pri" id="eNext">${K==22?tr('startS2'):K==44?tr('startS3'):K==66?tr('startS4'):tr('nextCh').replace('{n}',cl(num+1))}</button>`:''}<button class="btn ${hasNext?'':'pri'}" id="eRe">${tr('replay')}</button><button class="btn" id="eMenu">${tr('mainmenu')}</button></div>`,'end');
  if(hasNext)$('eNext').onclick=()=>{closeModal();S.i++;run()};
