@@ -297,9 +297,25 @@ $('choices').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b
  mode=null;sfx('choice');$('choices').className='';$('veil').classList.remove('on');
  if(o.set)S.f[o.set]=1;applyFx(o.fx);if(ch.major){S.maj.push({c:S.chap||1,t:o.t});toast(tr('conseq'))}
  S.i=LBL[o.go];run()});
+
+const AFF=(()=>{const L={},E=[];STORY.forEach((n,i)=>{if(n.lb)L[n.lb]=i;if(n.end)E.push([i,n.end])});const B=['lv','fi','cx'],R={E};
+ for(const tg of ['li1','li2']){const g=fx=>{let s=0;for(const k in fx||{})if(k==tg||B.includes(k))s+=fx[k];return s};const best=new Array(STORY.length+1).fill(-1e9);best[0]=0;const M={};
+  const up=(j,v)=>{if(j!=null&&v>best[j])best[j]=v};
+  for(let i=0;i<STORY.length;i++){const b=best[i];if(b<-1e8)continue;const n=STORY[i];
+   if(n.ch){n.ch.o.forEach(o=>up(L[o.go],b+g(o.fx)));continue}
+   if(n.if){up(L[n.go],b);up(i+1,b);continue}
+   if(n.go){up(L[n.go],b);continue}
+   if(n.end)M[n.end]=Math.max(M[n.end]||0,b);
+   up(i+1,b+(n.fx?g(n.fx):0))}
+  R[tg]=M}
+ return R})();
+window.__aff=AFF;
+function curChap(){const e=AFF.E.find(x=>x[0]>=S.i);return e?e[1]:88}
+function pct(li,n){n=n||curChap();const M=AFF[li][n];if(!M||M<=0)return 0;return Math.max(0,Math.min(100,Math.round((S.v[li]||0)/M*n/88*100)))}
+function bar(p){return `<span style="display:inline-block;vertical-align:middle;width:110px;height:10px;border-radius:6px;background:rgba(160,82,120,.18);overflow:hidden;margin-right:8px"><b style="display:block;height:100%;width:${p}%;background:linear-gradient(90deg,#e9798f,#b0306a)"></b></span><span style="font-style:normal;font-weight:700">${p} %</span>`}
 function applyFx(fx){fx=Object.fromEntries(Object.entries(fx).map(([k,v])=>[['lv','cx','ot','fi','rj'].includes(k)?RID(k):k,v]));for(const k in fx){S.v[k]=(S.v[k]||0)+fx[k];const v=fx[k];
- if(k=='li1')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li1n()),v>0);
- if(k=='li2')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li2n()),v>0);
+ if(k=='li1')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li1n())+' · '+pct('li1')+' %',v>0);
+ if(k=='li2')toast((v>0?tr('likes'):tr('dislikes')).replace('{n}',li2n())+' · '+pct('li2')+' %',v>0);
  if(k=='rep')toast(v>0?tr('repUp'):tr('repDown'));
  if(k=='bess'&&v>0)toast(tr('bessUp'),1)}}
 function toast(msg,heart){const d=document.createElement('div');d.textContent=msg;if(heart){d.className='heart';sfx('heart')}$('toast').appendChild(d);setTimeout(()=>d.remove(),2700)}
@@ -310,7 +326,7 @@ function showEnd(num){num=num||1;$('box').className='hide';const sc=7/Math.max(7
  const hasNext=S.i+1<STORY.length,majs=S.maj.filter(x=>Array.isArray(x)?num==1:x.c==num).map(x=>Array.isArray(x)?x:x.t);
  const cl=n=>n>66?n-66:n>44?n-44:n>22?n-22:n;
  modal(`<h3>${num==22?tr('s1end'):num==44?tr('s2end'):num==66?tr('s3end'):num==88?tr('s4end'):tr('endT').replace('{n}',cl(num))}</h3><p style="text-align:center;margin:0;font:italic 20px 'Cormorant Garamond',serif">${hasNext?'':tr(num==88?'s4sub':num==66?'s3sub':num==44?'s2sub':num==22?'s1sub':'soon')}</p>
- <span class="lab" style="margin-top:14px">${tr('rel')}</span><div class="hearts"><div class="row">${li1n()}<i>${h(S.v.li1)}</i></div><div class="row">${esc(li2n())}<i>${h(Math.max(0,S.v.li2+1))}</i></div><div class="row">${tr('rep')}<i>${h(S.v.rep+2)}</i></div></div>
+ <span class="lab" style="margin-top:14px">${tr('rel')}</span><div class="hearts"><div class="row">${li1n()}<i>${bar(pct('li1',num))}</i></div><div class="row">${esc(li2n())}<i>${bar(pct('li2',num))}</i></div><div class="row">${tr('rep')}<i>${h(S.v.rep+2)}</i></div></div>
  <span class="lab">${tr('majors')}</span><ul>${majs.map(t=>`<li>${esc(fmt(L2(t)))}</li>`).join('')}</ul>
  <div class="stack">${hasNext?`<button class="btn pri" id="eNext">${num==22?tr('startS2'):num==44?tr('startS3'):num==66?tr('startS4'):tr('nextCh').replace('{n}',cl(num+1))}</button>`:''}<button class="btn ${hasNext?'':'pri'}" id="eRe">${tr('replay')}</button><button class="btn" id="eMenu">${tr('mainmenu')}</button></div>`,'end');
  if(hasNext)$('eNext').onclick=()=>{closeModal();S.i++;run()};
