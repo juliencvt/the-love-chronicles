@@ -2,14 +2,11 @@
 STORY.push(
 {bg:'bedroomday',mus:'calm',chap:14,card:['Chapitre 14','Chapter 14'],sub:['Les courses d\'Ascot','Ascot Races'],where:['Ta chambre','Your bedroom']},
 {st:['bess','mc']},
-N(`Le grand jour d'Ascot. Toute la bonne société sera là, la Reine en tête. Et toi aussi, avec deux nouvelles tenues étalées sur le lit.`,`The great day at Ascot. All of high society will be there, the Queen at its head. And so will you, with two new outfits laid out on the bed.`),
+N(`Le grand jour d'Ascot. Toute la bonne société sera là, la Reine en tête. Et toi aussi.`,`The great day at Ascot. All of high society will be there, the Queen at its head. And so will you.`),
 D('bess','h',`Madame Fleury dit qu'à Ascot, on ne regarde pas les chevaux. On regarde les chapeaux.`,`Madame Fleury says that at Ascot, no one watches the horses. They watch the hats.`),
-N(`D'un côté, {t:un habit gris perle, un gilet brodé de myosotis et un haut-de-forme impeccable|une robe de soie jaune d'or brodée de fleurs, avec un petit diadème doré}. De l'autre, {t:un habit d'équitation vert bouteille, des bottes cirées comme des miroirs|une tenue d'amazone vert émeraude, coupée comme un uniforme d'officier}.`,`On one side, {t:a pearl-grey coat, a waistcoat embroidered with forget-me-nots and an immaculate top hat|a golden-yellow silk gown embroidered with flowers, with a small gilt tiara}. On the other, {t:a bottle-green riding coat and boots polished like mirrors|an emerald-green riding habit, cut like an officer's uniform}.`),
-D('bess','s',`(tout bas) On m'a dit que {lv} passera toute la journée près des chevaux. Une tenue de cavali{t:er|ère}, ce serait… pratique. Je dis ça, je dis rien.`,`(whispering) I hear {lv} will spend the whole day near the horses. A riding outfit would be… practical. Just saying.`),
-C('o14',0,[
- {t:[`👗 {t:Le gris perle et les myosotis|La soie jaune d'or et le diadème}. Classique, lumineux.`,`👗 The {t:pearl grey and forget-me-nots|golden silk and the tiara}. Classic and luminous.`],set:'o14a',fx:{rep:1},r:[D('bess','h',`Vous allez éclipser la Reine. Ne le lui dites pas.`,`You'll outshine the Queen. Don't tell her.`)]},
- {t:[`👗 {t:L'habit vert bouteille|L'amazone vert émeraude}. Audacieux, prêt{t:|e} à monter à cheval.`,`👗 The {t:bottle-green coat|emerald riding habit}. Daring, ready to ride.`],set:'o14b',fx:{lv:1},r:[D('bess','o',`On dirait que vous partez à la guerre. … C'est un compliment !`,`You look like you're going to war. … That's a compliment!`)]}
-]),
+N(`Sur le lit, {t:un habit d'équitation vert bouteille, des bottes cirées comme des miroirs|une tenue d'amazone vert émeraude, coupée comme un uniforme d'officier}. Madame Fleury a dit que personne d'autre n'oserait.`,`On the bed, {t:a bottle-green riding coat and boots polished like mirrors|an emerald riding habit cut like an officer's uniform}. Madame Fleury said no one else would dare.`),
+D('bess','o',`On dirait que vous partez à la guerre. … C'est un compliment !`,`You look like you're going to war. … That's a compliment!`),
+{set:'o14b'},
 ...IF('keepProof',[D('mc','n',`(Le paquet de Madame Roux ne me quitte pas. Il est cousu dans la doublure de mon réticule.)`,`(Madame Roux's parcel never leaves me. It's sewn into the lining of my reticule.)`)]),
 ...IF('cordProof',[D('mc','n',`(Cordelia a toujours le paquet dans sa cape. Elle dit que c'est plus sûr. Je l'espère.)`,`(Cordelia still has the parcel in her cloak. She says it's safer. I hope so.)`)]),
 ...IF('lvProof',[D('mc','n',`(Le paquet de Madame Roux est chez {lv}. Personne ne sait où.)`,`(Madame Roux's parcel is with {lv}. No one knows where.)`)]),
@@ -46,7 +43,11 @@ C('m27',1,[
 N(`Le départ est donné. Les chevaux s'élancent dans un grondement de tonnerre. Toute la tribune se lève. Toi aussi. Tu cries son nom sans même t'en rendre compte.`,`They're off. The horses surge forward in a roar of thunder. The whole stand rises. So do you. You're shouting {a:his|her} name without even realising it.`),
 N(`Dernier virage. {lv} est troisième… deuxième… Au poteau, une tête d'avance ! La foule explose.`,`Final bend. {lv} is third… second… At the post, by a head! The crowd erupts.`),
 ...IF('betLv',[N(`Tu viens de gagner soixante guinées. Clem te secoue par les épaules en hurlant.`,`You've just won sixty guineas. Clem shakes you by the shoulders, screaming.`)]),
-...IF('o14b',[
+C('s14',0,[
+ {t:[`Suivre {lv} derrière les écuries.`,`Follow {lv} behind the stables.`],set:'sec14',fx:{lv:1},r:[]},
+ {t:[`Rester trinquer avec Clem et Théo.`,`Stay and toast with Clem and Théo.`],r:[N(`Tu restes trinquer avec Clem et Théo. Théo renverse son champagne sur le chapeau d'une duchesse. C'est une très bonne journée quand même.`,`You stay to toast with Clem and Théo. Théo spills his champagne on a duchess's hat. It's a very good day all the same.`)]}
+]),
+...IF('sec14',[
  {bg:'racecourse',mus:'tender',card:['✨ Scène secrète','✨ Secret scene'],sub:['Au galop','At a Gallop'],where:['Les prés d\'Ascot','The Ascot meadows']},
  {st:['lv','mc']},
  N(`Après la course, pendant que tout le monde trinque, {lv} t'entraîne derrière les écuries. Un cheval sellé attend, le cheval vainqueur.`,`After the race, while everyone is toasting, {lv} leads you behind the stables. A saddled horse is waiting: the winner.`),

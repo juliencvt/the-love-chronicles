@@ -2,14 +2,10 @@
 STORY.push(
 {bg:'bedroom',mus:'calm',chap:18,card:['Chapitre 18','Chapter 18'],sub:['Le bal masqué de Vauxhall','The Vauxhall Masquerade'],where:['Ta chambre','Your bedroom']},
 {st:['bess','mc']},
-N(`Le soir du bal masqué. Bess a étalé sur ton lit deux costumes que Madame Fleury a cousus en quinze jours, sans dormir, en jurant en français.`,`The night of the masquerade. Bess has laid out on your bed two costumes that Madame Fleury sewed in a fortnight, without sleep, swearing in French.`),
-...IF('danceLi1',[],[D('bess','h',`{li2} a passé trois nuits sur les broderies. {a:Il|Elle} a dit : « Il faut que ce soit parfait. C'est peut-être la dernière fois que je l'habille avant… » Et puis {a:il|elle} n'a pas fini sa phrase.`,`{li2} spent three nights on the embroidery. {a:He|She} said: "It has to be perfect. It might be the last time I dress them before…" And then {a:he|she} didn't finish the sentence.`)]),
-N(`Le premier : {t:un habit|une robe} d'argent et de dentelle, scintillant{t:|e} comme un clair de lune, {t:« Le Prince de Lune »|« La Dame de Lune »}. Le second : {t:un habit|une robe} d'or et de flammes, plumes rousses aux épaules : « Le Phénix ».`,`The first: a {t:coat|gown} of silver and lace, shimmering like moonlight, "The {t:Prince|Lady} of the Moon". The second: a {t:coat|gown} of gold and flame, with russet feathers at the shoulders: "The Phoenix".`),
-D('bess','s',`(tout bas) Bizarre : {lv} m'a demandé hier si vous aviez peur du feu. Et quand j'ai dit non, {a:il|elle} a souri d'un drôle d'air. Je dis ça, je dis rien.`,`(whispering) Odd thing: {lv} asked me yesterday whether you were afraid of fire. When I said no, {a:he|she} smiled strangely. Just saying.`),
-C('o18',0,[
- {t:[`👗 {t:Le Prince|La Dame} de Lune. Mystérieu{t:x|se}, insaisissable.`,`👗 The {t:Prince|Lady} of the Moon. Mysterious, elusive.`],set:'o18a',fx:{rep:1},r:[D('bess','h',`Personne ne vous reconnaîtra. Sauf ceux qui vous aiment.`,`No one will recognise you. Except those who love you.`)]},
- {t:[`👗 Le Phénix. Celui qui renaît de ses cendres.`,`👗 The Phoenix. The one who rises from the ashes.`],set:'o18b',fx:{lv:1},r:[D('bess','o',`Le Phénix ! Avec le procès, tout Londres va comprendre le message. Iris aussi.`,`The Phoenix! With the trial, all London will get the message. Iris too.`)]}
-]),
+N(`Le soir du bal masqué. Bess a étalé sur ton lit le costume que Madame Fleury a cousu en quinze jours, sans dormir, en jurant en français.`,`The night of the masquerade. Bess has laid out on your bed the costume Madame Fleury sewed in a fortnight, without sleep, swearing in French.`),
+N(`{t:Un habit|Une robe} d'or et de flammes, avec des plumes rousses aux épaules : « Le Phénix ».`,`A {t:coat|gown} of gold and flame, with russet feathers at the shoulders: "The Phoenix".`),
+D('bess','o',`Le Phénix ! Avec le procès, tout Londres va comprendre le message. Iris aussi.`,`The Phoenix! With the trial, all London will get the message. Iris too.`),
+{set:'o18b'},
 D('bess','s',`{title}… Faites attention, ce soir. J'ai un mauvais pressentiment. Ma grand-mère avait des pressentiments, et elle avait toujours raison. Sauf pour les cors aux pieds.`,`{title}… Be careful tonight. I have a bad feeling. My grandmother had feelings, and she was always right. Except about corns.`),
 
 {bg:'vauxhall',mus:'ball',mask:1,card:['Vauxhall','Vauxhall'],sub:['Le bal masqué','The Masquerade'],where:['Les jardins de Vauxhall','Vauxhall Gardens']},
@@ -72,7 +68,11 @@ C('m36',1,[
  {t:[`Retirer vos masques et l'embrasser à visage découvert.`,`Take off your masks and kiss {a:him|her} with your faces bare.`],set:'unmaskKiss',fx:{lv:3},r:[{mask:0},N(`Tu dénoues ton masque. {lv} fait de même. Plus rien entre vous, ni velours ni mensonge. Tu l'embrasses sous une pluie d'étincelles dorées, et tout Vauxhall peut bien vous voir.`,`You untie your mask. {lv} does the same. Nothing left between you, neither velvet nor lies. You kiss {a:him|her} beneath a shower of golden sparks, and all Vauxhall is welcome to watch.`),D('lv','h',`Je t'aime. Avec ou sans masque. Surtout sans.`,`I love you. With or without a mask. Especially without.`)]},
  {t:[`L'embrasser à travers le mystère des masques.`,`Kiss {a:him|her} through the mystery of the masks.`],set:'maskKiss',fx:{lv:2},r:[N(`Vos masques se heurtent doucement. Vous riez. Puis vous trouvez l'angle, et le monde disparaît.`,`Your masks bump gently. You laugh. Then you find the angle, and the world disappears.`),D('lv','h',`Pour la postérité : notre premier baiser masqué. Il était parfait.`,`For posterity: our first masked kiss. It was perfect.`)]}
 ]),
-...IF('o18b',[
+C('s18',0,[
+ {t:[`Suivre {lv} par le petit escalier caché.`,`Follow {lv} up the little hidden staircase.`],set:'sec18',fx:{lv:1},r:[]},
+ {t:[`Rentrer avant que ta mère ne s'inquiète.`,`Go home before your mother starts worrying.`],r:[N(`Tu rentres sagement. Ta mère t'attend dans l'entrée, en bonnet de nuit, et te trouve « remarquablement raisonnable ». Tu ne sais pas si c'est un compliment.`,`You go home like a good child. Your mother waits in the hall in her nightcap and finds you "remarkably sensible". You're not sure it's a compliment.`)]}
+]),
+...IF('sec18',[
  {bg:'vauxhall',mus:'tender',card:['✨ Scène secrète','✨ Secret scene'],sub:['Le phénix','The Phoenix'],where:['Le toit du pavillon','The pavilion roof']},
  {st:['lv','mc']},
  N(`Avant de partir, {lv} te fait grimper par un petit escalier caché jusqu'au toit du pavillon doré. D'ici, on voit tout Vauxhall, les lanternes, la Tamise, Londres endormie.`,`Before you leave, {lv} takes you up a little hidden staircase onto the roof of the gilded pavilion. From here you can see all of Vauxhall, the lanterns, the Thames, sleeping London.`),

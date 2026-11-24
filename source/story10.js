@@ -2,15 +2,11 @@
 STORY.push(
 {bg:'bedroom',mus:'calm',chap:10,card:['Chapitre 10','Chapter 10'],sub:['Le bal des Pembroke','The Pembroke Ball'],where:['Ta chambre','Your bedroom']},
 {st:['bess','mc']},
-N(`Le soir du bal, deux boîtes enrubannées attendent sur ton lit. Bess tourne autour comme un chat autour d'un pot de crème.`,`On the night of the ball, two beribboned boxes await on your bed. Bess circles them like a cat around a pot of cream.`),
-...IF('danceLi1',[D('bess','h',`Madame Fleury les a livrées ce matin. Votre mère a payé l'une, et la Duchesse… l'autre. Elle a dit que c'était « un prêt ». Ha !`,`Madame Fleury delivered them this morning. Your mother paid for one, and the Duchess… the other. She said it was "a loan". Ha!`)],
- [D('bess','h',`Livrées de l'atelier Fleury. Il y a un mot : « Je n'arrivais pas à choisir. Choisissez pour moi. » Pas de signature. Pas besoin.`,`Delivered from Fleury's workshop. There's a note: "I couldn't choose. Choose for me." No signature. No need.`)]),
-N(`Dans la première boîte, {t:un habit|une robe} de soie bleu nuit, brodé{t:|e} de fils d'argent comme un ciel d'hiver. Dans la seconde, {t:un habit|une robe} de soie vert émeraude, brodé{t:|e} d'or, audacieu{t:x|se}, qui ne laissera personne indifférent.`,`In the first box, {t:a coat|a gown} of midnight-blue silk, embroidered with silver thread like a winter sky. In the second, a bold emerald-green silk {t:coat|gown} embroidered with gold, which will leave no one indifferent.`),
-D('bess','s',`(tout bas) Entre nous… La femme de chambre des Ashbury m'a confié que {lv} trouve que rien ne sied mieux qu'un bleu nuit, les soirs de bal. Je dis ça, je dis rien.`,`(whispering) Between us… The Ashbury maid told me {lv} thinks nothing suits a ball night better than midnight blue. Just saying.`),
-C('o10',0,[
- {t:[`👗 {t:L'habit|La robe} bleu nuit et argent. Élégance et mystère.`,`👗 The midnight-blue and silver. Elegance and mystery.`],set:'o10a',fx:{rep:1},r:[D('bess','h',`Vous ressemblez à une nuit d'étoiles. Ils vont tous se taire en vous voyant entrer.`,`You look like a starry night. They'll all fall silent when you walk in.`)]},
- {t:[`👗 {t:L'habit|La robe} vert émeraude et or. Qu'ils me regardent, puisqu'ils parlent de moi.`,`👗 The emerald and gold. Let them look, since they're talking about me.`],set:'o10b',fx:{lv:1},r:[D('bess','o',`Seigneur ! Lady Pembroke va s'étouffer avec son punch. J'adore.`,`Lord! Lady Pembroke will choke on her punch. I love it.`)]}
-]),
+N(`Le soir du bal, une boîte enrubannée t'attend sur ton lit. Bess tourne autour comme un chat autour d'un pot de crème.`,`On the night of the ball, a beribboned box awaits on your bed. Bess circles it like a cat around a pot of cream.`),
+D('bess','h',`Madame Fleury l'a livrée ce matin. Elle a dit : « Bleu nuit. Pas de discussion. »`,`Madame Fleury delivered it this morning. She said: "Midnight blue. No discussion."`),
+N(`Dans la boîte, {t:un habit|une robe} de soie bleu nuit, brodé{t:|e} de fils d'argent comme un ciel d'hiver.`,`In the box, {t:a coat|a gown} of midnight-blue silk, embroidered with silver thread like a winter sky.`),
+D('bess','h',`Vous ressemblez à une nuit d'étoiles. Ils vont tous se taire en vous voyant entrer.`,`You look like a starry night. They'll all fall silent when you walk in.`),
+{set:'o10a'},
 
 {bg:'ball',mus:'ball',card:['Pembroke House','Pembroke House'],sub:['Le bal','The Ball'],where:['La salle de bal des Pembroke','The Pembroke ballroom']},
 {st:['ladyp','lordp']},
@@ -64,12 +60,16 @@ C('m19',1,[
  ]}
 ]),
 
-...IF('trustLv',[...IF('o10a',[
+...IF('trustLv',[C('s10',0,[
+ {t:[`Suivre {lv} quand {a:il|elle} te fait signe vers la serre.`,`Follow {lv} when {a:he|she} beckons you towards the conservatory.`],set:'sec10',fx:{lv:1},r:[]},
+ {t:[`Rester dans la salle de bal avec Clem.`,`Stay in the ballroom with Clem.`],r:[N(`Tu restes avec Clem, qui te raconte en détail la robe ratée de Lady Jersey. {lv} te sourit de loin, un peu déçu{a:|e}.`,`You stay with Clem, who tells you in detail about Lady Jersey's disastrous gown. {lv} smiles at you from afar, a little disappointed.`)]}
+])]),
+...IF('trustLv',[...IF('sec10',[
  {bg:'greenhouse',mus:'tender',card:['✨ Scène secrète','✨ Secret scene'],sub:['Minuit dans la serre','Midnight in the Conservatory'],where:['La serre des Pembroke','The Pembroke conservatory']},
  {st:['lv','mc']},
  N(`Plus tard, quand l'orchestre fait une pause, {lv} t'entraîne de nouveau dans la serre déserte. La lune passe à travers les vitres et fait briller les fils d'argent de ta tenue.`,`Later, when the orchestra takes a break, {lv} draws you back into the empty conservatory. Moonlight pours through the glass, catching the silver threads of your outfit.`),
  D('lv','s',`Tu sais pourquoi je n'arrêtais pas de te regarder, ce soir ? Le bleu nuit. C'est la couleur du ciel le soir où je t'ai vu{g:|e|·e} pour la première fois.`,`Do you know why I couldn't stop looking at you tonight? Midnight blue. It's the colour of the sky the night I first saw you.`),
- D('mc','h',`C'est peut-être pour ça que je l'ai choisi{t:|e}.`,`Maybe that's why I chose it.`),
+ D('mc','h',`C'est peut-être pour ça que Madame Fleury n'a pas voulu discuter.`,`Maybe that's why Madame Fleury wouldn't discuss it.`),
  N(`{lv} cueille un brin de jasmin et le glisse derrière ton oreille. Puis {a:il|elle} te fait tourner lentement, entre les orangers, sur une musique que vous êtes seuls à entendre.`,`{lv} picks a sprig of jasmine and tucks it behind your ear. Then {a:he|she} spins you slowly between the orange trees, to music only the two of you can hear.`),
  {cg:'pembroke'}
 ])]),
