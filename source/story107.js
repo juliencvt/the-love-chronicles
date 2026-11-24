@@ -7,7 +7,7 @@ N(`Ce n'est pas vraiment une ville. Un vieux fort en ruine sur la colline. Des c
 {st:['nan','mc']},
 D('nan','h',`Bienvenue à {h:nassau|Nassau}, chérie. Pas de gouverneur, pas de juge, pas de curé. Juste nous. Garde ta bourse dans ta chemise et ta main sur ton couteau, et tout ira bien.`,`Welcome to {h:nassau|Nassau}, chérie. No governor, no judge, no priest. Just us. Keep your purse inside your shirt and your hand on your knife, and you'll be fine.`),
 D('mc','n',`Je n'ai ni bourse ni couteau.`,`I have neither purse nor knife.`),
-N(`Nan sort de sa ceinture une petite bourse de cuir et te la lance. Elle est lourde. Ça tinte.`,`Nan pulls a small leather purse from her belt and tosses it to you. It's heavy. It clinks.`),
+N(`Fanchon sort de sa ceinture une petite bourse de cuir et te la lance. Elle est lourde. Ça tinte.`,`Fanchon pulls a small leather purse from her belt and tosses it to you. It's heavy. It clinks.`),
 D('nan','s',`Ta part. Une avance sur le butin. Article deux, tu te souviens ? Tu as tenu la barre dans la tempête et sauvé Kit. Le vote était unanime. Maintenant tu as une bourse. Va t'acheter un couteau.`,`Your share. An advance on the plunder. Article two, remember? You held the helm in the storm and saved Kit. The vote was unanimous. Now you've got a purse. Go buy yourself a knife.`),
 N(`Tu regardes la bourse dans ta main. C'est le premier argent que tu aies jamais gagné. Pas reçu. Pas hérité. Gagné.`,`You look at the purse in your hand. It's the first money you've ever earned. Not given. Not inherited. Earned.`),
 {bg:'street',mus:'calm',card:['Le marché','The market'],sub:['',''],where:['Le marché de Nassau','Nassau market']},
