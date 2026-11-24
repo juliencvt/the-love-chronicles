@@ -36,7 +36,7 @@ D('clem','s',`Moi, je vais d'abord apprendre à faire confiance à quelqu'un. En
 {st:['clem','mc']},
 D('clem','s',`Tu crois qu'elle reviendra ? Cordelia ?`,`Do you think she'll come back? Cordelia?`),
 C('m43',1,[
- {t:[`« Peut-être. Et si elle revient, je l'écouterai. »`,`"Maybe. And if she does, I'll listen to her."`],set:'forgiveDoor',r:[D('clem','s',`Moi aussi, je crois. Je la giflerai d'abord. Ensuite, j'écouterai.`,`Me too, I think. I'll slap her first. Then I'll listen.`),N(`Vous riez toutes les deux, les yeux humides.`,`You both laugh, eyes wet.`)]},
+ {t:[`« Peut-être. Et si elle revient, je l'écouterai. »`,`"Maybe. And if she does, I'll listen to her."`],set:'forgiveDoor',r:[D('clem','s',`Moi aussi, je crois. Je la giflerai d'abord. Ensuite, j'écouterai.`,`Me too, I think. I'll slap her first. Then I'll listen.`),N(`Vous riez {g:tous|toutes|tous} les deux, les yeux humides.`,`You both laugh, eyes wet.`)]},
  {t:[`« Si elle revient, ce sera pour nous faire du mal. Méfie-toi. »`,`"If she comes back, it'll be to hurt us. Be careful."`],set:'neverForgive',r:[D('clem','a',`Tu as raison. Je ne serai plus jamais aussi naïve. Plus jamais.`,`You're right. I'll never be so naive again. Never.`),N(`Mais tu la vois toucher, sans y penser, le petit ruban violet qu'elle porte encore au poignet.`,`But you see her touch, without thinking, the little violet ribbon she still wears on her wrist.`)]}
 ]),
 ...IF('twinAlly',[{st:['twinA','twinB']},D('twinA','n',`Félicitations. Pour l'héritage. Et pour le reste.`,`Congratulations. On the inheritance. And everything else.`),D('twinB','s',`… Félicitations. Voilà. Je l'ai dit. Ne me demande pas de le répéter.`,`… Congratulations. There. I said it. Don't ask me to repeat it.`)],

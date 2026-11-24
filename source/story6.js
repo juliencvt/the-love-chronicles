@@ -6,7 +6,7 @@ D('bess','h',`Debout, {title} ! Un messager du palais est passé à l'aube. La R
 D('mc','o',`La Reine ? Après la saisie d'hier ?`,`The Queen? After yesterday's seizure?`),
 ...IF('queenRespect',[D('bess','h',`On dit qu'elle n'a pas oublié votre « Je ne suis pas à vendre ». Elle l'a même répété à l'archevêque !`,`They say she hasn't forgotten your "I am not for sale". She even repeated it to the Archbishop!`)],
  [D('bess','n',`Personne ne refuse une invitation de la Reine. Même ruiné. Surtout ruiné.`,`No one refuses an invitation from the Queen. Even when ruined. Especially when ruined.`)]),
-N(`Tu touches la lettre déchirée, cachée dans ton corset. « Promets-moi de veiller sur notre… » Ces mots tournent dans ta tête depuis des heures.`,`You touch the torn letter hidden in your bodice. "Promise me you will watch over our…" The words have been circling in your head for hours.`),
+N(`Tu touches la lettre déchirée, cachée dans {t:la doublure de ta veste|ton corset}. « Promets-moi de veiller sur notre… » Ces mots tournent dans ta tête depuis des heures.`,`You touch the torn letter hidden in your bodice. "Promise me you will watch over our…" The words have been circling in your head for hours.`),
 C('c6a',0,[
  {t:[`Montrer la lettre à Bess.`,`Show Bess the letter.`],fx:{bess:1},set:'bessKnows',r:[D('bess','o',`« Veiller sur notre… » Seigneur. {title}, on n'écrit pas ça pour un chien ou un jardin.`,`"Watch over our…" Lord above. {title}, nobody writes that about a dog or a garden.`),D('mc','s',`Je sais, Bess. Je sais.`,`I know, Bess. I know.`)]},
  {t:[`Garder le secret pour toi.`,`Keep the secret to yourself.`],r:[D('mc','s',`(Pas encore. Pas tant que je ne comprends pas moi-même.)`,`(Not yet. Not until I understand it myself.)`)]}

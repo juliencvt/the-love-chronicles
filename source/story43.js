@@ -2,6 +2,14 @@
 STORY.push(
 {bg:'bedroomday',mus:'tender',chap:43,card:['Saison 2 · Chapitre 21','Season 2 · Chapter 21'],sub:['Le jour J','The Wedding Day'],where:['Ta chambre','Your bedroom']},
 {chk:['vig',16,'goodEnd']},
+...IF('goodEnd',[],[
+ {st:['theo','mc']},
+ N(`En sortant de ta chambre, tu croises Théo dans l'escalier, déjà en habit, qui ajuste sa cravate devant un miroir. Une pensée te traverse. Iris. La coupe. Toutes ces fioles disparues de l'apothicaire de Lambeth. Tu as un mauvais pressentiment.`,`Leaving your room, you meet Theo on the stairs, already dressed, adjusting his cravat in a mirror. A thought crosses your mind. Iris. The cup. All those phials missing from the Lambeth apothecary. You have a bad feeling.`),
+ C('m84p',1,[
+  {t:[`Demander à Théo et à deux constables de surveiller la sacristie pendant toute la cérémonie.`,`Ask Theo and two constables to watch the vestry throughout the ceremony.`],gem:20,set:'goodEnd',fx:{vig:2},r:[D('theo','n',`La sacristie ? Pendant ton mariage ? Tu as une idée derrière la tête.`,`The vestry? During your wedding? You've got something in mind.`),D('mc','n',`Juste une intuition. Fais-moi confiance.`,`Just a hunch. Trust me.`),D('theo','h',`Toujours. Je ne quitterai pas cette porte des yeux. Même si la Reine elle-même me demande de danser.`,`Always. I won't take my eyes off that door. Even if the Queen herself asks me to dance.`)]},
+  {t:[`Chasser ce pressentiment. Aujourd'hui, rien ne peut arriver.`,`Shake off the feeling. Nothing can happen today.`],r:[N(`Tu secoues la tête. C'est le jour de ton mariage. Tu as le droit d'être heureux{g:|se|·se} sans avoir peur de tout. Tu descends l'escalier en souriant.`,`You shake your head. It's your wedding day. You have the right to be happy without being afraid of everything. You go down the stairs smiling.`)]}
+ ]),
+]),
 {st:['bess','mother']},
 N(`Le grand jour. Le soleil se lève sur Londres, doré, comme commandé exprès. Bess t'habille en pleurant. Ta mère te coiffe en pleurant. Même le chat pleure, ou alors il a un rhume.`,`The big day. The sun rises over London, golden, as if ordered specially. Bess dresses you, crying. Your mother does your hair, crying. Even the cat is crying, or else it has a cold.`),
 ...IF('o39b',[N(`Le bleu nuit et les perles noires. Dans le miroir, tu ne te reconnais pas. Tu as l'air de quelqu'un qui n'a peur de rien.`,`The midnight blue and black pearls. In the mirror, you don't recognise yourself. You look like someone afraid of nothing.`)],[N(`L'ivoire et les lys d'argent. Dans le miroir, tu ressembles au portrait d'Isadora. Ta mère s'en aperçoit aussi. Elle doit s'asseoir.`,`The ivory and silver lilies. In the mirror, you look like Isadora's portrait. Your mother notices too. She has to sit down.`)]),

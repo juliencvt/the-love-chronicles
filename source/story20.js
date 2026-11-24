@@ -42,6 +42,12 @@ C('m39',1,[
   D('lv','s',`Tu as raison. Elle, je m'en fiche. Toi, non.`,`You're right. I don't care about her. I care about you.`),
   N(`Au loin, la barque d'Iris disparaît dans la brume. Mais un constable a eu le temps de noter le nom du passeur qui l'attendait sur l'autre rive.`,`In the distance, Iris's boat vanishes into the mist. But a constable has had time to note the name of the ferryman waiting for her on the far bank.`)
  ]},
+ {t:[`« Reste avec moi. » Et crier à Théo de poursuivre Iris à sa place.`,`"Stay with me." And shout to Theo to chase Iris instead.`],gem:20,set:'lvStayed',fx:{lv:3,rep:1},r:[
+  N(`Tu agrippes la chemise trempée de {lv}, et de toutes tes forces, tu cries vers la berge : « Théo ! La barque ! » Théo n'hésite pas une seconde. Il saute dans une barque, rame comme un forcené, et disparaît dans la brume.`,`You grip {lv}'s soaked shirt and, with all your strength, shout towards the bank: "Theo! The boat!" Theo doesn't hesitate for a second. He jumps into a boat, rows like a man possessed, and disappears into the mist.`),
+  N(`{lv} s'agenouille près de toi et te serre contre {a:lui|elle}. Dix minutes plus tard, Théo revient, trempé jusqu'aux os, un œil au beurre noir et un sourire triomphant, traînant Iris par le bras jusqu'aux constables.`,`{lv} kneels beside you and holds you close. Ten minutes later, Theo comes back, soaked to the bone, with a black eye and a triumphant smile, dragging Iris by the arm to the constables.`),
+  D('theo','h',`Elle mord. Personne ne m'avait prévenu qu'elle mordait.`,`She bites. Nobody warned me she bites.`),
+  {set:'irisCaught'}
+ ]},
  {t:[`« Rattrape-la ! Pour Isadora ! »`,`"Catch her! For Isadora!"`],set:'lvChased',fx:{lv:1,rep:1},r:[
   N(`{lv} t'enveloppe dans sa veste, te confie à Clem, et court le long de la berge. {a:Il|Elle} saute sur une autre barque, rame comme un{a:|e} {a:forcené|forcenée}…`,`{lv} wraps you in {a:his|her} coat, hands you over to Clem, and runs along the bank. {a:He|She} jumps into another boat, rows like someone possessed…`),
   N(`Dix minutes plus tard, {lv} revient, trempé{a:|e}, une manche arrachée, traînant Iris par le bras jusqu'aux constables.`,`Ten minutes later, {lv} comes back, soaked, one sleeve torn off, dragging Iris by the arm to the constables.`),

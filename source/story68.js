@@ -48,10 +48,10 @@ C('m133',1,[
   N(`{a:Il|Elle} s'endort au milieu de la phrase. Tu souris dans le noir. Tu sais très bien la fin de la phrase.`,`{a:He|She} falls asleep mid-sentence. You smile in the dark. You know exactly how the sentence ends.`),
  ]}
 ]),
-{bg:'street',mus:'mystery',card:['17 mars','17th March'],sub:['',''],where:['Quai d\'Anjou','Quai d\'Anjou']},
+{bg:'street',mus:'mystery',card:['Quelques jours plus tard','A few days later'],sub:['',''],where:['Quai d\'Anjou','Quai d\'Anjou']},
 {st:['volkov','mc']},
-N(`Le 17 mars au matin, c'est encore le capitaine Volkov qui vient vous apprendre la nouvelle. Il n'a pas dormi. Son uniforme est boutonné de travers.`,`On the morning of 17th March, it's Captain Volkov again who comes to bring you the news. He hasn't slept. His uniform is buttoned crooked.`),
-D('volkov','a',`Le maréchal Ney a rejoint Napoléon à Lons-le-Saunier. Il a lu une proclamation à ses troupes. Ils ont crié « Vive l'Empereur » et jeté leurs cocardes blanches dans la boue. Toute l'armée envoyée pour l'arrêter marche maintenant avec lui.`,`Marshal Ney has gone over to Napoleon at Lons-le-Saunier. He read a proclamation to his troops. They shouted "Long live the Emperor" and threw their white cockades into the mud. The whole army sent to stop him is now marching with him.`),
+N(`Quelques jours plus tard, au matin, c'est encore le capitaine Volkov qui vient vous apprendre la nouvelle. Il n'a pas dormi. Son uniforme est boutonné de travers.`,`A few days later, in the morning, it's Captain Volkov again who comes to bring you the news. He hasn't slept. His uniform is buttoned crooked.`),
+D('volkov','a',`Le {h:ney|maréchal Ney} a rejoint Napoléon à Lons-le-Saunier. Il a lu une proclamation à ses troupes. Ils ont crié « Vive l'Empereur » et jeté leurs cocardes blanches dans la boue. Toute l'armée envoyée pour l'arrêter marche maintenant avec lui.`,`{h:ney|Marshal Ney} has gone over to Napoleon at Lons-le-Saunier. He read a proclamation to his troops. They shouted "Long live the Emperor" and threw their white cockades into the mud. The whole army sent to stop him is now marching with him.`),
 D('volkov','s',`Il n'y a plus rien entre lui et Paris. Rien. Il sera ici dans trois jours.`,`There's nothing left between him and Paris. Nothing. He'll be here in three days.`),
 N(`Dans la rue, un garçon boucher passe en sifflant un air que tu ne connais pas. Un vieil homme, à sa fenêtre, l'écoute, ferme les yeux, et se met à pleurer. Tu comprends plus tard que c'était un air de la Grande Armée.`,`In the street, a butcher's boy walks by whistling a tune you don't know. An old man at his window listens, closes his eyes, and begins to cry. You understand later that it was a song of the Grande Armée.`),
 {end:68}

@@ -3,7 +3,7 @@
 const N=(fr,en)=>({sp:'n',fr,en});
 const D=(sp,ex,fr,en)=>({sp,ex,fr,en});
 let _L=0;
-function C(id,major,opts){const o=[{ch:{id,major,o:opts.map((x,k)=>({t:x.t,fx:x.fx||{},set:x.set,go:id+'_'+k}))}}];
+function C(id,major,opts){const o=[{ch:{id,major,o:opts.map((x,k)=>({t:x.t,fx:x.fx||{},set:x.set,gem:x.gem||0,go:id+'_'+k}))}}];
  opts.forEach((x,k)=>o.push({lb:id+'_'+k},...(x.r||[]),{go:id+'_end'}));o.push({lb:id+'_end'});return o}
 function IF(flag,a,b=[]){const n='if'+(_L++);return [{if:flag,go:n+'t'},...b,{go:n+'e'},{lb:n+'t'},...a,{lb:n+'e'}]}
 

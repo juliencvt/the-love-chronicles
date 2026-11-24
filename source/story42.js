@@ -42,6 +42,19 @@ N(`Un caillou contre la vitre. Tu souris avant même de regarder. Sous ta fenêt
 D('fi','h',`Je ne monte pas. Je ne te regarde même pas. Je regarde le mur. Je voulais juste te dire bonne nuit. La dernière bonne nuit avant toutes les autres.`,`I'm not coming up. I'm not even looking at you. I'm looking at the wall. I just wanted to say goodnight. The last goodnight before all the others.`),
 D('mc','h',`Bonne nuit, {fi}.`,`Goodnight, {fi}.`),
 D('fi','s',`À demain. Je serai {a:celui|celle} qui pleure au bout de l'allée. Tu ne pourras pas me rater.`,`Until tomorrow. I'll be the one crying at the end of the aisle. You can't miss me.`),
-N(`{fi} repart dans la nuit en sifflotant la berceuse d'Isadora. Faux. Toujours faux. Tu t'endors avec un sourire.`,`{fi} walks off into the night whistling Isadora's lullaby. Off-key. Always off-key. You fall asleep smiling.`),
+C('m83b',1,[
+ {t:[`Lui ouvrir la fenêtre, tradition ou pas.`,`Open the window to {a:him|her}, tradition or not.`],gem:15,set:'bonusEve',fx:{fi:4},r:[
+  N(`Tu ouvres la fenêtre en grand. {fi} lève les yeux, malgré sa promesse. {a:Il|Elle} te voit, en chemise de nuit, les cheveux défaits, penché{g:|e|·e} au balcon. {a:Il|Elle} ferme les yeux très fort.`,`You throw the window wide open. {fi} looks up, despite {a:his|her} promise. {a:He|She} sees you, in your nightclothes, hair loose, leaning over the balcony. {a:He|She} screws {a:his|her} eyes shut.`),
+  D('fi','h',`Ça porte malheur. Ta mère me l'a dit trois fois. La Duchesse quatre.`,`It's bad luck. Your mother told me three times. The Duchess four.`),
+  D('mc','h',`Alors ferme les yeux et monte.`,`Then keep your eyes shut and come up.`),
+  N(`{a:Il|Elle} grimpe le long de la glycine, les yeux fermés, en jurant à voix basse à chaque branche. Tu ris tellement que tu dois te mordre le poing. Quand {a:il|elle} arrive enfin au balcon, essoufflé{a:|e}, les yeux toujours fermés, tu prends son visage entre tes mains.`,`{a:He|She} climbs the wisteria with {a:his|her} eyes shut, swearing under {a:his|her} breath at every branch. You laugh so hard you have to bite your fist. When {a:he|she} finally reaches the balcony, out of breath, eyes still closed, you take {a:his|her} face in your hands.`),
+  N(`Tu l'embrasses. Ses yeux restent fermés. Ses mains, elles, trouvent leur chemin toutes seules : ta nuque, ton dos, la courbe de tes reins à travers le lin léger. Le baiser devient lent, profond, interminable. La glycine sent fort dans la nuit de juin. Demain, devant tout Londres, il faudra être sage. Ce soir, personne ne vous voit.`,`You kiss {a:him|her}. {a:His|Her} eyes stay shut. {a:His|Her} hands find their own way: the back of your neck, your back, the curve of your waist through the thin linen. The kiss grows slow, deep, endless. The wisteria smells strong in the June night. Tomorrow, in front of all London, you'll have to behave. Tonight, nobody can see you.`),
+  D('fi','s',`Techniquement, je ne t'ai pas vu{g:|e|·e}.`,`Technically, I haven't seen you.`),
+  D('mc','s',`Techniquement, tu me touches beaucoup.`,`Technically, you're touching me a lot.`),
+  D('fi','h',`La tradition ne parle pas du toucher. J'ai vérifié.`,`Tradition says nothing about touching. I checked.`),
+  N(`Quand {a:il|elle} redescend enfin, les yeux toujours fermés, {a:il|elle} rate la dernière branche et tombe dans un massif de roses. Tu entends un juron, puis un éclat de rire étouffé. Tu t'endors avec le goût de ses lèvres et des pétales de glycine dans les cheveux.`,`When {a:he|she} finally climbs down, eyes still shut, {a:he|she} misses the last branch and falls into a rosebed. You hear an oath, then a stifled burst of laughter. You fall asleep with the taste of {a:his|her} lips and wisteria petals in your hair.`),
+ ]},
+ {t:[`Le laisser repartir. Demain, tu l'auras pour toujours.`,`Let {a:him|her} go. Tomorrow, you'll have {a:him|her} for ever.`],r:[N(`{fi} repart dans la nuit en sifflotant la berceuse d'Isadora. Faux. Toujours faux. Tu t'endors avec un sourire.`,`{fi} walks off into the night whistling Isadora's lullaby. Off-key. Always off-key. You fall asleep smiling.`)]}
+]),
 {end:42}
 );
