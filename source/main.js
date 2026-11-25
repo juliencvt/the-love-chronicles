@@ -68,6 +68,8 @@ const PICS={
  thomas:{src:'assets/thomas.webp',w:781,h:1500,eye:[346,170,48],waist:.42},
  lettie:{src:'assets/lettie.webp',w:592,h:1500,eye:[282,170,48],waist:.42},
  kit:{src:'assets/kit.webp',w:609,h:1500,eye:[265,170,48],waist:.46,top:8},
+ henry_sailor:{src:'assets/henry_sailor.webp',w:677,h:1500,eye:[285,170,48],waist:.42},
+ eleanor_sailor:{src:'assets/eleanor_sailor.webp',w:626,h:1500,eye:[274,170,48],waist:.42},
  matthias:{src:'assets/matthias.webp',w:658,h:1500,eye:[277,170,48],waist:.42}};
 const PREP=[{gown:{src:'assets/pmc1_gown.webp',w:1029,h:1500,eye:[412,182,64],waist:.42},pirate:{src:'assets/pmc1_pirate.webp',w:841,h:1500,eye:[376,145,62],waist:.42}},{gown:{src:'assets/pmc2_gown.webp',w:1030,h:1500,eye:[376,146,60],waist:.42},pirate:{src:'assets/pmc2_pirate.webp',w:893,h:1500,eye:[385,134,60],waist:.42}},{gown:{src:'assets/pmc3_gown.webp',w:1055,h:1500,eye:[412,164,60],waist:.42},pirate:{src:'assets/pmc3_pirate.webp',w:840,h:1500,eye:[335,140,60],waist:.42}},{gown:{src:'assets/pmc4_gown.webp',w:997,h:1500,eye:[393,158,60],waist:.42},pirate:{src:'assets/pmc4_pirate.webp',w:812,h:1500,eye:[372,164,60],waist:.42}},{gown:{src:'assets/pmc5_gown.webp',w:1042,h:1500,eye:[405,158,60],waist:.42},pirate:{src:'assets/pmc5_pirate.webp',w:839,h:1500,eye:[334,140,60],waist:.42}}];
 const PIRX={nan:'fanchon',gov:'thomas',lettie:'lettie',kit:'kit',matthias:'matthias'};
