@@ -62,7 +62,7 @@ const PICS={
  roux:{src:'assets/roux.webp',w:554,h:1500,eye:[277,170,48],waist:.40},
  gabriel:{src:'assets/gabriel.webp',w:674,h:1500,eye:[288,170,48],waist:.42},
  scarlett:{src:'assets/scarlett.webp',w:724,h:1500,eye:[349,190,48],waist:.42},
- henry:{src:'assets/henry.webp',w:683,h:1500,eye:[320,170,48],waist:.42},
+ henry:{src:'assets/henry.webp',w:681,h:1500,eye:[317,170,48],waist:.42},
  eleanor:{src:'assets/eleanor.webp',w:906,h:1500,eye:[380,170,48],waist:.42},
  fanchon:{src:'assets/fanchon.webp',w:807,h:1500,eye:[379,170,48],waist:.42},
  thomas:{src:'assets/thomas.webp',w:781,h:1500,eye:[346,170,48],waist:.42},
