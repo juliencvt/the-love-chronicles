@@ -8157,12 +8157,17 @@ let menuBgDone=false;
 function renderMenu(){$('mBack').textContent=tr('libBack');if(!menuBgDone){$('mbg').innerHTML=ART.bg('ball');menuBgDone=true}
  $('mTitle').textContent=L2(STORIES.find(x=>x.id==CUR).title);$('mSub').textContent=tr('sub');document.documentElement.lang=OPT.lang;
  const has=!!saves().auto;
- $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get(CK())||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">💎 ${gD()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
+ $('mList').innerHTML=`<button class="btn pri" data-a="cont" ${has?'':'disabled'}>${tr('cont')}</button><button class="btn" data-a="new">${tr('newg')}</button><button class="btn" data-a="chaps" ${(store.get(CK())||saves().auto)?'':'disabled'}>${L2(['Chapitres','Chapters'])}</button><button class="btn" data-a="gal">${tr('gal')}</button><button class="btn" data-a="saves">${tr('saves')}</button><button class="btn" data-a="opts">${tr('opts')}</button><div class="ver">🔑 ${kD()} · 💎 ${gD()} · ${CUR=='valcourt'?tr('ver'):L2(STORIES.find(x=>x.id==CUR).status)}</div>`}
 
 
 
 function gInf(){return !!store.get('tlc_inf')}
 function gems(){if(gInf())return 1e9;const g=store.get('tlc_gems');return g==null?30:g}
+const KMAX=2,KPER=3*3600e3;
+function keys(){let k=store.get('tlc_keys')||{n:KMAX,t:Date.now()};const now=Date.now();if(k.n>=KMAX){k={n:KMAX,t:now}}else{const g=Math.floor((now-k.t)/KPER);if(g>0){k.n=Math.min(KMAX,k.n+g);k.t=k.n>=KMAX?now:k.t+g*KPER}}store.set('tlc_keys',k);return k}
+function kD(){return gInf()?'∞':keys().n+'/'+KMAX}
+function kWait(){const k=keys(),ms=Math.max(0,k.t+KPER-Date.now()),tm=Math.ceil(ms/60e3),h=Math.floor(tm/60),m=tm%60;return (h?h+' h ':'')+m+' min'}
+function withKey(fn){if(gInf()){fn();return}const k=keys();if(k.n<1){modal(`<h3>🔑 ${L2(['Plus de clés','Out of keys'])}</h3><p style="text-align:center">${L2(['Il faut une clé pour commencer un chapitre. Les clés se rechargent toutes seules : 1 clé toutes les 3 heures (2 maximum).','You need a key to start a chapter. Keys refill on their own: 1 key every 3 hours (2 max).'])}</p><p style="text-align:center;font-weight:700">${L2(['Prochaine clé dans ','Next key in '])}${kWait()}</p><div class="stack"><button class="btn pri" id="kOk">OK</button></div>`);$('kOk').onclick=()=>{closeModal();if(screen=='game'){autosave();clearInterval(tmr);mode=null;show('menu');renderMenu()}};return}const was=k.n>=KMAX;k.n--;if(was)k.t=Date.now();store.set('tlc_keys',k);toast('−1 🔑');fn()}
 function gD(){return gInf()?'∞':gems()}
 function setGems(v){if(gInf())return;store.set('tlc_gems',Math.max(0,v))}
 let verTap=0,verT=0;document.addEventListener('click',e=>{if(!e.target.closest('#mList .ver'))return;const n=Date.now();verTap=n-verT<1500?verTap+1:1;verT=n;if(verTap>=7){verTap=0;store.set('tlc_inf',!gInf());toast(gInf()?'💎 ∞ activé':'💎 ∞ désactivé');renderMenu()}});
@@ -8354,7 +8359,7 @@ $('cBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b
 $('cBack').onclick=()=>{sfx('click');if(cstep==0){show('menu');renderMenu()}else{cstep--;renderCreate()}};
 $('cNext').onclick=()=>{sfx('click');if(cstep==0&&(!P.first||!P.last)){cerr=tr('needName');renderCreate();return}cerr='';
  if(cstep<steps().length-1){cstep++;renderCreate();return}
- S=newState(JSON.parse(JSON.stringify(P)));startGame()};
+ withKey(()=>{S=newState(JSON.parse(JSON.stringify(P)));startGame()})};
 
 /* ---------- engine ---------- */
 STORY.splice(0,STORY.length,...STORY.flat(9));
@@ -8373,7 +8378,8 @@ function setBg(name,instant){if(curBg===name)return;curBg=name;const a=$('bgA'),
 
 const CHS={},CHL=[];(()=>{const ends=[];STORY.forEach((n,i)=>{if(n.end)ends.push([i,n.end])});ends.forEach(([i,n])=>{let st=n==1?0:(ends.find(e=>e[1]==n-1)||[-1])[0]+1;if(st<=0&&n>100)st=STORY.findIndex(x=>x.chap==n);if(st<0)return;CHS[st]=n;let t=null;for(let j=st;j<i;j++){if(STORY[j].card){t=STORY[j].sub;break}}CHL.push({n,st,t})})})();
 function chapSnap(){if(CHS[S.i]==null||S._at===S.i)return;S._at=S.i;const c=JSON.parse(JSON.stringify(S));delete c.cs;S.cs=c;const m=store.get(CK())||{};m[CHS[S.i]]=c;store.set(CK(),m)}
-function playFrom(c){const k=JSON.parse(JSON.stringify(c));delete k.cs;S=JSON.parse(JSON.stringify(k));S.cs=k;S.ts=Date.now();startGame()}
+function playFrom(c){withKey(()=>playFrom0(c))}
+function playFrom0(c){const k=JSON.parse(JSON.stringify(c));delete k.cs;S=JSON.parse(JSON.stringify(k));S.cs=k;S.ts=Date.now();startGame()}
 function chapLbl(n){n=n>100?n-100:n;const se=Math.ceil(n/22),c=n-(se-1)*22;return L2(['Chapitre '+c,'Chapter '+c])}
 function chapsModal(){const m=store.get(CK())||{},au=saves().auto;let h=`<h3>${L2(['Chapitres','Chapters'])}</h3><p style="text-align:center;margin:0 0 8px;font-size:14px;opacity:.8">${L2(['✓ = chapitre déjà atteint (avec tes choix). Les autres reprennent les choix de ta dernière partie.','✓ = chapter already reached (with your choices). Others reuse your latest game\'s choices.'])}</p><div style="max-height:60vh;overflow:auto">`;
  const B0=CUR=='pirate'?100:0;for(let se=1;se<=4;se++){const L=CHL.filter(x=>(B0?x.n>100:x.n<=100)&&Math.ceil((x.n-B0)/22)==se);if(!L.length)continue;h+=`<span class="lab" style="display:block;margin:12px 0 6px">${L2(['Saison ','Season '])+se}</span>`;
@@ -8474,11 +8480,11 @@ function showEnd(num){num=num||1;$('box').className='hide';const sc=7/Math.max(7
  const K=num>100?num-100:num,cl=n=>{n=n>100?n-100:n;return n>66?n-66:n>44?n-44:n>22?n-22:n};
  modal(`<h3>${K==22?tr('s1end'):K==44?tr('s2end'):K==66?tr('s3end'):K==88?tr('s4end'):tr('endT').replace('{n}',cl(num))}</h3><p style="text-align:center;margin:0;font:italic 20px 'Cormorant Garamond',serif">${hasNext?'':tr(K==88?'s4sub':K==66?'s3sub':K==44?'s2sub':K==22?'s1sub':'soon')}</p>
  <span class="lab" style="margin-top:14px">${tr('rel')}</span><div class="hearts"><div class="row">${li1n()}<i>${bar(pct('li1',num))}</i></div><div class="row">${esc(li2n())}<i>${bar(pct('li2',num))}</i></div><div class="row">${tr('rep')}<i>${h(S.v.rep+2)}</i></div></div>
- <p style="text-align:center;margin:10px 0 0;font-weight:700">💎 ${(()=>{const r=gemReward(num);return (r?'+'+r+' · ':'')+gD()})()}</p>
+ <p style="text-align:center;margin:10px 0 0;font-weight:700">🔑 ${kD()} · 💎 ${(()=>{const r=gemReward(num);return (r?'+'+r+' · ':'')+gD()})()}</p>
  <span class="lab">${tr('majors')}</span><ul>${majs.map(t=>`<li>${esc(fmt(L2(t)))}</li>`).join('')}</ul>
  <div class="stack">${hasNext?`<button class="btn pri" id="eNext">${K==22?tr('startS2'):K==44?tr('startS3'):K==66?tr('startS4'):tr('nextCh').replace('{n}',cl(num+1))}</button>`:''}<button class="btn ${hasNext?'':'pri'}" id="eRe">${tr('replay')}</button><button class="btn" id="eMenu">${tr('mainmenu')}</button></div>`,'end');
- if(hasNext)$('eNext').onclick=()=>{closeModal();S.i++;run()};
- $('eRe').onclick=()=>{S=newState(S.p);startGame()};$('eMenu').onclick=()=>{closeModal();show('menu');renderMenu()}}
+ if(hasNext)$('eNext').onclick=()=>{withKey(()=>{closeModal();S.i++;run()})};
+ $('eRe').onclick=()=>{withKey(()=>{S=newState(S.p);startGame()})};$('eMenu').onclick=()=>{closeModal();show('menu');renderMenu()}}
 $('pauseBtn').onclick=()=>{sfx('click');modal(`<h3>${tr('paused')}</h3><div class="stack"><button class="btn pri" id="pR">${tr('resume')}</button><button class="btn" id="pC">${L2(['Recommencer le chapitre','Restart chapter'])}</button><button class="btn" id="pS">${tr('saves')}</button><button class="btn" id="pO">${tr('opts')}</button><button class="btn" id="pM">${tr('mainmenu')}</button></div>`);
  $('pR').onclick=closeModal;$('pC').onclick=()=>{const c=S.cs;if(!c){closeModal();return}modal(`<h3>${L2(['Recommencer le chapitre','Restart chapter'])}</h3><p style="text-align:center">${L2(['Tu reviens au début du chapitre, avec tes choix d\'avant ce chapitre. Tes sauvegardes manuelles ne sont pas touchées.','You go back to the start of the chapter, with your choices from before it. Your manual saves are untouched.'])}</p><div class="stack"><button class="btn pri" id="mOk">${tr('yes')}</button><button class="btn" id="mNo">${tr('no')}</button></div>`);$('mOk').onclick=()=>playFrom(c);$('mNo').onclick=closeModal};$('pS').onclick=()=>savesModal(true);$('pO').onclick=optsModal;$('pM').onclick=()=>{autosave();closeModal();clearInterval(tmr);mode=null;show('menu');renderMenu()}};
 
