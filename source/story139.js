@@ -1,0 +1,55 @@
+/* ===== LA FIANCÉE DU CORSAIRE — SAISON 2 — CHAPITRE 17 — L'ultimatum ===== */
+STORY.push(
+{bg:'street',mus:'mystery',chap:139,card:['Saison 2 · Chapitre 17','Season 2 · Chapter 17'],sub:['L\'ultimatum','The Ultimatum'],where:['Spanish Town, au crépuscule','Spanish Town, at dusk']},
+{st:['li1','li2']},
+N(`Spanish Town est silencieuse. Trop silencieuse. Les volets sont fermés, les rues désertes. Un chien aboie quelque part, puis se tait. Au bout de la grande place, la résidence du gouverneur. Des soldats en uniforme espagnol aux fenêtres. Et sur le toit, à la place du pavillon anglais, le drapeau de l'Espagne.`,`Spanish Town is silent. Too silent. The shutters are closed, the streets deserted. A dog barks somewhere, then stops. At the end of the great square, the Governor's residence. Soldiers in Spanish uniform at the windows. And on the roof, in place of the English flag, the banner of Spain.`),
+N(`Vous laissez les chevaux à l'entrée de la ville et vous avancez à pied, par les ruelles. Derrière une fontaine, une silhouette maigre vous fait signe. Mr Hale. Son habit est déchiré, il a un œil au beurre noir, et il tremble de tout son corps.`,`You leave the horses at the edge of town and go on foot through the alleys. Behind a fountain, a thin figure waves to you. Mr Hale. His coat is torn, he has a black eye, and he's shaking all over.`),
+N(`« Ils sont arrivés à l'aube. Deux cents. Les gardes se sont battus, mais… Sir Thomas est vivant. Il est blessé à la jambe, mais vivant. Ils le gardent dans la grande salle. Et Lettie… Lettie est avec lui. Elle a refusé de partir. Elle a mordu un soldat qui voulait l'emmener. »`,`"They came at dawn. Two hundred. The guards fought, but… Sir Thomas is alive. He's wounded in the leg, but alive. They're holding him in the great hall. And Lettie… Lettie's with him. She refused to leave. She bit a soldier who tried to take her away."`),
+N(`Il sort un papier froissé de sa manche.`,`He draws a crumpled paper from his sleeve.`),
+N(`« Le commodore m'a laissé partir pour vous apporter ceci. »`,`"The Commodore let me go so I could bring you this."`),
+N(`*Mademoiselle {last}. Vous avez gagné à Port-Royal. Vous avez gagné à Old Harbour, je suppose, puisque vous lisez ceci. Mais j'ai votre père. Venez seule, à la tombée de la nuit, par la grande porte. Sans arme. Si je vois un seul de vos pirates, je le tue. Si vous ne venez pas, je le tue aussi. Votre dévoué, R. Blackwood.*`,`*Miss {last}. You won at Port Royal. You won at Old Harbour, I suppose, since you are reading this. But I have your father. Come alone, at nightfall, by the main door. Unarmed. If I see a single one of your pirates, I kill him. If you do not come, I kill him too. Your devoted servant, R. Blackwood.*`),
+D('li1','a',`Non. Hors de question. C'est un piège.`,`No. Out of the question. It's a trap.`),
+D('li2','a',`Bien sûr que c'est un piège. Il ne veut pas votre père. Il vous veut, vous.`,`Of course it's a trap. He doesn't want your father. He wants you.`),
+D('mc','s',`Je sais. Et c'est pour ça que j'y vais. Parce que tant qu'il me regardera, moi, il ne regardera pas ailleurs.`,`I know. And that's why I'm going. Because as long as he's looking at me, he won't be looking anywhere else.`),
+N(`Tu te tournes vers Hale.`,`You turn to Hale.`),
+D('mc','n',`Mr Hale. Le flamboyant, sous la fenêtre de ma chambre. Il est toujours là ?`,`Mr Hale. The flame tree under my bedroom window. Is it still there?`),
+N(`Hale cligne des yeux. Puis il comprend, et un sourire tremblant éclaire son visage.`,`Hale blinks. Then he understands, and a trembling smile lights up his face.`),
+N(`« Personne ne garde ce côté-là. Ils croient que c'est un mur. Ils ne savent pas que de la chambre, on descend dans la galerie, et de la galerie, dans la grande salle. »`,`"No one guards that side. They think it's just a wall. They don't know that from the bedroom you can get down to the gallery, and from the gallery into the great hall."`),
+D('mc','s',`Alors voilà le plan. J'entre par la grande porte. Je le fais parler. Il adore parler. Et pendant ce temps, vous entrez par la fenêtre.`,`Then here's the plan. I go in by the main door. I get him talking. He loves to talk. And meanwhile you come in through the window.`),
+N(`Un silence. Esteban, Matthias, {li1}, {li2}. Personne n'aime ce plan. Personne n'en a de meilleur.`,`Silence. Esteban, Matthias, {li1}, {li2}. No one likes this plan. No one has a better one.`),
+C('p39a',0,[
+ {t:[`Cacher le petit couteau de Fanchon dans ta botte.`,`Hide Fanchon's little knife in your boot.`],set:'pHiddenKnife',fx:{rep:1},r:[N(`Fanchon te l'a donné le premier jour, sur le *Siren's Due*. Une petite lame recourbée de Martinique, à manche d'os. « Pour les jours où tu n'as plus rien d'autre », avait-elle dit. Tu la glisses dans le revers de ta botte. Il a dit sans arme. Il n'a pas dit sans souvenir.`,`Fanchon gave it to you the very first day, aboard the *Siren's Due*. A little curved Martinique blade with a bone handle. "For the days when you've nothing else left," she'd said. You slip it into the cuff of your boot. He said unarmed. He didn't say without keepsakes.`)]},
+ {t:[`Y aller vraiment les mains vides. Il te fouillera.`,`Go truly empty-handed. He'll search you.`],set:'pNoKnife',fx:{rep:2},r:[N(`Tu poses ton sabre, ton pistolet et ton couteau sur la margelle de la fontaine. Blackwood te fera fouiller, c'est certain. Et s'il trouve une arme, il aura une excuse. Tu n'en auras pas besoin. Tes armes, ce soir, ce sont les gens qui t'aiment, et un vieux flamboyant.`,`You lay your cutlass, pistol and knife on the fountain's rim. Blackwood will have you searched, that's certain. And if he finds a weapon, he'll have an excuse. You won't need one. Your weapons tonight are the people who love you, and an old flame tree.`)]}
+]),
+{bg:'street',mus:'tender',card:['Avant','Before'],sub:['',''],where:['Une ruelle de Spanish Town','An alley in Spanish Town']},
+...IF('pChoseRook',[
+ {st:['li1','mc']},
+ N(`Au moment de partir, {li1} t'attrape par le bras et t'attire dans l'ombre d'une porte cochère. {a:Il|Elle} a les mâchoires serrées, et les yeux qui brillent trop.`,`As you're about to go, {li1} catches you by the arm and pulls you into the shadow of a carriage gateway. {a:His|Her} jaw is clenched and {a:his|her} eyes shine too brightly.`),
+ D('li1','n',`Si tu meurs ce soir, je te jure que je descends te chercher en enfer, et que je te ramène par les cheveux.`,`If you die tonight, I swear I'll go down to hell to fetch you and drag you back by the hair.`),
+ D('mc','s',`Je sais. C'est pour ça que je n'ai pas peur.`,`I know. That's why I'm not afraid.`),
+ N(`{a:Il|Elle} t'embrasse, fort, presque avec colère. Puis {a:il|elle} pose son front contre le tien, et pendant une seconde, tu sens qu'{a:il|elle} tremble. {li1}, qui n'a jamais tremblé devant une bordée.`,`{a:He|She} kisses you hard, almost angrily. Then {a:he|she} rests {a:his|her} forehead against yours, and for a second you feel {a:him|her} trembling. {li1}, who has never trembled before a broadside.`),
+],[...IF('pChoseHenry',[
+ {st:['li2','mc']},
+ N(`Au moment de partir, {li2} te prend la main. {a:Il|Elle} ne dit rien. {a:Il|Elle} tourne doucement la bague d'argent tordue autour de ton doigt, comme pour vérifier qu'elle est toujours là.`,`As you're about to go, {li2} takes your hand. {a:He|She} says nothing. {a:He|She} gently turns the crooked silver ring round your finger, as if to make sure it's still there.`),
+ D('li2','n',`J'ai grimpé dans ce flamboyant hier soir pour vous voler une nuit. Ce soir, j'y grimpe pour vous voler toutes les autres. Toute une vie. Attendez-moi.`,`I climbed that flame tree last night to steal a night from you. Tonight I'm climbing it to steal all the others. A whole lifetime. Wait for me.`),
+ N(`Tu l'embrasses très doucement, comme une promesse qu'on ne veut pas abîmer. Puis tu te retournes, et tu marches vers la grande place sans regarder en arrière. Si tu regardais en arrière, tu ne pourrais plus avancer.`,`You kiss {a:him|her} very gently, like a promise one doesn't want to spoil. Then you turn and walk towards the great square without looking back. If you looked back, you couldn't go on.`),
+],[
+ {st:['li1','li2']},
+ N(`Au moment de partir, {li1} et {li2} se placent tous les deux devant toi. Les deux échangent un regard. Pour une fois, ces deux-là sont d'accord.`,`As you're about to go, {li1} and {li2} both step in front of you. They exchange a look. For once, those two agree.`),
+ D('li1','n',`Dix minutes. Fais-le parler dix minutes.`,`Ten minutes. Keep him talking ten minutes.`),
+ D('li2','n',`Et ne faites rien d'héroïque. Ça, c'est notre rôle, ce soir.`,`And don't do anything heroic. That's our job tonight.`),
+ N(`Tu les regardes, l'un et l'autre. Tu as envie de leur dire tant de choses. Tu n'en dis qu'une.`,`You look at them, one and then the other. You want to tell them so many things. You say only one.`),
+ D('mc','s',`Revenez {a:vivants|vivantes}. {a:Tous|Toutes} les deux. C'est un ordre de capitaine.`,`Come back alive. Both of you. That's a captain's order.`),
+]),
+]),
+{bg:'salon',mus:'mystery',card:['La grande porte','The main door'],sub:['',''],where:['La résidence du gouverneur','The Governor\'s residence']},
+{st:['mc']},
+N(`La nuit tombe. Tu traverses la grande place, seule, à découvert. Tu sens tous les mousquets des fenêtres se tourner vers toi. Tes bottes sonnent sur les pavés. Tu n'accélères pas. Tu ne ralentis pas.`,`Night falls. You cross the great square, alone, in the open. You feel every musket in the windows swing towards you. Your boots ring on the cobbles. You don't speed up. You don't slow down.`),
+N(`La grande porte de la résidence s'ouvre avant que tu frappes. Deux soldats te fouillent, sans brutalité, presque avec gêne. Puis ils s'écartent.`,`The main door of the residence opens before you knock. Two soldiers search you, without roughness, almost awkwardly. Then they step aside.`),
+...IF('pHiddenKnife',[
+ N(`Ils n'ont pas pensé au revers de ta botte.`,`They didn't think of your boot cuff.`),
+],[]),
+N(`La grande salle est éclairée par cent bougies, comme un soir de bal. Ton père est assis sur une chaise, au milieu, la jambe bandée, les mains liées. Lettie est à genoux à côté de lui. Et devant la cheminée, en uniforme d'amiral espagnol, l'épaule encore raide, un verre de vin à la main, Blackwood se retourne et te sourit.`,`The great hall is lit by a hundred candles, like a ball night. Your father sits on a chair in the middle, his leg bandaged, his hands bound. Lettie kneels beside him. And before the fireplace, in a Spanish admiral's uniform, shoulder still stiff, a glass of wine in his hand, Blackwood turns and smiles at you.`),
+D('blackwood','s',`Ponctuelle. J'ai toujours admiré ça chez vous.`,`Punctual. I always admired that in you.`),
+{end:139}
+);

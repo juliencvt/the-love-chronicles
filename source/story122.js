@@ -54,6 +54,6 @@ N(`« Et l'or du roi d'Espagne. »`,`"And the King of Spain's gold."`),
 {st:['mc']},
 N(`Tu poses la main sur la crosse de ton pistolet. Puis tu la retires. Et tu souris.`,`You lay your hand on the butt of your pistol. Then take it away. And smile.`),
 D('mc','s',`Señor de Alvarado. Je crois qu'on a beaucoup de choses à se raconter.`,`Señor de Alvarado. I believe we have a great deal to talk about.`),
-N(`Fin de la saison 1. La suite de La Fiancée du Corsaire arrive bientôt.`,`End of Season 1. The Corsair's Betrothed will continue soon.`),
+N(`Fin de la saison 1.`,`End of Season 1.`),
 {end:122}
 );
