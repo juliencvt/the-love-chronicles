@@ -35,7 +35,7 @@ const SOLO=()=>[
 STORY.push(
 {bg:'court',mus:'tender',chap:136,card:['Saison 2 · Chapitre 14','Season 2 · Chapter 14'],sub:['La veille','The Eve'],where:['La résidence du gouverneur, Spanish Town','The Governor\'s residence, Spanish Town']},
 {st:['gov','mc']},
-N(`La veille de la nouvelle lune, tout est prêt. Les pirates d'Anne Bonny et les huit cents hommes de la milice sont partis pour Old Harbour dans la journée, à pied, par les sentiers de la montagne. Les vaisseaux de la Royal Navy gardent la passe de Port-Royal.`,`On the eve of the new moon everything is ready. Anne Bonny's pirates and the eight hundred men of the militia set off for Old Harbour during the day, on foot, by the mountain trails. The Royal Navy ships guard the Port Royal channel.`),
+N(`La veille de la nouvelle lune, tout est prêt. Les pirates d'Anne Bonny et la milice sont partis à pied vers la plage de l'ouest, là où les Espagnols vont débarquer. Les navires de guerre anglais gardent l'entrée de Port-Royal.`,`On the eve of the new moon, everything is ready. Anne Bonny's pirates and the militia have set off on foot for the western beach, where the Spaniards will land. The English warships guard the entrance to Port Royal.`),
 ...IF('pFireships',[
  N(`Dans le port, huit vieilles coques bourrées de poudre et de goudron attendent la marée, leurs mâts nus comme des squelettes.`,`In the harbour, eight old hulks stuffed with powder and tar wait for the tide, their bare masts like skeletons.`),
 ],[

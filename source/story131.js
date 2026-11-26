@@ -40,7 +40,7 @@ N(`{li1} éclate de rire. Puis {a:il|elle} t'embrasse, avec cette fougue qui t'a
 ])]),
 {bg:'docks',mus:'mystery',card:['Port-Royal','Port Royal'],sub:['',''],where:['Port-Royal, Jamaïque','Port Royal, Jamaica']},
 {st:['mc']},
-N(`Le cinquième jour, à l'aube, les Blue Mountains se dressent sur l'horizon. Puis la longue langue de sable de Port-Royal. Puis les remparts du fort Charles, et le pavillon anglais qui claque au vent.`,`On the fifth day at dawn the Blue Mountains rise on the horizon. Then the long tongue of sand at Port Royal. Then the ramparts of Fort Charles, and the English flag snapping in the wind.`),
+N(`Le cinquième jour, à l'aube, les montagnes de la Jamaïque se dressent sur l'horizon. Puis Port-Royal. Le fort, et le pavillon anglais qui claque au vent. Vous êtes rentrés à temps. Maintenant, il faut prévenir ton père.`,`On the fifth day at dawn the mountains of Jamaica rise on the horizon. Then Port Royal. The fort, and the English flag snapping in the wind. You're home in time. Now you must warn your father.`),
 ...IF('pFanchonSaved',[
  N(`À côté de toi, Fanchon, une béquille sous le bras, crache par-dessus le bastingage pour conjurer le mauvais sort. « Quatre jours d'avance sur les Espagnols, dit-elle. C'est pas beaucoup. Mais j'ai vu des gens faire des miracles avec moins. »`,`Beside you Fanchon, a crutch under her arm, spits over the rail to ward off bad luck. "Four days ahead of the Spaniards," she says. "It's not much. But I've seen people work miracles with less."`),
 ],[
