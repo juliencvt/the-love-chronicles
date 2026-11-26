@@ -50,12 +50,13 @@ N(`{li2} regarde son oncle, les yeux humides. Puis, pour la première fois de sa
 N(`Lettie arrive en courant, les joues roses, un papier à la main.`,`Lettie comes running, pink-cheeked, a paper in her hand.`),
 D('lettie','a',`Mademoiselle ! Le pasteur a dit oui ! Samedi ! On se marie samedi, Mr Hale et moi ! Et vous m'avez promis d'être là.`,`Miss! The parson said yes! Saturday! Mr Hale and I are getting married on Saturday! And you promised to be there.`),
 N(`Tu la serres contre toi en riant.`,`You hug her, laughing.`),
+D('lettie','s',`Et vous serez mon témoin. Vous mettrez votre belle robe bleue. Je ne veux pas d'une témoin en bottes de pirate, mademoiselle. Même si c'est la plus célèbre capitaine des Caraïbes.`,`And you'll be my witness. You'll wear your beautiful blue gown. I won't have a witness in pirate boots, miss. Even if she's the most famous captain in the Caribbean.`),
 ...IF('pChoseRook',[
- D('lettie','s',`Et puisqu'on parle de mariage… Sir Thomas demande si vous voulez faire ça le même jour. Deux mariages. Il dit que ça lui fera économiser un banquet.`,`And speaking of weddings… Sir Thomas asks whether you'd like to do it the same day. Two weddings. He says it'll save him a banquet.`),
+ D('lettie','n',`Et vous, alors ? Vous et {a:le capitaine|la capitaine} ? C'est pour quand ?`,`And what about you? You and the captain? When's it to be?`),
+ D('mc','s',`En mer, Lettie. Un jour. Quand on aura trouvé le bon horizon.`,`At sea, Lettie. One day. When we've found the right horizon.`),
 ],[...IF('pChoseHenry',[
- D('lettie','s',`Et puisqu'on parle de mariage… Sir Thomas demande si vous voulez faire ça le même jour. Deux mariages. Il dit que ça lui fera économiser un banquet.`,`And speaking of weddings… Sir Thomas asks whether you'd like to do it the same day. Two weddings. He says it'll save him a banquet.`),
-],[
- D('lettie','s',`Et vous serez mon témoin. Vous mettrez votre belle robe bleue. Je ne veux pas d'une témoin en bottes de pirate, mademoiselle. Même si c'est la plus célèbre capitaine des Caraïbes.`,`And you'll be my witness. You'll wear your beautiful blue gown. I won't have a witness in pirate boots, miss. Even if she's the most famous captain in the Caribbean.`),
-])]),
+ D('lettie','n',`Et vous, alors ? Vous et {li2} ? La bague, elle est toujours de travers, mais elle est à votre doigt. C'est pour quand ?`,`And what about you? You and {li2}? The ring's still crooked, but it's on your finger. When's it to be?`),
+ D('mc','s',`En mer, Lettie. Un jour. Quand on aura trouvé le bon horizon.`,`At sea, Lettie. One day. When we've found the right horizon.`),
+],[])]),
 {end:142}
 );
