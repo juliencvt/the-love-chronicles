@@ -35,9 +35,9 @@ C('p46b',0,[
 ]),
 D('mc','n',`À toi. Quelque chose que tu n'as jamais dit.`,`Your turn. Something you've never said.`),
 ...IF('pEndRook',[
- D('lv','s',`J'ai peur d'être heureu{a:x|se}. Toute ma vie, le bonheur, c'était juste avant la tempête. Un jour calme, et puis la Navy à l'horizon. Alors chaque fois que je suis bien, j'attends que ça casse.`,`I'm afraid of being happy. All my life, happiness came just before the storm. A calm day, and then the Navy on the horizon. So every time I feel good, I'm waiting for it to break.`),
- N(`Tu prends sa main et tu la poses sur ton cœur.`,`You take {a:his|her} hand and lay it on your heart.`),
- D('mc','s',`Alors on attendra ensemble. Et quand ça cassera, on recollera les morceaux. Ensemble aussi.`,`Then we'll wait together. And when it breaks, we'll put the pieces back. Together too.`),
+ D('lv','s',`Je chante. Tous les matins, avant que tu te réveilles. Faux. Très faux. Des chansons de taverne, avec tous les couplets. Le jour où tu m'entendras, je nierai tout.`,`I sing. Every morning, before you wake up. Out of tune. Very out of tune. Tavern songs, every verse. The day you hear me, I'll deny everything.`),
+ N(`Tu ris si fort que tu en tombes de la couverture.`,`You laugh so hard you roll off the blanket.`),
+ D('mc','s',`Demain, je me réveille avant toi. Et je veux tous les couplets.`,`Tomorrow I'm waking up before you. And I want every verse.`),
 ],[
  D('lv','s',`Avant de te connaître, je n'avais jamais rien choisi. Ni mes vêtements, ni mes amis, ni ma fiancée. Toi, je t'ai choisie deux fois. La première, parce qu'on me l'avait dit. La deuxième, parce que je le voulais. Je crois que c'est la seule vraie décision de toute ma vie.`,`Before I knew you, I'd never chosen anything. Not my clothes, not my friends, not my betrothed. You, I chose twice. The first time because I was told to. The second because I wanted to. I think it's the only real decision of my whole life.`),
  N(`Tu ne réponds pas. Tu te blottis contre {a:lui|elle}, sous la couverture.`,`You don't answer. You snuggle against {a:him|her} under the blanket.`),

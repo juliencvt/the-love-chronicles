@@ -42,8 +42,8 @@ N(`Tu as remis ta cape à capuchon, la noire. Esteban porte son uniforme d'offic
  D('li1','s',`Une heure. Pas une minute de plus. Ramène-la. Et ramène-toi.`,`One hour. Not a minute more. Bring her back. And bring yourself back.`),
 ],[...IF('pChoseHenry',[
  {st:['li2','mc']},
- N(`Dans la chaloupe, {li2} s'assoit à côté de toi, une épée sur les genoux. {a:Il|Elle} est très pâle. Tu prends sa main. Elle est glacée.`,`In the launch {li2} sits beside you, a sword across {a:his|her} knees. {a:He|She}'s very pale. You take {a:his|her} hand. It's ice-cold.`),
- D('li2','s',`Je n'ai pas peur pour moi. J'ai peur pour vous. C'est beaucoup plus fatigant.`,`I'm not afraid for myself. I'm afraid for you. It's far more tiring.`),
+ N(`Dans la chaloupe, {li2} s'assoit à côté de toi, une épée sur les genoux. {a:Il|Elle} est calme, concentré{a:|e}. Tu prends sa main. Elle ne tremble pas.`,`In the launch {li2} sits beside you, a sword across {a:his|her} knees. {a:He|She}'s calm, focused. You take {a:his|her} hand. It isn't trembling.`),
+ D('li2','s',`Ne me regardez pas comme ça. Je ne m'inquiète pas pour vous. Je vous ai vue vous battre. C'est Ortega qui devrait s'inquiéter.`,`Don't look at me like that. I'm not worried about you. I've seen you fight. It's Ortega who should be worried.`),
 ],[
  {st:['mc']},
  N(`Dans la chaloupe, personne ne parle. Tu regardes la falaise noire du Morro grandir devant toi. C'est ta quartier-maître, là-dedans. C'est ton équipage. C'est à toi d'aller la chercher.`,`In the launch, no one speaks. You watch the black cliff of the Morro grow before you. That's your quartermaster in there. That's your crew. It's up to you to fetch her.`),
