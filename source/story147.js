@@ -28,6 +28,6 @@ N(`Ses lèvres descendent le long de ta mâchoire, dans ton cou, là où ton cœ
 D('lv','s',`Si tu veux que j'arrête, dis-le.`,`If you want me to stop, say so.`),
 D('mc','s',`Je ne veux pas que tu arrêtes. Je veux que ça dure.`,`I don't want you to stop. I want it to last.`),
 N(`Alors {a:il|elle} ralentit. Exprès. Chaque geste dure une éternité. Le feu crépite, les vagues roulent sur le sable, une dernière tortue regagne la mer derrière vous. Vous ne la voyez pas partir.`,`So {a:he|she} slows down. On purpose. Every gesture lasts an eternity. The fire crackles, the waves roll over the sand, a last turtle returns to the sea behind you. You don't see her go.`),
-N(`Plus tard, beaucoup plus tard, vous vous endormez dans le sable tiède, enroulés dans la même cape, le feu réduit à quelques braises. Au loin, *La Fiancée* se balance doucement sur l'eau noire, comme pour vous bercer.`,`Later, much later, you fall asleep in the warm sand, wrapped in the same cape, the fire down to a few embers. Out on the black water, *The Bride* rocks gently, as if to lull you.`),
+N(`Plus tard, beaucoup plus tard, vous vous endormez dans le sable tiède, enroulés dans la même cape, le feu réduit à quelques braises. Au loin, *La Fiancée* se balance doucement sur l'eau noire, comme pour vous bercer.`,`Later, much later, you fall asleep in the warm sand, wrapped in the same cape, the fire down to a few embers. Out on the black water, *The Betrothed* rocks gently, as if to lull you.`),
 {end:147}
 );

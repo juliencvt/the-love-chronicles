@@ -33,7 +33,7 @@ N(`Isaure lui prend la main. Ensemble, ils se lèvent. Ensemble, ils marchent ju
 {bg:'lidostorm',mus:'mystery',card:['Le naufrage','The sinking'],sub:['',''],where:['En mer','At sea']},
 {st:['lv','mc']},
 N(`Et sous vos pieds, le navire tremble. Sans capitaine et sans malédiction, il redevient ce qu'il est vraiment : une épave de cent ans. Le pont craque. Les mâts penchent. L'eau monte.`,`And beneath your feet the ship shudders. Without a captain and without a curse, she becomes what she truly is: a hundred-year-old wreck. The deck cracks. The masts lean. The water rises.`),
-D('mc','a',`Tout le monde à l'eau ! Vers *La Fiancée* ! Vite !`,`Everyone into the water! To *The Bride*! Quick!`),
+D('mc','a',`Tout le monde à l'eau ! Vers *La Fiancée* ! Vite !`,`Everyone into the water! To *The Betrothed*! Quick!`),
 N(`Vous sautez. Tous. Tu tiens la main de {lv} en tombant. L'eau est tiède, noire, et tout autour de vous, des centaines de lucioles volent au-dessus de la mer, vers l'îlet, comme pour vous montrer le chemin.`,`You jump. All of you. You're holding {lv}'s hand as you fall. The water is warm and black, and all around you hundreds of fireflies fly over the sea towards the islet, as if to show you the way.`),
 N(`Derrière vous, le navire de Lazare Morne s'enfonce lentement dans la mer, sans un bruit, comme quelqu'un qui s'endort. Il disparaît. Il n'en reste rien. Juste quelques planches qui flottent, et une vieille cloche de bronze qui s'enfonce dans l'eau noire en sonnant une dernière fois.`,`Behind you, Lazare Morne's ship sinks slowly into the sea without a sound, like someone falling asleep. She disappears. Nothing is left. Just a few floating planks, and an old bronze bell sinking into the black water, ringing one last time.`),
 {end:159}

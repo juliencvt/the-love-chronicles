@@ -36,7 +36,7 @@ N(`{a:Il|Elle} regarde la mer. Puis {a:il|elle} se tourne vers toi, et prend tes
 D('lv','s',`Mais si c'est sur un navire fantôme que tu veux me dire oui, alors j'irai sur un navire fantôme. J'irais n'importe où pour t'entendre dire oui.`,`But if a ghost ship is where you want to say yes to me, then I'll go to a ghost ship. I'd go anywhere to hear you say yes.`),
 N(`Tu l'embrasses, là, au bout du ponton d'Isaure, sous le soleil de midi. Quelque part, tu as l'impression que quelqu'un vous regarde. Pas avec colère. Avec espoir.`,`You kiss {a:him|her} there at the end of Isaure's jetty, under the noon sun. Somewhere, you feel someone is watching you. Not with anger. With hope.`),
 D('mc','n',`Il nous faut un navire assez solide pour aborder le sien. Et un équipage. Et quelqu'un pour nous marier.`,`We need a ship strong enough to board his. And a crew. And someone to marry us.`),
-D('lv','n',`*La Fiancée* est trop petite. Et notre équipage est à trois mois d'ici, en train de gratter des coquillages.`,`*The Bride* is too small. And our crew is three months away, scraping barnacles.`),
+D('lv','n',`*La Fiancée* est trop petite. Et notre équipage est à trois mois d'ici, en train de gratter des coquillages.`,`*The Betrothed* is too small. And our crew is three months away, scraping barnacles.`),
 N(`À ce moment-là, au loin, sur la mer, une voile apparaît. Puis une coque. Et un pavillon noir, avec une tête de mort et deux sabres croisés, qui claque dans le vent.`,`At that moment, far out on the sea, a sail appears. Then a hull. And a black flag with a skull and two crossed cutlasses, snapping in the wind.`),
 {end:152}
 );

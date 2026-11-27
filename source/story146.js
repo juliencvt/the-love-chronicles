@@ -1,13 +1,13 @@
 /* ===== LA FIANCÉE DU CORSAIRE — SAISON 3 — CHAPITRE 2 — Rien que nous deux ===== */
 STORY.push(
-{bg:'ship',mus:'calm',chap:146,card:['Saison 3 · Chapitre 2','Season 3 · Chapter 2'],sub:['Rien que nous deux','Just the Two of Us'],where:['*La Fiancée*, en pleine mer','*The Bride*, at sea']},
+{bg:'ship',mus:'calm',chap:146,card:['Saison 3 · Chapitre 2','Season 3 · Chapter 2'],sub:['Rien que nous deux','Just the Two of Us'],where:['*La Fiancée*, en pleine mer','*The Betrothed*, at sea']},
 {st:['lv','mc']},
 N(`Le premier jour, vous ne savez pas quoi faire de vous-mêmes. Vous vous levez à l'aube par habitude, vous vérifiez les cordages trois fois, vous cherchez des voiles à l'horizon. Il n'y a personne. Personne ne vous poursuit. Personne n'a besoin de vous.`,`On the first day you don't know what to do with yourselves. You get up at dawn out of habit, check the rigging three times, look for sails on the horizon. There's no one. No one is chasing you. No one needs you.`),
 D('lv','n',`C'est étrange. J'ai l'impression d'avoir oublié quelque chose. Une bataille, un trésor, un commodore à arrêter.`,`It's strange. I feel as if I've forgotten something. A battle, a treasure, a commodore to stop.`),
 D('mc','h',`On pourrait faire semblant. Je te poursuis autour du mât, et tu essaies de me voler ma tasse de thé.`,`We could pretend. I'll chase you round the mast and you try to steal my cup of tea.`),
 D('lv','h',`Marché conclu.`,`Deal.`),
 N(`Et c'est exactement ce que vous faites. Deux capitaines célèbres dans toutes les Caraïbes, qui courent autour d'un mât en riant comme des enfants, pendant qu'une tasse de thé se renverse sur le pont.`,`And that's exactly what you do. Two captains famous throughout the Caribbean, running round a mast laughing like children while a cup of tea spills across the deck.`),
-{bg:'ship',mus:'calm',card:['La cuisine','The galley'],sub:['',''],where:['La minuscule cuisine de *La Fiancée*','*The Bride*\'s tiny galley']},
+{bg:'ship',mus:'calm',card:['La cuisine','The galley'],sub:['',''],where:['La minuscule cuisine de *La Fiancée*','*The Betrothed*\'s tiny galley']},
 N(`Le soir, il faut manger. Sur le *Siren's Due*, il y avait un cuisinier. Ici, il y a un petit fourneau, une marmite, un sac de riz, des oignons, et deux personnes qui n'ont jamais cuisiné de leur vie.`,`In the evening you need to eat. On the *Siren's Due* there was a cook. Here there's a little stove, a pot, a sack of rice, onions, and two people who have never cooked in their lives.`),
 ...IF('pEndRook',[
  D('lv','n',`J'ai vu le cuisinier faire, des centaines de fois. On jette tout dans la marmite, on remue, et on prie.`,`I've watched the cook do it hundreds of times. You throw everything in the pot, stir, and pray.`),
@@ -26,7 +26,7 @@ N(`L'eau est tiède comme un bain. Vous nagez jusqu'à la plage, vous vous laiss
 D('lv','s',`Tu sais ce que je n'ai jamais fait, avec toi ?`,`Do you know what I've never done with you?`),
 D('mc','n',`Quoi ?`,`What?`),
 D('lv','s',`Rien. Je n'ai jamais rien fait avec toi. Pas de bataille, pas de fuite, pas de trésor. Juste rien. J'adore ça.`,`Nothing. I've never done nothing with you. No battle, no escape, no treasure. Just nothing. I love it.`),
-{bg:'ship',mus:'tender',card:['Les étoiles','The stars'],sub:['',''],where:['Le pont de *La Fiancée*, la nuit','*The Bride*\'s deck, at night']},
+{bg:'ship',mus:'tender',card:['Les étoiles','The stars'],sub:['',''],where:['Le pont de *La Fiancée*, la nuit','*The Betrothed*\'s deck, at night']},
 N(`La nuit, vous traînez une couverture sur le pont, et vous vous allongez pour regarder les étoiles. Tu les nommes une par une, comme autrefois dans ta chambre, avec l'atlas sur les genoux.`,`At night you drag a blanket onto the deck and lie down to watch the stars. You name them one by one, as you used to in your room, with the atlas on your knees.`),
 D('lv','n',`Dis-moi quelque chose que tu n'as jamais dit à personne.`,`Tell me something you've never told anyone.`),
 C('p46b',0,[
