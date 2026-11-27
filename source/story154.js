@@ -36,7 +36,7 @@ N(`Une moitié revient se coller aux pieds de {lv}. L'autre moitié file vers le
 {st:['morne','mc']},
 D('morne','s',`La moitié. C'est déjà beaucoup. Demain soir, je reviendrai chercher l'autre. Et la vôtre aussi, capitaine. On ne sépare pas ce qui brûle ensemble.`,`Half. That's already a lot. Tomorrow night I'll come back for the rest. And yours too, captain. One shouldn't separate what burns together.`),
 N(`Il se détourne et marche sur l'eau vers son navire. Derrière lui, le chant reprend. Le navire noir recule dans la nuit, et disparaît dans sa brume verte.`,`He turns away and walks across the water to his ship. Behind him the song resumes. The black ship draws back into the night and vanishes into her green mist.`),
-{bg:'hut',mus:'tender',card:['L\'aube','Dawn'],sub:['',''],where:['La maison de Clémence, à l\'aube','Clémence\'s house, at dawn']},
+{bg:'hut',mus:'tender',card:['L\'aube','Dawn'],sub:['',''],where:['La maison de Zabeth, à l\'aube','Zabeth\'s house, at dawn']},
 {st:['lv','mc']},
 N(`Vous ramenez {lv} à la maison. {a:Il|Elle} est pâle, épuisé{a:|e}, mais réveillé{a:|e}. Pendant toute la nuit, tu tiens sa main. À la lumière de la lampe, sur le mur, son ombre est grise et transparente, comme une ombre de fin d'après-midi.`,`You bring {lv} back to the house. {a:He|She}'s pale, exhausted, but awake. All night you hold {a:his|her} hand. In the lamplight, on the wall, {a:his|her} shadow is grey and transparent, like a late-afternoon shadow.`),
 N(`Et quand le soleil se lève, {lv} ferme les yeux. Doucement. Comme quelqu'un qui s'endort après une longue journée.`,`And when the sun rises, {lv} closes {a:his|her} eyes. Gently. Like someone falling asleep after a long day.`),

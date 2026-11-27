@@ -34,9 +34,9 @@ N(`Tiago s'arrête net en la voyant aussi. Il oublie de remettre son chapeau, qu
 D('tiago','s',`Bonjour.`,`Hello.`),
 D('celeste','s',`Bonjour.`,`Hello.`),
 N(`Anne Bonny te donne un coup de coude dans les côtes et murmure : « Et voilà. Un de perdu. » Tu étouffes un rire.`,`Anne Bonny elbows you in the ribs and murmurs, "And there it is. One down." You stifle a laugh.`),
-{bg:'hut',mus:'mystery',card:['Le conseil','The council'],sub:['',''],where:['La véranda de Clémence','Clémence\'s veranda']},
+{bg:'hut',mus:'mystery',card:['Le conseil','The council'],sub:['',''],where:['La véranda de Zabeth','Zabeth\'s veranda']},
 {st:['clemence','anne']},
-N(`Le soir, tout le monde se retrouve sur la véranda de Clémence. Anne, Matthias, Kit, {ot}, Tiago, Céleste, {lv}, toi.`,`In the evening everyone gathers on Clémence's veranda. Anne, Matthias, Kit, {ot}, Tiago, Céleste, {lv}, you.`),
+N(`Le soir, tout le monde se retrouve sur la véranda de Zabeth. Anne, Matthias, Kit, {ot}, Tiago, Céleste, {lv}, toi.`,`In the evening everyone gathers on Zabeth's veranda. Anne, Matthias, Kit, {ot}, Tiago, Céleste, {lv}, you.`),
 ...IF('pFanchonSaved',[
  N(`Et Fanchon, bien sûr, qui a serré Matthias et Kit dans ses bras si fort qu'ils ont protesté, et qui a déjà engueulé Anne Bonny deux fois pour des raisons que personne n'a comprises.`,`And Fanchon, of course, who hugged Matthias and Kit so hard they protested, and has already told Anne Bonny off twice for reasons no one understood.`),
 ],[]),
