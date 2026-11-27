@@ -34,6 +34,13 @@ D('gov','s',`En tant que gouverneur, en temps de guerre, je réquisitionne vos d
 N(`Lord Ashcombe ouvre la bouche. La referme. Puis il tourne les talons et remonte dans sa chaloupe sans un mot, sa canne à pommeau d'or sous le bras.`,`Lord Ashcombe opens his mouth. Closes it. Then he turns on his heel and climbs back into his launch without a word, his gold-headed cane under his arm.`),
 N(`Ton père te jette un regard en coin.`,`Your father gives you a sidelong look.`),
 D('gov','n',`Quoi ? Je déteste les pirates. Mais je déteste encore plus les lords.`,`What? I hate pirates. But I hate lords even more.`),
+{bg:'docks',mus:'tender',card:['Matelot','Sailor'],sub:['',''],where:['Le quai de Port-Royal','The Port Royal quay']},
+{st:['kit','li2']},
+N(`Quand la foule se disperse, Kit, Matthias et une dizaine de marins s'approchent de {li2}. Kit tient quelque chose dans ses mains, enveloppé dans un vieux mouchoir.`,`When the crowd disperses, Kit, Matthias and a dozen sailors come up to {li2}. Kit is holding something in his hands, wrapped in an old handkerchief.`),
+D('kit','h',`C'est de la part de tout le monde, milord. Enfin… plus milord. Matelot.`,`It's from everyone, milord. Well… not milord any more. Sailor.`),
+N(`Dans le mouchoir, il y a un couteau de marin, à manche de corne, gravé de deux lettres maladroites : les initiales de {li2}. Kit l'a gravé lui-même. Ça se voit.`,`In the handkerchief is a sailor's knife with a horn handle, carved with two clumsy letters: {li2}'s initials. Kit carved them himself. It shows.`),
+D('matthias','s',`Chez nous, un marin reçoit son couteau le jour où l'équipage décide qu'il en est un. Aujourd'hui, on a décidé.`,`With us, a sailor gets his knife the day the crew decides he is one. Today, we decided.`),
+N(`{li2} prend le couteau. {a:Il|Elle} essaie de dire quelque chose. Rien ne sort. Alors {a:il|elle} serre Kit dans ses bras, puis Matthias, puis tous les autres, un par un, pendant que les dockers regardent, ébahis, {a:un ancien lord|une ancienne lady} embrasser des pirates sur un quai.`,`{li2} takes the knife. {a:He|She} tries to say something. Nothing comes. So {a:he|she} hugs Kit, then Matthias, then all the others, one by one, while the dockers stare, astonished, at a former noble embracing pirates on a quay.`),
 {bg:'garden',mus:'tender',card:['Le soir','Evening'],sub:['',''],where:['Le jardin de la résidence','The residence garden']},
 ...IF('pChoseHenry',[
  {st:['li2','mc']},

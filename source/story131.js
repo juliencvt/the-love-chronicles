@@ -38,6 +38,19 @@ N(`{li1} éclate de rire. Puis {a:il|elle} t'embrasse, avec cette fougue qui t'a
   {t:[`Rendre son salut à {li1}, et lui proposer une course jusqu'à l'aube.`,`Return {li1}'s salute and challenge {a:him|her} to a race until dawn.`],fx:{li1:3},r:[N(`Tu lèves ton propre chapeau et tu montres l'horizon. {li1} comprend immédiatement. Son rire traverse l'eau. Toute la nuit, vos deux navires se disputent la tête, à un demi-mille l'un de l'autre, en se criant des insultes affectueuses par-dessus les vagues. À l'aube, l'*Hirondelle* a une longueur d'avance. {li1} t'envoie un message par la chaloupe : une seule ligne, de sa grande écriture penchée. « Tricheuse. Je t'adore. »`,`You raise your own hat and point at the horizon. {li1} understands at once. {a:His|Her} laugh carries across the water. All night your two ships fight for the lead half a mile apart, shouting affectionate insults over the waves. At dawn the *Swallow* is a length ahead. {li1} sends you a message by launch: a single line in {a:his|her} big sloping hand. "Cheat. I adore you."`)]}
  ]),
 ])]),
+{bg:'ship',mus:'calm',card:['En route','Under way'],sub:['',''],where:['Le Siren\'s Due, en route vers la Jamaïque','The Siren\'s Due, bound for Jamaica']},
+...IF('pFanchonSaved',[
+ {st:['nan','mc']},
+ N(`Le troisième soir, Fanchon est assise sur le pont, la cheville bandée posée sur un tonneau. Tu lui apportes sa pipe. Elle la prend avec un soupir de bonheur.`,`On the third evening, Fanchon is sitting on deck, her bandaged ankle propped on a barrel. You bring her pipe. She takes it with a sigh of bliss.`),
+ D('nan','s',`Tu sais ce que j'ai fait, dans cette cellule, pendant trois jours ? J'ai pensé à ma sœur. En Martinique. Je ne l'ai pas vue depuis vingt ans. Elle me croit morte. Je me suis promis que si je sortais de là, j'irais la voir.`,`You know what I did in that cell for three days? I thought about my sister. In Martinique. I haven't seen her in twenty years. She thinks I'm dead. I promised myself that if I got out, I'd go and see her.`),
+ D('mc','s',`Alors tu iras. Quand tout ça sera fini.`,`Then you'll go. When all this is over.`),
+ D('nan','h',`J'irai. Et je l'emmènerai voir la fille du gouverneur qui m'a sortie du Morro. Elle ne me croira jamais.`,`I will. And I'll take her to meet the governor's daughter who got me out of the Morro. She'll never believe me.`),
+],[
+ {st:['kit','mc']},
+ N(`Le troisième soir, Kit vient te trouver avec le carnet de Fanchon. Le petit carnet de cuir où elle notait les parts de chacun, les dettes, les punitions. Il le tient comme une relique.`,`On the third evening Kit comes to you with Fanchon's notebook. The little leather book where she noted everyone's shares, debts, punishments. He holds it like a relic.`),
+ D('kit','s',`Il faut que quelqu'un continue, m'dame. Moi, je sais pas bien écrire. Mais vous, oui. Vous voulez bien ?`,`Someone's got to carry on, ma'am. I can't write well. But you can. Will you?`),
+ N(`Tu prends le carnet. Sur la première page, d'une écriture ronde et appliquée, Fanchon a écrit : *Pas de pitié pour les tricheurs. Pas de tricherie avec les gens qu'on aime.* Tu le serres contre toi, et tu hoches la tête.`,`You take the notebook. On the first page, in a round careful hand, Fanchon wrote: *No mercy for cheats. No cheating with the people you love.* You hold it close, and nod.`),
+]),
 {bg:'docks',mus:'mystery',card:['Port-Royal','Port Royal'],sub:['',''],where:['Port-Royal, Jamaïque','Port Royal, Jamaica']},
 {st:['mc']},
 N(`Le cinquième jour, à l'aube, les montagnes de la Jamaïque se dressent sur l'horizon. Puis Port-Royal. Le fort, et le pavillon anglais qui claque au vent. Vous êtes rentrés à temps. Maintenant, il faut prévenir ton père.`,`On the fifth day at dawn the mountains of Jamaica rise on the horizon. Then Port Royal. The fort, and the English flag snapping in the wind. You're home in time. Now you must warn your father.`),

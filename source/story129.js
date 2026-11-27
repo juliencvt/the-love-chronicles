@@ -30,6 +30,13 @@ D('matthias','n',`Elle m'a sorti d'une geôle de Saint-Domingue, il y a douze an
 D('esteban','s',`Le Morro, c'est la grande forteresse qui garde le port de La Havane. Elle a une faiblesse. Une seule. Une grotte, sous les murs, où la mer entre à marée haute. À marée basse, un homme peut s'y glisser jusqu'aux cachots. Ou une femme.`,`The Morro is the great fortress guarding Havana harbour. It has one weakness. Just one. A cave under the walls where the sea comes in at high tide. At low tide a man can slip through it to the cells. Or a woman.`),
 N(`Tous les regards se tournent vers toi.`,`Every eye turns to you.`),
 D('mc','a',`On y va dans trois nuits. La veille de l'exécution.`,`We go in three nights. The night before the execution.`),
+{bg:'ship',mus:'mystery',card:['Les préparatifs','Preparations'],sub:['',''],where:['La grande cabine','The great cabin']},
+{st:['esteban','mc']},
+N(`Pendant deux jours, la grande cabine devient un atelier. Esteban dessine de mémoire le plan du Morro : les escaliers, les couloirs, la place de chaque sentinelle. Matthias calcule les marées avec Kit. Toi, tu notes tout.`,`For two days the great cabin becomes a workshop. Esteban draws the Morro from memory: the stairs, the corridors, where every sentry stands. Matthias works out the tides with Kit. You write everything down.`),
+D('esteban','n',`La marée sera au plus bas à minuit et demi. Vous aurez une heure pour entrer, trouver Fanchon et ressortir. Après, la mer remonte dans la grotte, et vous êtes noyés.`,`The tide will be lowest at half past midnight. You'll have one hour to get in, find Fanchon and get out. After that the sea comes back into the cave, and you drown.`),
+D('mc','n',`Une heure. Et si quelque chose tourne mal ?`,`One hour. And if something goes wrong?`),
+D('esteban','s',`Alors il faudra improviser, señorita. On m'a dit que vous étiez douée pour ça.`,`Then you'll have to improvise, señorita. I'm told you're good at that.`),
+N(`Le soir, tu t'entraînes à ramper dans l'eau, le long de la coque, avec une lanterne sourde entre les dents. Kit te chronomètre avec un sablier. La première fois, tu mets beaucoup trop longtemps. La cinquième fois, tu es prête.`,`In the evening you practise crawling through the water along the hull, a dark lantern between your teeth. Kit times you with an hourglass. The first time you're far too slow. By the fifth, you're ready.`),
 {bg:'ship',mus:'tender',card:['La nuit','Night'],sub:['',''],where:['Le pont, sous les étoiles','The deck, under the stars']},
 ...IF('pChoseRook',[
  {st:['li1','mc']},

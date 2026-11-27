@@ -7,6 +7,14 @@ N(`Ton nouveau nom : doña Isabel, une dame espagnole, cousine d'Esteban, venue 
 D('esteban','h',`Non, non, non. Une dame de Séville ne pose pas les coudes sur la table. Et elle ne siffle pas quand elle voit un beau trois-mâts.`,`No, no, no. A lady of Seville does not put her elbows on the table. And she does not whistle when she sees a fine three-master.`),
 D('mc','s',`Même un très beau trois-mâts ?`,`Not even a very fine three-master?`),
 D('esteban','s',`Surtout un très beau trois-mâts.`,`Especially a very fine three-master.`),
+N(`Le deuxième jour, Esteban t'apprend qui tu vas rencontrer. Il dessine sur une feuille le plan du palais du gouverneur de La Havane, et les visages qui comptent.`,`On the second day Esteban teaches you whom you'll meet. On a sheet of paper he sketches the plan of the Governor of Havana's palace, and the faces that matter.`),
+D('esteban','n',`Le gouverneur, don Gregorio. Vieux, fatigué, il aime l'argent et les compliments. Sa femme, doña Inés. Elle s'ennuie à mourir et adore la poésie. Elle sera votre meilleure alliée, ou votre pire ennemie. Et le cabinet du gouverneur, ici, au premier étage, derrière la salle de bal. C'est là qu'il garde ses papiers secrets.`,`The Governor, Don Gregorio. Old, tired, fond of money and compliments. His wife, Doña Inés. She's bored to death and adores poetry. She'll be your best ally, or your worst enemy. And the Governor's study, here, on the first floor, behind the ballroom. That's where he keeps his secret papers.`),
+D('mc','n',`Et c'est là que sera le plan de Blackwood.`,`And that's where Blackwood's plan will be.`),
+D('esteban','s',`Si le plan existe, il ne peut être que là. Le reste dépendra de vous, señorita. Et de votre talent pour mentir en souriant.`,`If the plan exists, it can only be there. The rest will depend on you, señorita. And on your talent for lying with a smile.`),
+C('p25x',0,[
+ {t:[`« Je mens très bien. J'ai fait le mur pendant six ans sans que mon père le sache. »`,`"I lie very well. I sneaked out for six years without my father knowing."`],fx:{},r:[N(`Esteban éclate de rire. « Alors vous êtes prête pour la cour d'Espagne. Là-bas, tout le monde fait le mur. Mais avec beaucoup plus de dentelles. »`,`Esteban bursts out laughing. "Then you're ready for the Spanish court. Everyone there sneaks out. Just with far more lace."`)]},
+ {t:[`« Je déteste mentir. Mais je le ferai, pour mon père. »`,`"I hate lying. But I'll do it, for my father."`],fx:{rep:1},r:[N(`Esteban hoche la tête, sérieux. « C'est la meilleure raison de mentir que je connaisse. Mon père mentait aux douaniers pour ramener des oranges à ma mère. Il disait que les petits mensonges d'amour ne comptent pas devant Dieu. »`,`Esteban nods, serious. "That's the best reason for lying I know. My father lied to customs officers to bring my mother oranges. He said little lies for love don't count before God."`)]}
+]),
 {bg:'ship',mus:'tender',card:['La danse','The dance'],sub:['',''],where:['Le pont, au crépuscule','The deck, at dusk']},
 {st:['li2','mc']},
 N(`Chaque soir, au crépuscule, Esteban fait jouer un vieux guitariste de son équipage, et vous répétez les danses de la cour d'Espagne sur le pont. {li2} les connaît toutes. {a:Il|Elle} les a apprises enfant, d'un maître de danse qui {a:le|la} frappait sur les doigts avec une baguette.`,`Every evening at dusk, Esteban has an old guitarist from his crew play, and you rehearse the dances of the Spanish court on deck. {li2} knows them all. {a:He|She} learned them as a child from a dancing master who rapped {a:his|her} knuckles with a cane.`),
@@ -38,6 +46,15 @@ N(`Tu éclates de rire, et tu rates le pas, et tu lui écrases le pied. {a:Il|El
   ]),
  ]),
 ]),
+{bg:'ship',mus:'calm',card:['La nuit','Night'],sub:['',''],where:['Le pont de la frégate, la nuit','The frigate\'s deck, at night']},
+{st:['esteban','mc']},
+N(`La quatrième nuit, tu ne dors pas. Tu montes sur le pont. Esteban est accoudé au bastingage, seul, et regarde les étoiles avec un air de petit garçon.`,`On the fourth night you can't sleep. You go up on deck. Esteban is leaning on the rail, alone, gazing at the stars like a little boy.`),
+D('esteban','s',`Mon père m'apprenait les étoiles, quand j'avais six ans. Il me disait : « Celle-là, c'est la mienne. Quand je serai en mer, regarde-la, et je la regarderai aussi. » Pendant quarante ans, ma mère a regardé cette étoile tous les soirs.`,`My father taught me the stars when I was six. He'd say, "That one's mine. When I'm at sea, look at it, and I'll be looking at it too." For forty years my mother looked at that star every night.`),
+D('mc','s',`Laquelle est-ce ?`,`Which one is it?`),
+N(`Il te la montre. Une petite étoile rouge, bas sur l'horizon. Tu la connais. Tu l'as vue cent fois dans l'atlas. Tu lui dis son nom. Il le répète tout bas, comme une prière.`,`He points it out. A small red star, low on the horizon. You know it. You've seen it a hundred times in the atlas. You tell him its name. He repeats it softly, like a prayer.`),
+D('esteban','n',`Vous savez, señorita, je suis venu vous voir pour l'or. Mais je reste pour autre chose. Vous êtes la première personne, depuis quarante ans, qui m'a rendu mon père.`,`You know, señorita, I came to find you for the gold. But I'm staying for something else. You're the first person in forty years to give me back my father.`),
+{st:['nan','mc']},
+N(`En redescendant, tu croises Fanchon qui remonte, une bouteille à la main et deux verres. Elle te fait un clin d'œil, et continue vers le pont, vers Esteban. Tu ne poses pas de question. Tu souris tout le long de l'escalier.`,`Going down, you pass Fanchon coming up with a bottle and two glasses. She winks at you and carries on towards the deck, towards Esteban. You ask no questions. You smile all the way down the stairs.`),
 {bg:'docks',mus:'mystery',card:['La Havane','Havana'],sub:['',''],where:['L\'entrée du port de La Havane','The mouth of Havana harbour']},
 {st:['nan','mc']},
 N(`Le sixième jour, au lever du soleil, La Havane apparaît. Une ville blanche et ocre, des clochers, des toits de tuiles rouges, des palmiers. Et à l'entrée du port, sur un éperon de roche, le château du Morro, énorme, gris, hérissé de canons, qui regarde la mer comme un dogue.`,`On the sixth day, at sunrise, Havana appears. A white and ochre city, bell towers, red-tiled roofs, palms. And at the harbour mouth, on a spur of rock, the Morro castle, huge, grey, bristling with guns, watching the sea like a mastiff.`),
@@ -49,6 +66,10 @@ N(`Fanchon porte une robe de servante noire, un tablier blanc, un bonnet. Elle a
 ],[
  N(`À l'aube, {li1} a regagné son navire par une chaloupe. Avant de partir, {a:il|elle} t'a glissé dans la main une fusée verte enveloppée dans de la toile cirée. « Tu tires. Je viens. Pas de discussion. »`,`At dawn, {li1} went back to {a:his|her} ship by launch. Before leaving, {a:he|she} slipped a green rocket wrapped in oilcloth into your hand. "You fire. I come. No argument."`),
 ]),
+{st:['esteban','mc']},
+D('esteban','n',`Une dernière chose, señorita. Le bal a lieu dans deux jours. D'ici là, vous logerez dans ma maison, en ville. Vous sortirez, vous vous montrerez, vous irez à la messe. Il faut que tout La Havane connaisse doña Isabel avant le bal. Personne ne doit se demander d'où elle sort.`,`One last thing, señorita. The ball is in two days. Until then you'll stay at my house in town. You'll go out, be seen, go to Mass. All Havana must know Doña Isabel before the ball. No one must wonder where she came from.`),
+D('mc','n',`Et Blackwood ?`,`And Blackwood?`),
+D('esteban','s',`Blackwood ne va jamais à la messe. Il ne croit qu'en lui-même.`,`Blackwood never goes to Mass. He believes only in himself.`),
 N(`Derrière vous, sur la mer, une voile blanche s'éloigne vers l'est et disparaît derrière la pointe. Le *Siren's Due*. Il attendra. Une fusée verte, et il reviendra.`,`Behind you on the sea, a white sail heads east and vanishes behind the point. The *Siren's Due*. It will wait. One green rocket, and it will come.`),
 {end:125}
 );

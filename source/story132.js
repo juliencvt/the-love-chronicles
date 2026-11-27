@@ -38,5 +38,17 @@ D('mc','s',`Pour ça, il nous faut plus de monde. Et je sais où les trouver.`,`
 N(`{li1} hoche la tête. {a:Il|Elle} a compris avant tout le monde. Ton père aussi, à en juger par la façon dont il serre sa canne.`,`{li1} nods. {a:He|She} understood before anyone. So did your father, judging by the way he grips his cane.`),
 D('gov','n',`Tu ne vas pas me demander ce que je crois que tu vas me demander.`,`You're not going to ask me what I think you're going to ask me.`),
 D('mc','s',`Si, père. Il faut faire venir les pirates.`,`Yes, Father. We have to bring in the pirates.`),
+{bg:'terrace',mus:'tender',card:['La terrasse','The terrace'],sub:['',''],where:['La terrasse de la résidence, le soir','The residence terrace, in the evening']},
+{st:['gov','mc']},
+N(`Le soir, après le conseil, ton père t'attend sur la terrasse, avec deux verres de porto. Comme quand tu étais petite et qu'il te laissait goûter une goutte, une seule, le soir de Noël.`,`In the evening, after the council, your father is waiting for you on the terrace with two glasses of port. As when you were little and he let you taste a drop, just one, on Christmas Eve.`),
+D('gov','n',`Des pirates. Dans mon port. Pour défendre mon île. Si on m'avait dit ça il y a un an, j'aurais fait enfermer l'homme qui me l'aurait dit.`,`Pirates. In my harbour. To defend my island. If anyone had told me that a year ago, I'd have had him locked up.`),
+D('mc','n',`Il y a un an, je brodais des coussins en rêvant de bateaux.`,`A year ago I was embroidering cushions and dreaming of ships.`),
+D('gov','s',`Je sais. Je t'ai vue faire. Tu brodais très mal. Ta mère brodait très mal aussi. Elle cousait des voiles miniatures dans le coin de chaque coussin. Il y en a encore un dans mon bureau.`,`I know. I watched you. You embroidered very badly. Your mother embroidered very badly too. She'd sew a tiny sail into the corner of every cushion. There's still one in my study.`),
+N(`Vous restez longtemps sur la terrasse, sans parler, à regarder les lumières du port. Demain, il faudra se préparer à la guerre. Ce soir, il n'y a qu'un père et sa fille, et un verre de porto.`,`You stay on the terrace a long while without speaking, watching the harbour lights. Tomorrow you'll have to prepare for war. Tonight there's only a father and his daughter, and a glass of port.`),
+...IF('pChoseRook',[
+ {st:['li1','gov']},
+ N(`Au moment où tu vas te coucher, tu vois {li1} au bout du jardin, qui attend sous le manguier, n'osant pas s'approcher de la maison. Ton père {a:le|la} voit aussi. Il soupire. Puis il lève son verre dans sa direction.`,`As you're about to go to bed, you see {li1} at the end of the garden, waiting under the mango tree, not daring to come near the house. Your father sees {a:him|her} too. He sighs. Then he raises his glass towards {a:him|her}.`),
+ D('gov','s',`Va {a:le|la} rejoindre, avant que je change d'avis. Et dis-lui qu'à partir de maintenant, on passe par la porte.`,`Go to {a:him|her}, before I change my mind. And tell {a:him|her} that from now on, we use the door.`),
+],[]),
 {end:132}
 );

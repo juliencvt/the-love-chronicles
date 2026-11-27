@@ -36,8 +36,21 @@ STORY.push(
 {st:['esteban','mc']},
 N(`Marée basse. Minuit. La chaloupe glisse sans bruit sous la falaise du Morro, rames emmaillotées de chiffons. Au-dessus, les sentinelles chantent pour rester éveillées.`,`Low tide. Midnight. The launch slides silently under the cliff of the Morro, oars muffled in rags. Above, the sentries sing to stay awake.`),
 N(`Tu as remis ta cape à capuchon, la noire. Esteban porte son uniforme d'officier espagnol, recousu en hâte. Derrière toi, {li2} et Matthias, un couteau entre les dents. {li1} est resté{a:|e} sur le *Siren's Due*, prêt{a:|e} à venir vous chercher. {a:Il|Elle} a juré qu'{a:il|elle} n'attendrait qu'une heure. Ensuite, {a:il|elle} attaquera le Morro tout{a:|e} seul{a:|e}, s'il le faut.`,`You've put your hooded cape back on, the black one. Esteban wears his Spanish officer's uniform, hastily mended. Behind you, {li2} and Matthias, knives between their teeth. {li1} has stayed on the *Siren's Due*, ready to come for you. {a:He|She} swore {a:he|she}'d wait only an hour. After that {a:he|she}'ll attack the Morro single-handed, if need be.`),
+...IF('pChoseRook',[
+ {st:['li1','mc']},
+ N(`Avant que la chaloupe parte, {li1} t'attrape par la nuque et pose son front contre le tien. Sur le pont, personne ne regarde. Tout le monde regarde.`,`Before the launch leaves, {li1} catches the back of your neck and rests {a:his|her} forehead against yours. On deck, nobody looks. Everybody looks.`),
+ D('li1','s',`Une heure. Pas une minute de plus. Ramène-la. Et ramène-toi.`,`One hour. Not a minute more. Bring her back. And bring yourself back.`),
+],[...IF('pChoseHenry',[
+ {st:['li2','mc']},
+ N(`Dans la chaloupe, {li2} s'assoit à côté de toi, une épée sur les genoux. {a:Il|Elle} est très pâle. Tu prends sa main. Elle est glacée.`,`In the launch {li2} sits beside you, a sword across {a:his|her} knees. {a:He|She}'s very pale. You take {a:his|her} hand. It's ice-cold.`),
+ D('li2','s',`Je n'ai pas peur pour moi. J'ai peur pour vous. C'est beaucoup plus fatigant.`,`I'm not afraid for myself. I'm afraid for you. It's far more tiring.`),
+],[
+ {st:['mc']},
+ N(`Dans la chaloupe, personne ne parle. Tu regardes la falaise noire du Morro grandir devant toi. C'est ta quartier-maître, là-dedans. C'est ton équipage. C'est à toi d'aller la chercher.`,`In the launch, no one speaks. You watch the black cliff of the Morro grow before you. That's your quartermaster in there. That's your crew. It's up to you to fetch her.`),
+])]),
 N(`La Bouche du Diable pue les ordures et la vase. Vous rampez dans le boyau, dans l'eau noire jusqu'aux coudes. Au bout, une grille rouillée, et derrière, les cachots.`,`The Devil's Mouth reeks of rubbish and silt. You crawl along the passage in black water up to the elbows. At the end, a rusted grate, and behind it, the cells.`),
 N(`Matthias tord la grille à mains nues. Le métal grince. Vous retenez votre souffle. Personne ne vient.`,`Matthias bends the grate with his bare hands. The metal shrieks. You hold your breath. No one comes.`),
+N(`Au bout du boyau, un escalier de pierre. Des voix au-dessus. Une patrouille. Vous vous plaquez contre la paroi humide, sans respirer, pendant que trois soldats passent à deux mètres de vous en se plaignant de la soupe. Leurs pas s'éloignent. Esteban te fait signe : à gauche. Les cachots.`,`At the end of the passage, a stone stair. Voices above. A patrol. You flatten yourselves against the wet wall, not breathing, while three soldiers pass two yards away complaining about the soup. Their steps fade. Esteban signals: left. The cells.`),
 {bg:'cellar',mus:'mystery',card:['Les cachots','The cells'],sub:['',''],where:['Les cachots du Morro','The Morro\'s dungeons']},
 N(`Le couloir des cachots est éclairé par une seule torche. Au fond, assis sur un tabouret, un geôlier somnole. Et dans la dernière cellule, recroquevillée contre le mur, une silhouette que tu reconnaîtrais entre mille.`,`The cell corridor is lit by a single torch. At the end, sitting on a stool, a jailer dozes. And in the last cell, curled against the wall, a figure you'd know among a thousand.`),
 D('nan','n',`T'en as mis du temps, chérie.`,`Took your time, chérie.`),
