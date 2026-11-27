@@ -36,7 +36,7 @@ N(`Mais tu sais ce qu'il va faire. Il ne se rendra jamais. Il va mettre le feu a
 ...IF('pChoseRook',[
  N(`Derrière toi, tu entends les bottes de {li1}, qui monte les marches quatre à quatre.`,`Behind you, you hear {li1}'s boots taking the stairs four at a time.`),
 ],[...IF('pChoseHenry',[
- N(`Derrière toi, tu entends les pas de {li2}, pieds nus, qui monte les marches quatre à quatre.`,`Behind you, you hear {li2}'s bare feet taking the stairs four at a time.`),
+ N(`Derrière toi, tu entends les pas de {li2}, qui monte les marches quatre à quatre.`,`Behind you, you hear {li2}'s footsteps taking the stairs four at a time.`),
 ],[
  N(`Derrière toi, tu entends {li1} et {li2}, qui montent les marches quatre à quatre.`,`Behind you, you hear {li1} and {li2} taking the stairs four at a time.`),
 ])]),
