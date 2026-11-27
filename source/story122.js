@@ -9,6 +9,12 @@ D('mc','s',`J'en ai trois. C'est beaucoup, pour une pirate.`,`I have three. That
 N(`Il rit. Puis il ne rit plus. Il te serre contre lui, très fort, et tu sens sa main trembler dans ton dos.`,`He laughs. Then stops. He holds you tight, and you feel his hand trembling on your back.`),
 D('gov','a',`Reviens. Pas pour toujours. Juste de temps en temps. Pour qu'un vieil homme puisse voir sa fille.`,`Come back. Not forever. Just now and then. So an old man can see his daughter.`),
 D('mc','n',`À chaque saison des pluies. Je vous le promets.`,`Every rainy season. I promise you.`),
+{st:['lettie','mc']},
+N(`Lettie est là aussi, au bras de Mr Hale. Elle a les yeux rouges, mais elle a juré qu'elle ne pleurerait pas. Elle te tend un petit paquet noué d'un ruban.`,`Lettie is there too, on Mr Hale's arm. Her eyes are red, but she swore she wouldn't cry. She hands you a little parcel tied with a ribbon.`),
+D('lettie','s',`Des aiguilles, du fil, des boutons. Et du savon à la lavande. Je sais comment vous êtes, mademoiselle. Dans un mois, vous aurez déchiré toutes vos chemises et vous sentirez le poisson.`,`Needles, thread, buttons. And lavender soap. I know what you're like, miss. In a month you'll have torn every shirt and you'll smell of fish.`),
+D('mc','s',`Tu vas me manquer, Lettie.`,`I'll miss you, Lettie.`),
+D('lettie','a',`Ne dites pas ça, je vais pleurer, et j'ai juré !`,`Don't say that, I'll cry, and I swore I wouldn't!`),
+N(`Elle pleure, bien sûr. Toi aussi. Mr Hale vous tend à chacune un mouchoir propre, très digne, et se mouche discrètement dans le sien.`,`She cries, of course. So do you. Mr Hale gravely hands each of you a clean handkerchief, and quietly blows his nose into his own.`),
 ...IF('pChoseRook',[
  {bg:'ship',mus:'tender',card:['Le second','First mate'],sub:['',''],where:['Le Siren\'s Due','The Siren\'s Due']},
  {st:['li1','mc']},
