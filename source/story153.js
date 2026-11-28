@@ -29,7 +29,7 @@ C('p53a',0,[
  {t:[`« Tu ne sais pas où tu mets les pieds. Mais si tu restes, tu es des nôtres. »`,`"You don't know what you're getting into. But if you stay, you're one of us."`],set:'pTiagoCrew',fx:{rep:1},r:[N(`Tiago redevient sérieux d'un coup. « Je sais exactement où je mets les pieds, capitaine. Dans votre histoire. » Puis il sourit à nouveau, et te tend la main. Tu la serres. Il a une poigne de marin.`,`Tiago turns serious at once. "I know exactly what I'm getting into, captain. Your story." Then he smiles again and holds out his hand. You shake it. He has a sailor's grip.`)]}
 ]),
 {st:['celeste','tiago']},
-N(`À ce moment-là, Céleste arrive en courant sur le ponton, pieds nus, sa tresse dans le dos. Elle a entendu les voix. Elle s'arrête net en voyant Tiago.`,`Just then Céleste comes running onto the jetty, her braid flying. She heard the voices. She stops dead at the sight of Tiago.`),
+N(`À ce moment-là, Céleste arrive en courant sur le ponton, sa tresse dans le dos. Elle a entendu les voix. Elle s'arrête net en voyant Tiago.`,`Just then Céleste comes running onto the jetty, her braid flying. She heard the voices. She stops dead at the sight of Tiago.`),
 N(`Tiago s'arrête net en la voyant aussi. Il oublie de remettre son chapeau, que Kit vient de lui tendre, tout mouillé. Ils se regardent. Personne ne dit rien pendant une longue seconde.`,`Tiago stops dead at the sight of her too. He forgets to put back on the hat Kit has just handed him, dripping. They look at each other. No one says anything for a long second.`),
 D('tiago','s',`Bonjour.`,`Hello.`),
 D('celeste','s',`Bonjour.`,`Hello.`),

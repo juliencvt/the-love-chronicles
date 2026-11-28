@@ -2,7 +2,7 @@
 STORY.push(
 {bg:'lido',mus:'mystery',chap:110,card:['Saison 1 · Chapitre 10','Season 1 · Chapter 10'],sub:['Le leurre','The Decoy'],where:['L\'îlot de l\'aiguade','The watering cay']},
 {st:['mc']},
-N(`À l'aube, c'est Kit qui donne l'alerte. Il dévale la colline en hurlant, pieds nus, la longue-vue de Matthias serrée contre sa poitrine.`,`At dawn, it's Kit who raises the alarm. He tears down the hill shouting, barefoot, Matthias's spyglass clutched to his chest.`),
+N(`À l'aube, c'est Kit qui donne l'alerte. Il dévale la colline en hurlant, la longue-vue de Matthias serrée contre sa poitrine.`,`At dawn, it's Kit who raises the alarm. He tears down the hill shouting, Matthias's spyglass clutched to his chest.`),
 D('kit','a',`Une voile ! Une voile au nord ! Trois mâts ! C'est… c'est l'*Implacable* !`,`Sail! Sail to the north! Three masts! It's… it's the *Implacable*!`),
 N(`Tu montes en courant au sommet de la colline. Il est là. À trois milles à peine, toutes voiles dehors, il vient droit sur l'îlot. Et sur la plage, juste en dessous de toi, au bord de l'eau, il y a les restes noircis d'un grand feu. Un feu que personne de l'équipage n'a allumé.`,`You run up to the top of the hill. There she is. Barely three miles off, under full sail, heading straight for the cay. And on the beach just below you, at the water's edge, lie the blackened remains of a large fire. A fire no one in the crew lit.`),
 N(`Un signal.`,`A signal.`),
